@@ -1,0 +1,43 @@
+﻿<Page x:Class="Foodcourt.View.CashHand"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Foodcourt.View"
+      mc:Ignorable="d" 
+     Height="450" Width="500"
+      Title="CashHand">
+
+    <Grid>
+        <material:Card Height="450" Width="500">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="14*"/>
+                    <RowDefinition Height="211*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#FF5180A0">
+                    <TextBlock Text="Cash Handover" FontFamily="Sitka Display" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="166.408,0,178.408,0" Width="155.184"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,58.5,0,338.5">
+                        <TextBlock Text="Name:" Margin="100,0,0,0" FontFamily="Sitka Small" FontSize="22" />
+                        <TextBox Width="200" TabIndex="0" Margin="48,0,0,0" Name="txtname"/>
+                    </StackPanel>
+                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,138.5,0,258.5">
+                        <TextBlock Text="Amount:" Margin="100,0,0,0" FontFamily="Sitka Small" FontSize="22" />
+                        <TextBox Width="200" TabIndex="1" Margin="26,0,0,0" Name="txtamount"/>
+                    </StackPanel>
+                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,216.5,0,180.5">
+                        <TextBlock Text="Reason:" Margin="100,0,0,0" FontFamily="Sitka Small" FontSize="22" />
+                        <TextBox Width="200" TabIndex="2" Margin="32,0,0,0" Name="txtreason"/>
+                    </StackPanel>
+
+                    <Button Width="100" Content="Clear" Name="clear" Margin="100,339.203,300,50.796" Background="#FF63869E" BorderBrush="White" Foreground="#DDFFFFFF" Click="clear_Click"/>
+                    <Button Width="100" Content="Submit" TabIndex="3" IsDefault="True" Name="submit" Margin="320,339.203,80,50.796" Background="#FF63869E" BorderBrush="White" Foreground="#DDFFFFFF" Click="submit_Click" />
+                </Grid>
+            </Grid>
+        </material:Card>
+       
+    </Grid>
+</Page>

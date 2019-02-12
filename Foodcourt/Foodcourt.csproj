@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB1D1F50-E6F5-4318-B6CE-63CCC76CD8E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Foodcourt</RootNamespace>
+    <AssemblyName>Foodcourt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Velrooms-V2\VelRooms\bin\Debug\DAL.exe</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.1.1101, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.1.1101\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\New folder (3)\Velstay1\Velstay\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\New folder (3)\Velstay1\Velstay\bin\Debug\sapbusinessobjects.wpf.viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\New folder (3)\Velstay1\Velstay\bin\Debug\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ListExtentions.cs" />
+    <Compile Include="Mis.xaml.cs">
+      <DependentUpon>Mis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\amount.cs" />
+    <Compile Include="Model\BillVIEW.cs" />
+    <Compile Include="Model\cashhand.cs" />
+    <Compile Include="Model\DASHBOARD.cs" />
+    <Compile Include="Model\ItemNames.cs" />
+    <Compile Include="Model\MisSales.cs" />
+    <Compile Include="Model\paidout.cs" />
+    <Compile Include="Model\POS1.cs" />
+    <Compile Include="Model\Pettycash.cs" />
+    <Compile Include="Model\property.cs" />
+    <Compile Include="Model\registration.cs" />
+    <Compile Include="Model\reportClass1.cs" />
+    <Compile Include="Model\Tax.cs" />
+    <Compile Include="Model\ItemsCAT.cs" />
+    <Compile Include="Model\Userlogin.cs" />
+    <Compile Include="Model\userpermissions.cs" />
+    <Compile Include="REPORTS\Billprint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Billprint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\Billprint11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Billprint11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\DBILLPRINT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBILLPRINT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\DBILLPRINT1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBILLPRINT1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\Dprint1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dprint1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORTS\DuplicatePrint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DuplicatePrint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORTS\Kotbill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kotbill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\kotdataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kotdataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTS\kotprint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kotprint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORTS\kotprint1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kotprint1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORTS\Printbill.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Printbill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORTS\PRINTBILL1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRINTBILL1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewModel\DataF.cs" />
+    <Compile Include="View\BillView.xaml.cs">
+      <DependentUpon>BillView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BillWiseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillWiseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\BillWiseReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillWiseReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\BillWiseReport11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillWiseReport11.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\billwiserpt.xaml.cs">
+      <DependentUpon>billwiserpt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CashHand.xaml.cs">
+      <DependentUpon>CashHand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\DatewiseReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatewiseReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\dayCrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dayCrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Daywisedataset.cs">
+      <DependentUpon>Daywisedataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Daywisedataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Daywisedataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\Daywiserpt.xaml.cs">
+      <DependentUpon>Daywiserpt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemCategory.xaml.cs">
+      <DependentUpon>ItemCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemName.xaml.cs">
+      <DependentUpon>ItemName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Itemwise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Itemwise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Itemwiserpt.xaml.cs">
+      <DependentUpon>Itemwiserpt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Paidout.xaml.cs">
+      <DependentUpon>Paidout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Permissions.xaml.cs">
+      <DependentUpon>Permissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PettyCash.xaml.cs">
+      <DependentUpon>PettyCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POS.xaml.cs">
+      <DependentUpon>POS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Property.xaml.cs">
+      <DependentUpon>Property.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RPTS.xaml.cs">
+      <DependentUpon>RPTS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tax.xaml.cs">
+      <DependentUpon>Tax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TaxReport.cs">
+      <DependentUpon>TaxReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Taxreport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taxreport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\TaxReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaxReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\taxrpt.xaml.cs">
+      <DependentUpon>taxrpt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Transaction.xaml.cs">
+      <DependentUpon>Transaction.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Mis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BillView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\billwiserpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CashHand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DashBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Daywiserpt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ItemCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ItemName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Itemwiserpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Paidout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Permissions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PettyCash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\POS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Property.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Registration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\RPTS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\taxrpt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Transaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\Dprint1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Dprint1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\DuplicatePrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DuplicatePrint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\kotprint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>kotprint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\kotprint1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>kotprint1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\Printbill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Printbill.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTS\PRINTBILL1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PRINTBILL1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BillWiseReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BillWiseReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BillWiseReport11.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BillWiseReport11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DatewiseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DatewiseReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\dayCrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>dayCrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Itemwise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Itemwise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TaxReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TaxReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TaxReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TaxReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Design\projectGuides.guides" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\Billprint.xsc">
+      <DependentUpon>Billprint.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\Billprint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Billprint.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\Billprint.xss">
+      <DependentUpon>Billprint.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\Billprint11.xsc">
+      <DependentUpon>Billprint11.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\Billprint11.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Billprint11.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\Billprint11.xss">
+      <DependentUpon>Billprint11.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\DBILLPRINT.xsc">
+      <DependentUpon>DBILLPRINT.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\DBILLPRINT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBILLPRINT.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\DBILLPRINT.xss">
+      <DependentUpon>DBILLPRINT.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\DBILLPRINT1.xsc">
+      <DependentUpon>DBILLPRINT1.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\DBILLPRINT1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBILLPRINT1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\DBILLPRINT1.xss">
+      <DependentUpon>DBILLPRINT1.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\Kotbill.xsc">
+      <DependentUpon>Kotbill.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\Kotbill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Kotbill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\Kotbill.xss">
+      <DependentUpon>Kotbill.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\kotdataset.xsc">
+      <DependentUpon>kotdataset.xsd</DependentUpon>
+    </None>
+    <None Include="REPORTS\kotdataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kotdataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="REPORTS\kotdataset.xss">
+      <DependentUpon>kotdataset.xsd</DependentUpon>
+    </None>
+    <None Include="View\BillWiseDataSet.xsc">
+      <DependentUpon>BillWiseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="View\BillWiseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BillWiseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\BillWiseDataSet.xss">
+      <DependentUpon>BillWiseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="View\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="View\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="View\Daywisedataset.xsc">
+      <DependentUpon>Daywisedataset.xsd</DependentUpon>
+    </None>
+    <None Include="View\Daywisedataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Daywisedataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Daywisedataset.xss">
+      <DependentUpon>Daywisedataset.xsd</DependentUpon>
+    </None>
+    <None Include="View\Taxreport.xsc">
+      <DependentUpon>Taxreport.xsd</DependentUpon>
+    </None>
+    <None Include="View\Taxreport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taxreport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\Taxreport.xss">
+      <DependentUpon>Taxreport.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\DAL-master\DAL.csproj">
+      <Project>{d9590adb-3545-4378-a1aa-79aab235dcbf}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bk1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-menu-vertical-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-menu-vertical-filled-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pprfl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mini.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

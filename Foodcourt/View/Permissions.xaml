@@ -1,0 +1,231 @@
+﻿<Page x:Class="Foodcourt.View.Permissions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Foodcourt.View"
+      mc:Ignorable="d" 
+      Height="600" Width="900"
+      Title="Permissions">
+
+    <Grid>
+        <material:Card Height="600">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="96*"/>
+                    <RowDefinition Height="469*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#FF5180A0">
+                    <TextBlock Text="User Roles and Permissions" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="24" Foreground="White" FontWeight="Bold"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Height="30" Orientation="Horizontal">
+                        <TextBlock Text="User Name:" FontFamily="Sitka Small" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <ComboBox Width="150" Margin="30,0,0,0" Name="cmbuser" DisplayMemberPath="REG_UserName" DropDownClosed="cmbuser_DropDownClosed"/>
+                        <TextBlock Text="Role:" FontFamily="Sitka Small" FontSize="20" FontWeight="Bold" Margin="30,0,0,0"/>
+                        <RadioButton Content="Admin" Background="#FF5180A0" BorderBrush="#FF5180A0" FontFamily="Sitka Small" FontSize="15" Padding="2" Margin="20,0,0,4.5" VerticalAlignment="Bottom" Name="rbadmin"/>
+                        <RadioButton Content="User" Background="#FF5180A0" BorderBrush="#FF5180A0" FontFamily="Sitka Small" FontSize="15" Padding="2" Margin="20,0,0,4.5" VerticalAlignment="Bottom" Name="rbuser"/>
+                        <TextBlock Text="Permissions:" FontFamily="Sitka Small" FontSize="20" FontWeight="Bold" Margin="30,0,0,0"/>
+                        <ComboBox Width="150" Margin="5,0,0,0" Name="cmbpermission" DropDownClosed="cmbpermission_DropDownClosed">
+                            <ComboBoxItem Content="Masters"/>
+                            <ComboBoxItem Content="Operations"/>
+                            <ComboBoxItem Content="Reports"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                </Grid>
+                <Grid Grid.Row="2">
+
+                    <!--#region Masters -->
+                    <material:Card Name="Master" Height="460" Margin="5,5,5,5" Background="#FFF3C99E" Visibility="Hidden">
+                        <Border BorderBrush="Black" BorderThickness="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="13*"/>
+                                    <RowDefinition Height="102*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel Height="35" Orientation="Horizontal">
+                                        <TextBlock Text="Modules" FontFamily="Sitka Small" FontSize="24" Margin="180,0,0,0" VerticalAlignment="Bottom" />
+                                        <TextBlock Text="Permissions" FontFamily="Sitka Small" FontSize="24" Margin="250,0,0,0" VerticalAlignment="Bottom" />
+
+                                    </StackPanel>
+                                    <Separator Margin="0,43.5,0,-14.5" Background="Black"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,38.5,0,344.5">
+                                        <TextBlock Text="Registration" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="302,0,0,0" Name="reg"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,89.5,0,293.5">
+                                        <TextBlock Text="Property" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="335,0,0,0" Name="property"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,146.5,0,236.5">
+                                        <TextBlock Text="Tax" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="382,0,0,0" Name="tax"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,208,0,175">
+                                        <TextBlock Text="Item Category" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="285,0,0,0" Name="itemcategory"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,271,0,112">
+                                        <TextBlock Text="Item Name" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="315,0,0,0" Name="itemname"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,328,0,55">
+                                        <TextBlock Text="Permissions" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="302,0,0,0" Name="permissions"/>
+                                    </StackPanel>
+
+                                    <Button Width="100" Margin="780,366,10,10" Content="Save" Name="btnsave" Click="btnsave_Click"/>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </material:Card>
+                    <!--#endregion-->
+
+                    <!--#region Operations -->
+                    <material:Card Name="Operations" Height="460" Margin="5,5,5,5" Background="#FFF3C99E" Visibility="Hidden">
+                        <Border BorderBrush="Black" BorderThickness="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="13*"/>
+                                    <RowDefinition Height="102*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel Height="35" Orientation="Horizontal">
+                                        <TextBlock Text="Modules" FontFamily="Sitka Small" FontSize="24" Margin="180,0,0,0" VerticalAlignment="Bottom" />
+                                        <TextBlock Text="Permissions" FontFamily="Sitka Small" FontSize="24" Margin="250,0,0,0" VerticalAlignment="Bottom" />
+
+                                    </StackPanel>
+                                    <Separator Margin="0,43.5,0,-14.5" Background="Black"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,10,0,369.452">
+                                        <TextBlock Text="Home" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="358,0,0,0" Name="home"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,52,0,327.451">
+                                        <TextBlock Text="Bill View" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="330,0,0,0" Name="billview"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,97,0,282.451">
+                                        <TextBlock Text="Can Delete Bill" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="277,0,0,0" Name="candeletebill"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,145,0,234.451">
+                                        <TextBlock Text="Can Reprint Bill" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="268,0,0,0" Name="canreprintbill"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,194.5,0,184.951">
+                                        <TextBlock Text="Petty Cash" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="315,0,0,0" Name="pettycash"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,299.5,0,79.951">
+                                        <TextBlock Text="Paidouts" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="335,0,0,0" Name="paidouts"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,247,0,132.451">
+                                        <TextBlock Text="Mis Collection" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="283,0,0,0" Name="miscollection"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,352.952,0,26.499">
+                                        <TextBlock Text="Dashboard" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="316,0,0,0" Name="dashboard"/>
+                                    </StackPanel>
+
+                                    <Button Width="100" Margin="780,364.953,6,6.452" Content="Save" Height="Auto" Name="btnoprsave" Click="btnoprsave_Click"/>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </material:Card>
+                    <!--#endregion-->
+
+
+                    <!--#region Reports -->
+                    <material:Card Name="Reports" Height="460" Margin="5,5,5,5" Background="#FFFBDEC1" Visibility="Hidden">
+                        <Border BorderBrush="Black" BorderThickness="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="13*"/>
+                                    <RowDefinition Height="102*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel Height="35" Orientation="Horizontal">
+                                        <TextBlock Text="Modules" FontFamily="Sitka Small" FontSize="24" Margin="180,0,0,0" VerticalAlignment="Bottom" />
+                                        <TextBlock Text="Permissions" FontFamily="Sitka Small" FontSize="24" Margin="250,0,0,0" VerticalAlignment="Bottom" />
+
+                                    </StackPanel>
+                                    <Separator Margin="0,43.5,0,-14.5" Background="Black"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,13,0,366.451">
+                                        <TextBlock Text="Item Rate List" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="285,0,0,0" Foreground="#FF5180A0" Background="#FF5180A0" BorderBrush="#FF5180A0" Name="itemratelist"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,58,0,321.451">
+                                        <TextBlock Text="Day Wise Sales" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="275,0,0,0" Name="daywisesales"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,109,0,270.451">
+                                        <TextBlock Text="Item Wise Sales" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="267,0,0,0" Name="itemwisesales"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,161.5,0,217.951">
+                                        <TextBlock Text="Month Wise Sales" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="252,0,0,0" Name="monthwisesales"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,217,0,162.451">
+                                        <TextBlock Text="Tax Report" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="313,0,0,0" Name="taxreport"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,325,0,54.451">
+                                        <TextBlock Text="Bill Wise Sales" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="280,0,0,0" Name="billwisesales"/>
+                                    </StackPanel>
+                                    <StackPanel Height="25" Orientation="Horizontal" Margin="0,272.5,0,106.951">
+                                        <TextBlock Text="Mis Collection" Margin="180,0,0,0" FontFamily="Sitka Small" FontSize="18"/>
+
+                                        <ToggleButton Margin="283,0,0,0" Name="miscollect"/>
+                                    </StackPanel>
+                                    
+
+                                    <Button Width="100" Margin="780,364.953,6,6.452" Content="Save" Height="Auto" Name="btnresave" Click="btnresave_Click"/>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </material:Card>
+                    <!--#endregion-->
+
+
+                </Grid>
+            </Grid>
+        </material:Card>
+    </Grid>
+</Page>

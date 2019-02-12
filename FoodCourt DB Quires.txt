@@ -1,0 +1,284 @@
+-- ****************** SqlDBM: Microsoft SQL Server ******************
+-- ******************************************************************
+
+DROP TABLE [dbo].[FCBILLITM];
+GO
+
+
+DROP TABLE [dbo].[FCMISSALES];
+GO
+
+
+DROP TABLE [dbo].[FCPaidout];
+GO
+
+
+DROP TABLE [dbo].[FCPETCSH];
+GO
+
+
+DROP TABLE [dbo].[FCCashHandover];
+GO
+
+
+DROP TABLE [dbo].[FCBILLNO];
+GO
+
+
+DROP TABLE [dbo].[FCTAX];
+GO
+
+
+DROP TABLE [dbo].[FCITMNAM];
+GO
+
+
+DROP TABLE [dbo].[FCRITMCTG];
+GO
+
+
+DROP TABLE [dbo].[FCREG];
+GO
+
+
+DROP TABLE [dbo].[FCPRPTY];
+GO
+
+
+--************************************** [dbo].[FCMISSALES]
+
+CREATE TABLE [dbo].[FCMISSALES]
+(
+ [MIS_ID]         INT NOT NULL ,
+ [MIS_Name]       NVARCHAR(50) NOT NULL ,
+ [MIS_Amount]     DECIMAL(18,0) NOT NULL ,
+ [MIS_Details]    NVARCHAR(50) NOT NULL ,
+ [MIS_InsertBY]   NVARCHAR(50) NOT NULL ,
+ [MIS_InsertDate] DATE NOT NULL ,
+
+ CONSTRAINT [PK_FCMISSALES] PRIMARY KEY CLUSTERED ([MIS_ID] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCPaidout]
+
+CREATE TABLE [dbo].[FCPaidout]
+(
+ [PO_ID]          INT NOT NULL ,
+ [PO_Name]        NVARCHAR(50) NOT NULL ,
+ [PO_Amount]      DECIMAL(18,0) NOT NULL ,
+ [PO_Description] NVARCHAR(50) NOT NULL ,
+ [PO_InsertBY]    NVARCHAR(50) NOT NULL ,
+ [PO_InsertDate]  DATE NOT NULL ,
+
+ CONSTRAINT [PK_FCPaidout] PRIMARY KEY CLUSTERED ([PO_ID] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCPETCSH]
+
+CREATE TABLE [dbo].[FCPETCSH]
+(
+ [PCH_Id]         INT NOT NULL ,
+ [PCH_Name]       NVARCHAR(50) NOT NULL ,
+ [PCH_Amount]     DECIMAL(18,0) NOT NULL ,
+ [PCH_Details]    NVARCHAR(50) NULL ,
+ [PCH_InsertBy]   NVARCHAR(50) NOT NULL ,
+ [PCH_InsertDate] DATE NOT NULL ,
+
+ CONSTRAINT [PK_FCPETCSH] PRIMARY KEY CLUSTERED ([PCH_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCCashHandover]
+
+CREATE TABLE [dbo].[FCCashHandover]
+(
+ [CH_Id]          INT NOT NULL ,
+ [CH_Name]        NVARCHAR(50) NOT NULL ,
+ [CH_Amount]      DECIMAL(18,0) NOT NULL ,
+ [CH_Description] NVARCHAR(50) NULL ,
+ [CH_InsertBY]    NVARCHAR(50) NOT NULL ,
+ [CH_InsertDate]  DATE NOT NULL ,
+
+ CONSTRAINT [PK_FCCashHandover] PRIMARY KEY CLUSTERED ([CH_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCBILLNO]
+
+CREATE TABLE [dbo].[FCBILLNO]
+(
+ [BILL_Id]         INT NOT NULL ,
+ [BILL_Amount]     DECIMAL(18,0) NOT NULL ,
+ [BILL_Tax]        DECIMAL(18,0) NOT NULL ,
+ [BILL_Total]      DECIMAL(18,0) NOT NULL ,
+ [BILL_InsertBy]   NVARCHAR(50) NOT NULL ,
+ [BILL_InsertDate] DATE NOT NULL ,
+ [BILL_UpdateBY]   NVARCHAR(50) NULL ,
+ [BILL_UpdateDate] DATE NULL ,
+ [BILL_Status]     NVARCHAR(50) NOT NULL ,
+ [BILL_Discount]   DECIMAL(18,0) NULL ,
+
+ CONSTRAINT [PK_FCBILLNO] PRIMARY KEY CLUSTERED ([BILL_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCTAX]
+
+CREATE TABLE [dbo].[FCTAX]
+(
+ [TAX_ID]            INT NOT NULL ,
+ [TAX_Name]          NVARCHAR(50) NOT NULL ,
+ [TAX_Details]       NVARCHAR(50) NULL ,
+ [Tax_ReportingName] NVARCHAR(50) NOT NULL ,
+ [Tax_InsertBy]      NVARCHAR(50) NOT NULL ,
+ [Tax_InsertDate]    DATE NOT NULL ,
+ [Tax_UpdateBy]      NVARCHAR(50) NULL ,
+ [Tax_UpdateDate]    DATE NULL ,
+
+ CONSTRAINT [PK_FCTAX] PRIMARY KEY CLUSTERED ([TAX_ID] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCITMNAM]
+
+CREATE TABLE [dbo].[FCITMNAM]
+(
+ [NAM_Id]            INT NOT NULL ,
+ [NAM_Name]          NVARCHAR(50) NOT NULL ,
+ [NAM_Details]       NVARCHAR(50) NULL ,
+ [NAM_Rate]          DECIMAL(18,0) NOT NULL ,
+ [NAM_Tax]           BIT NOT NULL ,
+ [NAM_ReportingName] NVARCHAR(50) NOT NULL ,
+ [NAM_InsertDate]    DATE NOT NULL ,
+ [NAM_InsertBY]      NVARCHAR(50) NOT NULL ,
+ [NAM_UpdateDate]    DATE NULL ,
+ [NAM_UpdateBy]      NVARCHAR(50) NULL ,
+ [NAM_ActiveFrom]    DATE NOT NULL ,
+
+ CONSTRAINT [PK_FCITMNAM] PRIMARY KEY CLUSTERED ([NAM_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCRITMCTG]
+
+CREATE TABLE [dbo].[FCRITMCTG]
+(
+ [CTG_Id]            INT NOT NULL ,
+ [CTG_Name]          NVARCHAR(50) NOT NULL ,
+ [CTG_Details]       NVARCHAR(50) NULL ,
+ [CTG_ActiveDate]    DATE NOT NULL ,
+ [CTG_ReportingName] NVARCHAR(50) NOT NULL ,
+ [CTG_InsertBy]      NVARCHAR(50) NOT NULL ,
+ [CTG_InsertDate]    DATE NOT NULL ,
+ [CTG_UpdateBY]      NVARCHAR(50) NULL ,
+ [CTG_UpdateDate]    DATE NULL ,
+
+ CONSTRAINT [PK_FCRITMCTG] PRIMARY KEY CLUSTERED ([CTG_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCREG]
+
+CREATE TABLE [dbo].[FCREG]
+(
+ [REG_Id]         INT NOT NULL ,
+ [REG_UserName]   NVARCHAR(50) NOT NULL ,
+ [REG_Name]       NVARCHAR(50) NOT NULL ,
+ [REG_Phone]      BIGINT NOT NULL ,
+ [REG_Password]   NVARCHAR(50) NOT NULL ,
+ [REG_RePassword] NVARCHAR(50) NOT NULL ,
+ [REG_InsertBy]   NVARCHAR(50) NOT NULL ,
+ [REG_InsertDate] DATE NOT NULL ,
+ [REG_UpdateBy]   NVARCHAR(50) NULL ,
+ [REG_UpdateDate] DATE NULL ,
+
+ CONSTRAINT [PK_FCREG] PRIMARY KEY CLUSTERED ([REG_Id] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCPRPTY]
+
+CREATE TABLE [dbo].[FCPRPTY]
+(
+ [PRPT_ID]         INT NOT NULL ,
+ [PRPT_Name]       NVARCHAR(50) NOT NULL ,
+ [PRPT_Address]    NVARCHAR(50) NOT NULL ,
+ [PRPT_State]      NVARCHAR(50) NOT NULL ,
+ [PRPT_Country]    NVARCHAR(50) NOT NULL ,
+ [PRPT_Phone]      NVARCHAR(50) NOT NULL ,
+ [PRPT_GST]        NVARCHAR(50) NOT NULL ,
+ [PRPT_InsertDate] DATE NOT NULL ,
+ [PRPT_InserBy]    NVARCHAR(50) NOT NULL ,
+ [PRPT_UpdateBy]   NVARCHAR(50) NULL ,
+ [PRPT_UpdateDate] DATE NULL ,
+
+ CONSTRAINT [PK_FCPRPTY] PRIMARY KEY CLUSTERED ([PRPT_ID] ASC)
+);
+GO
+
+
+
+
+
+--************************************** [dbo].[FCBILLITM]
+
+CREATE TABLE [dbo].[FCBILLITM]
+(
+ [BILITM_ID]         INT NOT NULL ,
+ [BILITM_Name]       NVARCHAR(50) NOT NULL ,
+ [BILITM_Rate]       DECIMAL(18,0) NOT NULL ,
+ [BILITM_Tax]        DECIMAL(18,0) NOT NULL ,
+ [BILITM_InsertDate] DATE NOT NULL ,
+ [BILITM_InsertBY]   NVARCHAR(50) NOT NULL ,
+ [BILL_Id]           INT NOT NULL ,
+
+ CONSTRAINT [PK_FCBILLITM] PRIMARY KEY CLUSTERED ([BILITM_ID] ASC, [BILL_Id] ASC),
+ CONSTRAINT [FK_84] FOREIGN KEY ([BILL_Id])
+  REFERENCES [dbo].[FCBILLNO]([BILL_Id])
+);
+GO
+
+
+--SKIP Index: [fkIdx_84]
+
+
+
+

@@ -1,0 +1,100 @@
+﻿<Page x:Class="Foodcourt.View.Oprs.DashBoard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Foodcourt.View.Oprs"
+      xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:DVCC="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:chartingToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DashBoard">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="178*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Viewbox>
+
+                <material:Card Name="crdday" Height="84" Margin="10,5,545.794,0" Background="#FF5C9985">
+                    <Grid>
+                        <TextBlock Text="Day Sale:" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold" Foreground="White" Margin="5,0,153.477,59.603"/>
+                        <TextBlock Name="tbday" Margin="68.908,24.397,5,5" Foreground="White" FontSize="36" FontWeight="Bold"  FontFamily="Ebrima"/>
+                    </Grid>
+                </material:Card>
+            </Viewbox>
+
+            <Viewbox>
+                <material:Card Name="crdmonth" Height="84" Margin="278.048,5,265.826,0" Background="#FFF98A4C">
+                    <Grid>
+                        <TextBlock Text="Month Sale:" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold" Foreground="White" Margin="5,0,137.086,59.603"/>
+                        <ComboBox Name="cmbmonth" DropDownClosed="cmbmonth_DropDownClosed" Margin="124.04,0,5,59.603" Height="24.397" SelectedIndex="0"  Foreground="White" FontSize="15" FontWeight="Bold" Padding="1">
+                            <ComboBoxItem Content="January"/>
+                            <ComboBoxItem Content="February"/>
+                            <ComboBoxItem Content="March"/>
+                            <ComboBoxItem Content="April"/>
+                            <ComboBoxItem Content="May"/>
+                            <ComboBoxItem Content="June"/>
+                            <ComboBoxItem Content="July"/>
+                            <ComboBoxItem Content="August"/>
+                            <ComboBoxItem Content="September"/>
+                            <ComboBoxItem Content="October"/>
+                            <ComboBoxItem Content="November"/>
+                            <ComboBoxItem Content="December"/>
+                        </ComboBox>
+                        <TextBlock Name="tbmonth" Margin="5,29.397,5,5" Foreground="White" FontSize="36" FontWeight="Bold"  FontFamily="Ebrima"/>
+                    </Grid>
+                </material:Card>
+            </Viewbox>
+            <Viewbox>
+                <material:Card Name="crdyear" Height="84" Margin="551.259,5,10,0" Background="#FF5A98F1">
+                    <Grid>
+                        <TextBlock Text="Year Sale:" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold" Foreground="White" Margin="5,0,134.106,59.603"/>
+                        <TextBlock Name="tbyear" Margin="5,24.397,5,5" Foreground="White" FontSize="36" FontWeight="Bold"  FontFamily="Ebrima"/>
+                    </Grid>
+                </material:Card>
+            </Viewbox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Viewbox>
+                <DVC:Chart Height="296" HorizontalAlignment="Left" Name="columnChart" Background="LightGray" Title="Daily Sales" VerticalAlignment="Bottom" Width="800" Margin="50,50,50,50">
+                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" IsSelectionEnabled="True" ItemsSource="{Binding}" DataContext="{Binding}" Margin="0,0,0,0" >
+                    </chartingToolkit:ColumnSeries>
+                    <chartingToolkit:Chart.LegendStyle>
+                            <Style x:Name="LegendHideStyle" TargetType="Control">
+                                <Setter Property="Width" Value="0"/>
+                                <Setter Property="Height" Value="0"/>
+                            </Style>
+                        </chartingToolkit:Chart.LegendStyle>
+                    
+                </DVC:Chart>
+            </Viewbox>
+            <Viewbox>
+                <StackPanel Height="30" Margin="0,10,0,316" Orientation="Horizontal">
+                    <TextBlock Text="Month:" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
+
+                    <ComboBox Margin="50,2.802,0,2.802" Height="24.396" SelectedIndex="0" FontSize="15" FontWeight="Bold" Padding="1" Width="187.705" Name="cmbsales" DropDownClosed="cmbsales_DropDownClosed">
+                        <ComboBoxItem Content="January"/>
+                        <ComboBoxItem Content="February"/>
+                        <ComboBoxItem Content="March"/>
+                        <ComboBoxItem Content="April"/>
+                        <ComboBoxItem Content="May"/>
+                        <ComboBoxItem Content="June"/>
+                        <ComboBoxItem Content="July"/>
+                        <ComboBoxItem Content="August"/>
+                        <ComboBoxItem Content="September"/>
+                        <ComboBoxItem Content="October"/>
+                        <ComboBoxItem Content="November"/>
+                        <ComboBoxItem Content="December"/>
+                    </ComboBox>
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Page>

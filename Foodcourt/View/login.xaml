@@ -1,0 +1,68 @@
+﻿<Window x:Class="Foodcourt.View.login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Foodcourt.View"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="login" Height="450" Width="800" WindowState="Normal" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <material:Card Height="450" material:ShadowAssist.ShadowDepth="Depth5">
+            <material:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEC8723"/>
+                    <GradientStop Color="#FFC92846" Offset="0.976"/>
+                </LinearGradientBrush>
+            </material:Card.Background>
+            <Grid>
+                <StackPanel Height="35" Margin="0,0,0,415">
+                    <Button Name="btncls" Width="30" Margin="766,3,4,415" BorderBrush="{x:Null}" Click="btncls_Click"  >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+                <material:Card Height="405" Margin="18,36.5,16,0" material:ShadowAssist.ShadowDepth="Depth5" material:ShadowAssist.Darken="False">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="216*"/>
+                            <ColumnDefinition Width="167*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/Foodcourt;component/Images/bk1.jpg"/>
+                            </Grid.Background>
+                            <StackPanel Height="40" Margin="0,161">
+                                <TextBlock Text="Food Court" FontFamily="Sitka Small" FontSize="25" HorizontalAlignment="Center" Margin="10,0,218,0" Height="43" Width="204" Foreground="#FFC6314F" FontWeight="Bold"/>
+                            </StackPanel>
+                            <TextBlock Text="A Quick Service." Height="25" Margin="52,213.5,273.422,166.5" Foreground="#FFCD9000" FontFamily="Sitka Small" />
+                            <StackPanel Height="25" Margin="0,332,0,5" Orientation="Horizontal">
+                                <material:PackIcon Kind="Phone" Height="22" Width="24" Foreground="#FFEB8627" Margin="5,4,0,-1" BorderBrush="#FFEB8627" BorderThickness="1" material:ShadowAssist.ShadowDepth="Depth3"/>
+                                <TextBlock Text="9494433233" FontSize="16" FontWeight="Bold" VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="#FFC4455E"/>
+                                <material:PackIcon Kind="Email" Height="22" Width="24" Foreground="#FFEB8627" Margin="10,4,0,-1" BorderBrush="#FFEB8627" BorderThickness="1" material:ShadowAssist.ShadowDepth="Depth3"/>
+                                <TextBlock Text="contact@velsol.in" FontSize="16" FontWeight="Bold" VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="#FFC4455E"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Frame Name="Mainframe" NavigationUIVisibility="Hidden" ></Frame>
+                            <StackPanel Height="30" Margin="0,21,0,311" Orientation="Horizontal">
+                                <TextBlock Text="Login" FontFamily="Sitka Small" FontSize="24" Margin="140,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Height="25" Orientation="Horizontal" Margin="0,113.188,0,266.811">
+                                <material:PackIcon Kind="AccountLocation" Height="25" Width="25" Margin="80,0,0,0" />
+                                <TextBox Width="150" Name="txtusern" TabIndex="0" Margin="10,0,0,0" material:HintAssist.Hint="User Name" material:HintAssist.IsFloating="True" Padding="0,-8,0,0" LostFocus="txtusern_LostFocus"/>
+                            </StackPanel>
+                            <StackPanel Height="25" Orientation="Horizontal" Margin="0,195.711,0,184.289">
+                                <material:PackIcon Kind="Lock" Height="25" Width="25" Margin="80,0,0,0" />
+                                <PasswordBox Width="150" Name="txtpwd" TabIndex="1" Margin="10,0,0,0" material:HintAssist.Hint="Password" material:HintAssist.IsFloating="True" Padding="0,-8,0,0" LostFocus="txtpwd_LostFocus"/>
+                            </StackPanel>
+                            <Button Margin="234,292,10,38" Background="#FFEB8627" TabIndex="2" IsDefault="True" BorderBrush="#FFEC8725"  Content="LOGIN" Name="btnlogin" Foreground="#DDFBFBFB" Click="btnlogin_Click" >
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </material:Card>
+            </Grid>
+        </material:Card>
+    </Grid>
+</Window>
