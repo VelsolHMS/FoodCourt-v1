@@ -5,19 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Foodcourt.View.Oprs"
       xmlns:Material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       Height="600" Width="620"
       Title="BillView">
-
     <Grid>
-
         <Material:Card Height="600">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="7*"/>
-                    <RowDefinition Height="143*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="80*"/>
                 </Grid.RowDefinitions>
-
                 <Grid Grid.Row="0" Background="#FF5180A0">
                     <TextBlock Text="Bill View" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="22" FontWeight="Bold" Margin="0,5,0,0"/>
                     <Viewbox>
@@ -26,17 +25,33 @@
                         </Material:PopupBox>
                     </Viewbox>
                 </Grid>
-
-                <Grid Grid.Row="1">
-                    <DataGrid Name="dgBill" CanUserAddRows="False" MouseLeftButtonUp="dgBill_MouseLeftButtonUp" AutoGenerateColumns="False" BorderBrush="Black" BorderThickness="2">
+                <Grid Grid.Row="1" Background="White">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <DatePicker Padding="0,0,0,0" material:HintAssist.Hint="Date" Name="bill_date" Width="110" Height="28" Margin="10,0,0,0" />
+                        <Button Name="btnsearch" Click="btnsearch_Click" Margin="10,0,15,0" BorderThickness="0" Height="25" Width="25">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Foodcourt;component/Images/Search.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBox Width="100" x:Name="billwiseSearch" Margin="10,0,0,0" material:HintAssist.Hint="Bill No" Padding="2,0,0,0" Height="28" TextChanged="billwiseSearch_TextChanged"/>
+                        <Button Margin="10,0,15,0" Name="btnbillnoS" Click="btnbillnoS_Click" BorderThickness="0" Height="25" Width="25">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Foodcourt;component/Images/Search.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <DataGrid Name="dgBill" CanUserAddRows="False" MouseLeftButtonUp="dgBill_MouseLeftButtonUp" AutoGenerateColumns="False" Margin="10" BorderBrush="Black" BorderThickness="1" SelectionChanged="dgBill_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Bill No" Binding="{Binding BILL_Id}"/>
-                            <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}" Width="100"/>
-                            <DataGridTextColumn Header="C.GST" Binding="{Binding CGST}" Width="90"/>
-                            <DataGridTextColumn Header="S.GST" Binding="{Binding CGST}" Width="90"/>
-                            <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}" Width="90"/>
-                            <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}" Width="110"/>
-                            <DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate}" Width="90" HeaderStringFormat="dd/MM/yyyy"/>
+                            <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}"/>
+                            <DataGridTextColumn Header="Tax" Binding="{Binding BILL_Tax}"/>
+                            <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}"/>
+                            <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}"/>
+                            <DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate}" HeaderStringFormat="dd/MM/yyyy"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -96,11 +111,9 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="31*"/>
                         <RowDefinition Height="467*"/>
-                        
-
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="#FF5180A0">
-                        <TextBlock Text="Cancel Bill View" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="22" FontWeight="Bold" Margin="0,5,0,0"/>
+                        <TextBlock Text="Cancelled Bills" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="22" FontWeight="Bold" Margin="0,5,0,0"/>
                         <Menu Background="#FF5180A0" Margin="487,0,-1,0" Width="27" Foreground="White">
                             <MenuItem  Height="31" Width="27">
                                 <MenuItem.Background>
@@ -109,7 +122,6 @@
                                 <MenuItem Name="close" Header="Close" Click="close_Click"/>
                             </MenuItem>
                         </Menu>
-
                     </Grid>
                     <Grid Grid.Row="1">
                         <DataGrid Name="dgcancel" AutoGenerateColumns="False" CanUserAddRows="False" >
@@ -160,8 +172,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="31*"/>
                         <RowDefinition Height="467*"/>
-
-
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="#FF5180A0">
                         <TextBlock Text="Detail Bill View" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="22" FontWeight="Bold" Margin="0,5,0,0"/>
@@ -170,8 +180,6 @@
                                 <MenuItem.Background>
                                     <ImageBrush ImageSource="/Foodcourt;component/Images/icons8-menu-vertical-32.png"/>
                                 </MenuItem.Background>
-
-
                                 <MenuItem Name="Miprint" Header="Print" Click="Miprint_Click"/>
                                 <MenuItem Name="Micancel" Header="Cancel" Click="Micancel_Click"/>
                                 <MenuItem Name="MIclose" Header="Close" Click="MIclose_Click"/>
@@ -183,7 +191,6 @@
                         </Button.Background>
                     </Button>-->
                     </Grid>
-
                     <Grid Grid.Row="1">
                         <StackPanel Height="25" Orientation="Horizontal" Margin="0,6,0,432">
                             <TextBlock Text="Bill No:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="10,0,0,0"/>
@@ -194,31 +201,28 @@
                         <Separator Margin="0,27,0,419" Background="#FFD8D8D8"/>
                         <DataGrid Margin="0,44,0,110" Name="dgdtlview" CanUserAddRows="False" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Item" Binding="{Binding BILITM_Name}" Width="150"/>
-                                <DataGridTextColumn Header="Qty" Binding="{Binding BILLITM_Quanty}" Width="100"/>
-                                <DataGridTextColumn Header="Rate" Binding="{Binding BILITM_Rate}" Width="120"/>
+                                <DataGridTextColumn Header="Item" Binding="{Binding BILITM_Name}"/>
+                                <DataGridTextColumn Header="Qty" Binding="{Binding BILLITM_Quanty}"/>
+                                <DataGridTextColumn Header="Rate" Binding="{Binding BILITM_Rate}"/>
+                                <DataGridTextColumn Header="Tax" Binding="{Binding BILITM_Tax}"/>
                                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Margin="0,369,0,74" Orientation="Horizontal">
                             <TextBlock Text="Net Amount:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
                             <TextBlock Name="txtnetamount" FontFamily="Arial" FontSize="18" Padding="0" Margin="10,0,0,0" Width="120"/>
-
                         </StackPanel>
                         <StackPanel Margin="0,393,0,50" Orientation="Horizontal">
                             <TextBlock Text="C.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
                             <TextBlock Name="txtcgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
-
                         </StackPanel>
                         <StackPanel Margin="0,417,0,23" Orientation="Horizontal">
                             <TextBlock Text="S.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
                             <TextBlock Name="txtsgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
-
                         </StackPanel>
                         <StackPanel Margin="0,444,0,0" Orientation="Horizontal">
                             <TextBlock Text="Grand Total:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
                             <TextBlock Name="txtgttl" FontFamily="Arial" Padding="0" FontSize="18" Margin="10,0,0,0" Width="120"/>
-
                         </StackPanel>
                     </Grid>
                 </Grid>

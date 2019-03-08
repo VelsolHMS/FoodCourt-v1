@@ -16,6 +16,24 @@ namespace Foodcourt.Model
         public string BILL_Discount { get; set; }
         public DateTime BILL_InsertDate { get; set; }
         public string BILL_Status { get; set; }
+        public DateTime SelectedDate { get; set; } 
+        public string SelectedBillNo { get; set; }
+        public DataTable GetBillWithBillNo()
+        {
+            var LIST = new List<SqlParameter>();
+            LIST.AddSqlParameter("@SelectedBillNo", SelectedBillNo);
+            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount,BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_Id = @SelectedBillNo";
+            DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
+            return DT;
+        }
+        public DataTable GetBillWithDate()
+        {
+            var LIST = new List<SqlParameter>();
+            LIST.AddSqlParameter("@SelectedDate", SelectedDate);
+            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount,BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_InsertDate = @SelectedDate";
+            DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
+            return DT;
+        }
         public DataTable GETBILL()
         {
             var LIST = new List<SqlParameter>();
@@ -26,7 +44,7 @@ namespace Foodcourt.Model
         public DataTable GETITMNAM()
         {
             var LIST = new List<SqlParameter>();
-            string SS = "SELECT BILITM_Name,BILLITM_Quanty,CONVERT(decimal(17,2),BILITM_Rate) AS BILITM_Rate ,BILITM_Tax FROM FCBILLITM WHERE BILL_Id='" + BillView.billid+ "'";
+            string SS = "SELECT BILITM_Name,BILLITM_Quanty,CONVERT(decimal(17,2),BILITM_Rate) AS BILITM_Rate ,BILITM_Tax FROM FCBILLITM WHERE BILL_Id='" + BillView.B_bill_no + "'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(SS, LIST);
             return DT;
         }
