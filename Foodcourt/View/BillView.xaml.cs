@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Data;
 using Foodcourt.Model;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Text.RegularExpressions;
 
 namespace Foodcourt.View.Oprs
 {
@@ -15,19 +16,24 @@ namespace Foodcourt.View.Oprs
     {
         BillVIEW BV = new BillVIEW();
         public static int A;
+        public int value;
+        Regex num = new Regex(@"^[0-9]+$");
+        public DataTable dt;
         public BillView()
         {
             InitializeComponent();
-            TAX();
+            bill_date.DisplayDateEnd = DateTime.Today.Date;
+            //DataTable DT = BV.GETBILL();
+            //dgBill.ItemsSource = DT.DefaultView;
         }
-        public static decimal BILL_Tax, CGST, SGST, BILITM_Tax, CGST1, SGST1, ta1;
+        public static decimal BILL_Tax, CGST, SGST, BILITM_Tax, ta1;
         public static int BILL_Id,  BILL_Discount;
-        public static decimal BILL_Amount, BILL_Total, BILITM_Rate, BILLITM_Quanty, Total, Total1, sum1 = 0;
+        public static decimal BILL_Amount, BILL_Total, BILITM_Rate, BILLITM_Quanty, Total, sum1 = 0;
         private void Micancel_Click(object sender, RoutedEventArgs e)
         {
             A = Convert.ToInt32(txtbillno.Text);
             BV.billcancel();
-            MessageBox.Show("Bill Canceled");
+            MessageBox.Show("Bill Cancelled");
             sum1 = 0;
             txtnetamount.Text = "0";
             txtcgst.Text = "0";
@@ -54,67 +60,137 @@ namespace Foodcourt.View.Oprs
             this.NavigationService.Refresh();
             canview.Visibility = Visibility.Hidden;
         }
+        private void btnbillnoS_Click(object sender, RoutedEventArgs e)
+        {
+            if (billwiseSearch.Text == "")
+            {
+                MessageBox.Show("Please Enter Bill Number and search.!");
+            }
+            else
+            {
+                string ID = billwiseSearch.Text;
+                if (num.IsMatch(ID))
+                {
+                    if (dt != null)
+                    {
+                        dt.Clear();
+                    }
+                    BV.SelectedBillNo = billwiseSearch.Text;
+                    dt = BV.GetBillWithBillNo();
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No Bill Found.!");
+                    }
+                    else
+                    {
+                        dgBill.ItemsSource = dt.DefaultView;
+                    }
+                    value = 0;
+                    bill_date.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Please enter Numeric values");
+                    billwiseSearch.Text = "";
+                    bill_date.Text = "";
+                }
+            }
+        }
+        private void dgBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void billwiseSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void btnsearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (bill_date.Text == "")
+            {
+                MessageBox.Show("Please select date and search");
+            }
+            else
+            {
+                try
+                {
+                    if (dt != null)
+                    {
+                        dt.Clear();
+                    }
+                    BV.SelectedDate = Convert.ToDateTime(bill_date.Text).Date;
+                    dt = BV.GetBillWithDate();
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No Bills Found.!");
+                    }
+                    else
+                    {
+                        dgBill.ItemsSource = dt.DefaultView;
+                    }
+                    value = 1;
+                    billwiseSearch.Text = "";
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        public static int B_bill_no;
+        public Decimal B_Tax, B_Total, B_GTotal;
         public static DataTable DD = new DataTable();
         private void dgBill_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             int i = dgBill.SelectedIndex;
-            DataTable dt = BV.GETBILL();
-            if (dt.Rows.Count == 0)
+            DataTable dt1;
+            if (i >= 0)
             {
-            }
-            else
-            {
-                if (i >= 0)
+                if (value == 0)
                 {
-                    Dtlview.Visibility = Visibility.Visible;
-                    txtbillno.Text = dt.Rows[i]["BILL_Id"].ToString();
-                    billid = txtbillno.Text;
-                    txtbilldate.Text = dt.Rows[i]["BILL_InsertDate"].ToString();
-                    DataTable db = BV.GETITMNAM();
-                    DataTable DD1 = new DataTable();
-                    DD1.Columns.Add("BILITM_Name", typeof(string));
-                    DD1.Columns.Add("BILLITM_Quanty", typeof(int));
-                    DD1.Columns.Add("BILITM_Rate", typeof(int));
-                    DD1.Columns.Add("BILITM_Tax", typeof(int));
-                    DD1.Columns.Add("Total", typeof(int));
-                    for (int j = 0; j < db.Rows.Count; j++)
-                    {
-                        BILITM_Name = db.Rows[j]["BILITM_Name"].ToString();
-                        BILLITM_Quanty = Convert.ToInt32(db.Rows[j]["BILLITM_Quanty"]);
-                        BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]);
-                        BILITM_Tax = Convert.ToInt32(db.Rows[j]["BILITM_Tax"]);
-                        CGST1 = (BILITM_Tax / 2) / 100;
-                        SGST1 = (BILITM_Tax / 2) / 100;
-                        Total = (BILLITM_Quanty * BILITM_Rate);
-                        DataRow ROW = DD1.NewRow();
-                        ROW["BILITM_Name"] = db.Rows[j]["BILITM_Name"];
-                        ROW["BILLITM_Quanty"] = db.Rows[j]["BILLITM_Quanty"];
-                        ROW["BILITM_Rate"] = db.Rows[j]["BILITM_Rate"];
-                        ROW["Total"] = Total;
-                        DD1.Rows.Add(ROW);
-                        Total1 = Total;
-                        sum1 = sum1 + Total1;
-                    }
-                    dgdtlview.ItemsSource = DD1.DefaultView;
-                    // dgdtlview.ItemsSource = sd.DefaultView;
-                    txtnetamount.Text = sum1.ToString();
-                    decimal gst = Convert.ToDecimal(BILITM_Tax);
-                    if (gst == 0)
-                    {
-                        ta1 = 0;
-                    }
-                    else
-                    {
-                        ta1 = sum1 * gst / 100;
-                    }
-                    txtcgst.Text = (ta1 / 2).ToString();
-                    txtsgst.Text = (ta1 / 2).ToString();
-                    txtgttl.Text = Convert.ToString(ta1 + sum1);
+                    dt1 = BV.GetBillWithBillNo();
                 }
                 else
                 {
-                    Dtlview.Visibility = Visibility.Hidden;
+                    dt1 = BV.GetBillWithDate();
                 }
+                Dtlview.Visibility = Visibility.Visible;
+                B_bill_no = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
+                B_Total = Convert.ToInt32(dt1.Rows[i]["BILL_Amount"]);
+                B_GTotal = Convert.ToInt32(dt1.Rows[i]["BILL_Total"]);
+                B_Tax = Convert.ToDecimal(dt1.Rows[i]["BILL_Tax"]);
+                txtbillno.Text = B_bill_no.ToString();
+                txtbilldate.Text = dt1.Rows[i]["BILL_InsertDate"].ToString();
+                txtnetamount.Text = Math.Round(B_Total, 2, MidpointRounding.AwayFromZero).ToString();
+                txtcgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtsgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtgttl.Text = Math.Round(B_GTotal, 2, MidpointRounding.AwayFromZero).ToString();
+                DataTable db = BV.GETITMNAM();
+                DataTable DD1 = new DataTable();
+                DD1.Columns.Add("BILITM_Name", typeof(string));
+                DD1.Columns.Add("BILLITM_Quanty", typeof(int));
+                DD1.Columns.Add("BILITM_Rate", typeof(int));
+                DD1.Columns.Add("BILITM_Tax", typeof(int));
+                DD1.Columns.Add("Total", typeof(int));
+                for (int j = 0; j < db.Rows.Count; j++)
+                {
+                    BILLITM_Quanty = Convert.ToDecimal(db.Rows[j]["BILLITM_Quanty"]);
+                    BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]);
+                    BILITM_Tax = Convert.ToDecimal(db.Rows[j]["BILITM_Tax"]);
+                    Total = (BILITM_Rate + BILITM_Tax) * BILLITM_Quanty;
+                    DataRow ROW = DD1.NewRow();
+                    ROW["BILITM_Name"] = db.Rows[j]["BILITM_Name"];
+                    ROW["BILLITM_Quanty"] = db.Rows[j]["BILLITM_Quanty"];
+                    ROW["BILITM_Rate"] = db.Rows[j]["BILITM_Rate"];
+                    ROW["BILITM_Tax"] = db.Rows[j]["BILITM_Tax"];
+                    ROW["Total"] = Total;
+                    DD1.Rows.Add(ROW);
+                }
+                dgdtlview.ItemsSource = DD1.DefaultView;
+            }
+            else
+            {
+                Dtlview.Visibility = Visibility.Hidden;
             }
         }
         public void Clear()
@@ -137,7 +213,7 @@ namespace Foodcourt.View.Oprs
             dt.Columns.Add("SGST", typeof(decimal));
             dt.Columns.Add("BILL_Discount", typeof(int));
             dt.Columns.Add("BILL_Total", typeof(decimal));
-       //     dt.Columns.Add("BILL_InsertDate", typeof(DateTime));
+            //dt.Columns.Add("BILL_InsertDate", typeof(DateTime));
             for (int i = 0; i < DT.Rows.Count; i++)
             {
                 BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
@@ -155,7 +231,7 @@ namespace Foodcourt.View.Oprs
                 row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
                 row["CGST"] = CGST;
                 row["SGST"] = SGST;
-         //       row["BILL_InsertDate"] = BILL_InsertDate;
+                //       row["BILL_InsertDate"] = BILL_InsertDate;
                 dt.Rows.Add(row);
             }
             dgcancel.ItemsSource = dt.DefaultView;
@@ -199,46 +275,44 @@ namespace Foodcourt.View.Oprs
             //gttltxt.Text = Convert.ToString(ta1 + sum1);  
             //dgcancel.ItemsSource = dt.DefaultView;
         }
-
         public static string BILL_InsertDate;
         public void TAX()
         {
-            DataTable DT = BV.GETBILL();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("BILL_Id", typeof(int));
-            dt.Columns.Add("BILL_Amount", typeof(decimal));
-            dt.Columns.Add("CGST", typeof(decimal));
-            dt.Columns.Add("SGST", typeof(decimal));
-            dt.Columns.Add("BILL_Discount", typeof(int));
-            dt.Columns.Add("BILL_Total", typeof(decimal));
-            dt.Columns.Add("BILL_InsertDate", typeof(DateTime));
-            for(int i=0;i<DT.Rows.Count;i++)
-            {
-                BILL_Id =Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
-                BILL_Amount = Convert.ToDecimal(DT.Rows[i]["BILL_Amount"]);
-                BILL_Tax = Convert.ToDecimal(DT.Rows[i]["BILL_Tax"]);
-                CGST = BILL_Tax / 2;
-                SGST = BILL_Tax / 2;
-                BILL_Discount =Convert.ToInt32(DT.Rows[i]["BILL_Discount"]);
-                BILL_Total = Convert.ToDecimal(DT.Rows[i]["BILL_Total"]);
-                BILL_InsertDate =Convert.ToDateTime((DT.Rows[i]["BILL_InsertDate"])).ToShortDateString();
-                DataRow row = dt.NewRow();
-                row["BILL_Id"] = DT.Rows[i]["BILL_Id"];
-                row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
-                row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
-                row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
-                row["CGST"] = CGST;
-                row["SGST"] = SGST;
-                row["BILL_InsertDate"] = BILL_InsertDate;
-                dt.Rows.Add(row);
-            }
-            dgBill.ItemsSource = dt.DefaultView;
+            //DataTable DT = BV.GETBILL();
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("BILL_Id", typeof(int));
+            //dt.Columns.Add("BILL_Amount", typeof(decimal));
+            //dt.Columns.Add("CGST", typeof(decimal));
+            //dt.Columns.Add("SGST", typeof(decimal));
+            //dt.Columns.Add("BILL_Discount", typeof(int));
+            //dt.Columns.Add("BILL_Total", typeof(decimal));
+            //dt.Columns.Add("BILL_InsertDate", typeof(DateTime));
+            //for (int i = 0; i < DT.Rows.Count; i++)
+            //{
+            //    BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
+            //    BILL_Amount = Convert.ToDecimal(DT.Rows[i]["BILL_Amount"]);
+            //    BILL_Tax = Convert.ToDecimal(DT.Rows[i]["BILL_Tax"]);
+            //    CGST = BILL_Tax / 2;
+            //    SGST = BILL_Tax / 2;
+            //    BILL_Discount = Convert.ToInt32(DT.Rows[i]["BILL_Discount"]);
+            //    BILL_Total = Convert.ToDecimal(DT.Rows[i]["BILL_Total"]);
+            //    BILL_InsertDate = Convert.ToDateTime((DT.Rows[i]["BILL_InsertDate"])).ToShortDateString();
+            //    DataRow row = dt.NewRow();
+            //    row["BILL_Id"] = DT.Rows[i]["BILL_Id"];
+            //    row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
+            //    row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
+            //    row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
+            //    row["CGST"] = CGST;
+            //    row["SGST"] = SGST;
+            //    row["BILL_InsertDate"] = BILL_InsertDate;
+            //    dt.Rows.Add(row);
+            //}
+            //dgBill.ItemsSource = dt.DefaultView;
         }
         private void btncls_Click(object sender, RoutedEventArgs e)
         {
             Dtlview.Visibility = Visibility.Hidden;
         }
-
         private void MIclose_Click(object sender, RoutedEventArgs e)
         {
             sum1 = 0;
@@ -269,7 +343,6 @@ namespace Foodcourt.View.Oprs
                 dd.Rows.Add(r);
             }
             return dd;
-
         }
         public DataTable Cprint()
         {

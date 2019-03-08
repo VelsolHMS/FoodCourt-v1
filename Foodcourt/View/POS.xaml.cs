@@ -20,7 +20,6 @@ namespace Foodcourt.View.Oprs
         property p = new property();
         ItemCategory ic = new ItemCategory();
         ItemsCAT it = new ItemsCAT();
-
         public static string aa;
         public DataTable dt;
         public int error = 0;
@@ -32,7 +31,6 @@ namespace Foodcourt.View.Oprs
             DataTable dt = pos.GETPROPERTY();
             if (dt.Rows.Count == 0)
             {
-
             }
             else
             {
@@ -93,7 +91,6 @@ namespace Foodcourt.View.Oprs
                 chk.Foreground = Brushes.Black;
                 chk.BorderBrush = Brushes.Black;
                 chk.Margin = new System.Windows.Thickness(10, 10, 0, 0);
-
                 wrap1.Children.Add(chk);
             }
             WRAPN.Children.Add(wrap1);
@@ -105,10 +102,8 @@ namespace Foodcourt.View.Oprs
         public static List<int> tt = new List<int>();
         public static string sa, sa1, NAM_Name, A, a, check;
         public static int NAM_Rate, Quantity, SUM = 0, tot, Total11;
-
         private void txttotal_GotFocus(object sender, RoutedEventArgs e)
         {
-
         }
         DataTable d = new DataTable();
         public DataTable Billprint()
@@ -144,7 +139,6 @@ namespace Foodcourt.View.Oprs
             d.Columns.Add("Rate", typeof(decimal));
             d.Columns.Add("Quantity", typeof(int));
             d.Columns.Add("Amount", typeof(decimal));
-          
             DataTable s = pos.PrintBill();
             for (int k = 0; k < s.Rows.Count; k++)
             {
@@ -157,7 +151,6 @@ namespace Foodcourt.View.Oprs
                 row["Amount"] = a * b;
                 d.Rows.Add(row);
             }
-
             return d;
         }
         private void btnok_Click(object sender, RoutedEventArgs e)
@@ -168,10 +161,7 @@ namespace Foodcourt.View.Oprs
             WRAPN.Children.Clear();
             ITMCTG.Visibility = Visibility.Visible;
         }
-        
         public static string check1, t1,t2;
-
-
         public static string bid;
         public static DataTable subdata;
         public static int cou = 0;
@@ -193,31 +183,28 @@ namespace Foodcourt.View.Oprs
         {
             try
             {
-                
-                    pos.NAME = txtnamee.Text;
-                    pos.MOBILE_NO = txtphone.Text;
-                    pos.EMAIL = txtemail.Text;
-                    pos.CITY = txtaddress.Text;
-                    pos.ADDRESS = txtadd.Text;
-                    string a = "Submit"; string b = Convert.ToString(btnsave.Content);
-                    if (a == b)
-                    {
-                        pos.custinfo();
-                        MessageBox.Show("Saved Successfully");
-                        clear1();
-                    }
-                    else
-                    {
-                        btnsave.Content = "Update";
-                        MessageBox.Show("Updated Successfully");
-                        clear1();
-                        btnsave.Content = "Submit";
-                    }
-               
+                pos.NAME = txtnamee.Text;
+                pos.MOBILE_NO = txtphone.Text;
+                pos.EMAIL = txtemail.Text;
+                pos.CITY = txtaddress.Text;
+                pos.ADDRESS = txtadd.Text;
+                string a = "Submit"; string b = Convert.ToString(btnsave.Content);
+                if (a == b)
+                {
+                    pos.custinfo();
+                    MessageBox.Show("Saved Successfully");
+                    clear1();
+                }
+                else
+                {
+                    btnsave.Content = "Update";
+                    MessageBox.Show("Updated Successfully");
+                    clear1();
+                    btnsave.Content = "Submit";
+                }
             }
             catch(SystemException )
             {
-
             }
         }
         public void clear1()
@@ -262,7 +249,6 @@ namespace Foodcourt.View.Oprs
         }
         private void quantity2_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -1762,12 +1748,11 @@ namespace Foodcourt.View.Oprs
                     decimal gst;
                     if (d.Rows.Count == 0)
                     {
-                        
                     }
                     else
                     {
                         
-                        gst =Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]);
+                        gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]);
                         if(gst == 0)
                         {
                             ta1 = 0;
