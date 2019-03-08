@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\surya\source\repos\Foodcourt\Foodcourt\obj\Debug\
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\
 Foodcourt
 none
 false
 DEBUG;TRACE
-C:\Users\surya\source\repos\Foodcourt\Foodcourt\App.xaml
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\App.xaml
 211256373960
 
-67497369691
-26196492012
+71207402548
+26-774614962
 MainWindow.xaml;Mis.xaml;View\BillView.xaml;View\billwiserpt.xaml;View\CashHand.xaml;View\DashBoard.xaml;View\Daywiserpt.xaml;View\ItemCategory.xaml;View\ItemName.xaml;View\Itemwiserpt.xaml;View\login.xaml;View\Paidout.xaml;View\Permissions.xaml;View\PettyCash.xaml;View\POS.xaml;View\Property.xaml;View\Registration.xaml;View\RPTS.xaml;View\Tax.xaml;View\taxrpt.xaml;View\Transaction.xaml;
 
-False
+True
 
