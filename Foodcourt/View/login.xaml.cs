@@ -43,7 +43,6 @@ namespace Foodcourt.View
                         u = ul.REG_UserName;
                         MainWindow mw = new MainWindow();
                         mw.Show();
-                        
                         signin = DateTime.Now.ToShortTimeString();
                         r.USERNAME = u;
                         r.SIGNIN = signin;

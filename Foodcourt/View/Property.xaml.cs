@@ -32,12 +32,15 @@ namespace Foodcourt.View
             DataF.COUNT = 0;
             InitializeComponent();
             DataF.COUNT = 1;
+            DataTable states = P.States();
+            statetxt.ItemsSource = states.DefaultView;
             DataTable dt = P.NAME();
             if (dt.Rows.Count == 1)
             {
                 btnsave.Content = "Update";
-                nametxt.Text = dt.Rows[0]["PRPT_Name"].ToString(); ;
-                statetxt.Text=dt.Rows[0]["PRPT_State"].ToString();
+                btnclear.IsEnabled = false;
+                nametxt.Text = dt.Rows[0]["PRPT_Name"].ToString();
+                statetxt.Text = dt.Rows[0]["PRPT_State"].ToString();
                 addresstxt.Text= dt.Rows[0]["PRPT_Address"].ToString();
                 countrytxt.Text= dt.Rows[0]["PRPT_Country"].ToString() ;
                 gsttxt.Text= dt.Rows[0]["PRPT_GST"].ToString();
@@ -100,7 +103,6 @@ namespace Foodcourt.View
                         P.Update();
                         MessageBox.Show("Updated Successfully");
                         Clear();
-                        btnsave.Content = "Save";
                         this.NavigationService.Refresh();
                     }
                 }

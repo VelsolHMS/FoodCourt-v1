@@ -76,6 +76,13 @@ namespace Foodcourt.Model
             //}
             return dt;
         }
+        public DataTable States()
+        {
+            var list = new List<SqlParameter>();
+            string s = "Select STATE from STATES";
+            DataTable DT = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return DT;
+        }
     }
 }
 
