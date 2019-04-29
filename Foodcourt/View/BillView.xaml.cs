@@ -163,7 +163,7 @@ namespace Foodcourt.View.Oprs
                 txtbilldate.Text = dt1.Rows[i]["BILL_InsertDate"].ToString();
                 txtnetamount.Text = Math.Round(B_Total, 2, MidpointRounding.AwayFromZero).ToString();
                 txtcgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
-                txtsgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtsgst.Text =Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgttl.Text = Math.Round(B_GTotal, 2, MidpointRounding.AwayFromZero).ToString();
                 DataTable db = BV.GETITMNAM();
                 DataTable DD1 = new DataTable();
