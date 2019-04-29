@@ -23,8 +23,8 @@ namespace Foodcourt.View
             txtId.Text =Convert.ToString(it.id());
             DataTable dtt = it.FillDataGrid();
             dgctg.ItemsSource = dtt.DefaultView;
-            dpactive.DisplayDateStart = DateTime.Today;
-            dpactive.Text = Convert.ToString(DateTime.Today.Date);
+            //dpactive.DisplayDateStart = DateTime.Today;
+            //dpactive.Text = Convert.ToString(DateTime.Today.Date);
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -39,14 +39,14 @@ namespace Foodcourt.View
             txtName.Text = "";
             txtdts.Text = "";
             txtrpt.Text = "";
-            dpactive.Text = "";
+            txtstatus.SelectedIndex = 0;
         }
         public string a, b;
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtrpt.Text)) || (string.IsNullOrWhiteSpace(dpactive.Text)))
+                if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtrpt.Text)) || (string.IsNullOrWhiteSpace(txtstatus.Text)))
                 {
                     if (txtId.Text == "")
                     { txtId.Text = ""; }
@@ -56,8 +56,6 @@ namespace Foodcourt.View
                     //{ txtdts.Text = ""; }
                     if (txtrpt.Text == "")
                     { txtrpt.Text = ""; }
-                    if (dpactive.Text == "")
-                    { dpactive.Text = ""; }
                     MessageBox.Show("Please fill all fields");
                 }
                 else
@@ -65,7 +63,7 @@ namespace Foodcourt.View
                     it.CTG_Id = txtId.Text;
                     it.CTG_Name = txtName.Text;
                     it.CTG_Details = txtdts.Text;
-                    it.CTG_ActiveDate = dpactive.Text;
+                    it.CTG_Status = txtstatus.Text;
                     it.CTG_ReportingName = txtrpt.Text;
                     DataTable dt = it.FillDataGrid();
                     if (dt.Rows.Count >= 0)
@@ -99,7 +97,6 @@ namespace Foodcourt.View
         }
         private void dgctg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
             btnSave.Content = "Modify";
             int i = dgctg.SelectedIndex;
             DataTable dt2 = it.filltable();
@@ -114,11 +111,10 @@ namespace Foodcourt.View
                     txtName.Text = dt2.Rows[i]["CTG_Name"].ToString();
                     txtdts.Text = dt2.Rows[i]["CTG_Details"].ToString();
                     txtrpt.Text = dt2.Rows[i]["CTG_ReportingName"].ToString();
-                    dpactive.Text = dt2.Rows[i]["CTG_ActiveDate"].ToString();
+                    txtstatus.Text = dt2.Rows[i]["CTG_Status"].ToString();
                 }
                 else
                 {
-
                 }
             }
             dgctg.UnselectAll();
