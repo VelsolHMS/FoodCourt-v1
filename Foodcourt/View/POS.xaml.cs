@@ -96,10 +96,6 @@ namespace Foodcourt.View.Oprs
                     {
                         chk.IsChecked = true;
                     }
-                    //if (checkbox_checks.Exists(x => x.Contains("" + dt.Rows[i]["VFS_ITMNAM_Name"].ToString())))
-                    //{
-                    //    btn.IsChecked = true;
-                    //}
                 }
                 chk.Background = Brushes.Black;
                 chk.Foreground = Brushes.Black;
@@ -850,6 +846,7 @@ namespace Foodcourt.View.Oprs
             DT.Rows.Clear();
             ITMNAM.Visibility = Visibility.Hidden;
             WRAPN.Children.Clear();
+            checkbox_checks = null;
             ITMCTG.Visibility = Visibility.Visible;
         }
 
