@@ -41,6 +41,7 @@ namespace Foodcourt.View.Oprs
             Button();
             cou = 0;
             clear();
+            checkbox_checks = null;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
