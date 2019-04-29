@@ -262,5 +262,22 @@
                 </Grid>
             </Grid>
         </material:Card>
+        <Popup Name="PrintConfirmation" PopupAnimation="Fade" AllowsTransparency="True" Placement="Center" IsOpen="False" >
+            <Border BorderBrush="White" BorderThickness="1">
+                <material:Card Height="200" Background="#296dc1" Width="300">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <material:PackIcon Kind="Printer" Height="30" Width="30" Margin="0,0,0,0" Foreground="White"/>
+                            <TextBlock Text="Do you want" FontFamily="Sitka Small" FontSize="20" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Center" Text="to take Print" FontFamily="Sitka Small" FontSize="20" Margin="0,5,0,5" VerticalAlignment="Center" Foreground="White"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <Button Name="Yes" Width="90" Content="Yes" Margin="0,0,0,0" Background="White" Foreground="#296dc1" BorderBrush="White" Height="Auto" Click="Yes_Click" />
+                            <Button Name="No" Width="90" Content="No" Margin="20,0,0,0" Background="White" Foreground="#296dc1" BorderBrush="White" Click="No_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </material:Card>
+            </Border>
+        </Popup>
     </Grid>
 </Page>

@@ -220,7 +220,7 @@ namespace Foodcourt.View.Oprs
                 BILL_Amount = Convert.ToDecimal(DT.Rows[i]["BILL_Amount"]);
                 BILL_Tax = Convert.ToDecimal(DT.Rows[i]["BILL_Tax"]);
                 CGST = BILL_Tax / 2;
-                SGST = BILL_Tax / 2;
+               // SGST = BILL_Tax / 2;
                 BILL_Discount = Convert.ToInt32(DT.Rows[i]["BILL_Discount"]);
                 BILL_Total = Convert.ToDecimal(DT.Rows[i]["BILL_Total"]);
                // BILL_InsertDate = Convert.ToDateTime((DT.Rows[i]["BILL_InsertDate"])).ToShortDateString();
@@ -230,7 +230,7 @@ namespace Foodcourt.View.Oprs
                 row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
                 row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
                 row["CGST"] = CGST;
-                row["SGST"] = SGST;
+                row["SGST"] = CGST;
                 //       row["BILL_InsertDate"] = BILL_InsertDate;
                 dt.Rows.Add(row);
             }
