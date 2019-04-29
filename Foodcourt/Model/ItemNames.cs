@@ -76,7 +76,7 @@ namespace Foodcourt.Model
         public DataTable FillGrid()
         {
             var list = new List<SqlParameter>();
-            string d = "SELECT NAM_Id,NAM_Name,CTG_Id,NAM_Tax,NAM_Rate FROM FCITMNAM";
+            string d = "SELECT NAM_Id,NAM_Name,CTG_Name,NAM_Tax,NAM_Rate FROM FCITMNAM";
             DataTable S = DbFunctions.ExecuteCommand<DataTable>(d, list);
             return S;
         }
