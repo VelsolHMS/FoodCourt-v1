@@ -87,6 +87,20 @@ namespace Foodcourt.View.Oprs
                 chk.Click += new RoutedEventHandler(chk_Click);
                 chk.Height = 35;
                 chk.Width = 130;
+                if (checkbox_checks == null)
+                {
+                }
+                else
+                {
+                    if (checkbox_checks.Contains(DT1.Rows[i]["NAM_Name"].ToString()))
+                    {
+                        chk.IsChecked = true;
+                    }
+                    //if (checkbox_checks.Exists(x => x.Contains("" + dt.Rows[i]["VFS_ITMNAM_Name"].ToString())))
+                    //{
+                    //    btn.IsChecked = true;
+                    //}
+                }
                 chk.Background = Brushes.Black;
                 chk.Foreground = Brushes.Black;
                 chk.BorderBrush = Brushes.Black;
@@ -1112,9 +1126,27 @@ namespace Foodcourt.View.Oprs
                     var S = sender as CheckBox;
                     check1 = S.Content.ToString();
                     checkede();
+                    for (int i = 0; i < cou; i++)
+                    {
+                        if (checkbox_checks == null)
+                        {
+                            checkbox_checks = new List<string>();
+                        }
+                        checkbox_checks.Add(S.Content.ToString());
+                        checkbox_checks.IndexOf(S.Content.ToString());
+                        //s = checkbox_checks.ToString();
+                    }
+                    COUNT = 0;
+                    sa = string.Join(",", checkbox_checks.ToArray());
                 }
+                
             }
-            if(chk.IsChecked == false)
+            else
+            {
+                var C = sender as CheckBox;
+                checkbox_checks.Remove(C.Content.ToString());
+            }
+            if (chk.IsChecked == false)
             {   
                  var g = sender as CheckBox;
                   sri = g.Content.ToString();
