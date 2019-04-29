@@ -39,9 +39,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                         <TextBlock Text="State" Width="120" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                         <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <ComboBox x:Name="statetxt" TabIndex="2" Width="250" SelectedIndex="0" Margin="30,0,0,0" Padding="2">
-                            <ComboBoxItem Content="Maharashtra"></ComboBoxItem>
-                        </ComboBox>
+                        <ComboBox x:Name="statetxt" TabIndex="2" DisplayMemberPath="STATE" Width="250" Margin="30,0,0,0" Padding="2"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                         <TextBlock Text="Country" Width="120" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
