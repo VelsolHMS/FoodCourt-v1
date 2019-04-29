@@ -93,7 +93,7 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Item Id" Binding="{Binding NAM_Id}"/>
                                         <DataGridTextColumn Header="Name" Binding="{Binding NAM_Name}"/>
-                                        <DataGridTextColumn Header="Category" Binding="{Binding CTG_Id}"/>
+                                        <DataGridTextColumn Header="Category" Binding="{Binding CTG_Name}"/>
                                         <DataGridTextColumn Header="Price" Binding="{Binding NAM_Rate}"/>
                                         <DataGridTextColumn Header="Tax Name" Binding="{Binding NAM_Tax}"/>
                                     </DataGrid.Columns>
