@@ -78,6 +78,7 @@
                                     <DataGridTextColumn Header="Category Name" Binding="{Binding CTG_Name}"/>
                                     <DataGridTextColumn Header="Active From" Binding="{Binding CTG_ActiveDate, StringFormat=dd/MM/yyyy}"/>
                                     <DataGridTextColumn Header="Reporting Name" Binding="{Binding CTG_ReportingName}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding CTG_Status}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
