@@ -90,6 +90,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FCReport\itemratelist.cs">
+      <DependentUpon>itemratelist.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\itemratelist.designer.cs">
+      <DependentUpon>itemratelist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\itemratelist1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itemratelist.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\ItemRateReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemRateReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ListExtentions.cs" />
     <Compile Include="Mis.xaml.cs">
       <DependentUpon>Mis.xaml</DependentUpon>
@@ -106,6 +123,7 @@
     <Compile Include="Model\property.cs" />
     <Compile Include="Model\registration.cs" />
     <Compile Include="Model\reportClass1.cs" />
+    <Compile Include="Model\Reports.cs" />
     <Compile Include="Model\Tax.cs" />
     <Compile Include="Model\ItemsCAT.cs" />
     <Compile Include="Model\Userlogin.cs" />
@@ -240,6 +258,9 @@
     <Compile Include="View\ItemName.xaml.cs">
       <DependentUpon>ItemName.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ItemRateListReport.xaml.cs">
+      <DependentUpon>ItemRateListReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Itemwise.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -343,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ItemRateListReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Itemwiserpt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -406,6 +431,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="FCReport\ItemRateReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ItemRateReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -463,6 +492,17 @@
       <LastGenOutput>TaxReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Design\projectGuides.guides" />
+    <None Include="FCReport\itemratelist.xsc">
+      <DependentUpon>itemratelist.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\itemratelist.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itemratelist1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FCReport\itemratelist.xss">
+      <DependentUpon>itemratelist.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
