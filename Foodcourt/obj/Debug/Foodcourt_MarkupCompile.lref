@@ -1,9 +1,10 @@
-﻿
+﻿C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\App.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\Mis.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\BillView.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\billwiserpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\CashHand.xaml;;
+FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Cashhandrpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\DashBoard.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Daywiserpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\ItemCategory.xaml;;
@@ -11,9 +12,12 @@ FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\ItemName.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\ItemRateListReport.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Itemwiserpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\login.xaml;;
+FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Miscollectiorpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Paidout.xaml;;
+FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Paidoutrpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Permissions.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\PettyCash.xaml;;
+FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Pettycashrpt.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\POS.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Property.xaml;;
 FC:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\View\Registration.xaml;;
