@@ -26,15 +26,7 @@ namespace Foodcourt.View
         public Cashhandrpt()
         {
             InitializeComponent();
-            DataTable dd = r.CASHHAND();
-            if(dd.Rows.Count == 0 && dd.Rows.Count ==null)
-            {
-
-            }
-            else
-            {
-                dd.Rows.Clear();
-            }
+           
             //CrystalReportViewer1.Owner = Window.GetWindow(this);
             //  System.Windows.Window window = new System.Windows.Window(); CrystalReportViewer1.Owner = window; System.Windows.Interop.WindowInteropHelper helper = new System.Windows.Interop.WindowInteropHelper(window);
         }

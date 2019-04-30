@@ -14,7 +14,6 @@
     <Grid>
         <material:Card Height="800" >
             <Grid>
-                <Viewer:CrystalReportsViewer x:Name="CrystalReportViewer1" Margin="0,0,0,0" Background="#FFABEAE7" Visibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderThickness="0"/>
                 <material:Card Name="taxRPT" Height="305" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
