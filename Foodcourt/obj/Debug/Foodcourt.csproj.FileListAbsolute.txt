@@ -353,8 +353,6 @@ D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Transaction.baml
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.g.resources
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.Properties.Resources.resources
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.GenerateResource.cache
-D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CoreCompileInputs.cache
-D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.exe.config
@@ -449,3 +447,12 @@ C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportingServices.Interfaces.dll
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.baml

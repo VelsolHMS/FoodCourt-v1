@@ -1,0 +1,47 @@
+﻿<Page x:Class="Foodcourt.View.Paidoutrpt"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Foodcourt.View"
+       xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+      xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
+      mc:Ignorable="d" 
+      Height="800" Width="1000"
+      Title="Paidoutrpt">
+    <Grid>
+        <material:Card Height="800" >
+            <Grid>
+                <material:Card Name="paidoutRPT" Height="305" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="29*"/>
+                            <RowDefinition Height="321*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Background="#FF5180A0">
+                            <TextBlock Text="Paidout Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                            <Button Name="BtnClose" Margin="325,0,0,0" Height="Auto" BorderBrush="{x:Null}" Click="BtnClose_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <StackPanel Height="25" Margin="0,53,0,201.729" Orientation="Horizontal">
+                                <TextBlock Text="From Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                                <DatePicker Name="dt" Width="131" Margin="20,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Height="25" Margin="0,132,0,122.729" Orientation="Horizontal">
+                                <TextBlock Text="To Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                                <DatePicker Name="dt1" Width="131" Margin="42,0,0,0"/>
+                            </StackPanel>
+                            <Button Width="100" Content="OK" Click="Button_Click"  Margin="140,210,113,39.729" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF" Height="Auto"/>
+                        </Grid>
+                    </Grid>
+                </material:Card>
+            </Grid>
+        </material:Card>
+    </Grid>
+</Page>
+

@@ -773,5 +773,101 @@ namespace Foodcourt
             MIDash.Foreground = Brushes.White;
             this.MainFrame.Navigate(new Uri("View/CashHand.xaml", UriKind.RelativeOrAbsolute));      
         }
+
+        private void petty_Click(object sender, RoutedEventArgs e)
+        {
+            MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIHome.Foreground = Brushes.White;
+            MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIOperations.Foreground = Brushes.White;
+            MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIMasters.Foreground = Brushes.White;
+            itm.Foreground = Brushes.White;
+            IWS.Foreground = Brushes.White;
+            DWS.Foreground = Brushes.White;
+            MWS.Foreground = Brushes.White;
+            TR.Foreground = Brushes.White;
+            BWS.Foreground = Brushes.White;
+            MIReports.Background = Brushes.White;
+            MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Foreground = Brushes.White;
+            petty.Foreground = Brushes.White;
+            this.MainFrame.Navigate(new Uri("View/Pettycashrpt.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void paid_Click(object sender, RoutedEventArgs e)
+        {
+            MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIHome.Foreground = Brushes.White;
+            MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIOperations.Foreground = Brushes.White;
+            MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIMasters.Foreground = Brushes.White;
+            itm.Foreground = Brushes.White;
+            IWS.Foreground = Brushes.White;
+            DWS.Foreground = Brushes.White;
+            MWS.Foreground = Brushes.White;
+            TR.Foreground = Brushes.White;
+            BWS.Foreground = Brushes.White;
+            MIReports.Background = Brushes.White;
+            MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Foreground = Brushes.White;
+            petty.Foreground = Brushes.White;
+            paid.Foreground = Brushes.White;
+            this.MainFrame.Navigate(new Uri("View/Paidoutrpt.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Miscollection_Click(object sender, RoutedEventArgs e)
+        {
+            MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIHome.Foreground = Brushes.White;
+            MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIOperations.Foreground = Brushes.White;
+            MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIMasters.Foreground = Brushes.White;
+            itm.Foreground = Brushes.White;
+            IWS.Foreground = Brushes.White;
+            DWS.Foreground = Brushes.White;
+            MWS.Foreground = Brushes.White;
+            TR.Foreground = Brushes.White;
+            BWS.Foreground = Brushes.White;
+            MIReports.Background = Brushes.White;
+            MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Foreground = Brushes.White;
+            petty.Foreground = Brushes.White;
+            paid.Foreground = Brushes.White;
+            Miscollection.Foreground = Brushes.White;
+            this.MainFrame.Navigate(new Uri("View/Miscollectiorpt.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+      
+
+        private void cashhandoverrpt_Click(object sender, RoutedEventArgs e)
+        {
+            MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIHome.Foreground = Brushes.White;
+            MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIOperations.Foreground = Brushes.White;
+            MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIMasters.Foreground = Brushes.White;
+            itm.Foreground = Brushes.White;
+            IWS.Foreground = Brushes.White;
+            DWS.Foreground = Brushes.White;
+            MWS.Foreground = Brushes.White;
+            TR.Foreground = Brushes.White;
+            BWS.Foreground = Brushes.White;
+            MIReports.Background = Brushes.White;
+            MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+            MIDash.Foreground = Brushes.White;
+            petty.Foreground = Brushes.White;
+            paid.Foreground = Brushes.White;
+            Miscollection.Foreground = Brushes.White;
+            cashhandoverrpt.Foreground = Brushes.White;
+            this.MainFrame.Navigate(new Uri("View/Cashhandrpt.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
