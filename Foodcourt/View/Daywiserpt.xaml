@@ -8,38 +8,26 @@
       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
       xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
       mc:Ignorable="d" 
-     Height="800" Width="1000"
+      Height="800" Width="1000"
       Title="Daywiserpt">
-
     <Grid>
-        <material:Card Height="800">
-            
+        <material:Card Height="250" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Visibility="Visible">
+            <!--<Viewer:CrystalReportsViewer x:Name="CrystalReportViewer1" Margin="0,0,0,0" Background="#FFABEAE7" Visibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderThickness="0"/>-->
             <Grid>
-                <Viewer:CrystalReportsViewer x:Name="CrystalReportViewer1" Margin="0,0,0,0" Background="#FFABEAE7" Visibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderThickness="0"/>
-                <material:Card Name="DWSRPT" Height="265" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="28*"/>
-                            <RowDefinition Height="237*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Background="#FF5180A0">
-                            <TextBlock Text="Day Wise Sale" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
-                            <Button Name="BtnClose" Margin="325,0,0,0" Height="Auto" BorderBrush="{x:Null}" Click="BtnClose_Click">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <StackPanel Height="25" Margin="0,57,0,155" Orientation="Horizontal">
-                                <TextBlock Text="Date:" Margin="100,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="dt" Width="131" Margin="20,0,0,0"/>
-                            </StackPanel>
-
-                            <Button Width="100" Click="Button_Click" Content="OK" Margin="135,146,118,59" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
-                        </Grid>
-                    </Grid>
-                </material:Card>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="87*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#FF5180A0">
+                    <TextBlock Text="Day Wise Sale" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Height="25" Margin="0,60,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="Date         :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                        <DatePicker Name="selecteddate" Width="150" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <Button Width="100" Click="Button_Click" Content="OK" Margin="0,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
+                </Grid>
             </Grid>
         </material:Card>
     </Grid>

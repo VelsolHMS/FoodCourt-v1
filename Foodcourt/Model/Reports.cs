@@ -11,6 +11,7 @@ namespace Foodcourt.Model
 {
     class Reports
     {
+        public string SelectedDate { get; set; }
         public static string Name, GST, Address;
         public DataTable PRPT()
         {
@@ -34,6 +35,20 @@ namespace Foodcourt.Model
             string s = "Select NAM_Name,NAM_Rate,(select TAX_Percentage from FCTAX where TAX_Name = A.NAM_Tax) AS NAM_TaxPer from FCITMNAM A";
             DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return d;
+        }
+        public DataTable DayWiseBills()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy FROM FCBILLNO A WHERE A.BILL_InsertDate ='" + SelectedDate + "'";
+            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return d;
+        }
+        public DataTable DayWiseBillsTotal()
+        {
+            var list = new List<SqlParameter>();
+            string s = "Select Sum(BILL_Amount) As Bill_Amount,Sum(BILL_Tax) as BILL_Tax, Sum(BILL_Total) as BILL_Total from FCBILLNO where BILL_InsertDate = '"+SelectedDate+"'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
         }
     }
 }
