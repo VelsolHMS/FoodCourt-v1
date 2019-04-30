@@ -35,7 +35,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                        <TextBox Width="100" x:Name="billwiseSearch" Margin="10,0,0,0" material:HintAssist.Hint="Bill No" Padding="2,0,0,0" Height="28" TextChanged="billwiseSearch_TextChanged"/>
+                        <TextBox Width="100" x:Name="billwiseSearch" Margin="10,0,0,0" material:HintAssist.Hint="Bill No" Padding="2,0,0,0" Height="28"/>
                         <Button Margin="10,0,15,0" Name="btnbillnoS" Click="btnbillnoS_Click" BorderThickness="0" Height="25" Width="25">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Foodcourt;component/Images/Search.png"/>
@@ -44,14 +44,14 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">
-                    <DataGrid Name="dgBill" CanUserAddRows="False" MouseLeftButtonUp="dgBill_MouseLeftButtonUp" AutoGenerateColumns="False" Margin="10" BorderBrush="Black" BorderThickness="1" SelectionChanged="dgBill_SelectionChanged">
+                    <DataGrid Name="dgBill" CanUserAddRows="False" MouseLeftButtonUp="dgBill_MouseLeftButtonUp" AutoGenerateColumns="False" Margin="10" BorderBrush="Black" BorderThickness="1">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Bill No" Binding="{Binding BILL_Id}"/>
                             <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}"/>
                             <DataGridTextColumn Header="Tax" Binding="{Binding BILL_Tax}"/>
                             <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}"/>
                             <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}"/>
-                            <DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate}" HeaderStringFormat="dd/MM/yyyy"/>
+                            <DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate,StringFormat=dd/MM/yyyy}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -196,7 +196,7 @@
                             <TextBlock Text="Bill No:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="10,0,0,0"/>
                             <TextBlock Name="txtbillno" FontFamily="Arial" FontSize="22" FontWeight="Bold"  Margin="20,0,0,0" Width="90"/>
                             <TextBlock Text="Bill Date:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="50,0,0,0"/>
-                            <TextBlock Name="txtbilldate" FontFamily="Arial" FontSize="18"  Margin="10,0,0,0" Width="97" />
+                            <TextBlock Name="txtbilldate" FontFamily="Arial" FontSize="18" Margin="10,0,0,0" Padding="0,4,0,0" Width="100" />
                         </StackPanel>
                         <Separator Margin="0,27,0,419" Background="#FFD8D8D8"/>
                         <DataGrid Margin="0,44,0,110" Name="dgdtlview" CanUserAddRows="False" AutoGenerateColumns="False" >

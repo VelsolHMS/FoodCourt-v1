@@ -96,7 +96,7 @@ namespace Foodcourt.View.Oprs
         }
         public int ii = 1,VAL;
         public string VALS, s;
-        public static int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i30, i31;
+        public static decimal i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i30, i31;
         private void cmbsales_DropDownClosed(object sender, EventArgs e)
         {
             List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
@@ -188,7 +188,7 @@ namespace Foodcourt.View.Oprs
         public static string DATE;
         public void METHOD()
         {
-            List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
+            List<KeyValuePair<string, decimal>> ValueList = new List<KeyValuePair<string, decimal>>();
             int days = DateTime.DaysInMonth(YEAR1, MONTH);
             for (int j = 1; j <= days; j++)
             {
@@ -201,8 +201,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i1 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("01", i1));
+                        i1 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("01", i1));
                     }
                 }
                 if (j==2)
@@ -215,8 +215,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i2 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("02", i2));
+                        i2 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("02", i2));
                     }
                 }
                 if (j==3)
@@ -229,8 +229,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i3 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("03", i3));
+                        i3 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("03", i3));
                     }
                 }
                 if (j==4)
@@ -243,8 +243,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i4 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("04", i4));
+                        i4 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("04", i4));
                     }
                 }
                 if (j == 5)
@@ -257,8 +257,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i5 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("05", i5));
+                        i5 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("05", i5));
                     }
                 }
                 if (j == 6)
@@ -271,8 +271,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i6 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("06", i6));
+                        i6 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("06", i6));
                     }
                 }
                 if (j == 7)
@@ -285,8 +285,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i7 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("07", i7));
+                        i7 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("07", i7));
                     }
                 }
                 if (j == 8)
@@ -299,8 +299,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i8 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("08", i8));
+                        i8 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("08", i8));
                     }
                 }
                 if (j == 9)
@@ -313,8 +313,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i9 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("09", i9));
+                        i9 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("09", i9));
                     }
                 }
                 if (j == 10)
@@ -327,8 +327,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i10 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("10", i10));
+                        i10 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("10", i10));
                     }
                 }
                 if (j == 11)
@@ -341,8 +341,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i11 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("11", i11));
+                        i11 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("11", i11));
                     }
                 }
                 if (j == 12)
@@ -355,8 +355,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i12 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("12", i12));
+                        i12 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("12", i12));
                     }
                 }
                 if (j == 13)
@@ -369,8 +369,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i13 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("13", i13));
+                        i13 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("13", i13));
                     }
                 }
                 if (j == 14)
@@ -383,8 +383,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i14 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("14", i14));
+                        i14 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("14", i14));
                     }
                 }
                 if (j == 15)
@@ -397,8 +397,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i15 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("15", i15));
+                        i15 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("15", i15));
                     }
                 }
                 if (j == 16)
@@ -411,8 +411,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i16 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("16", i16));
+                        i16 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("16", i16));
                     }
                 }
                 if (j == 17)
@@ -425,8 +425,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i17 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("17", i17));
+                        i17 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("17", i17));
                     }
                 }
                 if (j == 18)
@@ -439,8 +439,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i18 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("18", i18));
+                        i18 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("18", i18));
                     }
                 }
                 if (j == 19)
@@ -453,8 +453,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i19 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("19", i19));
+                        i19 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("19", i19));
                     }
                 }
                 if (j == 20)
@@ -467,8 +467,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i20 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("20", i20));
+                        i20 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("20", i20));
                     }
                 }
                 if (j == 21)
@@ -481,8 +481,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i21 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("21", i21));
+                        i21 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("21", i21));
                     }
                 }
                 if (j == 22)
@@ -495,8 +495,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i22 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("22", i22));
+                        i22 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("22", i22));
                     }
                 }
                 if (j == 23)
@@ -509,8 +509,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i23 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("23", i23));
+                        i23 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("23", i23));
                     }
                 }
                 if (j == 24)
@@ -523,8 +523,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i24 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("24", i24));
+                        i24 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("24", i24));
                     }
                 }
                 if (j == 25)
@@ -537,8 +537,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i25 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("25", i25));
+                        i25 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("25", i25));
                     }
                 }
                 if (j == 26)
@@ -551,8 +551,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i26 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("26", i26));
+                        i26 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("26", i26));
                     }
                 }
                 if (j == 27)
@@ -565,8 +565,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i27 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("27", i27));
+                        i27 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("27", i27));
                     }
                 }
                 if (j == 28)
@@ -579,8 +579,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i28 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("28", i28));
+                        i28 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("28", i28));
                     }
                 }
                 if (j == 29)
@@ -593,8 +593,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i29 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("29", i29));
+                        i29 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("29", i29));
                     }
                 }
                 if (j == 30)
@@ -607,8 +607,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i30 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("30", i30));
+                        i30 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("30", i30));
                     }
                 }
                 if (j == 31)
@@ -621,8 +621,8 @@ namespace Foodcourt.View.Oprs
                     else
                     {
                         VALS = DS.Rows[0]["Total"].ToString();
-                        i31 = int.Parse(VALS);
-                        ValueList.Add(new KeyValuePair<string, int>("31", i31));
+                        i31 = Convert.ToDecimal(VALS);
+                        ValueList.Add(new KeyValuePair<string, decimal>("31", i31));
                     }
                 }
             }
@@ -630,75 +630,75 @@ namespace Foodcourt.View.Oprs
         public static string date;
         private void showColumnChart()
         {
-            List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
-            ValueList.Add(new KeyValuePair<string, int>("01", i1));
-            ValueList.Add(new KeyValuePair<string, int>("02", i2));
-            ValueList.Add(new KeyValuePair<string, int>("03", i3));
-            ValueList.Add(new KeyValuePair<string, int>("04", i4));
-            ValueList.Add(new KeyValuePair<string, int>("05", i5));
-            ValueList.Add(new KeyValuePair<string, int>("06", i6));
-            ValueList.Add(new KeyValuePair<string, int>("07", i7));
-            ValueList.Add(new KeyValuePair<string, int>("08", i8));
-            ValueList.Add(new KeyValuePair<string, int>("09", i9));
-            ValueList.Add(new KeyValuePair<string, int>("10", i10));
-            ValueList.Add(new KeyValuePair<string, int>("11", i11));
-            ValueList.Add(new KeyValuePair<string, int>("12", i12));
-            ValueList.Add(new KeyValuePair<string, int>("13", i13));
-            ValueList.Add(new KeyValuePair<string, int>("14", i14));
-            ValueList.Add(new KeyValuePair<string, int>("15", i15));
-            ValueList.Add(new KeyValuePair<string, int>("16", i16));
-            ValueList.Add(new KeyValuePair<string, int>("17", i17));
-            ValueList.Add(new KeyValuePair<string, int>("18", i18));
-            ValueList.Add(new KeyValuePair<string, int>("19", i19));
-            ValueList.Add(new KeyValuePair<string, int>("20", i20));
-            ValueList.Add(new KeyValuePair<string, int>("21", i21));
-            ValueList.Add(new KeyValuePair<string, int>("22", i22));
-            ValueList.Add(new KeyValuePair<string, int>("23", i23));
-            ValueList.Add(new KeyValuePair<string, int>("24", i24));
-            ValueList.Add(new KeyValuePair<string, int>("25", i25));
-            ValueList.Add(new KeyValuePair<string, int>("26", i26));
-            ValueList.Add(new KeyValuePair<string, int>("27", i27));
-            ValueList.Add(new KeyValuePair<string, int>("28", i28));
-            ValueList.Add(new KeyValuePair<string, int>("29", i29));
-            ValueList.Add(new KeyValuePair<string, int>("30", i30));
-            ValueList.Add(new KeyValuePair<string, int>("31", i31));
+            List<KeyValuePair<string, decimal>> ValueList = new List<KeyValuePair<string, decimal>>();
+            ValueList.Add(new KeyValuePair<string, decimal>("01", i1));
+            ValueList.Add(new KeyValuePair<string, decimal>("02", i2));
+            ValueList.Add(new KeyValuePair<string, decimal>("03", i3));
+            ValueList.Add(new KeyValuePair<string, decimal>("04", i4));
+            ValueList.Add(new KeyValuePair<string, decimal>("05", i5));
+            ValueList.Add(new KeyValuePair<string, decimal>("06", i6));
+            ValueList.Add(new KeyValuePair<string, decimal>("07", i7));
+            ValueList.Add(new KeyValuePair<string, decimal>("08", i8));
+            ValueList.Add(new KeyValuePair<string, decimal>("09", i9));
+            ValueList.Add(new KeyValuePair<string, decimal>("10", i10));
+            ValueList.Add(new KeyValuePair<string, decimal>("11", i11));
+            ValueList.Add(new KeyValuePair<string, decimal>("12", i12));
+            ValueList.Add(new KeyValuePair<string, decimal>("13", i13));
+            ValueList.Add(new KeyValuePair<string, decimal>("14", i14));
+            ValueList.Add(new KeyValuePair<string, decimal>("15", i15));
+            ValueList.Add(new KeyValuePair<string, decimal>("16", i16));
+            ValueList.Add(new KeyValuePair<string, decimal>("17", i17));
+            ValueList.Add(new KeyValuePair<string, decimal>("18", i18));
+            ValueList.Add(new KeyValuePair<string, decimal>("19", i19));
+            ValueList.Add(new KeyValuePair<string, decimal>("20", i20));
+            ValueList.Add(new KeyValuePair<string, decimal>("21", i21));
+            ValueList.Add(new KeyValuePair<string, decimal>("22", i22));
+            ValueList.Add(new KeyValuePair<string, decimal>("23", i23));
+            ValueList.Add(new KeyValuePair<string, decimal>("24", i24));
+            ValueList.Add(new KeyValuePair<string, decimal>("25", i25));
+            ValueList.Add(new KeyValuePair<string, decimal>("26", i26));
+            ValueList.Add(new KeyValuePair<string, decimal>("27", i27));
+            ValueList.Add(new KeyValuePair<string, decimal>("28", i28));
+            ValueList.Add(new KeyValuePair<string, decimal>("29", i29));
+            ValueList.Add(new KeyValuePair<string, decimal>("30", i30));
+            ValueList.Add(new KeyValuePair<string, decimal>("31", i31));
 
            //Setting data for column chart
             columnChart.DataContext = ValueList;
         }
         private void showColumnChart30()
         {
-            List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
-            ValueList.Add(new KeyValuePair<string, int>("01", i1));
-            ValueList.Add(new KeyValuePair<string, int>("02", i2));
-            ValueList.Add(new KeyValuePair<string, int>("03", i3));
-            ValueList.Add(new KeyValuePair<string, int>("04", i4));
-            ValueList.Add(new KeyValuePair<string, int>("05", i5));
-            ValueList.Add(new KeyValuePair<string, int>("06", i6));
-            ValueList.Add(new KeyValuePair<string, int>("07", i7));
-            ValueList.Add(new KeyValuePair<string, int>("08", i8));
-            ValueList.Add(new KeyValuePair<string, int>("09", i9));
-            ValueList.Add(new KeyValuePair<string, int>("10", i10));
-            ValueList.Add(new KeyValuePair<string, int>("11", i11));
-            ValueList.Add(new KeyValuePair<string, int>("12", i12));
-            ValueList.Add(new KeyValuePair<string, int>("13", i13));
-            ValueList.Add(new KeyValuePair<string, int>("14", i14));
-            ValueList.Add(new KeyValuePair<string, int>("15", i15));
-            ValueList.Add(new KeyValuePair<string, int>("16", i16));
-            ValueList.Add(new KeyValuePair<string, int>("17", i17));
-            ValueList.Add(new KeyValuePair<string, int>("18", i18));
-            ValueList.Add(new KeyValuePair<string, int>("19", i19));
-            ValueList.Add(new KeyValuePair<string, int>("20", i20));
-            ValueList.Add(new KeyValuePair<string, int>("21", i21));
-            ValueList.Add(new KeyValuePair<string, int>("22", i22));
-            ValueList.Add(new KeyValuePair<string, int>("23", i23));
-            ValueList.Add(new KeyValuePair<string, int>("24", i24));
-            ValueList.Add(new KeyValuePair<string, int>("25", i25));
-            ValueList.Add(new KeyValuePair<string, int>("26", i26));
-            ValueList.Add(new KeyValuePair<string, int>("27", i27));
-            ValueList.Add(new KeyValuePair<string, int>("28", i28));
-            ValueList.Add(new KeyValuePair<string, int>("29", i29));
-            ValueList.Add(new KeyValuePair<string, int>("30", i30));
+            List<KeyValuePair<string, decimal>> ValueList = new List<KeyValuePair<string, decimal>>();
+            ValueList.Add(new KeyValuePair<string, decimal>("01", i1));
+            ValueList.Add(new KeyValuePair<string, decimal>("02", i2));
+            ValueList.Add(new KeyValuePair<string, decimal>("03", i3));
+            ValueList.Add(new KeyValuePair<string, decimal>("04", i4));
+            ValueList.Add(new KeyValuePair<string, decimal>("05", i5));
+            ValueList.Add(new KeyValuePair<string, decimal>("06", i6));
+            ValueList.Add(new KeyValuePair<string, decimal>("07", i7));
+            ValueList.Add(new KeyValuePair<string, decimal>("08", i8));
+            ValueList.Add(new KeyValuePair<string, decimal>("09", i9));
+            ValueList.Add(new KeyValuePair<string, decimal>("10", i10));
+            ValueList.Add(new KeyValuePair<string, decimal>("11", i11));
+            ValueList.Add(new KeyValuePair<string, decimal>("12", i12));
+            ValueList.Add(new KeyValuePair<string, decimal>("13", i13));
+            ValueList.Add(new KeyValuePair<string, decimal>("14", i14));
+            ValueList.Add(new KeyValuePair<string, decimal>("15", i15));
+            ValueList.Add(new KeyValuePair<string, decimal>("16", i16));
+            ValueList.Add(new KeyValuePair<string, decimal>("17", i17));
+            ValueList.Add(new KeyValuePair<string, decimal>("18", i18));
+            ValueList.Add(new KeyValuePair<string, decimal>("19", i19));
+            ValueList.Add(new KeyValuePair<string, decimal>("20", i20));
+            ValueList.Add(new KeyValuePair<string, decimal>("21", i21));
+            ValueList.Add(new KeyValuePair<string, decimal>("22", i22));
+            ValueList.Add(new KeyValuePair<string, decimal>("23", i23));
+            ValueList.Add(new KeyValuePair<string, decimal>("24", i24));
+            ValueList.Add(new KeyValuePair<string, decimal>("25", i25));
+            ValueList.Add(new KeyValuePair<string, decimal>("26", i26));
+            ValueList.Add(new KeyValuePair<string, decimal>("27", i27));
+            ValueList.Add(new KeyValuePair<string, decimal>("28", i28));
+            ValueList.Add(new KeyValuePair<string, decimal>("29", i29));
+            ValueList.Add(new KeyValuePair<string, decimal>("30", i30));
             //ValueList.Add(new KeyValuePair<string, int>("31", i31));
 
             //Setting data for column chart
@@ -706,35 +706,35 @@ namespace Foodcourt.View.Oprs
         }
         private void showColumnChart28()
         {
-            List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
-            ValueList.Add(new KeyValuePair<string, int>("01", i1));
-            ValueList.Add(new KeyValuePair<string, int>("02", i2));
-            ValueList.Add(new KeyValuePair<string, int>("03", i3));
-            ValueList.Add(new KeyValuePair<string, int>("04", i4));
-            ValueList.Add(new KeyValuePair<string, int>("05", i5));
-            ValueList.Add(new KeyValuePair<string, int>("06", i6));
-            ValueList.Add(new KeyValuePair<string, int>("07", i7));
-            ValueList.Add(new KeyValuePair<string, int>("08", i8));
-            ValueList.Add(new KeyValuePair<string, int>("09", i9));
-            ValueList.Add(new KeyValuePair<string, int>("10", i10));
-            ValueList.Add(new KeyValuePair<string, int>("11", i11));
-            ValueList.Add(new KeyValuePair<string, int>("12", i12));
-            ValueList.Add(new KeyValuePair<string, int>("13", i13));
-            ValueList.Add(new KeyValuePair<string, int>("14", i14));
-            ValueList.Add(new KeyValuePair<string, int>("15", i15));
-            ValueList.Add(new KeyValuePair<string, int>("16", i16));
-            ValueList.Add(new KeyValuePair<string, int>("17", i17));
-            ValueList.Add(new KeyValuePair<string, int>("18", i18));
-            ValueList.Add(new KeyValuePair<string, int>("19", i19));
-            ValueList.Add(new KeyValuePair<string, int>("20", i20));
-            ValueList.Add(new KeyValuePair<string, int>("21", i21));
-            ValueList.Add(new KeyValuePair<string, int>("22", i22));
-            ValueList.Add(new KeyValuePair<string, int>("23", i23));
-            ValueList.Add(new KeyValuePair<string, int>("24", i24));
-            ValueList.Add(new KeyValuePair<string, int>("25", i25));
-            ValueList.Add(new KeyValuePair<string, int>("26", i26));
-            ValueList.Add(new KeyValuePair<string, int>("27", i27));
-            ValueList.Add(new KeyValuePair<string, int>("28", i28));
+            List<KeyValuePair<string, decimal>> ValueList = new List<KeyValuePair<string, decimal>>();
+            ValueList.Add(new KeyValuePair<string, decimal>("01", i1));
+            ValueList.Add(new KeyValuePair<string, decimal>("02", i2));
+            ValueList.Add(new KeyValuePair<string, decimal>("03", i3));
+            ValueList.Add(new KeyValuePair<string, decimal>("04", i4));
+            ValueList.Add(new KeyValuePair<string, decimal>("05", i5));
+            ValueList.Add(new KeyValuePair<string, decimal>("06", i6));
+            ValueList.Add(new KeyValuePair<string, decimal>("07", i7));
+            ValueList.Add(new KeyValuePair<string, decimal>("08", i8));
+            ValueList.Add(new KeyValuePair<string, decimal>("09", i9));
+            ValueList.Add(new KeyValuePair<string, decimal>("10", i10));
+            ValueList.Add(new KeyValuePair<string, decimal>("11", i11));
+            ValueList.Add(new KeyValuePair<string, decimal>("12", i12));
+            ValueList.Add(new KeyValuePair<string, decimal>("13", i13));
+            ValueList.Add(new KeyValuePair<string, decimal>("14", i14));
+            ValueList.Add(new KeyValuePair<string, decimal>("15", i15));
+            ValueList.Add(new KeyValuePair<string, decimal>("16", i16));
+            ValueList.Add(new KeyValuePair<string, decimal>("17", i17));
+            ValueList.Add(new KeyValuePair<string, decimal>("18", i18));
+            ValueList.Add(new KeyValuePair<string, decimal>("19", i19));
+            ValueList.Add(new KeyValuePair<string, decimal>("20", i20));
+            ValueList.Add(new KeyValuePair<string, decimal>("21", i21));
+            ValueList.Add(new KeyValuePair<string, decimal>("22", i22));
+            ValueList.Add(new KeyValuePair<string, decimal>("23", i23));
+            ValueList.Add(new KeyValuePair<string, decimal>("24", i24));
+            ValueList.Add(new KeyValuePair<string, decimal>("25", i25));
+            ValueList.Add(new KeyValuePair<string, decimal>("26", i26));
+            ValueList.Add(new KeyValuePair<string, decimal>("27", i27));
+            ValueList.Add(new KeyValuePair<string, decimal>("28", i28));
             //ValueList.Add(new KeyValuePair<string, int>("29", i29));
             //ValueList.Add(new KeyValuePair<string, int>("30", i30));
             //ValueList.Add(new KeyValuePair<string, int>("31", i31));
