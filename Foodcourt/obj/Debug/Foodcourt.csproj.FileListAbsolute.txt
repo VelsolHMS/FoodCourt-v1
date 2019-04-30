@@ -299,6 +299,7 @@ C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesi
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportViewer.WinForms.xml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csprojAssemblyReference.cache
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\MainWindow.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\MainWindow.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Mis.g.cs
@@ -309,6 +310,7 @@ C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\DashBoa
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Daywiserpt.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemCategory.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemName.g.cs
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemRateListReport.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Itemwiserpt.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\login.g.cs
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidout.g.cs
@@ -334,6 +336,7 @@ C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\DashBoa
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Daywiserpt.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemCategory.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemName.baml
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\ItemRateListReport.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Itemwiserpt.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\login.baml
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidout.baml
