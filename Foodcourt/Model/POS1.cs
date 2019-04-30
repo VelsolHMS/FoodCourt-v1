@@ -20,7 +20,7 @@ namespace Foodcourt.Model
         public DataTable GETCTG()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT CTG_Name FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE()";
+            string S = "SELECT CTG_Name FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE() AND CTG_Status='Active'";
             DataTable dt= DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return dt;
         }

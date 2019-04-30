@@ -7,18 +7,16 @@
       xmlns:local="clr-namespace:Foodcourt.View"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d" 
-     Height="350" Width="600"
+     Height="450" Width="850"
       Title="Tax">
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>
-    <Viewbox>
-    <material:Card Height="350" Width="600" material:ShadowAssist.ShadowDepth="Depth3">
+    <material:Card Height="450" Width="850" material:ShadowAssist.ShadowDepth="Depth3">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="15*"/>
-                <RowDefinition Height="116*"/>
-                <RowDefinition Height="44*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="92*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel Background="#FF5180A0">
@@ -26,33 +24,44 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
-                        <TextBlock Text="Tax Name" Width="130" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBox x:Name="nametxt" TabIndex="0" Width="220" Margin="30,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="55*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,75,0,0">
+                            <TextBlock Text="Tax Name" Width="120" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBlock Text=":" Width="10" FontFamily="Sitka Display" TextAlignment="Center" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBox x:Name="nametxt" TabIndex="0" Width="150" Margin="15,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0">
+                            <TextBlock Text="Percentage" Width="120" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBlock Text=":" Width="10" FontFamily="Sitka Display" TextAlignment="Center" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBox x:Name="percentagetxt" TabIndex="1" Width="150" Margin="15,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Percentage,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
+                            <TextBlock Text="Reporting Name" Width="120" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBlock Text=":" Width="10" FontFamily="Sitka Display" TextAlignment="Center" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <TextBox x:Name="reportingnametxt" TabIndex="2" Width="150" Margin="15,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,40,0,0" HorizontalAlignment="Center">
+                            <Button Name="btnclear" Width="100" Content="Clear" FontSize="22" FontFamily="Sitka Display" Height="35" Margin="0,0,0,0" Click="btnclear_Click"/>
+                            <Button Name="btnsave" Width="100" TabIndex="3" IsDefault="True" Margin="50,0,0,0" FontSize="22" FontFamily="Sitka Display" Height="35" Click="btnsave_Click"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
-                        <TextBlock Text="Percentage" Width="130" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBox x:Name="percentagetxt" TabIndex="1" Width="220" Margin="30,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Percentage,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
-                        <TextBlock Text="Reporting Name" Width="130" FontFamily="Sitka Display" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                        <TextBox x:Name="reportingnametxt" TabIndex="2" Width="220" Margin="30,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="2">
-                <Viewbox>
-                    <Button Name="btnclear" Width="100" Content="Clear" FontSize="22" FontFamily="Sitka Display" Height="35" Margin="130.5,10,369.5,43" Click="btnclear_Click"/>
-                </Viewbox>
-                <Viewbox>
-                    <Button Name="btnsave" Width="100" TabIndex="3" IsDefault="True" Content="Save" FontSize="22" FontFamily="Sitka Display" Height="35" Click="btnsave_Click" Margin="371.5,10,128.5,43"/>
-                </Viewbox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <DataGrid Name="taxes" BorderBrush="#FFD4D4D4" BorderThickness="1.5" Margin="0,10,10,10" PreviewMouseLeftButtonUp="Taxes_PreviewMouseLeftButtonUp" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanUserAddRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding TAX_ID}"/>
+                            <DataGridTextColumn Header="TaxName" Binding="{Binding TAX_Name}"/>
+                            <DataGridTextColumn Header="ReportingName" Binding="{Binding Tax_ReportingName}"/>
+                            <DataGridTextColumn Header="Percentage" Binding="{Binding TAX_Percentage}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </Grid>
         </Grid>
     </material:Card>
-    </Viewbox>
 </Page>
