@@ -200,7 +200,7 @@ namespace Foodcourt.Model
         public DataTable itemstot()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total FROM FCBILLNO WHERE BILL_Id='" + A + "'";
+            string s = "SELECT CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount ,CONVERT(decimal(17,2),BILL_Tax) AS BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total FROM FCBILLNO WHERE BILL_Id='" + A + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
