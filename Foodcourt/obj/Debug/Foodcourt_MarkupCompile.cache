@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\
 Foodcourt
 none
 false
 DEBUG;TRACE
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\App.xaml
-22883748756
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\App.xaml
+26-4186186
 
-74-1477043941
-262096312722
-MainWindow.xaml;Mis.xaml;View\BillView.xaml;View\billwiserpt.xaml;View\CashHand.xaml;View\DashBoard.xaml;View\Daywiserpt.xaml;View\ItemCategory.xaml;View\ItemName.xaml;View\ItemRateListReport.xaml;View\Itemwiserpt.xaml;View\login.xaml;View\Paidout.xaml;View\Permissions.xaml;View\PettyCash.xaml;View\POS.xaml;View\Property.xaml;View\Registration.xaml;View\RPTS.xaml;View\Tax.xaml;View\taxrpt.xaml;View\Transaction.xaml;
+87-1915155930
+271284250545
+MainWindow.xaml;Mis.xaml;View\BillView.xaml;View\billwiserpt.xaml;View\CashHand.xaml;View\Cashhandrpt.xaml;View\DashBoard.xaml;View\Daywiserpt.xaml;View\ItemCategory.xaml;View\ItemName.xaml;View\ItemRateListReport.xaml;View\Itemwiserpt.xaml;View\login.xaml;View\Miscollectiorpt.xaml;View\Paidout.xaml;View\Paidoutrpt.xaml;View\Permissions.xaml;View\PettyCash.xaml;View\Pettycashrpt.xaml;View\POS.xaml;View\Property.xaml;View\Registration.xaml;View\RPTS.xaml;View\Tax.xaml;View\taxrpt.xaml;View\Transaction.xaml;
 
 False
 

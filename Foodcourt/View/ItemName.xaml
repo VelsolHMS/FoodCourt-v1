@@ -70,7 +70,7 @@
                                         <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                                         <ComboBox Name="status" TabIndex="6" Width="150" Margin="30,0,0,0">
                                             <ComboBoxItem Content="Active"></ComboBoxItem>
-                                            <ComboBoxItem Content="Inactive"></ComboBoxItem>
+                                            <ComboBoxItem Content="InActive"></ComboBoxItem>
                                         </ComboBox>
                                     </StackPanel>
                                 </StackPanel>
