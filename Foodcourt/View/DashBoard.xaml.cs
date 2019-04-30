@@ -190,7 +190,7 @@ namespace Foodcourt.View.Oprs
         {
             List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
             int days = DateTime.DaysInMonth(YEAR1, MONTH);
-            for (int j = 1; j < days; j++)
+            for (int j = 1; j <= days; j++)
             {
                 if (j==1)
                 {

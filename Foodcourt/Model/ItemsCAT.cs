@@ -52,7 +52,7 @@ namespace Foodcourt.Model
         public DataTable FillDataGrid()
         {
             var list = new List<SqlParameter>();
-            string g = "select CTG_Name,CTG_ActiveDate,CTG_ReportingName from FCRITMCTG";
+            string g = "select CTG_Name,CTG_ActiveDate,CTG_ReportingName,CTG_Status from FCRITMCTG";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(g, list);
             return dt;
         }
