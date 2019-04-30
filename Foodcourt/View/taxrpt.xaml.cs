@@ -33,11 +33,8 @@ namespace Foodcourt.View
             re.Load("../../View/TaxReport.rpt");
             re.SetDataSource(dd);
             re.Subreports[0].SetDataSource(d);
-            CrystalReportViewer1.Visibility = Visibility.Visible;
-            taxRPT.Visibility = Visibility.Hidden;
-            CrystalReportViewer1.ShowRefreshButton = false;
+            re.PrintToPrinter(1, false, 0, 0);
             re.Refresh();
-            CrystalReportViewer1.ViewerCore.ReportSource = re;
         }
         public DataTable report()
         {

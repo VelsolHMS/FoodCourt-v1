@@ -1,27 +1,27 @@
-﻿<Page x:Class="Foodcourt.View.taxrpt"
+﻿<Page x:Class="Foodcourt.View.Miscollectiorpt"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Foodcourt.View"
-       xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
       xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
       mc:Ignorable="d" 
       Height="800" Width="1000"
-      Title="taxrpt">
+      Title="Miscollectiorpt">
 
     <Grid>
         <material:Card Height="800" >
             <Grid>
-                <material:Card Name="taxRPT" Height="305" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
+                <material:Card Name="miscollectionRPT" Height="305" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="29*"/>
                             <RowDefinition Height="321*"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Background="#FF5180A0">
-                            <TextBlock Text="Tax Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                            <TextBlock Text="Mis-collection Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
                             <Button Name="BtnClose" Margin="325,0,0,0" Height="Auto" BorderBrush="{x:Null}" Click="BtnClose_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
