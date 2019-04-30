@@ -39,6 +39,10 @@
                         <MenuItem Header="Month wise Sales" Name="MWS" Click="MWS_Click"/>
                         <MenuItem Header="Tax Report" Name="TR" Click="TR_Click"/>
                         <MenuItem Header="Bill Wise Sales" Name="BWS" Click="BWS_Click"/>
+                        <MenuItem Header="Pettycash Report" Name="petty" Click="petty_Click" ></MenuItem>
+                        <MenuItem Header="Paidoutcash" Name="paid" Click="paid_Click"></MenuItem>
+                        <MenuItem Header="Miscollection" Name="Miscollection" Click="Miscollection_Click"></MenuItem>
+                        <MenuItem Header="Cashhandover" Name="cashhandoverrpt" Click="cashhandoverrpt_Click"></MenuItem>
                     </MenuItem>
                     <MenuItem Name="MIDash" Header="Dashboard" Padding="20,0,20,3" Click="MIDash_Click"/>
                 </Menu>

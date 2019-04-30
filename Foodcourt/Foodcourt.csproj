@@ -52,6 +52,9 @@
       <HintPath>..\packages\MaterialDesignThemes.2.4.1.1101\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportingServices.Interfaces, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.Interfaces.1.0.0\lib\Microsoft.ReportingServices.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\New folder (3)\Velstay1\Velstay\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -90,6 +93,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FCReport\CashHandDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashHandDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\CashhandReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashhandReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FCReport\itemratelist.cs">
       <DependentUpon>itemratelist.xsd</DependentUpon>
     </Compile>
@@ -105,6 +119,28 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemRateReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FCReport\MiccollectionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiccollectionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FCReport\miscollectionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>miscollectionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\paidoutdataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>paidoutdataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\PaidoutReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaidoutReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ListExtentions.cs" />
@@ -227,6 +263,9 @@
     <Compile Include="View\CashHand.xaml.cs">
       <DependentUpon>CashHand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Cashhandrpt.xaml.cs">
+      <DependentUpon>Cashhandrpt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DashBoard.xaml.cs">
       <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
@@ -279,14 +318,37 @@
     <Compile Include="View\login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Miscollectiorpt.xaml.cs">
+      <DependentUpon>Miscollectiorpt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Paidout.xaml.cs">
       <DependentUpon>Paidout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Paidoutrpt.xaml.cs">
+      <DependentUpon>Paidoutrpt.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Permissions.xaml.cs">
       <DependentUpon>Permissions.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PettyCash.xaml.cs">
       <DependentUpon>PettyCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\pettycashdataset.cs">
+      <DependentUpon>pettycashdataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\pettycashdataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pettycashdataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\pettycashreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pettycashreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Pettycashrpt.xaml.cs">
+      <DependentUpon>Pettycashrpt.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\POS.xaml.cs">
       <DependentUpon>POS.xaml</DependentUpon>
@@ -354,6 +416,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Cashhandrpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DashBoard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -382,9 +448,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Miscollectiorpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Paidout.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Paidoutrpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Permissions.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -393,6 +467,10 @@
     <Page Include="View\PettyCash.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pettycashrpt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\POS.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -437,9 +515,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="FCReport\CashhandReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CashhandReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCReport\ItemRateReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ItemRateReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCReport\MiccollectionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MiccollectionReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCReport\PaidoutReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaidoutReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -493,6 +583,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Itemwise.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\pettycashreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pettycashreport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TaxReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TaxReport.cs</LastGenOutput>
@@ -502,6 +596,17 @@
       <LastGenOutput>TaxReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Design\projectGuides.guides" />
+    <None Include="FCReport\CashHandDataSet.xsc">
+      <DependentUpon>CashHandDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\CashHandDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashHandDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FCReport\CashHandDataSet.xss">
+      <DependentUpon>CashHandDataSet.xsd</DependentUpon>
+    </None>
     <None Include="FCReport\itemratelist.xsc">
       <DependentUpon>itemratelist.xsd</DependentUpon>
     </None>
@@ -512,6 +617,28 @@
     </None>
     <None Include="FCReport\itemratelist.xss">
       <DependentUpon>itemratelist.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\miscollectionDataSet.xsc">
+      <DependentUpon>miscollectionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\miscollectionDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>miscollectionDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FCReport\miscollectionDataSet.xss">
+      <DependentUpon>miscollectionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\paidoutdataset.xsc">
+      <DependentUpon>paidoutdataset.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\paidoutdataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>paidoutdataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FCReport\paidoutdataset.xss">
+      <DependentUpon>paidoutdataset.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -616,6 +743,17 @@
     </None>
     <None Include="View\Daywisedataset.xss">
       <DependentUpon>Daywisedataset.xsd</DependentUpon>
+    </None>
+    <None Include="View\pettycashdataset.xsc">
+      <DependentUpon>pettycashdataset.xsd</DependentUpon>
+    </None>
+    <None Include="View\pettycashdataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pettycashdataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\pettycashdataset.xss">
+      <DependentUpon>pettycashdataset.xsd</DependentUpon>
     </None>
     <None Include="View\Taxreport.xsc">
       <DependentUpon>Taxreport.xsd</DependentUpon>
