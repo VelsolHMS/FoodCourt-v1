@@ -359,3 +359,12 @@ C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportingServices.Interfaces.dll
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.g.cs
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.baml
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.baml
