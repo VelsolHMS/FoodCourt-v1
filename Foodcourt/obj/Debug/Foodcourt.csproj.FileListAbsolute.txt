@@ -389,7 +389,6 @@ D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportViewer.WinForms.xml
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
-D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csprojAssemblyReference.cache
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\MainWindow.baml
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\MainWindow.g.cs
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Mis.g.cs
@@ -444,3 +443,4 @@ D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CoreCompileInputs
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+D:\FOODCOURT\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csprojAssemblyReference.cache
