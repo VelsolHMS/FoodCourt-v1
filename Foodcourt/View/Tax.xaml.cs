@@ -2,6 +2,7 @@
 using Foodcourt.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,16 @@ namespace Foodcourt.View
     {
         tax T = new tax();
         public int error = 0;
+        public int taxId = 0;
+        DataTable dt_taxes;
         public Tax()
         {
             DataF.COUNT = 0;
             InitializeComponent();
             DataF.COUNT = 1;
+            btnsave.Content = "Save";
+            dt_taxes = T.GetTax();
+            taxes.ItemsSource = dt_taxes.DefaultView;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -55,9 +61,18 @@ namespace Foodcourt.View
                     T.TAX_Percentage = Convert.ToDecimal(percentagetxt.Text);
                     T.TAX_Name = nametxt.Text;
                     T.Tax_ReportingName = reportingnametxt.Text;
-                    T.Insert();
-                    Clear();
-                    MessageBox.Show("Inserted Succesfully.!");
+                    if (btnsave.Content.ToString() == "Save")
+                    {
+                        T.Insert();
+                        MessageBox.Show("Inserted Succesfully.!");
+                    }
+                    else
+                    {
+                        T.TAX_ID = taxId.ToString();
+                        T.Update();
+                        MessageBox.Show("Updated Succesfully.!");
+                    }
+                    this.NavigationService.Refresh();
                 }
             }
             catch(SystemException)
@@ -68,11 +83,29 @@ namespace Foodcourt.View
             percentagetxt.Text = "";
             nametxt.Text = "";
             reportingnametxt.Text = "";
+            btnsave.Content = "Save";
         }
         private void btnclear_Click(object sender, RoutedEventArgs e)
         {
             Clear();
             this.NavigationService.Refresh();
+        }
+
+        private void Taxes_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int selected_index = taxes.SelectedIndex;
+            if (selected_index < 0)
+            {
+            }
+            else
+            {
+                btnsave.Content = "Update";
+                dt_taxes = T.GetTax();
+                taxId = Convert.ToInt32(dt_taxes.Rows[selected_index]["TAX_ID"]);
+                nametxt.Text = dt_taxes.Rows[selected_index]["TAX_Name"].ToString();
+                percentagetxt.Text = dt_taxes.Rows[selected_index]["TAX_Percentage"].ToString();
+                reportingnametxt.Text = dt_taxes.Rows[selected_index]["Tax_ReportingName"].ToString();
+            }
         }
     }
 }
