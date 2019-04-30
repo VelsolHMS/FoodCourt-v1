@@ -368,3 +368,12 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.C
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportingServices.Interfaces.dll
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Cashhandrpt.baml
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Miscollectiorpt.baml
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Paidoutrpt.baml
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.baml

@@ -1512,9 +1512,9 @@ namespace Foodcourt.View.Oprs
                         decimal s4;
                         if (txtttl.Text == "" || txtttl.Text == "0.00") { s3 = decimal.Parse("0.00"); s4 = decimal.Parse("0.00"); }
                         else { s3 = Convert.ToDecimal(txtttl.Text); s4 = s3 - s1; }
-                        txtttl.Text = Convert.ToString(s4);
-                        txtgst.Text = Convert.ToString(s5);
-                        txtgttl.Text = Convert.ToString(s4 + s5);
+                        txtttl.Text = Math.Round(s4, 2, MidpointRounding.AwayFromZero).ToString();
+                        txtgst.Text = Math.Round(s5, 2, MidpointRounding.AwayFromZero).ToString();
+                        txtgttl.Text = Math.Round((s4+s5), 2, MidpointRounding.AwayFromZero).ToString();
                         total.Text = "0";
                         tot1 = 0;
                     }
@@ -2098,6 +2098,7 @@ namespace Foodcourt.View.Oprs
 
         public decimal ta1, ta2, ta3, ta4, ta5, ta6, ta7, ta8, ta9, ta10, ta11, ta12, ta13, ta14, ta15, ta16, ta17, ta18, ta19, ta20;
         public decimal tot1, tot2, tot3, tot4, tot5, tot6, tot7, tot8, tot9, tot10, tot11, tot12, tot13, tot14, tot15, tot16, tot17, tot18, tot19, tot20;
+        public decimal totbill, billtax, gtotbill;
         private void quantity_LostFocus(object sender, RoutedEventArgs e)
         {
             txtttl.Text = "";
@@ -2139,11 +2140,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate1 = 0;
+                    gtotbill = a + b; rate1 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2188,11 +2192,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate1 = 0;
+                    gtotbill = a + b; rate1 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2241,11 +2248,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate2 = 0;
+                    gtotbill = a + b; rate2 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2288,11 +2298,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate2 = 0;
+                    gtotbill = a + b; rate2 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2339,11 +2352,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate3 = 0;
+                    gtotbill = a + b; rate3 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2388,11 +2404,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate3 = 0;
+                    gtotbill = a + b; rate3 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2440,11 +2459,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate4 = 0;
+                    gtotbill =a + b; rate4 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2489,11 +2511,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate4 = 0;
+                    gtotbill = a + b; rate4 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2540,11 +2565,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate5 = 0;
+                    gtotbill = a + b; rate5 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
@@ -2589,11 +2617,14 @@ namespace Foodcourt.View.Oprs
                     txtttl.Text = "";
                     txtgst.Text = "";
                     txtgttl.Text = "";
-                    txtttl.Text = Convert.ToString(tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20);
-                    txtgst.Text = Convert.ToString(ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20);
+                    totbill = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
+                    billtax = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     decimal a = tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
-                    txtgttl.Text = Convert.ToString(a + b); rate5 = 0;
+                    gtotbill = a + b; rate5 = 0;
+                    txtttl.Text = Math.Round(totbill, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgst.Text = Math.Round(billtax, 2, MidpointRounding.AwayFromZero).ToString();
+                    txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
                 }
                 else
                 {
