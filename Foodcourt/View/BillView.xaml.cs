@@ -96,14 +96,6 @@ namespace Foodcourt.View.Oprs
                 }
             }
         }
-        private void dgBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void billwiseSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void btnsearch_Click(object sender, RoutedEventArgs e)
         {
             if (bill_date.Text == "")
@@ -136,10 +128,8 @@ namespace Foodcourt.View.Oprs
                 }
             }
         }
-
         public static int B_bill_no;
         public Decimal B_Tax, B_Total, B_GTotal;
-        public static DataTable DD = new DataTable();
         private void dgBill_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             int i = dgBill.SelectedIndex;
@@ -156,22 +146,22 @@ namespace Foodcourt.View.Oprs
                 }
                 Dtlview.Visibility = Visibility.Visible;
                 B_bill_no = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
-                B_Total = Convert.ToInt32(dt1.Rows[i]["BILL_Amount"]);
-                B_GTotal = Convert.ToInt32(dt1.Rows[i]["BILL_Total"]);
+                B_Total = Convert.ToDecimal(dt1.Rows[i]["BILL_Amount"]);
+                B_GTotal = Convert.ToDecimal(dt1.Rows[i]["BILL_Total"]);
                 B_Tax = Convert.ToDecimal(dt1.Rows[i]["BILL_Tax"]);
                 txtbillno.Text = B_bill_no.ToString();
-                txtbilldate.Text = dt1.Rows[i]["BILL_InsertDate"].ToString();
+                txtbilldate.Text = Convert.ToDateTime(dt1.Rows[i]["BILL_InsertDate"]).ToShortDateString();
                 txtnetamount.Text = Math.Round(B_Total, 2, MidpointRounding.AwayFromZero).ToString();
-                txtcgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
-                txtsgst.Text =Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtcgst.Text = Math.Round(B_Tax/2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtsgst.Text =Math.Round(B_Tax/2, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgttl.Text = Math.Round(B_GTotal, 2, MidpointRounding.AwayFromZero).ToString();
                 DataTable db = BV.GETITMNAM();
                 DataTable DD1 = new DataTable();
                 DD1.Columns.Add("BILITM_Name", typeof(string));
                 DD1.Columns.Add("BILLITM_Quanty", typeof(int));
-                DD1.Columns.Add("BILITM_Rate", typeof(int));
-                DD1.Columns.Add("BILITM_Tax", typeof(int));
-                DD1.Columns.Add("Total", typeof(int));
+                DD1.Columns.Add("BILITM_Rate", typeof(decimal));
+                DD1.Columns.Add("BILITM_Tax", typeof(decimal));
+                DD1.Columns.Add("Total", typeof(decimal));
                 for (int j = 0; j < db.Rows.Count; j++)
                 {
                     BILLITM_Quanty = Convert.ToDecimal(db.Rows[j]["BILLITM_Quanty"]);
@@ -392,7 +382,6 @@ namespace Foodcourt.View.Oprs
             row["GstNo"] = adres.Rows[0]["PRPT_GST"].ToString();
             row["BillNo"] = txtbillno.Text;
             row["BillDate"] = txtbilldate.Text;
-            
             row["Total"] = txtnetamount.Text;
             row["Cgst"] = txtcgst.Text;
             row["Sgst"] = txtsgst.Text;
@@ -407,15 +396,19 @@ namespace Foodcourt.View.Oprs
             dd.Columns.Add("Rate", typeof(decimal));
             dd.Columns.Add("Quantity", typeof(int));
             dd.Columns.Add("Amount", typeof(decimal));
+            dd.Columns.Add("Tax", typeof(decimal));
+            DataTable DD = BV.items();
             for (int i = 0; i < DD.Rows.Count; i++)
             {
                 DataRow r = dd.NewRow();
                 r["Item"] = DD.Rows[i]["BILITM_Name"].ToString();
                 r["Rate"] = DD.Rows[i]["BILITM_Rate"].ToString();
                 r["Quantity"] = DD.Rows[i]["BILLITM_Quanty"].ToString();
-                decimal d =Convert.ToDecimal(DD.Rows[i]["BILITM_Rate"].ToString());
-                int s =Convert.ToInt32(DD.Rows[i]["BILLITM_Quanty"].ToString());
-                r["Amount"] = d * s;
+                r["Tax"] = DD.Rows[i]["BILITM_Tax"].ToString();
+                decimal d = Convert.ToDecimal(DD.Rows[i]["BILITM_Rate"].ToString());
+                decimal t = Convert.ToDecimal(DD.Rows[i]["BILITM_Tax"].ToString());
+                int s = Convert.ToInt32(DD.Rows[i]["BILLITM_Quanty"].ToString());
+                r["Amount"] = Math.Round((d + t)*s,2,MidpointRounding.AwayFromZero);
                 dd.Rows.Add(r);
             }
             return dd;
@@ -423,6 +416,7 @@ namespace Foodcourt.View.Oprs
         public static DataTable a, a1;
         private void Miprint_Click(object sender, RoutedEventArgs e)
         {
+            A = Convert.ToInt32(txtbillno.Text);
             ReportDocument re = new ReportDocument();
             DataTable d1 = Dprint1();
             a = d1;
