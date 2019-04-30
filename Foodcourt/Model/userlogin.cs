@@ -13,9 +13,7 @@ namespace Foodcourt.Model
     {
         public string REG_UserName { get; set; }
         public string REG_Password { get; set; }
-
         public int a;
-
         public void User_Name()
         {
             var list = new List<SqlParameter>();

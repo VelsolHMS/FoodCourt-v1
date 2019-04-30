@@ -12,7 +12,7 @@ namespace DAL
     {
         public static T ExecuteCommand<T>(string cmdText, List<SqlParameter> listParams, CommandType cmdType = CommandType.Text)
         {
-            using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["sqlconstring"].ConnectionString))
+            using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["sqlConString"].ConnectionString))
             {
 
                 SqlCommand cmd = new SqlCommand();
