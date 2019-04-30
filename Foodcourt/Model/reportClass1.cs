@@ -14,20 +14,6 @@ namespace Foodcourt.Model
     {
 
         public string dateday { get; set; }
-        public DataTable daywise()
-        {
-            var list = new List<SqlParameter>();
-            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy FROM FCBILLNO A WHERE A.BILL_InsertDate ='"+ dateday +"'";
-            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return d;
-        }
-        public DataTable daywise1()
-        {
-            var list = new List<SqlParameter>();
-            string s = "SELECT SUM(BILL_Amount) AS AMOUNT,SUM(BILL_Tax) AS TAX FROM FCBILLNO WHERE BILL_InsertDate='" + dateday + "'";
-            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return d;
-        }
         public DataTable Address()
         {
             var list = new List<SqlParameter>();

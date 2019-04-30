@@ -12,6 +12,7 @@ namespace Foodcourt.Model
 {
     class Reports
     {
+        public string SelectedDate { get; set; }
         public static string Name, GST, Address;
         public DataTable PRPT()
         {
@@ -36,31 +37,10 @@ namespace Foodcourt.Model
             DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return d;
         }
-        public DataTable pettycash()
+        public DataTable DayWiseBills()
         {
             var list = new List<SqlParameter>();
-            string s = "select PCH_Name,PCH_Amount,PCH_InsertBy,PCH_InsertDate from FCPETCSH WHERE PCH_InsertDate between '"+Pettycashrpt.date+"' And '"+Pettycashrpt.date1+"'";
-            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return d;
-        }
-        public DataTable paidoutcash()
-        {
-            var list = new List<SqlParameter>();
-            string s = "select PO_Name,PO_Amount,PO_InsertBY,PO_InsertDate from FCPaidout where PO_InsertDate between '" + Paidoutrpt.date + "' And '" + Paidoutrpt.date1 + "'";
-            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return d;
-        }
-        public DataTable miscollection()
-        {
-            var list = new List<SqlParameter>();
-            string s = "select MIS_Name,MIS_Amount,MIS_InsertBY,MIS_InsertDate from FCMISSALES WHERE MIS_InsertDate BETWEEN '" + Miscollectiorpt.date + "' And '" + Miscollectiorpt.date1 + "'";
-            DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return d;
-        }
-        public DataTable CASHHAND()
-        {
-            var list = new List<SqlParameter>();
-            string s = "SELECT CH_Name, CH_Amount, CH_InsertBY, CH_InsertDate FROM FCCashHandover WHERE CH_InsertDate BETWEEN '" + Cashhandrpt.date + "' And '" + Cashhandrpt.date1 + "'";
+            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy FROM FCBILLNO A WHERE A.BILL_InsertDate ='" + SelectedDate + "'";
             DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return d;
         }

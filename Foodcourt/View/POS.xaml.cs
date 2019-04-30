@@ -7,6 +7,7 @@ using System.Data;
 using Foodcourt.Model;
 using Foodcourt.ViewModel;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Text.RegularExpressions;
 
 namespace Foodcourt.View.Oprs
 {
@@ -23,6 +24,8 @@ namespace Foodcourt.View.Oprs
         public static string aa;
         public DataTable dt;
         public int error = 0;
+        Regex alp = new Regex(@"^[a-zA-Z0-9 -()]+$");
+        Regex num = new Regex(@"^[0-9]+$");
         public POS()
         {
             DataF.COUNT = 0;
@@ -572,7 +575,7 @@ namespace Foodcourt.View.Oprs
         private void No_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
-            if (error != 0)
+            if (error != 0 || quantity.Text == "" || itemrate.Text == "")
             {
                 MessageBox.Show("Please Fill All Fields");
             }
@@ -837,11 +840,17 @@ namespace Foodcourt.View.Oprs
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PrintConfirmation.IsOpen = true;
+            if (error != 0 || quantity.Text == "" || itemrate.Text == "")
+            {
+                MessageBox.Show("Please Fill All Fields");
+            }
+            else
+            {
+                PrintConfirmation.IsOpen = true;
+            }
         }
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Refresh();
             clear();
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
@@ -849,6 +858,7 @@ namespace Foodcourt.View.Oprs
             WRAPN.Children.Clear();
             checkbox_checks = null;
             ITMCTG.Visibility = Visibility.Visible;
+            this.NavigationService.Refresh();
         }
 
         //public DataTable Dprint()
@@ -2098,7 +2108,7 @@ namespace Foodcourt.View.Oprs
                 if(quantity.Text == "")
                 {
                 }
-                else
+                else if(num.IsMatch(quantity.Text))
                 {
                     total.Text = "";
                     check1 = itemname.Text;
@@ -2135,13 +2145,17 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate1 = 0;
                 }
+                else
+                {
+                    quantity.Text = "";
+                }
             }
             else
             {
                 if (quantity.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity.Text))
                 {
                     total.Text = "";
                     check1 = itemname.Text;
@@ -2180,6 +2194,10 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate1 = 0;
                 }
+                else
+                {
+                    quantity.Text = "";
+                }
             }
         }
         public static string check2;
@@ -2190,7 +2208,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity1.Text == "")
                 {
                 }
-                else
+                else if(num.IsMatch(quantity1.Text))
                 {
                     total1.Text = "";
                     check1 = itemname1.Text;
@@ -2229,13 +2247,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate2 = 0;
                 }
+                else
+                {
+                    quantity1.Text = "";
+                }
             }
             else
             {
                 if (quantity1.Text == "")
                 {
                 }
-                else
+                else if(num.IsMatch(quantity.Text))
                 {
                     total1.Text = "";
                     check1 = itemname1.Text;
@@ -2272,6 +2294,10 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate2 = 0;
                 }
+                else
+                {
+                    quantity1.Text = "";
+                }
             }
         }
         private void quantity2_LostFocus(object sender, RoutedEventArgs e)
@@ -2281,7 +2307,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity2.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity2.Text))
                 {
                     total2.Text = "";
                     check1 = itemname2.Text;
@@ -2319,13 +2345,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate3 = 0;
                 }
+                else
+                {
+                    quantity2.Text = "";
+                }
             }
             else
             {
                 if (quantity2.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity2.Text))
                 {
                     total2.Text = "";
                     check1 = itemname2.Text;
@@ -2364,6 +2394,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate3 = 0;
                 }
+                else
+                {
+                    quantity2.Text = "";
+                }
             }
         }
         private void quantity3_LostFocus(object sender, RoutedEventArgs e)
@@ -2376,7 +2410,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity3.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity3.Text))
                 {
                     total3.Text = "";
                     check1 = itemname3.Text;
@@ -2412,13 +2446,17 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate4 = 0;
                 }
+                else
+                {
+                    quantity3.Text = "";
+                }
             }
             else
             {
                 if (quantity3.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity3.Text))
                 {
                     total3.Text = "";
                     check1 = itemname3.Text;
@@ -2457,6 +2495,10 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate4 = 0;
                 }
+                else
+                {
+                    quantity3.Text = "";
+                }
             }
         }
         private void quantity4_LostFocus(object sender, RoutedEventArgs e)
@@ -2466,7 +2508,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity4.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity4.Text))
                 {
                     total4.Text = "";
                     check1 = itemname4.Text;
@@ -2504,13 +2546,17 @@ namespace Foodcourt.View.Oprs
                     decimal b =ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate5 = 0;
                 }
+                else
+                {
+                    quantity4.Text = "";
+                }
             }
             else
             {
                 if (quantity4.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity4.Text))
                 {
                     total4.Text = "";
                     check1 = itemname4.Text;
@@ -2549,6 +2595,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate5 = 0;
                 }
+                else
+                {
+                    quantity4.Text = "";
+                }
             }
         }
         private void quantity5_LostFocus(object sender, RoutedEventArgs e)
@@ -2558,7 +2608,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity5.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity5.Text))
                 {
                     check1 = itemname5.Text;
                     DataTable dd = pos.gsttax();
@@ -2595,13 +2645,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate6 = 0;
                 }
+                else
+                {
+                    quantity5.Text = "";
+                }
             }
             else
             {
                 if (quantity5.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity5.Text))
                 {
                     check1 = itemname5.Text;
                     DataTable dd = pos.gsttax();
@@ -2639,6 +2693,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate6 = 0;
                 }
+                else
+                {
+                    quantity5.Text = "";
+                }
             }
         }
 
@@ -2649,7 +2707,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity6.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity6.Text))
                 {
                     check1 = itemname6.Text;
                     DataTable dd = pos.gsttax();
@@ -2686,13 +2744,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate7 = 0;
                 }
+                else
+                {
+                    quantity6.Text = "";
+                }
             }
             else
             {
                 if (quantity6.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity6.Text))
                 {
                     check1 = itemname6.Text;
                     DataTable dd = pos.gsttax();
@@ -2730,6 +2792,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate7 = 0;
                 }
+                else
+                {
+                    quantity6.Text = "";
+                }
             }
         }
         private void quantity7_LostFocus(object sender, RoutedEventArgs e)
@@ -2740,7 +2806,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity7.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity7.Text))
                 {
                     check1 = itemname7.Text;
                     DataTable dd = pos.gsttax();
@@ -2777,13 +2843,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate8 = 0;
                 }
+                else
+                {
+                    quantity7.Text = "";
+                }
             }
             else
             {
                 if (quantity7.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity7.Text))
                 {
                     check1 = itemname7.Text;
                     DataTable dd = pos.gsttax();
@@ -2821,6 +2891,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate8 = 0;
                 }
+                else
+                {
+                    quantity7.Text = "";
+                }
             }
         }
 
@@ -2831,7 +2905,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity8.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity8.Text))
                 {
                     check1 = itemname8.Text;
                     DataTable dd = pos.gsttax();
@@ -2868,13 +2942,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate9 = 0;
                 }
+                else
+                {
+                    quantity8.Text = "";
+                }
             }
             else
             {
                 if (quantity8.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity8.Text))
                 {
                     check1 = itemname8.Text;
                     DataTable dd = pos.gsttax();
@@ -2912,6 +2990,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate9 = 0;
                 }
+                else
+                {
+                    quantity8.Text = "";
+                }
             }
         }
 
@@ -2922,7 +3004,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity9.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity9.Text))
                 {
                     check1 = itemname9.Text;
                     DataTable dd = pos.gsttax();
@@ -2959,13 +3041,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate10 = 0;
                 }
+                else
+                {
+                    quantity9.Text = "";
+                }
             }
             else
             {
                 if (quantity9.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity9.Text))
                 {
                     check1 = itemname9.Text;
                     DataTable dd = pos.gsttax();
@@ -3003,6 +3089,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate10 = 0;
                 }
+                else
+                {
+                    quantity9.Text = "";
+                }
             }
         }
 
@@ -3013,7 +3103,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity10.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity10.Text))
                 {
                     check1 = itemname10.Text;
                     DataTable dd = pos.gsttax();
@@ -3050,13 +3140,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate11 = 0;
                 }
+                else
+                {
+                    quantity10.Text = "";
+                }
             }
             else
             {
                 if (quantity10.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity10.Text))
                 {
                     check1 = itemname10.Text;
                     DataTable dd = pos.gsttax();
@@ -3094,6 +3188,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate11 = 0;
                 }
+                else
+                {
+                    quantity10.Text = "";
+                }
             }
         }
 
@@ -3104,7 +3202,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity11.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity11.Text))
                 {
                     check1 = itemname11.Text;
                     DataTable dd = pos.gsttax();
@@ -3141,13 +3239,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate12 = 0;
                 }
+                else
+                {
+                    quantity11.Text = "";
+                }
             }
             else
             {
                 if (quantity11.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity11.Text))
                 {
                     check1 = itemname11.Text;
                     DataTable dd = pos.gsttax();
@@ -3185,6 +3287,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate12 = 0;
                 }
+                else
+                {
+                    quantity11.Text = "";
+                }
             }
         }
 
@@ -3195,7 +3301,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity12.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity12.Text))
                 {
                     check1 = itemname12.Text;
                     DataTable dd = pos.gsttax();
@@ -3232,13 +3338,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate13 = 0;
                 }
+                else
+                {
+                    quantity12.Text = "";
+                }
             }
             else
             {
                 if (quantity12.Text == "")
                 {
-                }
-                else
+                } 
+                else if (num.IsMatch(quantity12.Text))
                 {
                     check1 = itemname12.Text;
                     DataTable dd = pos.gsttax();
@@ -3276,6 +3386,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate13 = 0;
                 }
+                else
+                {
+                    quantity12.Text = "";
+                }
             }
         }
 
@@ -3286,7 +3400,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity13.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity13.Text))
                 {
                     check1 = itemname13.Text;
                     DataTable dd = pos.gsttax();
@@ -3323,13 +3437,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate14 = 0;
                 }
+                else
+                {
+                    quantity13.Text = "";
+                }
             }
             else
             {
                 if (quantity13.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity13.Text))
                 {
                     check1 = itemname13.Text;
                     DataTable dd = pos.gsttax();
@@ -3368,6 +3486,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate14 = 0;
                 }
+                else
+                {
+                    quantity13.Text = "";
+                }
             }
         }
 
@@ -3378,7 +3500,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity14.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity14.Text))
                 {
                     check1 = itemname14.Text;
                     DataTable dd = pos.gsttax();
@@ -3415,13 +3537,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate15 = 0;
                 }
+                else
+                {
+                    quantity14.Text = "";
+                }
             }
             else
             {
                 if (quantity14.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity14.Text))
                 {
                     check1 = itemname14.Text;
                     DataTable dd = pos.gsttax();
@@ -3459,6 +3585,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate15 = 0;
                 }
+                else
+                {
+                    quantity14.Text = "";
+                }
             }
         }
 
@@ -3469,7 +3599,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity15.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity15.Text))
                 {
                     check1 = itemname15.Text;
                     DataTable dd = pos.gsttax();
@@ -3506,13 +3636,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate16 = 0;
                 }
+                else
+                {
+                    quantity15.Text = "";
+                }
             }
             else
             {
                 if (quantity15.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity15.Text))
                 {
                     check1 = itemname15.Text;
                     DataTable dd = pos.gsttax();
@@ -3551,6 +3685,10 @@ namespace Foodcourt.View.Oprs
                     txtgttl.Text = Convert.ToString(a + b);
                     rate16 = 0;
                 }
+                else
+                {
+                    quantity15.Text = "";
+                }
             }
         }
 
@@ -3561,7 +3699,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity16.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity16.Text))
                 {
                     check1 = itemname16.Text;
                     DataTable dd = pos.gsttax();
@@ -3598,13 +3736,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate17 = 0;
                 }
+                else
+                {
+                    quantity16.Text = "";
+                }
             }
             else
             {
                 if (quantity16.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity16.Text))
                 {
                     check1 = itemname16.Text;
                     DataTable dd = pos.gsttax();
@@ -3642,6 +3784,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate17 = 0;
                 }
+                else
+                {
+                    quantity16.Text = "";
+                }
             }
         }
 
@@ -3652,7 +3798,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity17.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity17.Text))
                 {
                     check1 = itemname17.Text;
                     DataTable dd = pos.gsttax();
@@ -3689,13 +3835,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate18 = 0;
                 }
+                else
+                {
+                    quantity17.Text = "";
+                }
             }
             else
             {
                 if (quantity17.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity17.Text))
                 {
                     check1 = itemname17.Text;
                     DataTable dd = pos.gsttax();
@@ -3733,6 +3883,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate18 = 0;
                 }
+                else
+                {
+                    quantity17.Text = "";
+                }
             }
         }
 
@@ -3743,7 +3897,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity18.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity18.Text))
                 {
                     check1 = itemname18.Text;
                     DataTable dd = pos.gsttax();
@@ -3780,13 +3934,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate11 = 0;
                 }
+                else
+                {
+                    quantity18.Text = "";
+                }
             }
             else
             {
                 if (quantity18.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity18.Text))
                 {
                     check1 = itemname18.Text;
                     DataTable dd = pos.gsttax();
@@ -3821,6 +3979,10 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate11 = 0;
                 }
+                else
+                {
+                    quantity18.Text = "";
+                }
             }
         }
         private void quantity19_LostFocus(object sender, RoutedEventArgs e)
@@ -3830,7 +3992,7 @@ namespace Foodcourt.View.Oprs
                 if (quantity19.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity19.Text))
                 {
                     check1 = itemname19.Text;
                     DataTable dd = pos.gsttax();
@@ -3864,13 +4026,17 @@ namespace Foodcourt.View.Oprs
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20; 
                     txtgttl.Text = Convert.ToString(a + b); rate20 = 0;
                 }
+                else
+                {
+                    quantity19.Text = "";
+                }
             }
             else
             {
                 if (quantity19.Text == "")
                 {
                 }
-                else
+                else if (num.IsMatch(quantity19.Text))
                 {
                     check1 = itemname19.Text;
                     DataTable dd = pos.gsttax();
@@ -3904,6 +4070,10 @@ namespace Foodcourt.View.Oprs
                     decimal a =tot1 + tot2 + tot3 + tot4 + tot5 + tot6 + tot7 + tot8 + tot9 + tot10 + tot11 + tot12 + tot13 + tot14 + tot15 + tot16 + tot17 + tot18 + tot19 + tot20;
                     decimal b = ta1 + ta2 + ta3 + ta4 + ta5 + ta6 + ta7 + ta8 + ta9 + ta10 + ta11 + ta12 + ta13 + ta14 + ta15 + ta16 + ta17 + ta18 + ta19 + ta20;
                     txtgttl.Text = Convert.ToString(a + b); rate20 = 0;
+                }
+                else
+                {
+                    quantity19.Text = "";
                 }
             }
         }
