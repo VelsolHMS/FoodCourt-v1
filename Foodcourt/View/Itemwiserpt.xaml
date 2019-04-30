@@ -6,42 +6,33 @@
       xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Foodcourt.View"
       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-     xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
-      mc:Ignorable="d" 
+      xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
+      mc:Ignorable="d"
       Height="800" Width="1000"
       Title="Itemwiserpt">
-
     <Grid>
-        <material:Card Height="800">
+        <material:Card Height="250" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Visibility="Visible">
             <Grid>
-                <Viewer:CrystalReportsViewer x:Name="CrystalReportViewer1" Margin="0,0,0,0" Background="#FFABEAE7" Visibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderThickness="0"/>
-                <material:Card Name="IWSRPT" Height="391" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="26*"/>
-                            <RowDefinition Height="365*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Background="#FF5180A0">
-                            <TextBlock Text="Item Wise Sale" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
-                            <Button Name="BtnClose" Margin="325,0,0,0" Height="Auto" BorderBrush="{x:Null}" Click="BtnClose_Click">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <StackPanel Height="25" Margin="0,56,0,284" Orientation="Horizontal">
-                                <TextBlock Text="From Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="fromdate" Width="131" Margin="20,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel Height="25" Margin="0,133,0,207" Orientation="Horizontal">
-                                <TextBlock Text="To Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="todate" Width="131" Margin="42,0,0,0"/>
-                            </StackPanel>
-                            <Button Width="100" Content="OK" Margin="130.5,251,122.5,82" Click="Button_Click" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
-                        </Grid>
-                    </Grid>
-                </material:Card>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="87*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#FF5180A0">
+                    <TextBlock Text="Item Wise Sale" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Height="25" Margin="0,30,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="From Date   :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                        <DatePicker Name="fromdate" Width="150" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Height="25" Margin="0,80,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="To Date        :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                        <DatePicker Name="todate" Width="150" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <Button Width="100" Content="OK" Margin="0,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
+                </Grid>
+                <!--<Viewer:CrystalReportsViewer x:Name="CrystalReportViewer1" Margin="0,0,0,0" Background="#FFABEAE7" Visibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderThickness="0"/>-->
+                <!--<material:Card Name="IWSRPT" Height="391" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">-->
             </Grid>
         </material:Card>
     </Grid>

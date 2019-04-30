@@ -25,36 +25,36 @@ namespace Foodcourt.View
     /// </summary>
     public partial class Itemwiserpt : Page
     {
+        Reports rpt = new Reports();
         MainWindow main = new MainWindow();
         ItemNames i = new ItemNames();
         public Itemwiserpt()
         {
             InitializeComponent();
 
+            fromdate.DisplayDateEnd = DateTime.Today.Date;
+            todate.DisplayDateEnd = DateTime.Today.Date;
         }
 
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            IWSRPT.Visibility = Visibility.Hidden;
-        }
-
-        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             i.date=fromdate.Text;
-             i.date1= todate.Text;
-            ReportDocument re = new ReportDocument();
-            DataTable dd = report();    
-            re.Load("../../View/Itemwise.rpt");
-            re.SetDataSource(dd);
-            CrystalReportViewer1.Visibility = Visibility.Visible;
-            IWSRPT.Visibility = Visibility.Hidden;
-            CrystalReportViewer1.ShowRefreshButton = false;
-            re.Refresh();
-            CrystalReportViewer1.ViewerCore.ReportSource = re;
+            if(fromdate.Text == "" || todate.Text == "")
+            {
+                MessageBox.Show("Please select the Date.!");
+            }
+            else
+            {
+                ReportDocument r = new ReportDocument();
+                DataTable d1 = MainReport();
+                r.Load("../../View/Itemwise.rpt");
+                r.SetDataSource(d1);
+                r.PrintToPrinter(1, false, 0, 0);
+                r.Refresh();
+                MessageBox.Show("Report Generated Succesfully");
+            }
         }
 
-        public DataTable report()
+        public DataTable MainReport()
         {
             DataTable D = new DataTable();
             D.Columns.Add("NAME", typeof(string));
@@ -67,18 +67,19 @@ namespace Foodcourt.View
             D.Columns.Add("DATE", typeof(DateTime));
             D.Columns.Add("GST", typeof(string));
             D.Columns.Add("CGST", typeof(decimal));
-            DataTable s = i.Address();
+
+            DataTable s = rpt.PRPT();
             DataTable S1 = i.itemwise();
             for (int i = 0; i < S1.Rows.Count; i++)
             {
                 Decimal A,B,C,E;
                 DataRow row = D.NewRow();
-                row["NAME"] = s.Rows[0]["PRPT_Name"].ToString();
-                row["ADDRESS"] = s.Rows[0]["PRPT_Address"].ToString();
-                row["GST"] = s.Rows[0]["PRPT_GST"].ToString();
+                row["NAME"] = Reports.Name;
+                row["ADDRESS"] = Reports.Address;
+                row["GST"] = Reports.GST;
                 row["ITEM_NAME"] = S1.Rows[i]["ITEM_NAME"].ToString();
                 row["QTY"] = S1.Rows[i]["QTY"].ToString();
-                A=Decimal.Parse(S1.Rows[i]["RATE"].ToString());
+                A = Decimal.Parse(S1.Rows[i]["RATE"].ToString());
                 B = Decimal.Parse(S1.Rows[i]["QTY"].ToString());
                 C = Decimal.Parse(S1.Rows[i]["TAXRATE"].ToString());
                 E = A * B;
