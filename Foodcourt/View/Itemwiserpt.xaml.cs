@@ -44,6 +44,8 @@ namespace Foodcourt.View
             }
             else
             {
+                i.date = fromdate.Text;
+                i.date1 = todate.Text;
                 ReportDocument r = new ReportDocument();
                 DataTable d1 = MainReport();
                 r.Load("../../View/Itemwise.rpt");
@@ -53,7 +55,6 @@ namespace Foodcourt.View
                 MessageBox.Show("Report Generated Succesfully");
             }
         }
-
         public DataTable MainReport()
         {
             DataTable D = new DataTable();
@@ -68,7 +69,7 @@ namespace Foodcourt.View
             D.Columns.Add("GST", typeof(string));
             D.Columns.Add("CGST", typeof(decimal));
 
-            DataTable s = rpt.PRPT();
+            rpt.PRPT();
             DataTable S1 = i.itemwise();
             for (int i = 0; i < S1.Rows.Count; i++)
             {
