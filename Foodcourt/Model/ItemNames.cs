@@ -98,7 +98,10 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             //    string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,A.BILLITM_Quanty AS QTY,(SELECT BILL_Amount FROM FCBILLNO WHERE BILL_Id=A.BILL_ID) AS TOTAL_AMOUNT,(SELECT BILL_Tax FROM FCBILLNO WHERE BILL_Id=A.BILL_ID) AS TAX,(SELECT BILL_Total FROM FCBILLNO WHERE BILL_Id=A.BILL_ID) AS GRANDTOTAL,A.BILITM_InsertDate AS DATE FROM FCBILLITM A WHERE  A.BILITM_InsertDate BETWEEN '" + date+"' AND '"+date1+ "' ORDER BY A.BILITM_InsertDate ASC ";
-            string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,(SELECT  SUM(BILLITM_Quanty) FROM FCBILLITM WHERE BILITM_Name =A.BILITM_Name AND BILITM_InsertDate=A.BILITM_InsertDate ) AS QTY,BILITM_InsertDate AS DATE,(SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name=A.BILITM_Name) AS RATE,(SELECT sum(BILITM_Tax) FROM FCBILLITM WHERE BILITM_Name=A.BILITM_Name) AS TAXRATE FROM FCBILLITM A WHERE  A.BILITM_InsertDate BETWEEN '" + date + "' AND '" + date1 + "' ORDER BY A.BILITM_InsertDate ASC";
+            string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,BILITM_InsertDate AS DATE,"+
+                        "(SELECT  SUM(BILLITM_Quanty) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = A.BILITM_InsertDate) AS QTY,"+
+                        "(SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name = A.BILITM_Name) AS RATE,"+
+                        "(SELECT sum(BILITM_Tax) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = A.BILITM_InsertDate) AS TAXRATE FROM FCBILLITM A WHERE  A.BILITM_InsertDate BETWEEN '"+date+"' AND '"+date1+"' ORDER BY A.BILITM_InsertDate ASC";
             DataTable d = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return d;
         }
