@@ -65,7 +65,7 @@ namespace Foodcourt.Model
         public DataTable items()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT BILITM_Name,BILLITM_Quanty,CONVERT(decimal(17,2),BILITM_Rate) AS BILITM_Rate FROM FCBILLITM WHERE BILL_Id='" + BillView.A + "'";
+            string s = "SELECT BILITM_Name,BILLITM_Quanty,BILITM_Rate,BILITM_Tax FROM FCBILLITM WHERE BILL_Id='" + BillView.A + "'";
             DataTable D = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return D;
         }
