@@ -20,6 +20,7 @@ namespace Foodcourt.Model
         public string CTG_Id { get; set; }
         public string CTG_Name { get; set; }
         public DateTime NAM_ActiveFrom { get; set; }
+        public string NAM_Status { get; set; }
         public string NAM_ReportingName { get; set; }
         public DateTime NAM_InsertDate { get; set; }
         public string NAM_InsertBY { get; set; }
@@ -33,11 +34,12 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@NAM_Rate", NAM_Rate);
             list.AddSqlParameter("@NAM_Tax", NAM_Tax);
             list.AddSqlParameter("@NAM_ReportingName", NAM_ReportingName);
-            list.AddSqlParameter("@NAM_ActiveFrom", NAM_ActiveFrom.ToShortDateString());
+            list.AddSqlParameter("@NAM_Status", NAM_Status);
+            list.AddSqlParameter("@NAM_ActiveFrom", DateTime.Today.Date);
             list.AddSqlParameter("@NAM_InsertDate", DateTime.Today.ToShortDateString());
             list.AddSqlParameter("@NAM_InsertBY", login.u);
-            string s = "INSERT INTO FCITMNAM(NAM_Name,NAM_Details,CTG_Id,NAM_Rate,NAM_Tax,NAM_ReportingName,NAM_ActiveFrom,NAM_InsertDate,NAM_InsertBY)" +
-                       "VALUES (@NAM_Name,@NAM_Details,(select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),@NAM_Rate,@NAM_Tax,@NAM_ReportingName,@NAM_ActiveFrom,@NAM_InsertDate,@NAM_InsertBY)";
+            string s = "INSERT INTO FCITMNAM(NAM_Name,NAM_Details,CTG_Id,NAM_Rate,NAM_Tax,NAM_ReportingName,NAM_Status,NAM_ActiveFrom,NAM_InsertDate,NAM_InsertBY)" +
+                       "VALUES (@NAM_Name,@NAM_Details,(select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),@NAM_Rate,@NAM_Tax,@NAM_ReportingName,@NAM_Status,@NAM_ActiveFrom,@NAM_InsertDate,@NAM_InsertBY)";
             DbFunctions.ExecuteCommand<DataTable>(s, list);
         }
         public void Update()
@@ -49,11 +51,12 @@ namespace Foodcourt.Model
             lists.AddSqlParameter("@NAM_Rate", NAM_Rate);
             lists.AddSqlParameter("@NAM_Tax", NAM_Tax);
             lists.AddSqlParameter("@NAM_ReportingName", NAM_ReportingName);
-            lists.AddSqlParameter("@NAM_ActiveFrom", NAM_ActiveFrom.ToShortDateString());
+            lists.AddSqlParameter("@NAM_ActiveFrom", DateTime.Today.Date);
+            lists.AddSqlParameter("@NAM_Status", NAM_Status);
             lists.AddSqlParameter("@NAM_InsertDate", DateTime.Today.ToShortDateString());
             lists.AddSqlParameter("@NAM_InsertBY", login.u);
             string s = "UPDATE FCITMNAM SET NAM_Name = @NAM_Name,NAM_Details = @NAM_Details,CTG_Id = (select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),NAM_Rate = @NAM_Rate,NAM_Tax = @NAM_Tax," +
-                            "NAM_ReportingName = @NAM_ReportingName,NAM_ActiveFrom = @NAM_ActiveFrom,NAM_InsertDate = @NAM_InsertDate,NAM_InsertBY = @NAM_InsertBY WHERE NAM_Id = '" + NAM_Id + "'";
+                            "NAM_ReportingName = @NAM_ReportingName,NAM_Status = @NAM_Status,NAM_ActiveFrom = @NAM_ActiveFrom,NAM_InsertDate = @NAM_InsertDate,NAM_InsertBY = @NAM_InsertBY WHERE NAM_Id = '" + NAM_Id + "'";
             DbFunctions.ExecuteCommand<int>(s, lists);
         }
         public int GetItemId()
@@ -76,7 +79,7 @@ namespace Foodcourt.Model
         public DataTable FillGrid()
         {
             var list = new List<SqlParameter>();
-            string d = "SELECT NAM_Id,NAM_Name,(select CTG_Name from FCRITMCTG WHERE CTG_Id =A.CTG_Id ) AS CTG_Name,NAM_Tax,NAM_Rate FROM FCITMNAM A";
+            string d = "SELECT NAM_Id,NAM_Name,(select CTG_Name from FCRITMCTG WHERE CTG_Id =A.CTG_Id ) AS CTG_Name,NAM_Tax,NAM_Rate,NAM_Status FROM FCITMNAM A";
             DataTable S = DbFunctions.ExecuteCommand<DataTable>(d, list);
             return S;
         }

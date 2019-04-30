@@ -66,9 +66,12 @@
                                         <TextBox Name="rpnametxt" TabIndex="5" Width="150" Margin="30,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding ReportingName,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=LostFocus}"/>
                                     </StackPanel>
                                     <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
-                                        <TextBlock Text="Active From" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
+                                        <TextBlock Text="Status" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                                         <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                                        <DatePicker Name="activedp" TabIndex="6" Width="150" Margin="30,0,0,0"></DatePicker>
+                                        <ComboBox Name="status" TabIndex="6" Width="150" Margin="30,0,0,0">
+                                            <ComboBoxItem Content="Active"></ComboBoxItem>
+                                            <ComboBoxItem Content="InActive"></ComboBoxItem>
+                                        </ComboBox>
                                     </StackPanel>
                                 </StackPanel>
                                 <Viewbox>
@@ -96,6 +99,7 @@
                                         <DataGridTextColumn Header="Category" Binding="{Binding CTG_Name}"/>
                                         <DataGridTextColumn Header="Price" Binding="{Binding NAM_Rate}"/>
                                         <DataGridTextColumn Header="Tax Name" Binding="{Binding NAM_Tax}"/>
+                                        <DataGridTextColumn Header="Status" Binding="{Binding NAM_Status}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
