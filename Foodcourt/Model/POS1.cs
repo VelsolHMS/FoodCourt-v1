@@ -34,7 +34,7 @@ namespace Foodcourt.Model
         public DataTable GETNAME()
         {
             var LIST = new List<SqlParameter>();
-            string SS = "SELECT NAM_Name FROM FCITMNAM Where CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name='" + POS.aa+ "') AND NAM_ActiveFrom <= GETDATE()";
+            string SS = "SELECT NAM_Name FROM FCITMNAM Where CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name='" + POS.aa+ "') AND NAM_Status='Active'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(SS, LIST);
             return DT;
         }

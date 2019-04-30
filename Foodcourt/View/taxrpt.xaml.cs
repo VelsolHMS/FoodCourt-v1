@@ -33,15 +33,18 @@ namespace Foodcourt.View
             re.Load("../../View/TaxReport.rpt");
             re.SetDataSource(dd);
             re.Subreports[0].SetDataSource(d);
-            CrystalReportViewer1.Visibility = Visibility.Visible;
-            taxRPT.Visibility = Visibility.Hidden;
-            CrystalReportViewer1.ShowRefreshButton = false;
+            //CrystalReportViewer1.Visibility = Visibility.Visible;
+            //taxRPT.Visibility = Visibility.Hidden;
+            //CrystalReportViewer1.ShowRefreshButton = false;
+            re.PrintToPrinter(1, false, 0, 0);
             re.Refresh();
-            CrystalReportViewer1.ViewerCore.ReportSource = re;
+            //CrystalReportViewer1.ViewerCore.ReportSource = re;
         }
         public DataTable report()
         {
             DataTable D = new DataTable();
+            D.Columns.Add("Fromdate", typeof(DateTime));
+            D.Columns.Add("Todate", typeof(DateTime));
             D.Columns.Add("Date", typeof(DateTime));
             D.Columns.Add("Cgst", typeof(decimal));
             D.Columns.Add("Sgst", typeof(decimal));
@@ -57,6 +60,8 @@ namespace Foodcourt.View
             row["Name"] = s.Rows[0]["PRPT_Name"].ToString();
             row["Address"] = s.Rows[0]["PRPT_Address"].ToString();
             row["Gst"] = s.Rows[0]["PRPT_GST"].ToString();
+            row["Fromdate"] = date;
+            row["Todate"] = date1;
             //DataTable d = r.TAX();
             //for (int i = 0; i < d.Rows.Count; i++)
             //{
@@ -71,7 +76,7 @@ namespace Foodcourt.View
             if (k.Rows[0]["TOTALTAX"].ToString() == "" || k.Rows[0]["TOTALTAX"].ToString() == "0") { }
             else
             {
-                int f = int.Parse(k.Rows[0]["TOTALTAX"].ToString());
+                decimal f = Convert.ToDecimal(k.Rows[0]["TOTALTAX"].ToString());
                 row["CgstTotal"] = f / 2;
                 row["SgstTotal"] = f / 2;
                 row["GrandTotal"] = f;
@@ -98,9 +103,9 @@ namespace Foodcourt.View
             for (int i = 0; i < d.Rows.Count; i++)
             {
                 DataRow row = D.NewRow();
-                int kk;
+                decimal kk;
                 row["Date"] = d.Rows[i]["BILL_InsertDate"].ToString();
-                kk = int.Parse(d.Rows[i]["tax"].ToString());
+                kk =Convert.ToDecimal(d.Rows[i]["tax"].ToString());
                 row["Cgst"] = kk / 2;
                 row["Sgst"] = kk / 2;
                 row["Total"] = kk;

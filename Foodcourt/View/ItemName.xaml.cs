@@ -32,7 +32,6 @@ namespace Foodcourt.View
             taxtxt.ItemsSource = tax_names.DefaultView;
             itemIdtxt.Text = items.GetItemId().ToString();
             itemIdtxt.IsReadOnly = true;
-            activedp.Text = Convert.ToString(DateTime.Today.Date);
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -45,7 +44,7 @@ namespace Foodcourt.View
         {
             try
             {
-                if (error != 0 || (string.IsNullOrWhiteSpace(itemIdtxt.Text)) || (string.IsNullOrWhiteSpace(nametxt.Text)) || (string.IsNullOrWhiteSpace(catgytxt.Text)) || (string.IsNullOrWhiteSpace(pricetxt.Text)) || (string.IsNullOrWhiteSpace(taxtxt.Text)) || (string.IsNullOrWhiteSpace(rpnametxt.Text)) || (string.IsNullOrWhiteSpace(activedp.Text)))
+                if (error != 0 || (string.IsNullOrWhiteSpace(itemIdtxt.Text)) || (string.IsNullOrWhiteSpace(nametxt.Text)) || (string.IsNullOrWhiteSpace(catgytxt.Text)) || (string.IsNullOrWhiteSpace(pricetxt.Text)) || (string.IsNullOrWhiteSpace(taxtxt.Text)) || (string.IsNullOrWhiteSpace(rpnametxt.Text)) || (string.IsNullOrWhiteSpace(status.Text)))
                 {
                     MessageBox.Show("Please fill all fields");
                 }
@@ -57,7 +56,7 @@ namespace Foodcourt.View
                     items.NAM_Tax = taxtxt.Text;
                     items.NAM_Details = detailstxt.Text;
                     items.NAM_ReportingName = rpnametxt.Text;
-                    items.NAM_ActiveFrom = Convert.ToDateTime(activedp.Text);
+                    items.NAM_Status = status.Text;
                     if (btnSave.Content.ToString() == "Update")
                     {
                         items.NAM_Id = itemIdtxt.Text;
@@ -92,7 +91,7 @@ namespace Foodcourt.View
             taxtxt.Text = "";
             rpnametxt.Text = "";
             detailstxt.Text = "";
-            activedp.Text = "";
+            status.Text = "";
             btnSave.Content = "Save";
             catgytxt.IsEnabled = true;
             DataTable cate = item_c.GetCategories();
@@ -120,7 +119,7 @@ namespace Foodcourt.View
                 taxtxt.Text = getDetails.Rows[0]["NAM_Tax"].ToString();
                 detailstxt.Text = getDetails.Rows[0]["NAM_Details"].ToString();
                 rpnametxt.Text = getDetails.Rows[0]["NAM_ReportingName"].ToString();
-                activedp.Text = getDetails.Rows[0]["NAM_ActiveFrom"].ToString();
+                status.Text = getDetails.Rows[0]["NAM_Status"].ToString();
                 btnSave.Content = "Update";
                 catgytxt.IsEnabled = false;
             }
@@ -138,11 +137,11 @@ namespace Foodcourt.View
                 DateTime active_date = Convert.ToDateTime(item_c.CTG_ActiveDate);
                 if (active_date > DateTime.Today)
                 {
-                    activedp.Text = active_date.ToString();
+                    //activedp.Text = active_date.ToString();
                 }
                 else
                 {
-                    activedp.Text = Convert.ToString(DateTime.Today.Date);
+                   //activedp.Text = Convert.ToString(DateTime.Today.Date);
                 }
             }
         }
@@ -158,11 +157,11 @@ namespace Foodcourt.View
                 DateTime active_date = Convert.ToDateTime(item_c.CTG_ActiveDate);
                 if (active_date > DateTime.Today)
                 {
-                    activedp.Text = active_date.ToString();
+                    //activedp.Text = active_date.ToString();
                 }
                 else
                 {
-                    activedp.Text = Convert.ToString(DateTime.Today.Date);
+                    //activedp.Text = Convert.ToString(DateTime.Today.Date);
                 }
             }
         }

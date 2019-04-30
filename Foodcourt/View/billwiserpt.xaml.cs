@@ -37,7 +37,7 @@ namespace Foodcourt.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DA = dt.Text;
-            DWSRPT.Visibility = Visibility.Hidden;
+            //DWSRPT.Visibility = Visibility.Hidden;
             ReportDocument re = new ReportDocument();
             DataTable dd1 = report1();
             re.Load("../../View/BillWiseReport11.rpt");
@@ -45,11 +45,23 @@ namespace Foodcourt.View
             re.Load("../../View/BillWiseReport1.rpt");
             re.SetDataSource(dd);
             re.Subreports[0].SetDataSource(dd1);
-            CrystalReportViewer1.Visibility = Visibility.Visible;
-            DWSRPT.Visibility = Visibility.Hidden;
-            CrystalReportViewer1.ShowRefreshButton = false;
+            re.PrintToPrinter(1, false, 0, 0);
+            //CrystalReportViewer1.Visibility = Visibility.Visible;
+           // DWSRPT.Visibility = Visibility.Hidden;
+            //CrystalReportViewer1.ShowRefreshButton = false;
             re.Refresh();
-            CrystalReportViewer1.ViewerCore.ReportSource = re;
+            //CrystalReportViewer1.ViewerCore.ReportSource = re;
+
+            //r.SetDataSource(d);
+            //r.Subreports[0].SetDataSource(dd);
+            //r.PrintToPrinter(1, false, 0, 0);
+            //r.Refresh();
+            //ReportDocument re = new ReportDocument();
+            //DataTable dd = reportTA();
+            //re.Load("../../REPORTS/TaxReport1.rpt");
+            //re.SetDataSource(dd);
+            //re.PrintToPrinter(1, false, 0, 0);
+            //re.Refresh();
         }
         public DataTable report()
         {
@@ -67,11 +79,18 @@ namespace Foodcourt.View
             row["Address"] = dd.Rows[0]["PRPT_Address"].ToString();
             row["Gst"] = dd.Rows[0]["PRPT_Gst"].ToString();
             //DataTable dd1 = r.BILL1();
-            row["Total"] = dd.Rows[0]["AMOUNT"].ToString();
-            decimal a =Convert.ToDecimal(dd.Rows[0]["TAX"].ToString());
-            row["TotalCgst"] = a / 2;
-            row["TotalSgst"] = a / 2;
-            row["GraandTotal"] = dd.Rows[0]["TOTAL"].ToString();
+            if(dd.Rows[0]["AMOUNT"] == null || dd.Rows[0]["AMOUNT"].ToString() == "" &&  dd.Rows[0]["TAX"] == null || dd.Rows[0]["TAX"].ToString() == "" && dd.Rows[0]["TOTAL"] == null || dd.Rows[0]["TOTAL"].ToString() == ""  )
+            {
+               
+            }
+            else
+            {
+                row["Total"] = dd.Rows[0]["AMOUNT"].ToString();
+                decimal a = Convert.ToDecimal(dd.Rows[0]["TAX"].ToString());
+                row["TotalCgst"] = a / 2;
+                row["TotalSgst"] = a / 2;
+                row["GraandTotal"] = dd.Rows[0]["TOTAL"].ToString();
+            }
             d.Rows.Add(row);
             return d;
         }
@@ -95,10 +114,10 @@ namespace Foodcourt.View
                 row["Rate"] = D.Rows[i]["BILITM_Rate"].ToString();
                 row["Tax"] = D.Rows[i]["BILITM_Tax"].ToString();
                 int a = int.Parse(D.Rows[i]["BILLITM_Quanty"].ToString());
-                int b = int.Parse(D.Rows[i]["BILITM_Rate"].ToString());
-                int c = int.Parse(D.Rows[i]["BILITM_Tax"].ToString());
-                int e = b * c / 100;
-                int f = a * b;
+                decimal b = Convert.ToDecimal(D.Rows[i]["BILITM_Rate"].ToString());
+                decimal c = Convert.ToDecimal(D.Rows[i]["BILITM_Tax"].ToString());
+                decimal e = b * c / 100;
+                decimal f = a * b;
                 row["Total"] = f + e;
                 d.Rows.Add(row);
             }
