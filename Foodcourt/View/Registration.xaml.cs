@@ -20,6 +20,8 @@ namespace Foodcourt.View
             DataF.COUNT = 0;
             InitializeComponent();
             DataF.COUNT = 1;
+            DataTable dt = R.UserGrid();
+            Register.ItemsSource = dt.DefaultView;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -183,6 +185,36 @@ namespace Foodcourt.View
                 else if(DT.Rows[0]["DESIGNATION"].ToString() == "0")
                 {
                     rbuser.IsChecked = true;
+                }
+            }
+        }
+        public int regid = 0,designation; 
+        private void Register_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int i = Register.SelectedIndex;
+            if (i < 0)
+            {
+            }
+            else
+            {
+                btnsave.Content = "Update";
+                DataTable dt = R.UserGrid();
+                regid = Convert.ToInt32(dt.Rows[i]["REG_Id"]);
+                usertxt.Text = dt.Rows[i]["REG_UserName"].ToString();
+                nametxt.Text = dt.Rows[i]["REG_Name"].ToString();
+                phonetxt.Text = dt.Rows[i]["REG_Phone"].ToString();
+                designation = Convert.ToInt32(dt.Rows[i]["DESIGNATION"].ToString());
+                passwordtxt.Password = dt.Rows[i]["REG_Password"].ToString();
+                repasswordtxt.Password = dt.Rows[i]["REG_RePassword"].ToString();
+                if (designation == 1)
+                {
+                    rbadmin.IsChecked = true;
+                    rbuser.IsEnabled = false;
+                }
+                else if (designation == 0)
+                {
+                    rbuser.IsChecked = true;
+                    rbadmin.IsEnabled = false;
                 }
             }
         }

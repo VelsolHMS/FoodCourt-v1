@@ -101,5 +101,12 @@ namespace Foodcourt.Model
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return DT;
         }
+        public DataTable UserGrid()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT REG_UserName,REG_Name,REG_Phone,REG_Password,REG_RePassword,DESIGNATION,REG_Id FROM FCREG";
+            DataTable DT = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return DT;
+        }
     }
 }
