@@ -35,11 +35,11 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Height="25" Margin="0,53,0,202" Orientation="Horizontal" Grid.ColumnSpan="2">
                                 <TextBlock Text="From Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="dt" Width="131" Margin="20,0,0,0"/>
+                                <DatePicker Name="dt" Width="131" Margin="20,0,0,0" />
                             </StackPanel>
                             <StackPanel Height="25" Margin="0,132,0,123" Orientation="Horizontal" Grid.ColumnSpan="2">
                                 <TextBlock Text="To Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="dt1" Width="131" Margin="42,0,0,0"/>
+                                <DatePicker Name="dt1" Width="131" Margin="42,0,0,0" SelectedDate="{Binding Path = SellStartDate, StringFormat = {}{0:dd-MM-yyyy}}"/>
                             </StackPanel>
                             <Button Width="100" Content="OK" Click="Button_Click"  Margin="140,210,89.511,40" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF" Height="Auto"/>
                         </Grid>

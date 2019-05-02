@@ -71,7 +71,6 @@
                             <DataGridTextColumn Header="Id" Binding="{Binding REG_Id}"/>
                             <DataGridTextColumn Header="UserName" Binding="{Binding REG_UserName}"/>
                             <DataGridTextColumn Header="PhoneNumber" Binding="{Binding REG_Phone}"/>
-                            <DataGridTextColumn Header="Designation" Binding="{Binding DESIGNATION}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
