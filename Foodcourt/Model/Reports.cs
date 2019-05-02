@@ -12,6 +12,8 @@ namespace Foodcourt.Model
 {
     class Reports
     {
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
         public string SelectedDate { get; set; }
         public static string Name, GST, Address;
         public DataTable PRPT()
@@ -76,6 +78,20 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             string s = "Select Sum(BILL_Amount) As Bill_Amount,Sum(BILL_Tax) as BILL_Tax, Sum(BILL_Total) as BILL_Total from FCBILLNO where BILL_InsertDate = '" + SelectedDate + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable MonthWiseBills()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy,A.BILL_InsertDate FROM FCBILLNO A WHERE A.BILL_InsertDate Between '"+FromDate+"' AND '"+ToDate+"'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable MonthWiseBillsTotal()
+        {
+            var list = new List<SqlParameter>();
+            string s = "Select Sum(BILL_Amount) As Bill_Amount,Sum(BILL_Tax) as BILL_Tax, Sum(BILL_Total) as BILL_Total from FCBILLNO where BILL_InsertDate Between '" + FromDate + "' AND '" + ToDate + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

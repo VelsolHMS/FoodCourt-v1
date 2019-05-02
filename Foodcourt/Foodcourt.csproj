@@ -132,6 +132,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>miscollectionDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FCReport\MonthWiseSaleDataSet.cs">
+      <DependentUpon>MonthWiseSaleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\MonthWiseSaleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthWiseSaleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FCReport\MonthWiseSaleMainReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthWiseSaleMainReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FCReport\MonthWiseSaleSubReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthWiseSaleSubReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FCReport\paidoutdataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -321,6 +341,9 @@
     <Compile Include="View\Miscollectiorpt.xaml.cs">
       <DependentUpon>Miscollectiorpt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MonthWiseSale.xaml.cs">
+      <DependentUpon>MonthWiseSale.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Paidout.xaml.cs">
       <DependentUpon>Paidout.xaml</DependentUpon>
     </Compile>
@@ -452,6 +475,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MonthWiseSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Paidout.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -526,6 +553,14 @@
     <EmbeddedResource Include="FCReport\MiccollectionReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MiccollectionReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCReport\MonthWiseSaleMainReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthWiseSaleMainReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCReport\MonthWiseSaleSubReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthWiseSaleSubReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FCReport\PaidoutReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -628,6 +663,17 @@
     </None>
     <None Include="FCReport\miscollectionDataSet.xss">
       <DependentUpon>miscollectionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\MonthWiseSaleDataSet.xsc">
+      <DependentUpon>MonthWiseSaleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FCReport\MonthWiseSaleDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MonthWiseSaleDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FCReport\MonthWiseSaleDataSet.xss">
+      <DependentUpon>MonthWiseSaleDataSet.xsd</DependentUpon>
     </None>
     <None Include="FCReport\paidoutdataset.xsc">
       <DependentUpon>paidoutdataset.xsd</DependentUpon>
