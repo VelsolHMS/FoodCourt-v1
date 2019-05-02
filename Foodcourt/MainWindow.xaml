@@ -33,16 +33,16 @@
                         <MenuItem Name="MIUP" Header="User Permissions" Click="MIUP_Click"/>
                     </MenuItem>
                     <MenuItem Name="MIReports" Header="Reports" Padding="20,0,20,3">
-                        <MenuItem  Header="Item Rate List" Name="itm" Click="itm_Click" />
-                        <MenuItem Name="IWS" Header="Item Wise Sales" Click="IWS_Click"/>
-                        <MenuItem Header="Day wise Sales" Name="DWS" Click="DWS_Click" />
-                        <MenuItem Header="Month wise Sales" Name="MWS" Click="MWS_Click"/>
-                        <MenuItem Header="Tax Report" Name="TR" Click="TR_Click"/>
-                        <MenuItem Header="Bill Wise Sales" Name="BWS" Click="BWS_Click"/>
-                        <MenuItem Header="Pettycash Report" Name="petty" Click="petty_Click" ></MenuItem>
-                        <MenuItem Header="Paidoutcash" Name="paid" Click="paid_Click"></MenuItem>
-                        <MenuItem Header="Miscollection" Name="Miscollection" Click="Miscollection_Click"></MenuItem>
-                        <MenuItem Header="Cashhandover" Name="cashhandoverrpt" Click="cashhandoverrpt_Click"></MenuItem>
+                        <MenuItem  Header="Item Rate List" Foreground="White" Name="itm" Click="itm_Click" />
+                        <MenuItem Name="IWS" Header="Item Wise Sales" Foreground="White" Click="IWS_Click"/>
+                        <MenuItem Header="Day wise Sales" Foreground="White" Name="DWS" Click="DWS_Click" />
+                        <MenuItem Header="Month wise Sales" Foreground="White" Name="MWS" Click="MWS_Click"/>
+                        <MenuItem Header="Tax Report" Foreground="White" Name="TR" Click="TR_Click"/>
+                        <MenuItem Header="Bill Wise Sales" Foreground="White" Name="BWS" Click="BWS_Click"/>
+                        <MenuItem Header="Pettycash Report" Foreground="White" Name="petty" Click="petty_Click" ></MenuItem>
+                        <MenuItem Header="Paidoutcash" Foreground="White" Name="paid" Click="paid_Click"></MenuItem>
+                        <MenuItem Header="Miscollection" Foreground="White" Name="Miscollection" Click="Miscollection_Click"></MenuItem>
+                        <MenuItem Header="Cashhandover" Foreground="White" Name="cashhandoverrpt" Click="cashhandoverrpt_Click"></MenuItem>
                     </MenuItem>
                     <MenuItem Name="MIDash" Header="Dashboard" Padding="20,0,20,3" Click="MIDash_Click"/>
                 </Menu>
