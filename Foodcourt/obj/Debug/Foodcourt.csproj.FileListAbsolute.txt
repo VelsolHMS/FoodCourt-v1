@@ -335,7 +335,6 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesignThem
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Microsoft.ReportViewer.WinForms.xml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csprojAssemblyReference.cache
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\App.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Mis.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\BillView.baml
@@ -370,3 +369,4 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.C
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csprojAssemblyReference.cache
