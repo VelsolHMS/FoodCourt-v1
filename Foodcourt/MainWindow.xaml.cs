@@ -661,7 +661,7 @@ namespace Foodcourt
                     MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIDash.Foreground = Brushes.White;
-                    //  this.MainFrame.Navigate(new Uri("View/taxrpt.xaml", UriKind.RelativeOrAbsolute));
+                    this.MainFrame.Navigate(new Uri("View/MonthWiseSale.xaml", UriKind.RelativeOrAbsolute));
                 }
                 else
                 {
