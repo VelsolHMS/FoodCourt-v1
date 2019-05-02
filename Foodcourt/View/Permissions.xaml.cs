@@ -271,15 +271,15 @@ namespace Foodcourt.View
                     {
                         billwisesales.IsChecked = false;
                     }
-                    //int MIS_COLLECTION = int.Parse(d.Rows[0]["MIS_COLLECTION"].ToString());
-                    //if (MIS_COLLECTION == 1)
-                    //{
-                    //    miscollect.IsChecked = true;
-                    //}
-                    //else
-                    //{
-                    //    miscollect.IsChecked = false;
-                    //}
+                    int MIS_COLLECTION = int.Parse(d.Rows[0]["MIS_COLLECTION"].ToString());
+                    if (MIS_COLLECTION == 1)
+                    {
+                        miscollect.IsChecked = true;
+                    }
+                    else
+                    {
+                        miscollect.IsChecked = false;
+                    }
                 }
             }
         }
@@ -685,7 +685,7 @@ namespace Foodcourt.View
             {
                 btnresave.Content = "Update";
                 U.ReportUpdate();
-                MessageBox.Show("Updated Successfully");
+                //MessageBox.Show("Updated Successfully");
                 btnresave.Content = "Save";
             }
             cmbuser.Text = "";
