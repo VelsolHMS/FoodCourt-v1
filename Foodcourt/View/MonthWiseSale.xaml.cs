@@ -96,7 +96,7 @@ namespace Foodcourt.View
             }
             row["TOTALCGST"] = Math.Round(b / 2, 2, MidpointRounding.AwayFromZero);
             row["TOTALSGST"] = Math.Round(b / 2, 2, MidpointRounding.AwayFromZero);
-            row["GRANDTOTALL"] = Math.Round(c, 2, MidpointRounding.AwayFromZero); ;
+            row["GRANDTOTALL"] = Math.Round(c, 2, MidpointRounding.AwayFromZero); 
             d.Rows.Add(row);
             return d;
         }
