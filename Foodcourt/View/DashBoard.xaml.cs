@@ -200,7 +200,7 @@ namespace Foodcourt.View.Oprs
                     { }
                     else
                     {
-                        VALS = DS.Rows[0]["Total"].ToString();
+                        VALS = DS.Rows[0]["Tot  al"].ToString();
                         i1 = Convert.ToDecimal(VALS);
                         ValueList.Add(new KeyValuePair<string, decimal>("01", i1));
                     }
