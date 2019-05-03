@@ -30,7 +30,6 @@ namespace Foodcourt.View
             fromdate.DisplayDateEnd = DateTime.Today.Date;
             todate.DisplayDateEnd = DateTime.Today.Date;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(fromdate.Text == "" || todate.Text == "")
@@ -96,7 +95,7 @@ namespace Foodcourt.View
             }
             row["TOTALCGST"] = Math.Round(b / 2, 2, MidpointRounding.AwayFromZero);
             row["TOTALSGST"] = Math.Round(b / 2, 2, MidpointRounding.AwayFromZero);
-            row["GRANDTOTALL"] = Math.Round(c, 2, MidpointRounding.AwayFromZero); 
+            row["GRANDTOTALL"] = Math.Round(c, 2, MidpointRounding.AwayFromZero);
             d.Rows.Add(row);
             return d;
         }
