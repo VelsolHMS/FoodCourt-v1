@@ -38,11 +38,6 @@ namespace Foodcourt.View
             DataTable dd = report();
             re.Load("../../View/pettycashreport.rpt");
             re.SetDataSource(dd);
-           // CrystalReportViewer1.Visibility = Visibility.Visible;
-           // pettycashRPT.Visibility = Visibility.Hidden;
-            //CrystalReportViewer1.ShowRefreshButton = false;
-            //re.Refresh();
-            //CrystalReportViewer1.ViewerCore.ReportSource = re;
             re.PrintToPrinter(1, false, 0, 0);
             re.Refresh();
         }
