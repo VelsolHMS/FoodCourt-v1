@@ -58,7 +58,7 @@
                                     <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                                         <TextBlock Text="Details" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                                         <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
-                                        <TextBox Name="detailstxt" TabIndex="4" Width="150" Margin="30,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding ItemDetails,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=LostFocus}"/>
+                                        <TextBox Name="detailstxt" TabIndex="4" Width="150" Margin="30,0,0,0"/>
                                     </StackPanel>
                                     <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                                         <TextBlock Text="Reporting Name" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
