@@ -165,13 +165,13 @@ namespace Foodcourt.View.Oprs
                 for (int j = 0; j < db.Rows.Count; j++)
                 {
                     BILLITM_Quanty = Convert.ToDecimal(db.Rows[j]["BILLITM_Quanty"]);
-                    BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]);
+                    BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]) * BILLITM_Quanty;
                     BILITM_Tax = Convert.ToDecimal(db.Rows[j]["BILITM_Tax"]);
-                    Total = (BILITM_Rate + BILITM_Tax) * BILLITM_Quanty;
+                    Total = BILITM_Rate + BILITM_Tax;
                     DataRow ROW = DD1.NewRow();
                     ROW["BILITM_Name"] = db.Rows[j]["BILITM_Name"];
                     ROW["BILLITM_Quanty"] = db.Rows[j]["BILLITM_Quanty"];
-                    ROW["BILITM_Rate"] = db.Rows[j]["BILITM_Rate"];
+                    ROW["BILITM_Rate"] = BILITM_Rate;
                     ROW["BILITM_Tax"] = db.Rows[j]["BILITM_Tax"];
                     ROW["Total"] = Total;
                     DD1.Rows.Add(ROW);
