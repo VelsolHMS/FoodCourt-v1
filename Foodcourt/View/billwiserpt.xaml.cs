@@ -28,11 +28,7 @@ namespace Foodcourt.View
         {
             InitializeComponent();
         }
-
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            DWSRPT.Visibility = Visibility.Hidden;
-        }
+        
         public static string DA;
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -47,11 +47,6 @@ namespace Foodcourt.View
             re.PrintToPrinter(1, false, 0, 0);
             re.Refresh();
         }
-
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            paidoutRPT.Visibility = Visibility.Hidden;
-        }
         public DataTable report()
         {
             DataTable d = new DataTable();
