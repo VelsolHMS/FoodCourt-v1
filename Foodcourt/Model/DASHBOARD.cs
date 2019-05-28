@@ -32,7 +32,7 @@ namespace Foodcourt.Model
         public DataTable GETDATA()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT DISTINCT (SELECT SUM(BILL_Total) FROM FCBILLNO WHERE BILL_InsertDate=A.BILL_InsertDate) AS Total,BILL_InsertDate as Date FROM FCBILLNO A WHERE A.BILL_InsertDate  = '" + DashBoard.DATE + "' AND BILL_Status='Settled'";
+            string S = "SELECT DISTINCT (SELECT SUM(BILL_Total) FROM FCBILLNO WHERE BILL_InsertDate=A.BILL_InsertDate AND BILL_Status='Settled') AS Total,BILL_InsertDate as Date FROM FCBILLNO A WHERE A.BILL_InsertDate  = '" + DashBoard.DATE + "' AND BILL_Status='Settled'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
