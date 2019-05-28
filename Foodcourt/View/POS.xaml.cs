@@ -63,7 +63,7 @@ namespace Foodcourt.View.Oprs
                 btn.Content = DT1.Rows[i]["CTG_Name"].ToString();
                 btn.Click += new RoutedEventHandler(btn1_click);
                 btn.Height = 35;
-                btn.Width = 130;
+                btn.Width = 175;
                 btn.Background = Brushes.Green;
                 btn.Foreground = Brushes.White;
                 btn.BorderBrush = Brushes.White;
@@ -90,7 +90,7 @@ namespace Foodcourt.View.Oprs
                 chk.Content = DT1.Rows[i]["NAM_Name"].ToString();
                 chk.Click += new RoutedEventHandler(chk_Click);
                 chk.Height = 35;
-                chk.Width = 130;
+                chk.Width = 170;
                 if (checkbox_checks == null)
                 {
                 }
