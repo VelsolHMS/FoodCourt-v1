@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Foodcourt.REPORTS {
+namespace Foodcourt.FCReport {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Foodcourt.REPORTS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Printbill : ReportClass {
+    public class MonthWiseSaleSubReport : ReportClass {
         
-        public Printbill() {
+        public MonthWiseSaleSubReport() {
         }
         
         public override string ResourceName {
             get {
-                return "Printbill.rpt";
+                return "MonthWiseSaleSubReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Foodcourt.REPORTS {
         
         public override string FullResourceName {
             get {
-                return "Foodcourt.REPORTS.Printbill.rpt";
+                return "Foodcourt.FCReport.MonthWiseSaleSubReport.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace Foodcourt.REPORTS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,25 +82,17 @@ namespace Foodcourt.REPORTS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPrintbill : Component, ICachedReport {
+    public class CachedMonthWiseSaleSubReport : Component, ICachedReport {
         
-        public CachedPrintbill() {
+        public CachedMonthWiseSaleSubReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace Foodcourt.REPORTS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Printbill rpt = new Printbill();
+            MonthWiseSaleSubReport rpt = new MonthWiseSaleSubReport();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -14,7 +14,6 @@ namespace DAL
         {
             using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["sqlConString"].ConnectionString))
             {
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandText = cmdText;
@@ -52,7 +51,6 @@ namespace DAL
                 {
                     return default(T);
                 }
-
             }
         }
     }

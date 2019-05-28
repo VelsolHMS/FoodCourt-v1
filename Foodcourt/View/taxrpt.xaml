@@ -10,37 +10,27 @@
       mc:Ignorable="d" 
       Height="800" Width="1000"
       Title="taxrpt">
-
     <Grid>
-        <material:Card Height="800" >
+        <material:Card Height="250" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Visibility="Visible">
             <Grid>
-                <material:Card Name="taxRPT" Height="305" Margin="334,136,0,0" HorizontalAlignment="Left" Width="353" Visibility="Visible">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="29*"/>
-                            <RowDefinition Height="321*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Background="#FF5180A0">
-                            <TextBlock Text="Tax Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
-                            <Button Name="BtnClose" Margin="325,0,0,0" Height="Auto" BorderBrush="{x:Null}" Click="BtnClose_Click">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Foodcourt;component/Images/cls.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <StackPanel Height="25" Margin="0,53,0,201.729" Orientation="Horizontal">
-                                <TextBlock Text="From Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="dt" Width="131" Margin="20,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel Height="25" Margin="0,132,0,122.729" Orientation="Horizontal">
-                                <TextBlock Text="To Date:" Margin="70,0,0,0" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
-                                <DatePicker Name="dt1" Width="131" Margin="42,0,0,0"/>
-                            </StackPanel>
-                            <Button Width="100" Content="OK" Click="Button_Click"  Margin="140,210,113,39.729" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF" Height="Auto"/>
-                        </Grid>
-                    </Grid>
-                </material:Card>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="87*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#FF5180A0">
+                    <TextBlock Text="Tax Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Height="25" Margin="0,30,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="From Date:" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                        <DatePicker Name="dt" Width="150" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Height="25" Margin="0,80,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="To Date:" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                        <DatePicker Name="dt1" Width="150" Margin="30,0,0,0"/>
+                    </StackPanel>
+                    <Button Width="100" Content="OK" Click="Button_Click"  Margin="0,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"  Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF" Height="Auto"/>
+                </Grid>
             </Grid>
         </material:Card>
     </Grid>

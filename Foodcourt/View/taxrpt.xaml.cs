@@ -18,10 +18,6 @@ namespace Foodcourt.View
             InitializeComponent();
         }
         public static string date, date1;
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            taxRPT.Visibility = Visibility.Hidden;
-        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             date = dt.Text;

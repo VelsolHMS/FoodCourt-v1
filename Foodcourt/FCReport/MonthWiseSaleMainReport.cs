@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Foodcourt.REPORTS {
+namespace Foodcourt.FCReport {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Foodcourt.REPORTS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Printbill : ReportClass {
+    public class MonthWiseSaleMainReport : ReportClass {
         
-        public Printbill() {
+        public MonthWiseSaleMainReport() {
         }
         
         public override string ResourceName {
             get {
-                return "Printbill.rpt";
+                return "MonthWiseSaleMainReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Foodcourt.REPORTS {
         
         public override string FullResourceName {
             get {
-                return "Foodcourt.REPORTS.Printbill.rpt";
+                return "Foodcourt.FCReport.MonthWiseSaleMainReport.rpt";
             }
             set {
                 // Do nothing
@@ -98,9 +98,9 @@ namespace Foodcourt.REPORTS {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPrintbill : Component, ICachedReport {
+    public class CachedMonthWiseSaleMainReport : Component, ICachedReport {
         
-        public CachedPrintbill() {
+        public CachedMonthWiseSaleMainReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +137,7 @@ namespace Foodcourt.REPORTS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Printbill rpt = new Printbill();
+            MonthWiseSaleMainReport rpt = new MonthWiseSaleMainReport();
             rpt.Site = this.Site;
             return rpt;
         }
