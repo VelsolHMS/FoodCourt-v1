@@ -381,6 +381,9 @@
     <Compile Include="View\RPTS.xaml.cs">
       <DependentUpon>RPTS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Stalls.xaml.cs">
+      <DependentUpon>Stalls.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Tax.xaml.cs">
       <DependentUpon>Tax.xaml</DependentUpon>
     </Compile>
@@ -508,6 +511,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\RPTS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Stalls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

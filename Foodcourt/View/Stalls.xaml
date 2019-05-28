@@ -1,0 +1,90 @@
+﻿<Page x:Class="Foodcourt.View.Stalls"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Foodcourt.View"
+      xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:vm="clr-namespace:Foodcourt.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Stalls">
+
+    <Page.Resources>
+        <vm:DataF x:Key="view"></vm:DataF>
+    </Page.Resources>
+    <Grid>
+        <Viewbox>
+            <material:Card Height="450" Width="800">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="92*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#FF5180A0" />
+                    <TextBlock Text="Stall" FontFamily="Sitka Display" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="389*"/>
+                            <ColumnDefinition Width="411*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                                <TextBlock Text="Id:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <TextBox Name="txtId" Width="150" Margin="25,0,0,0" IsReadOnly="True"/>
+                            </StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+                                <TextBlock Text="Name:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <TextBox Name="txtName" TabIndex="0" Width="150" Margin="25,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
+                                <TextBlock Text="Details:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <TextBox Name="txtdts" Width="150" TabIndex="1" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Description,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
+                                <TextBlock Text="Active From:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <DatePicker Name="dpactive" Width="150" TabIndex="2" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding ToDate,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>-->
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
+                                <TextBlock Text="Reporting:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <TextBox Name="txtrpt" Width="150" Margin="25,0,0,0" TabIndex="2"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,270,0,0">
+                                <TextBlock Text="Status" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <ComboBox Name="txtstatus" Width="150" Margin="25,0,0,0" TabIndex="4" SelectedIndex="0">
+                                    <ComboBoxItem>Active</ComboBoxItem>
+                                    <ComboBoxItem>InActive</ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <Viewbox>
+                                <Button Name="btnClear" Content="Clear" FontFamily="Sitka Display" FontSize="20" Width="100" Margin="0,340.5,180,44.5" Click="BtnClear_Click"/>
+                            </Viewbox>
+                            <Viewbox>
+                                <Button Name="btnSave" Content="Save" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" FontSize="20" Width="100" Margin="150,340.5,21,44.5" Click="BtnSave_Click"/>
+                            </Viewbox>
+                        </Grid>
+                        <!--<Separator Margin="168,192.5,216,194" Foreground="#FFD4D4D4" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Background="#FFD4D4D4">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>-->
+                        <Grid Grid.Column="1">
+                            <DataGrid Name="dgstall" BorderBrush="#FFD4D4D4" CanUserAddRows="False" MouseLeftButtonUp="Dgstall_MouseLeftButtonUp" AutoGenerateColumns="False" BorderThickness="1.5" Margin="0,10,10,10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Category Name"/>
+                                    <DataGridTextColumn Header="Reporting Name"/>
+                                    <DataGridTextColumn Header="Status"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </material:Card>
+        </Viewbox>
+    </Grid>
+</Page>
