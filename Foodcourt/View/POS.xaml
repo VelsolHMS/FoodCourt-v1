@@ -7,13 +7,13 @@
       xmlns:local="clr-namespace:Foodcourt.View.Oprs"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d"
-      d:DesignHeight="650" d:DesignWidth="1100"
+      d:DesignHeight="650" d:DesignWidth="1000"
       Title="POS">
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>
     <Grid>
-        <material:Card Height="650" Width="1100" >
+        <material:Card Height="650" Width="1000" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="34*"/>
@@ -114,125 +114,125 @@
                                 <Label Content="TOTAL" Margin="30,0,0,0" FontStyle="Normal" FontWeight="Bold"></Label>
                             </StackPanel>
                             <ScrollViewer Margin="0,25,00,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
-                                <WrapPanel Name="wrap" Margin="0,20,0,0"  Height="Auto"  >
-                                    <StackPanel Name="sp1" Visibility="Hidden" Orientation="Horizontal" Height="25" Width="418" >
+                                <WrapPanel Name="wrap" Margin="0,20,0,0"  Height="Auto">
+                                    <StackPanel Name="sp1" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,0,10,0">
                                         <TextBox Name="itemname"  TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
                                         <TextBox Name="itemrate" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity" LostFocus="quantity_LostFocus" TabIndex="0" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity" LostFocus="quantity_LostFocus" TabIndex="0" TextAlignment="Center"  Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
                                         <TextBox Name="total" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp2" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp2" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
                                         <TextBox Name="itemname1" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity1" LostFocus="quantity1_LostFocus" TabIndex="1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity1" LostFocus="quantity1_LostFocus" TabIndex="1" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
                                         <TextBox Name="total1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp3" Visibility="Hidden"  Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp3" Visibility="Hidden"  Orientation="Horizontal" Height="25" Margin="10,5,10,0" >
                                         <TextBox Name="itemname2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity2" LostFocus="quantity2_LostFocus" TabIndex="2"  TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity2" LostFocus="quantity2_LostFocus" TabIndex="2"  TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp4" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp4" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
                                         <TextBox Name="itemname3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity3" LostFocus="quantity3_LostFocus" TabIndex="3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity3" LostFocus="quantity3_LostFocus" TabIndex="3" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp5" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp5" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity4" LostFocus="quantity4_LostFocus" TabIndex="4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity4" LostFocus="quantity4_LostFocus" TabIndex="4" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp6" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp6" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity5" LostFocus="quantity5_LostFocus" TabIndex="5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity5" LostFocus="quantity5_LostFocus" TabIndex="5" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp7" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418">
+                                    <StackPanel Name="sp7" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity6" LostFocus="quantity6_LostFocus" TabIndex="6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity6" LostFocus="quantity6_LostFocus" TabIndex="6" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp8" Visibility="Hidden" Orientation="Horizontal" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Name="sp8" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity7" LostFocus="quantity7_LostFocus" TabIndex="7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity7" LostFocus="quantity7_LostFocus" TabIndex="7" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp9" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp9" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity8" LostFocus="quantity8_LostFocus" TabIndex="8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity8" LostFocus="quantity8_LostFocus" TabIndex="8" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp10" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp10" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity9" LostFocus="quantity9_LostFocus" TabIndex="9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity9" LostFocus="quantity9_LostFocus" TabIndex="9" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp11" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp11" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity10" LostFocus="quantity10_LostFocus" TabIndex="10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity10" LostFocus="quantity10_LostFocus" TabIndex="10" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp12" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp12" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity11" LostFocus="quantity11_LostFocus" TabIndex="11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity11" LostFocus="quantity11_LostFocus" TabIndex="11" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp13" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp13" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity12" LostFocus="quantity12_LostFocus" TabIndex="12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity12" LostFocus="quantity12_LostFocus" TabIndex="12" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp14" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp14" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity13" LostFocus="quantity13_LostFocus" TabIndex="13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity13" LostFocus="quantity13_LostFocus" TabIndex="13" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp15" Visibility="Hidden" Margin="0,0,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp15" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity14" LostFocus="quantity14_LostFocus" TabIndex="14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity14" LostFocus="quantity14_LostFocus" TabIndex="14" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp16" Visibility="Hidden" Margin="0,0,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp16" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity15" LostFocus="quantity15_LostFocus" TabIndex="15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity15" LostFocus="quantity15_LostFocus" TabIndex="15" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp17" Visibility="Hidden" Margin="0,0,0,0" Height="25" Width="418" >
+                                    <StackPanel Orientation="Horizontal" Name="sp17" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
                                         <TextBox Name="itemrate16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity16" LostFocus="quantity16_LostFocus" TabIndex="16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity16" LostFocus="quantity16_LostFocus" TabIndex="16" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
                                         <TextBox Name="total16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp18" Visibility="Hidden" Margin="0,0,0,0" Height="25" Width="418">
+                                    <StackPanel Orientation="Horizontal" Name="sp18" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
                                         <TextBox Name="itemrate17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity17" LostFocus="quantity17_LostFocus" TabIndex="17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity17" LostFocus="quantity17_LostFocus" TabIndex="17" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
                                         <TextBox Name="total17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp19" Visibility="Hidden" Margin="0,5,0,0" Height="25" Width="418">
+                                    <StackPanel Orientation="Horizontal" Name="sp19" Visibility="Hidden" Margin="10,5,10,0" Height="25">
                                         <TextBox Name="itemname18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
                                         <TextBox Name="itemrate18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity18" LostFocus="quantity18_LostFocus" TabIndex="18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity18" LostFocus="quantity18_LostFocus" TabIndex="18" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
                                         <TextBox Name="total18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp20" Visibility="Hidden" Margin="0,0,0,0" Height="25" Width="418">
+                                    <StackPanel Orientation="Horizontal" Name="sp20" Visibility="Hidden" Height="25" Margin="10,5,10,0">
                                         <TextBox Name="itemname19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
                                         <TextBox Name="itemrate19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity19" LostFocus="quantity19_LostFocus" TabIndex="19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity19" LostFocus="quantity19_LostFocus" TabIndex="19" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
                                         <TextBox Name="total19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
                                     </StackPanel>
                                 </WrapPanel>
@@ -240,16 +240,16 @@
                         </Grid>
                         <Grid Grid.Row="2">
                             <StackPanel Height="25" Margin="0,2.5,0,89.5" Orientation="Horizontal">
-                                <TextBlock Text="Total:" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="250,0,0,0"/>
-                                <TextBlock Name="txtttl" Width="70" Margin="20,0,0,0" FontSize="20"/>
+                                <TextBlock Text="Total    :" Width="70" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="180,0,0,0"/>
+                                <TextBlock Name="txtttl" Width="70" Margin="10,0,0,0" FontSize="20"/>
                             </StackPanel>
                             <StackPanel Height="25" Margin="0,29.5,0,62.5" Orientation="Horizontal">
-                                <TextBlock Text="GST:" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="255,0,0,0"/>
-                                <TextBlock Name="txtgst"  Width="70" Margin="18,0,0,0" FontSize="20"/>
+                                <TextBlock Text="GST      :"  Width="70" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="180,0,0,0"/>
+                                <TextBlock Name="txtgst"  Width="70" Margin="10,0,0,0" FontSize="20"/>
                             </StackPanel>
-                            <StackPanel Height="25" Margin="0,55,0,37" Orientation="Horizontal">
-                                <TextBlock Text="GTotal:" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="255,0,0,0"/>
-                                <TextBlock Name="txtgttl" Width="70" Margin="5,0,0,0" FontSize="20"/>
+                            <StackPanel Height="25" Margin="0,56,0,37" Orientation="Horizontal">
+                                <TextBlock Text="GTotal  :" Width="70" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="180,0,0,0"/>
+                                <TextBlock Name="txtgttl" Width="70" Margin="10,0,0,0" FontSize="20"/>
                             </StackPanel>
                             <Viewbox>
                                 <Button Margin="10,78,322,12" Content="Save" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="30" Click="Button_Click"/>
