@@ -328,6 +328,10 @@ namespace Foodcourt.FCReport {
             
             private global::System.Data.DataColumn columnGRANDTOTALL;
             
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public PropertyDataTable() {
@@ -419,6 +423,22 @@ namespace Foodcourt.FCReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -454,7 +474,7 @@ namespace Foodcourt.FCReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PropertyRow AddPropertyRow(string Name, string Address, string Gst, decimal TOTALNETAMOUNT, decimal TOTALCGST, decimal TOTALSGST, decimal GRANDTOTALL) {
+            public PropertyRow AddPropertyRow(string Name, string Address, string Gst, decimal TOTALNETAMOUNT, decimal TOTALCGST, decimal TOTALSGST, decimal GRANDTOTALL, System.DateTime FromDate, System.DateTime ToDate) {
                 PropertyRow rowPropertyRow = ((PropertyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -463,7 +483,9 @@ namespace Foodcourt.FCReport {
                         TOTALNETAMOUNT,
                         TOTALCGST,
                         TOTALSGST,
-                        GRANDTOTALL};
+                        GRANDTOTALL,
+                        FromDate,
+                        ToDate};
                 rowPropertyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPropertyRow);
                 return rowPropertyRow;
@@ -493,6 +515,8 @@ namespace Foodcourt.FCReport {
                 this.columnTOTALCGST = base.Columns["TOTALCGST"];
                 this.columnTOTALSGST = base.Columns["TOTALSGST"];
                 this.columnGRANDTOTALL = base.Columns["GRANDTOTALL"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,6 +536,10 @@ namespace Foodcourt.FCReport {
                 base.Columns.Add(this.columnTOTALSGST);
                 this.columnGRANDTOTALL = new global::System.Data.DataColumn("GRANDTOTALL", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGRANDTOTALL);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1083,6 +1111,38 @@ namespace Foodcourt.FCReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime FromDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProperty.FromDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromDate\' in table \'Property\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProperty.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime ToDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProperty.ToDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToDate\' in table \'Property\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProperty.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableProperty.NameColumn);
             }
@@ -1163,6 +1223,30 @@ namespace Foodcourt.FCReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetGRANDTOTALLNull() {
                 this[this.tableProperty.GRANDTOTALLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFromDateNull() {
+                return this.IsNull(this.tableProperty.FromDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFromDateNull() {
+                this[this.tableProperty.FromDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsToDateNull() {
+                return this.IsNull(this.tableProperty.ToDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetToDateNull() {
+                this[this.tableProperty.ToDateColumn] = global::System.Convert.DBNull;
             }
         }
         
