@@ -473,6 +473,8 @@ C:\Users\Admin\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.Co
 C:\Users\Admin\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Admin\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Admin\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.exe.config
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.pdb
@@ -535,6 +537,7 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\POS.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Property.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Registration.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\RPTS.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Tax.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\taxrpt.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Transaction.g.cs
@@ -566,6 +569,7 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\POS.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Property.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Registration.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\RPTS.baml
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Tax.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\taxrpt.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Transaction.baml
@@ -576,7 +580,3 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.C
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml
-C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
-C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml

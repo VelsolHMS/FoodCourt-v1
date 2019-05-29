@@ -23,6 +23,8 @@ namespace Foodcourt.View
             txtId.Text =Convert.ToString(it.id());
             DataTable dtt = it.FillDataGrid();
             dgctg.ItemsSource = dtt.DefaultView;
+            DataTable stalls = it.GetStalls();
+            txtstall.ItemsSource = stalls.DefaultView;
             //dpactive.DisplayDateStart = DateTime.Today;
             //dpactive.Text = Convert.ToString(DateTime.Today.Date);
         }
@@ -46,7 +48,7 @@ namespace Foodcourt.View
         {
             try
             {
-                if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtrpt.Text)) || (string.IsNullOrWhiteSpace(txtstatus.Text)))
+                if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtrpt.Text)) || (string.IsNullOrWhiteSpace(txtstatus.Text)) || (string.IsNullOrWhiteSpace(txtstall.Text)))
                 {
                     if (txtId.Text == "")
                     { txtId.Text = ""; }
@@ -65,6 +67,7 @@ namespace Foodcourt.View
                     it.CTG_Details = txtdts.Text;
                     it.CTG_Status = txtstatus.Text;
                     it.CTG_ReportingName = txtrpt.Text;
+                    it.STL_Name = txtstall.Text;
                     DataTable dt = it.FillDataGrid();
                     if (dt.Rows.Count >= 0)
                     {
@@ -112,6 +115,7 @@ namespace Foodcourt.View
                     txtdts.Text = dt2.Rows[i]["CTG_Details"].ToString();
                     txtrpt.Text = dt2.Rows[i]["CTG_ReportingName"].ToString();
                     txtstatus.Text = dt2.Rows[i]["CTG_Status"].ToString();
+                    txtstall.Text = dt2.Rows[i]["STL_Name"].ToString();
                 }
                 else
                 {
