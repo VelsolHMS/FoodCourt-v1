@@ -46,14 +46,14 @@ namespace Foodcourt.Model
         public DataTable filltable()
         {
             var list = new List<SqlParameter>();
-            string gd = "select CTG_ID,CTG_Name,CTG_Details,CTG_ReportingName,CTG_Status from FCRITMCTG";
+            string gd = "select CTG_ID,CTG_Name,CTG_Details,CTG_ReportingName,CTG_Status, (select STL_Name from FCSTALLS where STL_ID = A.STL_ID) AS STL_Name from FCRITMCTG A";
             DataTable dt1 = DbFunctions.ExecuteCommand<DataTable>(gd, list);
             return dt1;
         }
         public DataTable FillDataGrid()
         {
             var list = new List<SqlParameter>();
-            string g = "Select CTG_Name,CTG_ActiveDate,CTG_ReportingName,CTG_Status, (select STL_Name from FCSTALLS where STL_ID = A.STL_ID) AS STL_Name from FCRITMCTG A";
+            string g = "Select CTG_ID,CTG_Name,CTG_Details,CTG_ReportingName,CTG_Status, (select STL_Name from FCSTALLS where STL_ID = A.STL_ID) AS STL_Name from FCRITMCTG A";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(g, list);
             return dt;
         }
