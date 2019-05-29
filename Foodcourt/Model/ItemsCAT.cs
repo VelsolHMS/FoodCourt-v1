@@ -23,7 +23,8 @@ namespace Foodcourt.Model
         public string CTG_UpdateBY { get; set; }
         public DateTime CTG_UpdateDate { get; set; }
         public string CTG_Status { get; set; }
-
+        public int STL_ID { get; set; }
+        public string STL_Name { get; set; }
         public int id()
         {
             int a = 0;
@@ -52,7 +53,7 @@ namespace Foodcourt.Model
         public DataTable FillDataGrid()
         {
             var list = new List<SqlParameter>();
-            string g = "select CTG_Name,CTG_ActiveDate,CTG_ReportingName,CTG_Status from FCRITMCTG";
+            string g = "Select CTG_Name,CTG_ActiveDate,CTG_ReportingName,CTG_Status, (select STL_Name from FCSTALLS where STL_ID = A.STL_ID) AS STL_Name from FCRITMCTG A";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(g, list);
             return dt;
         }
@@ -71,8 +72,9 @@ namespace Foodcourt.Model
             LIST.AddSqlParameter("@CTG_Status", CTG_Status);
             CTG_UpdateDate = DateTime.Today.Date;
             LIST.AddSqlParameter("@CTG_UpdateDate", CTG_UpdateDate);
-            string I = "INSERT INTO FCRITMCTG (CTG_Name,CTG_Details,CTG_ActiveDate,CTG_ReportingName,CTG_InsertBy,CTG_InsertDate,CTG_UpdateBY,CTG_UpdateDate,CTG_Status)" +
-                " VALUES (@CTG_Name,@CTG_Details,@CTG_ActiveDate,@CTG_ReportingName,@CTG_InsertBy,@CTG_InsertDate,@CTG_UpdateBY,@CTG_UpdateDate,@CTG_Status)";
+            LIST.AddSqlParameter("@STL_Name", STL_Name);
+            string I = "INSERT INTO FCRITMCTG (CTG_Name,CTG_Details,CTG_ActiveDate,CTG_ReportingName,CTG_InsertBy,CTG_InsertDate,CTG_UpdateBY,CTG_UpdateDate,CTG_Status,STL_ID)" +
+                " VALUES (@CTG_Name,@CTG_Details,@CTG_ActiveDate,@CTG_ReportingName,@CTG_InsertBy,@CTG_InsertDate,@CTG_UpdateBY,@CTG_UpdateDate,@CTG_Status,(select STL_ID from FCSTALLS where STL_Name = @STL_Name))";
             DbFunctions.ExecuteCommand<int>(I, LIST);
         }
         public void UPDATE()
@@ -83,10 +85,10 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@CTG_Status", CTG_Status);
             list.AddSqlParameter("@CTG_ReportingName", CTG_ReportingName);
             list.AddSqlParameter("@CTG_UpdateBY", login.u);
+            list.AddSqlParameter("@STL_Name", STL_Name);
             CTG_UpdateDate = DateTime.Today.Date;
             list.AddSqlParameter("@CTG_UpdateDate", CTG_UpdateDate);
-            string uquery = "Update FCRITMCTG set CTG_Name=@CTG_Name,CTG_Details=@CTG_Details,CTG_ReportingName=@CTG_ReportingName,CTG_Status = @CTG_Status WHERE CTG_ID='" + CTG_Id+"'";
-
+            string uquery = "Update FCRITMCTG set CTG_Name=@CTG_Name,CTG_Details=@CTG_Details,CTG_ReportingName=@CTG_ReportingName,CTG_Status = @CTG_Status,STL_ID = (select STL_ID from FCSTALLS where STL_Name = @STL_Name) WHERE CTG_ID='" + CTG_Id+"'";
             DbFunctions.ExecuteCommand<int>(uquery, list);
         }
         public DataTable GetCategories()
@@ -126,6 +128,13 @@ namespace Foodcourt.Model
                 CTG_Name = categories.Rows[0]["CTG_Name"].ToString();
             }
             return categories;
+        }
+        public DataTable GetStalls()
+        {
+            var list = new List<SqlParameter>();
+            string s = "Select STL_Name from FCSTALLS";
+            DataTable stalls = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return stalls;
         }
     }
 }

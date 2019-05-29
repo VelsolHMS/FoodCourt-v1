@@ -7,14 +7,14 @@
       xmlns:local="clr-namespace:Foodcourt.View"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d" 
-      Height="450" d:DesignWidth="800"
+      Height="500" d:DesignWidth="800"
       Title="ItemCategory">
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>
     <Grid>
         <Viewbox>
-            <material:Card Height="450" Width="800">
+            <material:Card Height="500" Width="800">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="29*"/>
@@ -37,30 +37,30 @@
                                 <TextBox Name="txtName" TabIndex="0" Width="150" Margin="25,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
+                                <TextBlock Text="Stall" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <ComboBox Name="txtstall" Width="150" Margin="25,0,0,0" DisplayMemberPath="STL_Name" TabIndex="1"></ComboBox>
+                            </StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
                                 <TextBlock Text="Details:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtdts" Width="150" TabIndex="1" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Description,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Name="txtdts" Width="150" TabIndex="2" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Description,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
                                 <TextBlock Text="Active From:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
                                 <DatePicker Name="dpactive" Width="150" TabIndex="2" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding ToDate,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>-->
-                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
-                                <TextBlock Text="Reporting:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtrpt" Width="150" Margin="25,0,0,0" TabIndex="2"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
-                            </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,270,0,0">
+                                <TextBlock Text="Reporting:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
+                                <TextBox Name="txtrpt" Width="150" Margin="25,0,0,0" TabIndex="3"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                            <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0">
                                 <TextBlock Text="Status" Width="100" FontFamily="Sitka Display" FontSize="22"/>
                                 <ComboBox Name="txtstatus" Width="150" Margin="25,0,0,0" TabIndex="4" SelectedIndex="0">
                                     <ComboBoxItem>Active</ComboBoxItem>
                                     <ComboBoxItem>InActive</ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
-                            <Viewbox>
-                                <Button Name="btnClear" Content="Clear" FontFamily="Sitka Display" FontSize="20" Width="100" Margin="0,340.5,180,44.5" Click="btnClear_Click"/>
-                            </Viewbox>
-                            <Viewbox>
-                                <Button Name="btnSave" Content="Save" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" FontSize="20" Width="100" Margin="150,340.5,21,44.5" Click="btnSave_Click"/>
-                            </Viewbox>
+                            <Button Name="btnClear" Content="Clear" FontFamily="Sitka Display" FontSize="20" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,40" Click="btnClear_Click"/>
+                            <Button Name="btnSave" Content="Save" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="20" Width="100" Margin="0,0,70,40" Click="btnSave_Click"/>
                         </Grid>
                         <!--<Separator Margin="168,192.5,216,194" Foreground="#FFD4D4D4" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Background="#FFD4D4D4">
                             <Separator.RenderTransform>
@@ -75,8 +75,9 @@
                         <Grid Grid.Column="1">
                             <DataGrid Name="dgctg" BorderBrush="#FFD4D4D4" CanUserAddRows="False" MouseLeftButtonUp="dgctg_MouseLeftButtonUp" AutoGenerateColumns="False" BorderThickness="1.5" Margin="0,10,10,10">
                                 <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding CTG_Id}"/>
                                     <DataGridTextColumn Header="Category Name" Binding="{Binding CTG_Name}"/>
-                                    <DataGridTextColumn Header="Active From" Binding="{Binding CTG_ActiveDate, StringFormat=dd/MM/yyyy}"/>
+                                    <DataGridTextColumn Header="Stall" Binding="{Binding STL_Name}"/>
                                     <DataGridTextColumn Header="Reporting Name" Binding="{Binding CTG_ReportingName}"/>
                                     <DataGridTextColumn Header="Status" Binding="{Binding CTG_Status}"/>
                                 </DataGrid.Columns>
