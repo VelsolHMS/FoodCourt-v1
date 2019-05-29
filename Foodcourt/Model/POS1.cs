@@ -157,7 +157,7 @@ namespace Foodcourt.Model
         public DataTable getstlid()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT STL_ID,CTG_Name FROM FCRITMCTG WHERE CTG_Name='" + POS.aa+"'";
+            string s = "SELECT STL_ID,NAM_Name FROM FCITMNAM WHERE NAM_Name='" + POS.itemnamestlid + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
