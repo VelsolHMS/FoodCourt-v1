@@ -102,6 +102,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -141,6 +142,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -180,6 +182,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -219,6 +222,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -258,6 +262,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -567,6 +572,7 @@ namespace Foodcourt
                     btnitemcategory.Foreground = Brushes.White;
                     btnitems.Foreground = Brushes.White;
                     MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
                     MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
@@ -808,6 +814,46 @@ namespace Foodcourt
             Miscollection.Foreground = Brushes.White;
             cashhandoverrpt.Foreground = Brushes.White;
             this.MainFrame.Navigate(new Uri("View/Cashhandrpt.xaml", UriKind.RelativeOrAbsolute));
+        }
+        private void MISTA_Click(object sender, RoutedEventArgs e)
+        {
+            //DataTable dt = user.MASTER1();
+            //if (dt.Rows.Count == 0)
+            //{
+            //    MessageBox.Show(" YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
+            //}
+            //else
+            //{
+            //int ITEM_CATEGORY = int.Parse(dt.Rows[0]["ITEM_CATEGORY"].ToString());
+            //if (ITEM_CATEGORY == 1)
+            //{
+                    MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+                    MIHome.Foreground = Brushes.White;
+                    MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+                    MIOperations.Foreground = Brushes.White;
+                    MIMasters.Background = Brushes.White;
+                    MIMasters.Foreground = new System.Windows.Media.SolidColorBrush(color);
+                    btnprpt.Foreground = Brushes.White;
+                    btnreg.Foreground = Brushes.White;
+                    btntax.Foreground = Brushes.White;
+                    btnitemcategory.Foreground = Brushes.White;
+                    btnitems.Foreground = Brushes.White;
+                    MIUP.Foreground = Brushes.White;
+                    MISTA.Foreground = Brushes.White;
+                    MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
+                    MIReports.Foreground = Brushes.White;
+                    MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+                    MIDash.Foreground = Brushes.White;
+                    this.MainFrame.Navigate(new Uri("View/Stalls.xaml", UriKind.RelativeOrAbsolute));
+                //}
+                //else
+                //{
+                //    MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+                //    MIMasters.Foreground = Brushes.White;
+                //    MainFrame.Content = null;
+                //    MessageBox.Show(" YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
+                //}
+            //}
         }
     }
 }
