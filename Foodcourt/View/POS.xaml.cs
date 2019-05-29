@@ -53,14 +53,15 @@ namespace Foodcourt.View.Oprs
             else
                 error--;
         }
+        DataTable dtctg;
         public void Button()
         {
             WrapPanel wrap1 = new WrapPanel();
-            DataTable DT1 = pos.GETCTG();
-            for (int i = 0; i < DT1.Rows.Count; i++)
+            dtctg = pos.GETCTG();
+            for (int i = 0; i < dtctg.Rows.Count; i++)
             {
                 Button btn = new Button();
-                btn.Content = DT1.Rows[i]["CTG_Name"].ToString();
+                btn.Content = dtctg.Rows[i]["CTG_Name"].ToString();
                 btn.Click += new RoutedEventHandler(btn1_click);
                 btn.Height = 35;
                 btn.Width = 175;
@@ -72,12 +73,15 @@ namespace Foodcourt.View.Oprs
             }
             WRAPC.Children.Add(wrap1);
         }
+        public static string stlid,ctgname;
         private void btn1_click(object sender, EventArgs e)
         {
-            ITMCTG.Visibility = Visibility.Hidden;
-            ITMNAM.Visibility = Visibility.Visible;
             Button btn = (Button)sender;
             aa = btn.Content.ToString();
+            DataTable dtstlid = pos.getstlid();
+            stlid = dtstlid.Rows[0]["STL_ID"].ToString();
+            ITMCTG.Visibility = Visibility.Hidden;
+            ITMNAM.Visibility = Visibility.Visible;
             CHECKBOX();
         }
         public void CHECKBOX()

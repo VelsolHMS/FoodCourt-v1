@@ -50,27 +50,27 @@ namespace Foodcourt.Model
                 " VALUES (@STL_Name,@STL_ReportingName,@STL_Description,@STL_Status,@STL_InsertBy,@STL_InsertDate)";
             DbFunctions.ExecuteCommand<DataTable>(s,list);
         }
-        //public void UPDATE()
-        //{
-        //    var lists = new List<SqlParameter>();
-        //    lists.AddSqlParameter("@NAM_Name", NAM_Name);
-        //    lists.AddSqlParameter("@NAM_Details", NAM_Details);
-        //    lists.AddSqlParameter("@CTG_Name", CTG_Name);
-        //    lists.AddSqlParameter("@NAM_Rate", NAM_Rate);
-        //    lists.AddSqlParameter("@NAM_Tax", NAM_Tax);
-        //    lists.AddSqlParameter("@NAM_ReportingName", NAM_ReportingName);
-        //    lists.AddSqlParameter("@NAM_ActiveFrom", DateTime.Today.Date);
-        //    lists.AddSqlParameter("@NAM_Status", NAM_Status);
-        //    lists.AddSqlParameter("@NAM_InsertDate", DateTime.Today.ToShortDateString());
-        //    lists.AddSqlParameter("@NAM_InsertBY", login.u);
-        //    string s = "UPDATE FCITMNAM SET NAM_Name = @NAM_Name,NAM_Details = @NAM_Details,CTG_Id = (select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),NAM_Rate = @NAM_Rate,NAM_Tax = @NAM_Tax," +
-        //                    "NAM_ReportingName = @NAM_ReportingName,NAM_Status = @NAM_Status,NAM_ActiveFrom = @NAM_ActiveFrom,NAM_InsertDate = @NAM_InsertDate,NAM_InsertBY = @NAM_InsertBY WHERE NAM_Id = '" + NAM_Id + "'";
-        //    DbFunctions.ExecuteCommand<int>(s, lists);
-        //}
+        public void UPDATE()
+        {
+            var list = new List<SqlParameter>();
+            list.AddSqlParameter("@STL_Name", STL_Name);
+            list.AddSqlParameter("@STL_ReportingName", STL_ReportingName);
+            list.AddSqlParameter("@STL_Description", STL_Description);
+            list.AddSqlParameter("@STL_Status", STL_Status);
+            string s = "UPDATE FCSTALLS SET STL_Name=@STL_Name,STL_ReportingName=@STL_ReportingName,STL_Description=@STL_Description,STL_Status=@STL_Status WHERE STL_ID = '" + STL_ID + "'";
+            DbFunctions.ExecuteCommand<int>(s, list);
+        }
         public DataTable FillGrid()
         {
             var list = new List<SqlParameter>();
-            string d = "SELECT STL_Name,STL_ReportingName,STL_Status FROM FCSTALLS";
+            string d = "SELECT STL_ID,STL_Name,STL_ReportingName,STL_Status FROM FCSTALLS";
+            DataTable S = DbFunctions.ExecuteCommand<DataTable>(d, list);
+            return S;
+        }
+        public DataTable GetAllDetails()
+        {
+            var list = new List<SqlParameter>();
+            string d = "SELECT * FROM FCSTALLS WHERE STL_ID = '" + STL_ID + "'";
             DataTable S = DbFunctions.ExecuteCommand<DataTable>(d, list);
             return S;
         }
