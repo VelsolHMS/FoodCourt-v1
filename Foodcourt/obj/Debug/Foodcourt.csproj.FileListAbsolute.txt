@@ -578,3 +578,5 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.g.cs
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Stalls.baml

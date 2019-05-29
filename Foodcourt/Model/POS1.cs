@@ -20,7 +20,7 @@ namespace Foodcourt.Model
         public DataTable GETCTG()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT CTG_Name FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE() AND CTG_Status='Active'";
+            string S = "SELECT CTG_Name,STL_ID FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE() AND CTG_Status='Active'";
             DataTable dt= DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return dt;
         }
@@ -128,11 +128,13 @@ namespace Foodcourt.Model
         public DateTime BILLITM_InsertDate { get; set; }
         public string BILLITM_InsertBy { get; set; }
         public int BILLITM_Quanty { get; set; }
+        public string STL_ID { get; set; }
 
         public void Insertitm()
         {
             var list = new List<SqlParameter>();
             list.AddSqlParameter("@BILLITM_Name", BILLITM_Name);
+            list.AddSqlParameter("@STL_ID", POS.stlid);
             list.AddSqlParameter("@BILLITM_Rate", BILLITM_Rate);
             list.AddSqlParameter("@BILLITM_Tax", BILLITM_Tax);
             BILLITM_InsertDate = DateTime.Today.Date;
@@ -140,8 +142,8 @@ namespace Foodcourt.Model
             BILLITM_InsertBy = login.u;
             list.AddSqlParameter("@BILLITM_InsertBy", BILLITM_InsertBy);
             list.AddSqlParameter("@BILLITM_Quanty", BILLITM_Quanty);
-            string s = "INSERT INTO FCBILLITM(BILITM_Name,BILITM_Rate,BILITM_Tax,BILITM_InsertDate,BILITM_InsertBy,BILL_Id,BILLITM_Quanty)" +
-                " VALUES(@BILLITM_Name,@BILLITM_Rate,@BILLITM_Tax,@BILLITM_InsertDate,@BILLITM_InsertBy,(SELECT MAX(BILL_Id) FROM FCBILLNO),@BILLITM_Quanty)";
+            string s = "INSERT INTO FCBILLITM(BILITM_Name,STL_ID,BILITM_Rate,BILITM_Tax,BILITM_InsertDate,BILITM_InsertBy,BILL_Id,BILLITM_Quanty)" +
+                " VALUES(@BILLITM_Name,@STL_ID,@BILLITM_Rate,@BILLITM_Tax,@BILLITM_InsertDate,@BILLITM_InsertBy,(SELECT MAX(BILL_Id) FROM FCBILLNO),@BILLITM_Quanty)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
         public int bill { get; set; }
@@ -149,6 +151,13 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total FROM FCBILLNO WHERE BILL_Id='"+bill+"'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable getstlid()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT STL_ID,CTG_Name FROM FCRITMCTG WHERE CTG_Name='" + POS.aa+"'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
