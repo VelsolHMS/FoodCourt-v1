@@ -176,6 +176,7 @@
     <Compile Include="Model\registration.cs" />
     <Compile Include="Model\reportClass1.cs" />
     <Compile Include="Model\Reports.cs" />
+    <Compile Include="Model\stalls.cs" />
     <Compile Include="Model\Tax.cs" />
     <Compile Include="Model\ItemsCAT.cs" />
     <Compile Include="Model\Userlogin.cs" />
