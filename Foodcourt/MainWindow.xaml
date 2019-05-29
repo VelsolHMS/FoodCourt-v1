@@ -26,6 +26,7 @@
                         <MenuItem Header="User Registration" Name="btnreg" Click="btnreg_Click"/>
                         <MenuItem Header="Tax" Name="btntax" Click="btntax_Click"/>
                         <!--<MenuItem Header="Offers"/>-->
+                        <MenuItem Name="MISTA" Header="Stalls" Click="MISTA_Click"/>
                         <MenuItem Header="Item Category" Name="btnitemcategory" Click="btnitemcategory_Click"/>
                         <MenuItem Header="Item Name" Name="btnitems" Click="btnitems_Click"/>
                         <!--<MenuItem Header="Item Rate"/>-->

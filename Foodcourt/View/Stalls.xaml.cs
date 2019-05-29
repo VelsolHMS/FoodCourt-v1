@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Foodcourt.Model;
-using Foodcourt.ViewModel;
-using System.Data;
 
 
 namespace Foodcourt.View
@@ -46,9 +36,7 @@ namespace Foodcourt.View
         }
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
-
         }
-
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -93,10 +81,8 @@ namespace Foodcourt.View
             txtstatus.Text = "";
             btnSave.Content = "Save";
         }
-
         private void Dgstall_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
         }
     }
 }

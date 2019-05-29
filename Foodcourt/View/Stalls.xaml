@@ -7,7 +7,7 @@
       xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="450" d:DesignWidth="800"
       Title="Stalls">
 
     <Page.Resources>
@@ -39,7 +39,7 @@
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
                                 <TextBlock Text="Details:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtdts" Width="150" TabIndex="1" Margin="25,0,0,0"  DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Description,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Name="txtdts" Width="150" TabIndex="1" Margin="25,0,0,0"/>
                             </StackPanel>
                             <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
                                 <TextBlock Text="Active From:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
