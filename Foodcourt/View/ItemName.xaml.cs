@@ -40,6 +40,7 @@ namespace Foodcourt.View
             else
                 error--;
         }
+        public static string ctgname;
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -53,6 +54,8 @@ namespace Foodcourt.View
                     items.NAM_Name = nametxt.Text;
                     items.NAM_Rate = Convert.ToDecimal(pricetxt.Text);
                     items.CTG_Name = catgytxt.Text;
+                    DataTable dtstlid = items.getstlid();
+                    items.STL_ID = dtstlid.Rows[0]["STL_ID"].ToString();
                     items.NAM_Tax = taxtxt.Text;
                     items.NAM_Details = detailstxt.Text;
                     items.NAM_ReportingName = rpnametxt.Text;

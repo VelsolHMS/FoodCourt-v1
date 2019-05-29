@@ -29,6 +29,7 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             list.AddSqlParameter("@NAM_Name", NAM_Name);
+            list.AddSqlParameter("@STL_ID", STL_ID);
             list.AddSqlParameter("@NAM_Details", NAM_Details);
             list.AddSqlParameter("@CTG_Name", CTG_Name);
             list.AddSqlParameter("@NAM_Rate", NAM_Rate);
@@ -38,8 +39,8 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@NAM_ActiveFrom", DateTime.Today.Date);
             list.AddSqlParameter("@NAM_InsertDate", DateTime.Today.ToShortDateString());
             list.AddSqlParameter("@NAM_InsertBY", login.u);
-            string s = "INSERT INTO FCITMNAM(NAM_Name,NAM_Details,CTG_Id,NAM_Rate,NAM_Tax,NAM_ReportingName,NAM_Status,NAM_ActiveFrom,NAM_InsertDate,NAM_InsertBY)" +
-                       "VALUES (@NAM_Name,@NAM_Details,(select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),@NAM_Rate,@NAM_Tax,@NAM_ReportingName,@NAM_Status,@NAM_ActiveFrom,@NAM_InsertDate,@NAM_InsertBY)";
+            string s = "INSERT INTO FCITMNAM(NAM_Name,STL_ID,NAM_Details,CTG_Id,NAM_Rate,NAM_Tax,NAM_ReportingName,NAM_Status,NAM_ActiveFrom,NAM_InsertDate,NAM_InsertBY)" +
+                       "VALUES (@NAM_Name,@STL_ID,@NAM_Details,(select CTG_Id from FCRITMCTG where CTG_Name = @CTG_Name),@NAM_Rate,@NAM_Tax,@NAM_ReportingName,@NAM_Status,@NAM_ActiveFrom,@NAM_InsertDate,@NAM_InsertBY)";
             DbFunctions.ExecuteCommand<DataTable>(s, list);
         }
         public void Update()
@@ -90,7 +91,14 @@ namespace Foodcourt.Model
             DataTable S = DbFunctions.ExecuteCommand<DataTable>(d, list);
             return S;
         }
-
+        public DataTable getstlid()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT STL_ID,CTG_Name FROM FCRITMCTG WHERE CTG_Name='" + CTG_Name + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public string STL_ID { get; set; }
         public string date { get; set; }
         public string date1 { get; set; }
 

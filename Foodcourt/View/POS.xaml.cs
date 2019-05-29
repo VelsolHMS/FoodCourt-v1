@@ -78,8 +78,8 @@ namespace Foodcourt.View.Oprs
         {
             Button btn = (Button)sender;
             aa = btn.Content.ToString();
-            DataTable dtstlid = pos.getstlid();
-            stlid = dtstlid.Rows[0]["STL_ID"].ToString();
+            //DataTable dtstlid = pos.getstlid();
+            //stlid = dtstlid.Rows[0]["STL_ID"].ToString();
             ITMCTG.Visibility = Visibility.Hidden;
             ITMNAM.Visibility = Visibility.Visible;
             CHECKBOX();
@@ -291,8 +291,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname.Text != "" || itemrate.Text != "")
                         {
                             int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text);
-                            decimal gst = 0; check1 = itemname.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname.Text; itemnamestlid = itemname.Text; DataTable dts0 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts0.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -303,8 +303,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname1.Text != "" || itemrate1.Text != "")
                         {
                             int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text);
-                            decimal gst = 0; check1 = itemname1.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname1.Text; itemnamestlid = itemname1.Text; DataTable dts1 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts1.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -315,8 +315,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname2.Text != "" || itemrate2.Text != "")
                         {
                             int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text);
-                            decimal gst = 0; check1 = itemname2.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname2.Text; itemnamestlid = itemname2.Text; DataTable dts2 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts2.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -328,8 +328,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname3.Text != "" || itemrate3.Text != "")
                         {
                             int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text);
-                            decimal gst = 0; check1 = itemname3.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname3.Text; itemnamestlid = itemname3.Text; DataTable dts3 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts3.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -340,8 +340,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname4.Text != "" || itemrate4.Text != "")
                         {
                             int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text);
-                            decimal gst = 0; check1 = itemname4.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname4.Text; itemnamestlid = itemname4.Text; DataTable dts4 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts4.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -352,8 +352,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname5.Text != "" || itemrate5.Text != "")
                         {
                             int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text);
-                            decimal gst = 0; check1 = itemname5.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname5.Text; itemnamestlid = itemname5.Text; DataTable dts5 = pos.getstlid();
+                            DataTable dd = pos.gsttax();stlid = dts5.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -364,8 +364,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname6.Text != "" || itemrate6.Text != "")
                         {
                             int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text);
-                            decimal gst = 0; check1 = itemname6.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname6.Text; itemnamestlid = itemname6.Text; DataTable dts6 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts6.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -376,8 +376,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname7.Text != "" || itemrate7.Text != "")
                         {
                             int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text);
-                            decimal gst = 0; check1 = itemname7.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname7.Text; itemnamestlid = itemname7.Text; DataTable dts7 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts7.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -388,8 +388,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname8.Text != "" || itemrate8.Text != "")
                         {
                             int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text);
-                            decimal gst = 0; check1 = itemname8.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname8.Text; itemnamestlid = itemname8.Text; DataTable dts8 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts8.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -400,8 +400,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname9.Text != "" || itemrate9.Text != "")
                         {
                             int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text);
-                            decimal gst = 0; check1 = itemname9.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname9.Text; itemnamestlid = itemname9.Text; DataTable dts9 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts9.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -412,8 +412,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname10.Text != "" || itemrate10.Text != "")
                         {
                             int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text);
-                            decimal gst = 0; check1 = itemname10.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname10.Text; itemnamestlid = itemname10.Text; DataTable dts10 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts10.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -424,8 +424,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname11.Text != "" || itemrate11.Text != "")
                         {
                             int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text);
-                            decimal gst = 0; check1 = itemname11.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname11.Text; itemnamestlid = itemname11.Text; DataTable dts11 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts11.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -436,8 +436,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname12.Text != "" || itemrate12.Text != "")
                         {
                             int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text);
-                            decimal gst = 0; check1 = itemname12.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname12.Text; itemnamestlid = itemname12.Text; DataTable dts12 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts12.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -448,8 +448,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname13.Text != "" || itemrate13.Text != "")
                         {
                             int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text);
-                            decimal gst = 0; check1 = itemname13.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname13.Text; itemnamestlid = itemname13.Text; DataTable dts13 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts13.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -460,8 +460,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname14.Text != "" || itemrate14.Text != "")
                         {
                             int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text);
-                            decimal gst = 0; check1 = itemname14.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname14.Text; itemnamestlid = itemname14.Text; DataTable dts14 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts14.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -472,8 +472,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname15.Text != "" || itemrate15.Text != "")
                         {
                             int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text);
-                            decimal gst = 0; check1 = itemname15.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname15.Text; itemnamestlid = itemname15.Text; DataTable dts15 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts15.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -484,8 +484,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname16.Text != "" || itemrate16.Text != "")
                         {
                             int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text);
-                            decimal gst = 0; check1 = itemname16.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname16.Text; itemnamestlid = itemname16.Text; DataTable dts16 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts16.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -496,8 +496,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname17.Text != "" || itemrate17.Text != "")
                         {
                             int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text);
-                            decimal gst = 0; check1 = itemname17.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname17.Text; itemnamestlid = itemname17.Text; DataTable dts17 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts17.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -508,8 +508,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname18.Text != "" || itemrate18.Text != "")
                         {
                             int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text);
-                            decimal gst = 0; check1 = itemname18.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname18.Text; itemnamestlid = itemname18.Text; DataTable dts18 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts18.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -520,8 +520,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname19.Text != "" || itemrate19.Text != "")
                         {
                             int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text);
-                            decimal gst = 0; check1 = itemname19.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname19.Text; itemnamestlid = itemname19.Text; DataTable dts19 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts19.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -575,7 +575,7 @@ namespace Foodcourt.View.Oprs
                 cou = 0;
             }
         }
-
+        public static string itemnamestlid;
         private void No_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
@@ -598,8 +598,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname.Text != "" && itemrate.Text != "")
                         {
                             int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text);
-                            decimal gst = 0; check1 = itemname.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname.Text; itemnamestlid = itemname.Text;DataTable dts0 = pos.getstlid();
+                            DataTable dd = pos.gsttax();stlid = dts0.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -611,8 +611,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname1.Text != "" && itemrate1.Text != "" && quantity1.Text!= "")
                         {
                             int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text);
-                            decimal gst = 0; check1 = itemname1.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname1.Text; itemnamestlid = itemname1.Text; DataTable dts1 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts1.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -624,8 +624,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname2.Text != "" && itemrate2.Text != "" && quantity2.Text != "")
                         {
                             int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text);
-                            decimal gst = 0; check1 = itemname2.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname2.Text; itemnamestlid = itemname2.Text; DataTable dts2 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts2.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -638,8 +638,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname3.Text != "" && itemrate3.Text != "" && quantity3.Text != "")
                         {
                             int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text);
-                            decimal gst = 0; check1 = itemname3.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname3.Text; itemnamestlid = itemname3.Text; DataTable dts3 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts3.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -651,8 +651,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname4.Text != "" && itemrate4.Text != "" && quantity4.Text != "")
                         {
                             int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text);
-                            decimal gst = 0; check1 = itemname4.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname4.Text; itemnamestlid = itemname4.Text; DataTable dts4 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts4.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -664,8 +664,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname5.Text != "" && itemrate5.Text != "" && quantity5.Text != "")
                         {
                             int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text);
-                            decimal gst = 0; check1 = itemname5.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname5.Text; itemnamestlid = itemname5.Text; DataTable dts5 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts5.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -677,8 +677,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname6.Text != "" && itemrate6.Text != "" && quantity6.Text != "")
                         {
                             int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text);
-                            decimal gst = 0; check1 = itemname6.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname6.Text; itemnamestlid = itemname6.Text; DataTable dts6 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts6.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -690,8 +690,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname7.Text != "" && itemrate7.Text != "" && quantity7.Text != "")
                         {
                             int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text);
-                            decimal gst = 0; check1 = itemname7.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname7.Text; itemnamestlid = itemname7.Text; DataTable dts7 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts7.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -703,8 +703,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname8.Text != "" && itemrate8.Text != "" && quantity8.Text != "")
                         {
                             int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text);
-                            decimal gst = 0; check1 = itemname8.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname8.Text; itemnamestlid = itemname8.Text; DataTable dts8 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts8.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -716,8 +716,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname9.Text != "" && itemrate9.Text != "" && quantity9.Text != "")
                         {
                             int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text);
-                            decimal gst = 0; check1 = itemname9.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname9.Text; itemnamestlid = itemname9.Text; DataTable dts9 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts9.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -729,8 +729,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname10.Text != "" && itemrate10.Text != "" && quantity10.Text != "")
                         {
                             int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text);
-                            decimal gst = 0; check1 = itemname10.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname10.Text; itemnamestlid = itemname10.Text; DataTable dts10 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts10.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -742,8 +742,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname11.Text != "" && itemrate11.Text != "" && quantity11.Text != "")
                         {
                             int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text);
-                            decimal gst = 0; check1 = itemname11.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname11.Text; itemnamestlid = itemname11.Text; DataTable dts11 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts11.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -755,8 +755,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname12.Text != "" && itemrate12.Text != "" && quantity12.Text != "")
                         {
                             int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text);
-                            decimal gst = 0; check1 = itemname12.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname12.Text; itemnamestlid = itemname12.Text; DataTable dts12 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts12.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -768,8 +768,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname13.Text != "" && itemrate13.Text != "" && quantity13.Text != "")
                         {
                             int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text);
-                            decimal gst = 0; check1 = itemname13.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname13.Text; itemnamestlid = itemname13.Text; DataTable dts13 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts13.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -781,8 +781,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname14.Text != "" && itemrate14.Text != "" && quantity14.Text != "")
                         {
                             int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text);
-                            decimal gst = 0; check1 = itemname14.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname14.Text; itemnamestlid = itemname14.Text; DataTable dts14 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts14.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -794,8 +794,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname15.Text != "" && itemrate15.Text != "" && quantity15.Text != "")
                         {
                             int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text);
-                            decimal gst = 0; check1 = itemname15.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname15.Text; itemnamestlid = itemname15.Text; DataTable dts15 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts15.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -807,8 +807,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname16.Text != "" && itemrate16.Text != "" && quantity16.Text != "")
                         {
                             int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text);
-                            decimal gst = 0; check1 = itemname16.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname16.Text; itemnamestlid = itemname16.Text; DataTable dts16 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts16.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -820,8 +820,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname17.Text != "" && itemrate17.Text != "" && quantity17.Text != "")
                         {
                             int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text);
-                            decimal gst = 0; check1 = itemname17.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname17.Text; itemnamestlid = itemname17.Text; DataTable dts17 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts17.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -833,8 +833,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname18.Text != "" && itemrate18.Text != "" && quantity18.Text != "")
                         {
                             int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text);
-                            decimal gst = 0; check1 = itemname18.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname18.Text; itemnamestlid = itemname18.Text; DataTable dts18 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts18.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -846,8 +846,8 @@ namespace Foodcourt.View.Oprs
                         if (itemname19.Text != "" && itemrate19.Text != "" && quantity19.Text != "")
                         {
                             int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text);
-                            decimal gst = 0; check1 = itemname19.Text;
-                            DataTable dd = pos.gsttax();
+                            decimal gst = 0; check1 = itemname19.Text; itemnamestlid = itemname19.Text; DataTable dts19 = pos.getstlid();
+                            DataTable dd = pos.gsttax(); stlid = dts19.Rows[0]["STL_ID"].ToString();
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
