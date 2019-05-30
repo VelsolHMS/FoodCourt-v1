@@ -1682,8 +1682,7 @@ namespace Foodcourt.View.Oprs
                 checkbox_checks.Remove(C.Content.ToString());
             }
             if (chk.IsChecked == false)
-            {
-                cou--;
+            {   
                  var g = sender as CheckBox;
                   sri = g.Content.ToString();
                 if (sri == itemname.Text)
@@ -1714,8 +1713,8 @@ namespace Foodcourt.View.Oprs
                         tot1 = 0;
                     }
                     sp1.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp1);
-                    //wrap.Children.Add(sp1);
+                    wrap.Children.Remove(sp1);
+                    wrap.Children.Add(sp1);
                 }
                 if (sri == itemname1.Text)
                 {
@@ -1745,8 +1744,8 @@ namespace Foodcourt.View.Oprs
                         tot2 = 0;
                     }
                     sp2.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp2);
-                    //wrap.Children.Add(sp2);
+                    wrap.Children.Remove(sp2);
+                    wrap.Children.Add(sp2);
                 }
                 if (sri == itemname2.Text)
                 {
@@ -1776,8 +1775,8 @@ namespace Foodcourt.View.Oprs
                         tot3 = 0;
                     }
                     sp3.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp3);
-                    //wrap.Children.Add(sp3);
+                    wrap.Children.Remove(sp3);
+                    wrap.Children.Add(sp3);
                 }
                 if (sri == itemname3.Text)
                 {
@@ -1806,8 +1805,8 @@ namespace Foodcourt.View.Oprs
                         tot4 = 0;
                     }
                     sp4.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp4);
-                    //wrap.Children.Add(sp4);
+                    wrap.Children.Remove(sp4);
+                    wrap.Children.Add(sp4);
                 }
                 if (sri == itemname4.Text)
                 {
@@ -1835,8 +1834,8 @@ namespace Foodcourt.View.Oprs
                         total4.Text = "0";
                     }
                     sp5.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp5);
-                    //wrap.Children.Add(sp5);
+                    wrap.Children.Remove(sp5);
+                    wrap.Children.Add(sp5);
                 }
                 if (sri == itemname5.Text)
                 {
@@ -1864,8 +1863,8 @@ namespace Foodcourt.View.Oprs
                         total5.Text = "0";
                     }
                     sp6.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp6);
-                    //wrap.Children.Add(sp6);
+                    wrap.Children.Remove(sp6);
+                    wrap.Children.Add(sp6);
                 }
                 if (sri == itemname6.Text)
                 {
@@ -1894,8 +1893,8 @@ namespace Foodcourt.View.Oprs
                         total6.Text = "0";
                     }
                     sp7.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp7);
-                    //wrap.Children.Add(sp7);
+                    wrap.Children.Remove(sp7);
+                    wrap.Children.Add(sp7);
                 }
                 if (sri == itemname7.Text)
                 {
@@ -1925,8 +1924,8 @@ namespace Foodcourt.View.Oprs
                         total7.Text = "0";
                     }
                     sp8.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp8);
-                    //wrap.Children.Add(sp8);
+                    wrap.Children.Remove(sp8);
+                    wrap.Children.Add(sp8);
                 }
                 if (sri == itemname8.Text)
                 {
@@ -1955,8 +1954,8 @@ namespace Foodcourt.View.Oprs
                         total8.Text = "0";
                     }
                     sp9.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp9);
-                    //wrap.Children.Add(sp9);
+                    wrap.Children.Remove(sp9);
+                    wrap.Children.Add(sp9);
                 }
                 if (sri == itemname9.Text)
                 {
@@ -1985,8 +1984,8 @@ namespace Foodcourt.View.Oprs
                         tot10 = 0;
                     }
                     sp10.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp10);
-                    //wrap.Children.Add(sp10);
+                    wrap.Children.Remove(sp10);
+                    wrap.Children.Add(sp10);
                 }
                 if (sri == itemname10.Text)
                 {
@@ -2014,8 +2013,8 @@ namespace Foodcourt.View.Oprs
                         total10.Text = "0";
                     }
                     sp11.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp11);
-                    //wrap.Children.Add(sp11);
+                    wrap.Children.Remove(sp11);
+                    wrap.Children.Add(sp11);
                 }
                 if (sri == itemname11.Text)
                 {
@@ -2043,8 +2042,8 @@ namespace Foodcourt.View.Oprs
                         total11.Text = "0";
                     }
                     sp12.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp12);
-                    //wrap.Children.Add(sp12);
+                    wrap.Children.Remove(sp12);
+                    wrap.Children.Add(sp12);
                 }
                 if (sri == itemname12.Text)
                 {
@@ -2073,8 +2072,8 @@ namespace Foodcourt.View.Oprs
                         total12.Text = "0";
                     }
                     sp13.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp13);
-                    //wrap.Children.Add(sp13);
+                    wrap.Children.Remove(sp13);
+                    wrap.Children.Add(sp13);
                 }
                 if (sri == itemname13.Text)
                 {
@@ -2103,8 +2102,8 @@ namespace Foodcourt.View.Oprs
                         total13.Text = "0";
                     }
                     sp14.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp14);
-                    //wrap.Children.Add(sp14);
+                    wrap.Children.Remove(sp14);
+                    wrap.Children.Add(sp14);
                 }
                 if (sri == itemname14.Text)
                 {
@@ -2133,8 +2132,8 @@ namespace Foodcourt.View.Oprs
                         total14.Text = "0";
                     }
                     sp15.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp15);
-                    //wrap.Children.Add(sp15);
+                    wrap.Children.Remove(sp15);
+                    wrap.Children.Add(sp15);
                 }
                 if (sri == itemname15.Text)
                 {
@@ -2163,8 +2162,8 @@ namespace Foodcourt.View.Oprs
                         total15.Text = "0";
                     }
                     sp16.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp16);
-                    //wrap.Children.Add(sp16);
+                    wrap.Children.Remove(sp16);
+                    wrap.Children.Add(sp16);
                 }
                 if (sri == itemname16.Text)
                 {
@@ -2194,8 +2193,8 @@ namespace Foodcourt.View.Oprs
                         total16.Text = "0";
                     }
                     sp17.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp17);
-                    //wrap.Children.Add(sp17);
+                    wrap.Children.Remove(sp17);
+                    wrap.Children.Add(sp17);
                 }
                 if (sri == itemname17.Text)
                 {
@@ -2224,8 +2223,8 @@ namespace Foodcourt.View.Oprs
                         total17.Text = "0"; tot18 = 0;
                     }
                     sp18.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp18);
-                    //wrap.Children.Add(sp18);
+                    wrap.Children.Remove(sp18);
+                    wrap.Children.Add(sp18);
                 }
                 if (sri == itemname18.Text)
                 {
@@ -2255,8 +2254,8 @@ namespace Foodcourt.View.Oprs
                         total18.Text = "0";
                     }
                     sp19.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp19);
-                    //wrap.Children.Add(sp19);
+                    wrap.Children.Remove(sp19);
+                    wrap.Children.Add(sp19);
                 }
                 if (sri == itemname19.Text)
                 {
@@ -2285,8 +2284,8 @@ namespace Foodcourt.View.Oprs
                         total19.Text = "0";
                  }
                     sp20.Visibility = Visibility.Hidden;
-                    //wrap.Children.Remove(sp20);
-                    //wrap.Children.Add(sp20);
+                    wrap.Children.Remove(sp20);
+                    wrap.Children.Add(sp20);
                 }
             }
         }
