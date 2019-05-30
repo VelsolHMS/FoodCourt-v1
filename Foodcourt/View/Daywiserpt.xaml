@@ -22,11 +22,15 @@
                     <TextBlock Text="Day Wise Sale" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <StackPanel Height="25" Margin="0,60,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <TextBlock Text="Date         :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
+                    <StackPanel Height="25" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                        <TextBlock Text="Stall            :" Width="100" FontFamily="Sitka Small" FontSize="14" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <ComboBox Name="txtstall" Width="150" Margin="30,0,0,0" DisplayMemberPath="STL_Name" TabIndex="1"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Height="25" Margin="0,80,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="Date             :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
                         <DatePicker Name="selecteddate" Width="150" Margin="30,0,0,0"/>
                     </StackPanel>
-                    <Button Width="100" Click="Button_Click" Content="OK" Margin="0,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
+                    <Button Width="100" Click="Button_Click" Content="OK" Margin="0,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF5180A0" BorderBrush="White" Foreground="#DDFFFFFF"/>
                 </Grid>
             </Grid>
         </material:Card>

@@ -81,6 +81,17 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
+        public string STL_Name { get; set; }
+        public DataTable DayWiseItemSale()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,"+
+                "(SELECT SUM(BILLITM_Quanty) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = '"+ SelectedDate + "') AS QTY,"+
+                "(SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name = A.BILITM_Name) AS RATE,"+
+                "(SELECT Sum(BILITM_Tax) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = '"+ SelectedDate + "') AS TAXRATE FROM FCBILLITM A WHERE A.STL_ID = (select STL_ID from FCSTALLS where STL_Name = '"+ STL_Name + "') AND A.BILITM_InsertDate = '"+ SelectedDate + "' ORDER BY A.BILITM_Name ASC";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
         public DataTable MonthWiseBills()
         {
             var list = new List<SqlParameter>();
