@@ -12,11 +12,14 @@ namespace Foodcourt.View
     /// </summary>
     public partial class Daywiserpt : Page
     {
+        ItemsCAT it = new ItemsCAT();
         reportClass1 r = new reportClass1();
         Reports rpt = new Reports();
         public Daywiserpt()
         {
             InitializeComponent();
+            DataTable stalls = it.GetStalls();
+            txtstall.ItemsSource = stalls.DefaultView;
             selecteddate.DisplayDateEnd = DateTime.Today.Date;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -28,6 +31,7 @@ namespace Foodcourt.View
             else
             {
                 rpt.SelectedDate = selecteddate.Text;
+                rpt.STL_Name = txtstall.Text;
                 ReportDocument r = new ReportDocument();
                 DataTable sub = SubReport();
                 r.Load("../../View/dayCrystalReport1.rpt");
@@ -40,7 +44,6 @@ namespace Foodcourt.View
                 MessageBox.Show("Report Generated Succesfully");
             }
         }
-        public decimal a, b, c;
         public DataTable MainReport()
         {
             DataTable d = new DataTable();
@@ -51,69 +54,52 @@ namespace Foodcourt.View
             d.Columns.Add("Name", typeof(string));
             d.Columns.Add("Address", typeof(string));
             d.Columns.Add("Gst", typeof(string));
+            d.Columns.Add("SelectedDate", typeof(string));
+            d.Columns.Add("Stall",typeof(string));
             rpt.PRPT();
             DataRow row = d.NewRow();
-            DataTable d1 = rpt.DayWiseBillsTotal();
+            //DataTable d1 = rpt.DayWiseBillsTotal();
             row["Name"] = Reports.Name;
             row["Address"] = Reports.Address;
             row["Gst"] = Reports.GST;
-            if (d1.Rows[0]["Bill_Amount"].ToString() == "" || d1.Rows[0]["Bill_Amount"].ToString() == "null")
-            {
-                row["TOTALNETAMOUNT"] = 0.00;
-            }
-            else
-            {
-                row["TOTALNETAMOUNT"] = d1.Rows[0]["Bill_Amount"].ToString();
-            }
-            if(d1.Rows[0]["BILL_Tax"].ToString() == "" || d1.Rows[0]["BILL_Tax"].ToString() == "null")
-            {
-                b = 0;
-            }
-            else
-            {
-                b = decimal.Parse(d1.Rows[0]["BILL_Tax"].ToString());
-            }
-            if (d1.Rows[0]["BILL_Total"].ToString() == "" || d1.Rows[0]["BILL_Total"].ToString() == "null")
-            {
-                c = 0;
-            }
-            else
-            {
-                c = decimal.Parse(d1.Rows[0]["BILL_Total"].ToString());
-            }
-            row["TOTALCGST"] = Math.Round(b/2,2,MidpointRounding.AwayFromZero);
-            row["TOTALSGST"] = Math.Round(b/2, 2, MidpointRounding.AwayFromZero);
-            row["GRANDTOTALL"] = Math.Round(c, 2, MidpointRounding.AwayFromZero); ;
+            row["TOTALNETAMOUNT"] = Math.Round(NetAmount, 2, MidpointRounding.AwayFromZero);
+            row["TOTALCGST"] = Math.Round(TotalTax/2, 2,MidpointRounding.AwayFromZero);
+            row["TOTALSGST"] = Math.Round(TotalTax/2, 2, MidpointRounding.AwayFromZero);
+            row["GRANDTOTALL"] = Math.Round(GrandTotal, 2, MidpointRounding.AwayFromZero);
+            row["SelectedDate"] = selecteddate.Text;
+            row["Stall"] = txtstall.Text;
             d.Rows.Add(row);
             return d;
         }
+        public decimal GrandTotal, TotalTax, NetAmount;
         public DataTable SubReport()
         {
             DataTable d = new DataTable();
-            d.Columns.Add("BillNo", typeof(int));
+            d.Columns.Add("ItemName", typeof(string));
             d.Columns.Add("NetAmount", typeof(decimal));
             d.Columns.Add("CGST", typeof(decimal));
             d.Columns.Add("SGST", typeof(decimal));
+            d.Columns.Add("Qty", typeof(decimal));
             d.Columns.Add("GRANDTOTAL", typeof(decimal));
-            d.Columns.Add("USER", typeof(string));
-            DataTable day_bills = rpt.DayWiseBills();
+            DataTable day_bills = rpt.DayWiseItemSale();
+            Decimal rate,tax;
+            int qty;
+            //DataTable day_bills = rpt.DayWiseBills();
             for (int i = 0; i < day_bills.Rows.Count; i++)
             {
                 DataRow row = d.NewRow();
-                row["BillNo"] = day_bills.Rows[i]["BILL_Id"].ToString();
-                row["NetAmount"] = day_bills.Rows[i]["BILL_Amount"].ToString();
-                if(day_bills.Rows[i]["BILL_Tax"].ToString() == "" || day_bills.Rows[i]["BILL_Tax"].ToString() == null)
-                {
-                    a = 0;
-                }
-                else
-                {
-                    a = decimal.Parse(day_bills.Rows[i]["BILL_Tax"].ToString());
-                }
-                row["CGST"] = Math.Round(a/2,2,MidpointRounding.AwayFromZero);
-                row["SGST"] = Math.Round(a/2, 2, MidpointRounding.AwayFromZero);
-                row["GRANDTOTAL"] = day_bills.Rows[i]["BILL_Total"].ToString();
-                row["USER"] = day_bills.Rows[i]["BILL_InsertBy"].ToString();
+                row["ItemName"] = day_bills.Rows[i]["ITEM_NAME"].ToString();
+                rate = Convert.ToDecimal(day_bills.Rows[i]["RATE"]);
+                qty = Convert.ToInt32(day_bills.Rows[i]["QTY"]);
+                NetAmount += rate * qty;
+                row["NetAmount"] = Math.Round(rate * qty, 2, MidpointRounding.AwayFromZero);
+                row["Qty"] = qty;
+                tax = Convert.ToInt32(day_bills.Rows[i]["TAXRATE"]);
+                row["CGST"] = Math.Round(tax / 2, 2, MidpointRounding.AwayFromZero);
+                row["SGST"] = Math.Round(tax/2,2,MidpointRounding.AwayFromZero);
+                row["GRANDTOTAL"] = Math.Round((rate * qty) + tax, 2, MidpointRounding.AwayFromZero);
+                TotalTax += tax;
+                GrandTotal += (rate * qty) + tax;
                 d.Rows.Add(row);
             }
             return d;

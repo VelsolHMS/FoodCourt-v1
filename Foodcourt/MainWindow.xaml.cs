@@ -687,39 +687,39 @@ namespace Foodcourt
                 }
             }
         }
-        private void BWS_Click(object sender, RoutedEventArgs e)
-        {
-            DataTable dt = user.Report1();
-            if (dt.Rows.Count == 0)
-            {
-                MessageBox.Show("YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
-            }
-            else
-            {
-                int BILL_WISE_SALES = int.Parse(dt.Rows[0]["BILL_WISE_SALES"].ToString());
-                if (BILL_WISE_SALES == 1)
-                {
-                    MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
-                    MIHome.Foreground = Brushes.White;
-                    MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
-                    MIOperations.Foreground = Brushes.White;
-                    MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
-                    MIMasters.Foreground = Brushes.White;
-                    MIReports.Background = Brushes.White;
-                    MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
-                    MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
-                    MIDash.Foreground = Brushes.White;
-                    this.MainFrame.Navigate(new Uri("View/billwiserpt.xaml", UriKind.RelativeOrAbsolute));
-                }
-                else
-                {
-                    MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
-                    MIReports.Foreground = Brushes.White;
-                    MainFrame.Content = null;
-                    MessageBox.Show("YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
-                }
-            }
-        }
+        //private void BWS_Click(object sender, RoutedEventArgs e)
+        //{
+        //    DataTable dt = user.Report1();
+        //    if (dt.Rows.Count == 0)
+        //    {
+        //        MessageBox.Show("YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
+        //    }
+        //    else
+        //    {
+        //        int BILL_WISE_SALES = int.Parse(dt.Rows[0]["BILL_WISE_SALES"].ToString());
+        //        if (BILL_WISE_SALES == 1)
+        //        {
+        //            MIHome.Background = new System.Windows.Media.SolidColorBrush(color);
+        //            MIHome.Foreground = Brushes.White;
+        //            MIOperations.Background = new System.Windows.Media.SolidColorBrush(color);
+        //            MIOperations.Foreground = Brushes.White;
+        //            MIMasters.Background = new System.Windows.Media.SolidColorBrush(color);
+        //            MIMasters.Foreground = Brushes.White;
+        //            MIReports.Background = Brushes.White;
+        //            MIReports.Foreground = new System.Windows.Media.SolidColorBrush(color);
+        //            MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
+        //            MIDash.Foreground = Brushes.White;
+        //            this.MainFrame.Navigate(new Uri("View/billwiserpt.xaml", UriKind.RelativeOrAbsolute));
+        //        }
+        //        else
+        //        {
+        //            MIReports.Background = new System.Windows.Media.SolidColorBrush(color);
+        //            MIReports.Foreground = Brushes.White;
+        //            MainFrame.Content = null;
+        //            MessageBox.Show("YOU DON'T HAVE PERMISSIONS TO OPEN THIS PAGE");
+        //        }
+        //    }
+        //}
         private void btnmini_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;

@@ -22,8 +22,8 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Height="25" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
-                        <TextBlock Text="Stall            :" Width="100" FontFamily="Sitka Small" FontSize="14" FontWeight="Bold" VerticalAlignment="Bottom"/>
-                        <ComboBox Name="txtstall" Width="150" Margin="25,0,0,0" DisplayMemberPath="STL_Name" TabIndex="1"></ComboBox>
+                        <TextBlock Text="Stall             :" Width="100" FontFamily="Sitka Small" FontSize="14" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <ComboBox Name="txtstall" Width="150" Margin="30,0,0,0" DisplayMemberPath="STL_Name" TabIndex="1"></ComboBox>
                     </StackPanel>
                     <StackPanel Height="25" Margin="0,80,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <TextBlock Text="From Date   :" Width="100" FontSize="14" FontWeight="Bold" FontFamily="Sitka Small" VerticalAlignment="Bottom"/>
