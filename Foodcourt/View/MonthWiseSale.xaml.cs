@@ -23,6 +23,7 @@ namespace Foodcourt.View
     /// </summary>
     public partial class MonthWiseSale : Page
     {
+        ItemsCAT it = new ItemsCAT();
         Reports rpt = new Reports();
         public MonthWiseSale()
         {
@@ -63,12 +64,16 @@ namespace Foodcourt.View
             d.Columns.Add("Name", typeof(string));
             d.Columns.Add("Address", typeof(string));
             d.Columns.Add("Gst", typeof(string));
+            d.Columns.Add("FromDate", typeof(DateTime));
+            d.Columns.Add("ToDate", typeof(DateTime));
             rpt.PRPT();
             DataRow row = d.NewRow();
             DataTable d1 = rpt.MonthWiseBillsTotal();
             row["Name"] = Reports.Name;
             row["Address"] = Reports.Address;
             row["Gst"] = Reports.GST;
+            row["FromDate"] = fromdate.Text;
+            row["ToDate"] = todate.Text;
             if (d1.Rows[0]["Bill_Amount"].ToString() == "" || d1.Rows[0]["Bill_Amount"].ToString() == "null")
             {
                 row["TOTALNETAMOUNT"] = 0.00;

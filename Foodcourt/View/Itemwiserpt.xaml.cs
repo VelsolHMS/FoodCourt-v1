@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
-using System.Data.SqlClient;
-using Foodcourt.View;
 using Foodcourt.Model;
 using CrystalDecisions.CrystalReports.Engine;
 
@@ -25,17 +12,18 @@ namespace Foodcourt.View
     /// </summary>
     public partial class Itemwiserpt : Page
     {
+        ItemsCAT it = new ItemsCAT();
         Reports rpt = new Reports();
         MainWindow main = new MainWindow();
         ItemNames i = new ItemNames();
         public Itemwiserpt()
         {
             InitializeComponent();
-
             fromdate.DisplayDateEnd = DateTime.Today.Date;
             todate.DisplayDateEnd = DateTime.Today.Date;
+            DataTable stalls = it.GetStalls();
+            txtstall.ItemsSource = stalls.DefaultView;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(fromdate.Text == "" || todate.Text == "")
@@ -46,6 +34,7 @@ namespace Foodcourt.View
             {
                 i.date = fromdate.Text;
                 i.date1 = todate.Text;
+                i.STL_Name = txtstall.Text;
                 ReportDocument r = new ReportDocument();
                 DataTable d1 = MainReport();
                 r.Load("../../View/Itemwise.rpt");
@@ -65,10 +54,11 @@ namespace Foodcourt.View
             D.Columns.Add("TOTAL_AMOUNT", typeof(decimal));
             D.Columns.Add("TAX", typeof(decimal));
             D.Columns.Add("GRANDTOTAL", typeof(decimal));
-            D.Columns.Add("DATE", typeof(DateTime));
             D.Columns.Add("GST", typeof(string));
             D.Columns.Add("CGST", typeof(decimal));
-
+            D.Columns.Add("Stall", typeof(string));
+            D.Columns.Add("FromDate", typeof(DateTime));
+            D.Columns.Add("ToDate", typeof(DateTime));
             rpt.PRPT();
             DataTable S1 = i.itemwise();
             for (int i = 0; i < S1.Rows.Count; i++)
@@ -78,8 +68,11 @@ namespace Foodcourt.View
                 row["NAME"] = Reports.Name;
                 row["ADDRESS"] = Reports.Address;
                 row["GST"] = Reports.GST;
+                row["Stall"] = txtstall.Text;
                 row["ITEM_NAME"] = S1.Rows[i]["ITEM_NAME"].ToString();
                 row["QTY"] = S1.Rows[i]["QTY"].ToString();
+                row["FromDate"] = fromdate.Text;
+                row["ToDate"] = todate.Text;
                 A = Decimal.Parse(S1.Rows[i]["RATE"].ToString());
                 B = Decimal.Parse(S1.Rows[i]["QTY"].ToString());
                 C = Decimal.Parse(S1.Rows[i]["TAXRATE"].ToString());
@@ -88,7 +81,6 @@ namespace Foodcourt.View
                 row["TAX"] = C/2;
                 row["CGST"] = C/2;
                 row["GRANDTOTAL"] =E+C;
-                row["DATE"] = S1.Rows[i]["DATE"].ToString();
                 D.Rows.Add(row);
             }
             return D;
