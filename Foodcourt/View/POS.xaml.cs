@@ -274,9 +274,40 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
+
+        private void Txtstall_DropDownClosed(object sender, EventArgs e)
+        {
+            offername = txtstall.Text;
+            DataTable DTT = pos.getoffer();
+            if (DTT.Rows.Count == 0)
+            { }
+            else
+            {
+                offid = Convert.ToInt32(DTT.Rows[0]["OFF_ID"]);
+                if (DTT.Rows[0]["OFF_Percentage"].ToString() == "0" || DTT.Rows[0]["OFF_Percentage"].ToString() == null)
+                { disper = 0; }
+                else { disper = Convert.ToDecimal(DTT.Rows[0]["OFF_Percentage"]); }
+                txtpercentage.Text = disper.ToString();
+                amdis = (ttotal * disper) / 100;
+                if (DTT.Rows[0]["OFF_MaxAmount"].ToString() == "0" || DTT.Rows[0]["OFF_MaxAmount"].ToString() == null)
+                { maxamount = 0; }
+                else
+                { maxamount = Convert.ToDecimal(DTT.Rows[0]["OFF_MaxAmount"]); }
+                if (maxamount <= amdis)
+                {
+                    txtdisAmount.Text = maxamount.ToString();
+                }
+                else if (maxamount > amdis)
+                {
+                    txtdisAmount.Text = amdis.ToString();
+                }
+            }
+        }
+
         public static string offername;
         private void OfferOk_Click(object sender, RoutedEventArgs e)
         {
+            OfferPage.IsOpen = false;
             if (error != 0)
             {
                 MessageBox.Show("Please Fill All Fields");
@@ -748,6 +779,8 @@ namespace Foodcourt.View.Oprs
         public int offid;
         private void OffNo_Click(object sender, RoutedEventArgs e)
         {
+
+            OfferConfirmation.IsOpen = false;
             if (error != 0)
             {
                 MessageBox.Show("Please Fill All Fields");
@@ -1216,36 +1249,14 @@ namespace Foodcourt.View.Oprs
                 cou = 0;
             }
         }
-
         private void OffYes_Click(object sender, RoutedEventArgs e)
         {
+            OfferConfirmation.IsOpen = false;
+            DataTable dt = pos.getofferlist();
+            txtstall.ItemsSource = dt.DefaultView;
+            OfferPage.IsOpen = true;
             txtTotal.Text = txtgttl.Text;
             ttotal = Convert.ToDecimal(txtTotal.Text);
-            offername = txtstall.Text;
-            DataTable DT = pos.getoffer();
-            if(DT.Rows.Count == 0)
-            { }
-            else
-            {
-                offid = Convert.ToInt32(DT.Rows[0]["OFF_ID"]);
-                if(dt.Rows[0]["OFF_Percentage"].ToString() == "0" || dt.Rows[0]["OFF_Percentage"].ToString() == null)
-                { disper = 0; }
-                else { disper = Convert.ToDecimal(dt.Rows[0]["OFF_Percentage"]); }
-                txtpercentage.Text = disper.ToString();
-                amdis = (ttotal * disper) / 100;
-                if (dt.Rows[0]["OFF_MaxAmount"].ToString() == "0" || dt.Rows[0]["OFF_MaxAmount"].ToString() == null)
-                { maxamount = 0; }
-                else
-                { maxamount = Convert.ToDecimal(dt.Rows[0]["OFF_MaxAmount"]); }
-                if(maxamount > amdis)
-                {
-                    txtdisAmount.Text = maxamount.ToString();
-                }
-                else if(maxamount <= amdis)
-                {
-                    txtdisAmount.Text = amdis.ToString();
-                }
-            }
         }
 
         public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
