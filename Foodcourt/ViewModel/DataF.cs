@@ -72,6 +72,8 @@ namespace Foodcourt.ViewModel
         public string CustomerPhone { get; set; }
         public string CustomerEmail { get; set; }
         public string ItemDescription { get; set; }
+        public string OfferPercentage { get; set; }
+        public string MaxAmount { get; set; }
         public static int COUNT;
         public string columnName;
         //public string QuantityZero;
@@ -98,6 +100,7 @@ namespace Foodcourt.ViewModel
         public string alphanumwithspace = "^[0-9A-Za-z ]+$";
         public string alphanum = "^[0-9A-Za-z]+$";
         public string amount = @"^\d+\.?\d*$";
+
         public bool IsNumeric(string value)
         {
             return value.All(char.IsNumber);
@@ -966,22 +969,38 @@ namespace Foodcourt.ViewModel
                             result = "Please check the email address ";
                         }
                     }
-                    //if (columnName == "QuantityZero")
-                    //{
-                    //    if (string.IsNullOrEmpty(QuantityZero))
-                    //    {
-                    //        result = "Enter Quantity";
-                    //    }
-                    //    else if (IsNumeric(QuantityZero) == true)
-                    //    {
-                    //        result = null;
-                    //    }
-                    //    else if (QuantityZero == "0")
-                    //    {
-                    //        result = "Quantity Should not be zero";
-                    //    }
-                    //    else result = "Enter Numbers Only";
-                    //}
+                    if (columnName == "OfferPercentage")
+                    {
+                        if (string.IsNullOrEmpty(OfferPercentage))
+                        {
+                            result = "Enter Percentage";
+                        }
+                        else if (IsNumeric(OfferPercentage) == true)
+                        {
+                            result = null;
+                        }
+                        else if(OfferPercentage.Length > 2)
+                        {
+                            result = "% should be Less than 100";
+                        }
+                        else if (OfferPercentage == "0" || OfferPercentage == "00")
+                        {
+                            result = "% Should not be zero";
+                        }
+                        else result = "Enter Numbers Only";
+                    }
+                    if (columnName == "MaxAmount")
+                    {
+                        if (string.IsNullOrEmpty(MaxAmount))
+                        {
+                            result = null;
+                        }
+                        else if (IsNumeric(MaxAmount) == true)
+                        {
+                            result = null;
+                        }
+                        else result = "Enter Numbers Only";
+                    }
                     //if (columnName == "Quantityone")
                     //{
                     //    if (string.IsNullOrEmpty(Quantityone))

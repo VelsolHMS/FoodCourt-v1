@@ -36,17 +36,17 @@
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
                                 <TextBlock Text="Offer Name:" Width="110" FontFamily="Sitka Display" FontSize="22"/>
                                 <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtName" Width="150" Margin="0,0,0,0" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Name="txtName" Width="150" Margin="0,0,0,0"/>
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
                                 <TextBlock Text="Percentage" Width="110" FontFamily="Sitka Display" FontSize="22"/>
                                 <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtPercentage" Width="150" />
+                                <TextBox Name="txtPercentage" MaxLength="2" Width="150" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding OfferPercentage,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
                                 <TextBlock Text="Max Amount:" Width="110" FontFamily="Sitka Display" FontSize="22"/>
                                 <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtAmount" Width="150" Height="30" VerticalAlignment="Bottom"/>
+                                <TextBox Name="txtAmount" Width="150" Height="30" VerticalAlignment="Bottom" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding MaxAmount,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
                                 <TextBlock Text="Active From:" Width="100" FontFamily="Sitka Display" FontSize="22"/>
