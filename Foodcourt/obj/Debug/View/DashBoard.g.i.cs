@@ -12,7 +12,6 @@
 using Foodcourt.View.Oprs;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
-using RootLibrary.WPF.Localization;
 using System;
 using System.Diagnostics;
 using System.Windows;
