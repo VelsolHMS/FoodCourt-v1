@@ -55,8 +55,8 @@ namespace Foodcourt.View
         }
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtPercentage.Text)) || (string.IsNullOrWhiteSpace(txtstatus.Text)))
                 {
                     MessageBox.Show("Please fill all fields");
@@ -85,9 +85,9 @@ namespace Foodcourt.View
                     MessageBox.Show("Saved successfully");
                     btnSave.Content = "Save";
                 }
-            }
-            catch (SystemException)
-            { }
+            //}
+            //catch (SystemException)
+            //{ }
         }
         
         private void Dgoff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

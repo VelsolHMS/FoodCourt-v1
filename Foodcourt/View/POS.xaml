@@ -28,7 +28,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Margin="3">
                         <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
-                            <TextBlock Text="Select StallName" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
+                            <TextBlock Text="Select StallType" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                             <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                             <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
 
@@ -325,7 +325,7 @@
                         <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
                             <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                            <ComboBox Name="txtstall" Width="150" Margin="0,0,0,0" DisplayMemberPath="STL_Name" SelectedIndex="0" TabIndex="1">
+                            <ComboBox Name="txtstall" Width="150" Margin="0,0,0,0" DisplayMemberPath="OFF_Name" SelectedIndex="0" TabIndex="1" DropDownClosed="Txtstall_DropDownClosed">
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,140,0,0">
@@ -335,7 +335,7 @@
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,190,0,0">
                             <TextBlock Text="Instant Discount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                            <TextBox Name="txtInsdis" Width="150" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30"/>
+                            <TextBox Name="txtInsdis" Width="150" FontSize="15" Text="0" IsReadOnly="false" Padding="5,-10,0,2" Height="30"/>
                         </StackPanel>
                         <Button Content="OK" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" Width="100" Margin="0,0,0,30" Name="OfferOk" Click="OfferOk_Click"/>
                     </Grid>
