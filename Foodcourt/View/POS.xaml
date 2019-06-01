@@ -28,7 +28,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Margin="3">
                         <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
-                            <TextBlock Text="Select StallName" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
+                            <TextBlock Text="Select StallType" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                             <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                             <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
                                 

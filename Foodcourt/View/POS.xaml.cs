@@ -1228,7 +1228,7 @@ namespace Foodcourt.View.Oprs
             ITMNAM.Visibility = Visibility.Hidden;
             WRAPN.Children.Clear();
             checkbox_checks = null;
-            ITMCTG.Visibility = Visibility.Visible;
+            ITMCTG.Visibility = Visibility.Collapsed;
             this.NavigationService.Refresh();
         }
 
