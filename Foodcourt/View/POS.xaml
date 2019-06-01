@@ -7,13 +7,13 @@
       xmlns:local="clr-namespace:Foodcourt.View.Oprs"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d"
-      d:DesignHeight="650" d:DesignWidth="1000"
+      d:DesignHeight="650" d:DesignWidth="1100"
       Title="POS">
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>
     <Grid>
-        <material:Card Height="650" Width="1000" >
+        <material:Card Height="650" Width="1100" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="34*"/>
@@ -36,17 +36,16 @@
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <material:Card Name="ITMCTG" Height="578" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
+                        <material:Card Name="ITMCTG" Height="575" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
                             <Grid>
                                 <WrapPanel Name="WRAPC" Orientation="Horizontal"/>
                             </Grid>
                         </material:Card>
                         <!--#endregion-->
                         <!--#region Item Name -->
-                        <material:Card Name="ITMNAM" Height="650" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
+                        <material:Card Name="ITMNAM" Height="575" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
                             <Grid>
                                 <WrapPanel Name="WRAPN" Orientation="Horizontal"/>
-
                                 <Button Name="btnok"  Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,-110,0,25" Foreground="#ffffff" Click="btnok_Click" BorderBrush="#FF9B59B6" Width="48">
                                     <Button.Background>
                                         <ImageBrush ImageSource="/Foodcourt;component/Images/back.png"/>
