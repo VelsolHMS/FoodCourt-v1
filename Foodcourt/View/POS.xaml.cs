@@ -867,7 +867,10 @@ namespace Foodcourt.View.Oprs
         public static string st;
         private void Stalls_DropDownClosed(object sender, EventArgs e)
         {
-              WRAPC.Children.Clear();
+            WRAPC.Children.Clear();
+            ITMNAM.Visibility = Visibility.Hidden;
+            WRAPN.Children.Clear();
+            ITMCTG.Visibility = Visibility.Visible;
             st = stalls.Text;
             Button();
         }
