@@ -49,7 +49,7 @@
                             <DataGridTextColumn Header="Bill No" Binding="{Binding BILL_Id}"/>
                             <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}"/>
                             <DataGridTextColumn Header="Tax" Binding="{Binding BILL_Tax}"/>
-                            <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}"/>
+                            <DataGridTextColumn Header="Discount" Binding="{Binding Dis_TOTAL}"/>
                             <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}"/>
                             <DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate,StringFormat=dd/MM/yyyy}"/>
                         </DataGrid.Columns>
@@ -166,12 +166,12 @@
                 </Grid>
             </Border>
         </Material:Card>
-        <Material:Card Name="Dtlview" Height="500" Margin="43,72,62,0" Visibility="Hidden">
+        <Material:Card Name="Dtlview" Height="550" Margin="40,40,40,0" Visibility="Hidden">
             <Border BorderBrush="Black" BorderThickness="1">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="31*"/>
-                        <RowDefinition Height="467*"/>
+                        <RowDefinition Height="517*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="#FF5180A0">
                         <TextBlock Text="Detail Bill View" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Sitka Display" Foreground="#ffffff" FontSize="22" FontWeight="Bold" Margin="0,5,0,0"/>
@@ -192,14 +192,14 @@
                     </Button>-->
                     </Grid>
                     <Grid Grid.Row="1">
-                        <StackPanel Height="25" Orientation="Horizontal" Margin="0,6,0,432">
+                        <StackPanel Height="25" Orientation="Horizontal" VerticalAlignment="Top" Margin="0,8,0,0">
                             <TextBlock Text="Bill No:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="10,0,0,0"/>
                             <TextBlock Name="txtbillno" FontFamily="Arial" FontSize="22" FontWeight="Bold"  Margin="20,0,0,0" Width="90"/>
                             <TextBlock Text="Bill Date:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="50,0,0,0"/>
                             <TextBlock Name="txtbilldate" FontFamily="Arial" FontSize="18" Margin="10,0,0,0" Padding="0,4,0,0" Width="100" />
                         </StackPanel>
-                        <Separator Margin="0,27,0,419" Background="#FFD8D8D8"/>
-                        <DataGrid Margin="0,44,0,110" Name="dgdtlview" CanUserAddRows="False" AutoGenerateColumns="False" >
+                        <Separator VerticalAlignment="Top" Margin="0,35,0,0" Background="#FFD8D8D8"/>
+                        <DataGrid VerticalAlignment="Top" Margin="1,40,0,0" Height="345" Name="dgdtlview" CanUserAddRows="False" AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Item" Binding="{Binding BILITM_Name}"/>
                                 <DataGridTextColumn Header="Qty" Binding="{Binding BILLITM_Quanty}"/>
@@ -208,20 +208,29 @@
                                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <StackPanel Margin="0,369,0,74" Orientation="Horizontal">
-                            <TextBlock Text="Net Amount:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                        <StackPanel Margin="0,390,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                            <TextBlock Text="Net Amount" Width="115" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                            <TextBlock Text=":" FontFamily="Sitka Small" Width="20" TextAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,0"/>
                             <TextBlock Name="txtnetamount" FontFamily="Arial" FontSize="18" Padding="0" Margin="10,0,0,0" Width="120"/>
                         </StackPanel>
-                        <StackPanel Margin="0,393,0,50" Orientation="Horizontal">
-                            <TextBlock Text="C.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="txtcgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
+                        <StackPanel Margin="0,415,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                            <TextBlock Text="C.GST" Width="115" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                            <TextBlock Text=":" FontFamily="Sitka Small" Width="20" TextAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,0"/>
+                            <TextBlock Name="txtcgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="10,0,0,0" Width="120"/>
                         </StackPanel>
-                        <StackPanel Margin="0,417,0,23" Orientation="Horizontal">
-                            <TextBlock Text="S.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="txtsgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
+                        <StackPanel Margin="0,440,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                            <TextBlock Text="S.GST" Width="115" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                            <TextBlock Text=":" FontFamily="Sitka Small" Width="20" TextAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,0"/>
+                            <TextBlock Name="txtsgst" FontFamily="Arial" FontSize="18" Padding="0" Margin="10,0,0,0" Width="120"/>
                         </StackPanel>
-                        <StackPanel Margin="0,444,0,0" Orientation="Horizontal">
-                            <TextBlock Text="Grand Total:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                        <StackPanel Margin="0,465,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                            <TextBlock Text="Discount" Width="115" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                            <TextBlock Text=":" FontFamily="Sitka Small" Width="20" TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Name="txtdis" FontFamily="Arial" Padding="0" FontSize="18" Margin="10,0,0,0" Width="120"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,490,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                            <TextBlock Text="Grand Total" Width="115" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
+                            <TextBlock Text=":" FontFamily="Sitka Small" Width="20" TextAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,0"/>
                             <TextBlock Name="txtgttl" FontFamily="Arial" Padding="0" FontSize="18" Margin="10,0,0,0" Width="120"/>
                         </StackPanel>
                     </Grid>
