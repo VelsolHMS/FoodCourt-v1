@@ -45,6 +45,8 @@ namespace Foodcourt.View.Oprs
             cou = 0;
             clear();
             checkbox_checks = null;
+            DataTable stall_names = pos.GETSTALLS();
+            stalls.ItemsSource = stall_names.DefaultView;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -57,7 +59,7 @@ namespace Foodcourt.View.Oprs
         public void Button()
         {
             WrapPanel wrap1 = new WrapPanel();
-            dtctg = pos.GETCTG();
+            dtctg = pos.GetCategories();
             for (int i = 0; i < dtctg.Rows.Count; i++)
             {
                 Button btn = new Button();
@@ -862,6 +864,14 @@ namespace Foodcourt.View.Oprs
                 cou = 0;
             }
         }
+        public static string st;
+        private void Stalls_DropDownClosed(object sender, EventArgs e)
+        {
+              WRAPC.Children.Clear();
+            st = stalls.Text;
+            Button();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {       for (int i = 0; i < cou; i++)
                 {

@@ -66,6 +66,20 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
+        public DataTable GETSTALLS()
+        {
+            var LIST = new List<SqlParameter>();
+            string dd = "SELECT STL_Name from FCSTALLS";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
+            return dt;
+        }
+        public DataTable GetCategories()
+        {
+            var LIST = new List<SqlParameter>();
+            string dd = "SELECT CTG_Name From FCRITMCTG WHERE STL_ID IN ( SELECT STL_ID FROM FCSTALLS WHERE STL_Name = '"+POS.st+"')";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
+            return dt;
+        }
         public int BILLID()
         {
             int b = 0;
