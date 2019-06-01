@@ -156,7 +156,7 @@ namespace Foodcourt.View.Oprs
             ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
             DROW["Discount"] = dis + ins;
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
-            DROW["GrandTotal"] = gndtot;
+            DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
             return billprint;
         }
@@ -311,6 +311,7 @@ namespace Foodcourt.View.Oprs
         }
 
         public static string offername;
+        public static decimal tttt;
         private void OfferOk_Click(object sender, RoutedEventArgs e)
         {
             OfferPage.IsOpen = false;
@@ -326,7 +327,8 @@ namespace Foodcourt.View.Oprs
                 pos.BILL_Discount = Convert.ToDecimal(txtdisAmount.Text);
                 pos.Bill_OfferId = offid;
                 pos.Bill_InstantDis = Convert.ToDecimal(txtInsdis.Text);
-                pos.BILL_Total = Convert.ToDecimal(txtgttl.Text) - (pos.BILL_Discount + pos.Bill_InstantDis) ;
+                tttt = Convert.ToDecimal(txtgttl.Text) - (pos.BILL_Discount + pos.Bill_InstantDis) ;
+                pos.BILL_Total = (int)Math.Round(tttt,2);
                 pos.insertbill();
                 pos.A = Convert.ToInt32(txtbillno.Text);
                 for (int i = 0; i < cou; i++)
