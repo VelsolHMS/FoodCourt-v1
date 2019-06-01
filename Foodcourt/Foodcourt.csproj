@@ -169,6 +169,7 @@
     <Compile Include="Model\DASHBOARD.cs" />
     <Compile Include="Model\ItemNames.cs" />
     <Compile Include="Model\MisSales.cs" />
+    <Compile Include="Model\Offers.cs" />
     <Compile Include="Model\paidout.cs" />
     <Compile Include="Model\POS1.cs" />
     <Compile Include="Model\Pettycash.cs" />
@@ -341,6 +342,9 @@
     <Compile Include="View\MonthWiseSale.xaml.cs">
       <DependentUpon>MonthWiseSale.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OffersZone.xaml.cs">
+      <DependentUpon>OffersZone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Paidout.xaml.cs">
       <DependentUpon>Paidout.xaml</DependentUpon>
     </Compile>
@@ -476,6 +480,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MonthWiseSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OffersZone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
