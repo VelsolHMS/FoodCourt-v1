@@ -126,6 +126,7 @@ namespace Foodcourt.View.Oprs
         {
         }
         DataTable d = new DataTable();
+        public decimal dis, ins,gndtot;
         public DataTable Billprint()
         {
             DataTable billprint = new DataTable();
@@ -137,6 +138,7 @@ namespace Foodcourt.View.Oprs
             billprint.Columns.Add("Cgst", typeof(decimal));
             billprint.Columns.Add("Sgst", typeof(decimal));
             billprint.Columns.Add("GrandTotal", typeof(decimal));
+            billprint.Columns.Add("Discount", typeof(decimal));
             DataRow DROW = billprint.NewRow();
             DataTable dt1 = pos.Address();
             DataTable dt2 = pos.items();
@@ -150,7 +152,11 @@ namespace Foodcourt.View.Oprs
             //DROW["Sgst"] = tax / 2;
             DROW["Cgst"] = tax5sum;
             DROW["Sgst"] = tax18sum;
-            DROW["GrandTotal"] = dt2.Rows[0]["BILL_Total"].ToString();
+            dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
+            ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
+            DROW["Discount"] = dis + ins;
+            gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
+            DROW["GrandTotal"] = gndtot;
             billprint.Rows.Add(DROW);
             return billprint;
         }
@@ -317,10 +323,10 @@ namespace Foodcourt.View.Oprs
                 pos.bill = Convert.ToInt32(txtbillno.Text);
                 pos.BILL_Amount = Convert.ToDecimal(txtttl.Text);
                 pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
-                pos.BILL_Total = Convert.ToDecimal(txtgttl.Text);
                 pos.BILL_Discount = Convert.ToDecimal(txtdisAmount.Text);
                 pos.Bill_OfferId = offid;
                 pos.Bill_InstantDis = Convert.ToDecimal(txtInsdis.Text);
+                pos.BILL_Total = Convert.ToDecimal(txtgttl.Text) - (pos.BILL_Discount + pos.Bill_InstantDis) ;
                 pos.insertbill();
                 pos.A = Convert.ToInt32(txtbillno.Text);
                 for (int i = 0; i < cou; i++)

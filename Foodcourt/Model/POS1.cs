@@ -168,7 +168,7 @@ namespace Foodcourt.Model
         public DataTable items()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total FROM FCBILLNO WHERE BILL_Id='"+bill+"'";
+            string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total,BILL_Discount,Bill_InstantDis FROM FCBILLNO WHERE BILL_Id='" + bill+"'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
