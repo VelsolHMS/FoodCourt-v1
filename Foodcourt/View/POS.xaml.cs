@@ -1222,6 +1222,7 @@ namespace Foodcourt.View.Oprs
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             clear();
+            WRAPC.Children.Clear();
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
             ITMNAM.Visibility = Visibility.Hidden;

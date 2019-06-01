@@ -13,6 +13,7 @@ using Foodcourt.View;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
 using Microsoft.Reporting.WinForms;
+using RootLibrary.WPF.Localization;
 using SAPBusinessObjects.WPF.Viewer;
 using System;
 using System.Diagnostics;
