@@ -274,6 +274,22 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal tax5sum,tax18sum;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
+
+        private void OfferOk_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OffNo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OffYes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
@@ -1033,7 +1049,10 @@ namespace Foodcourt.View.Oprs
         public static string st;
         private void Stalls_DropDownClosed(object sender, EventArgs e)
         {
-              WRAPC.Children.Clear();
+            WRAPC.Children.Clear();
+            ITMNAM.Visibility = Visibility.Hidden;
+            WRAPN.Children.Clear();
+            ITMCTG.Visibility = Visibility.Visible;
             st = stalls.Text;
             Button();
         }

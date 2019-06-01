@@ -408,7 +408,7 @@ namespace Foodcourt.View.Oprs
                 decimal d = Convert.ToDecimal(DD.Rows[i]["BILITM_Rate"].ToString());
                 decimal t = Convert.ToDecimal(DD.Rows[i]["BILITM_Tax"].ToString());
                 int s = Convert.ToInt32(DD.Rows[i]["BILLITM_Quanty"].ToString());
-                r["Amount"] = Math.Round((d + t)*s,2,MidpointRounding.AwayFromZero);
+                r["Amount"] = Math.Round((d * s)+t,2,MidpointRounding.AwayFromZero);
                 dd.Rows.Add(r);
             }
             return dd;

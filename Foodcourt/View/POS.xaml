@@ -7,53 +7,52 @@
       xmlns:local="clr-namespace:Foodcourt.View.Oprs"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
       mc:Ignorable="d"
-      d:DesignHeight="650" d:DesignWidth="1000"
+      d:DesignHeight="650" d:DesignWidth="1100"
       Title="POS">
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>
     <Grid>
-        <material:Card Height="650" Width="1000" >
+        <material:Card Height="650" Width="1100" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="34*"/>
                     <ColumnDefinition Width="21*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Grid Grid.Column="0"  Margin="3">
                     <!--#region Item Category-->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="395*"/>
+                        <RowDefinition Height="495*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Margin="3">
                         <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                             <TextBlock Text="Select StallType" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                             <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                             <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
-                                
+
                             </ComboBox>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1">
-                    <material:Card Name="ITMCTG" Height="629" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
-                        <Grid>
-                            <WrapPanel Name="WRAPC" Orientation="Horizontal"/>
-                        </Grid>
-                    </material:Card>
-                    <!--#endregion-->
-                    <!--#region Item Name -->
-                    <material:Card Name="ITMNAM" Height="650" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
-                        <Grid>
-                            <WrapPanel Name="WRAPN" Orientation="Horizontal"/>
-
-                            <Button Name="btnok"  Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,25" Foreground="#ffffff" Click="btnok_Click" BorderBrush="#FF9B59B6" Width="48">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Foodcourt;component/Images/back.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Grid>
-                    </material:Card>
+                        <material:Card Name="ITMCTG" Height="575" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
+                            <Grid>
+                                <WrapPanel Name="WRAPC" Orientation="Horizontal"/>
+                            </Grid>
+                        </material:Card>
+                        <!--#endregion-->
+                        <!--#region Item Name -->
+                        <material:Card Name="ITMNAM" Height="575" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
+                            <Grid>
+                                <WrapPanel Name="WRAPN" Orientation="Horizontal"/>
+                                <Button Name="btnok"  Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,-110,0,25" Foreground="#ffffff" Click="btnok_Click" BorderBrush="#FF9B59B6" Width="48">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/Foodcourt;component/Images/back.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </Grid>
+                        </material:Card>
                     </Grid>
                     <!--#endregion-->
                     <!--#region profile-->
@@ -71,7 +70,7 @@
                                     </Button.Background>
                                 </Button>
                             </Grid>
-                            
+
                             <Grid Grid.Row="1">
                                 <StackPanel Height="25" Orientation="Horizontal" Margin="0,26,0,345">
                                     <material:PackIcon Kind="Phone" Height="25" Width="23" Margin="90,0,0,0"/>
@@ -293,6 +292,53 @@
                             <Button Name="No" Width="90" Content="No" Margin="20,0,0,0" Background="White" Foreground="#296dc1" BorderBrush="White" Click="No_Click"/>
                         </StackPanel>
                     </StackPanel>
+                </material:Card>
+            </Border>
+        </Popup>
+        <Popup Name="OfferConfirmation" PopupAnimation="Fade" AllowsTransparency="True" Placement="Center" IsOpen="False" >
+            <Border BorderBrush="White" BorderThickness="1">
+                <material:Card Height="200" Background="#296dc1" Width="300">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <!--<material:PackIcon Kind="Printer" Height="30" Width="30" Margin="0,0,0,0" Foreground="White"/>-->
+                            <TextBlock Text="Do you want to" FontFamily="Sitka Small" FontSize="20" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Center" Text="Apply Offer" FontFamily="Sitka Small" FontSize="20" Margin="0,5,0,5" VerticalAlignment="Center" Foreground="White"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <Button Name="OffYes" Width="90" Content="Yes" Margin="0,0,0,0" Background="White" Foreground="#296dc1" BorderBrush="White" Height="Auto" Click="OffYes_Click" />
+                            <Button Name="OffNo" Width="90" Content="No" Margin="20,0,0,0" Background="White" Foreground="#296dc1" BorderBrush="White" Click="OffNo_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </material:Card>
+            </Border>
+        </Popup>
+        <Popup Name="OfferPage" PopupAnimation="Fade" AllowsTransparency="True" Placement="Center" IsOpen="False" >
+            <Border>
+                <material:Card Height="300" Background="White" Width="450">
+                    <Grid>
+                        <TextBlock Text="Offers Zone" VerticalAlignment="Top" TextAlignment="Center" Foreground="White" FontSize="18" Padding="0,2,0,0" Height="30" Background="#FF5180A0" />
+                        <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
+                            <TextBlock Text="Total Amount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
+                            <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
+                            <TextBlock Name="txtTotal" Width="150" FontSize="18" FontWeight="Bold" Foreground="#FF5180A0" Margin="0,0,0,0"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+                            <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>
+                            <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
+                            <ComboBox Name="txtstall" Width="150" Margin="0,0,0,0" DisplayMemberPath="STL_Name" SelectedIndex="0" TabIndex="1">
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,140,0,0">
+                            <TextBox Name="txtpercentage" Width="150" FontSize="15" Margin="0,0,0,0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Offer Percentage" material:HintAssist.IsFloating="True"/>
+                            <TextBox Name="txtdisAmount" Width="150" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,190,0,0">
+                            <TextBlock Text="Instant Discount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
+                            <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
+                            <TextBox Name="txtInsdis" Width="150" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30"/>
+                        </StackPanel>
+                        <Button Content="OK" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" Width="100" Margin="0,0,0,30" Name="OfferOk" Click="OfferOk_Click"/>
+                    </Grid>
                 </material:Card>
             </Border>
         </Popup>
