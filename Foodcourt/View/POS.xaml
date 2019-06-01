@@ -19,26 +19,42 @@
                     <ColumnDefinition Width="34*"/>
                     <ColumnDefinition Width="21*"/>
                 </Grid.ColumnDefinitions>
+
                 <Grid Grid.Column="0"  Margin="3">
                     <!--#region Item Category-->
-                    <material:Card Name="ITMCTG" Height="629" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
-                        <Grid>
-                            <WrapPanel Name="WRAPC" Orientation="Horizontal"/>
-                        </Grid>
-                    </material:Card>
-                    <!--#endregion-->
-                    <!--#region Item Name -->
-                    <material:Card Name="ITMNAM" Height="650" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
-                        <Grid>
-                            <WrapPanel Name="WRAPN" Orientation="Horizontal"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="495*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="3">
+                        <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                            <TextBlock Text="Select StallName" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
+                            <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
+                            <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
 
-                            <Button Name="btnok"  Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,25" Foreground="#ffffff" Click="btnok_Click" BorderBrush="#FF9B59B6" Width="48">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Foodcourt;component/Images/back.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Grid>
-                    </material:Card>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <material:Card Name="ITMCTG" Height="578" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
+                            <Grid>
+                                <WrapPanel Name="WRAPC" Orientation="Horizontal"/>
+                            </Grid>
+                        </material:Card>
+                        <!--#endregion-->
+                        <!--#region Item Name -->
+                        <material:Card Name="ITMNAM" Height="650" Background="#FFFFEEC0" Margin="5" Visibility="Hidden">
+                            <Grid>
+                                <WrapPanel Name="WRAPN" Orientation="Horizontal"/>
+
+                                <Button Name="btnok"  Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,-110,0,25" Foreground="#ffffff" Click="btnok_Click" BorderBrush="#FF9B59B6" Width="48">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/Foodcourt;component/Images/back.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </Grid>
+                        </material:Card>
+                    </Grid>
                     <!--#endregion-->
                     <!--#region profile-->
                     <material:Card Name="cpmtrl" Height="421" Margin="163,71,65,0" Visibility="Hidden">
@@ -55,6 +71,7 @@
                                     </Button.Background>
                                 </Button>
                             </Grid>
+
                             <Grid Grid.Row="1">
                                 <StackPanel Height="25" Orientation="Horizontal" Margin="0,26,0,345">
                                     <material:PackIcon Kind="Phone" Height="25" Width="23" Margin="90,0,0,0"/>
