@@ -299,7 +299,11 @@ namespace Foodcourt.View.Oprs
                 { maxamount = 0; }
                 else
                 { maxamount = Convert.ToDecimal(DTT.Rows[0]["OFF_MaxAmount"]); }
-                if (maxamount <= amdis)
+                if(maxamount == 0)
+                {
+                    txtdisAmount.Text = amdis.ToString();
+                }
+                else if (maxamount <= amdis)
                 {
                     txtdisAmount.Text = maxamount.ToString();
                 }
