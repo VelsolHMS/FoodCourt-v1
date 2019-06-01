@@ -668,3 +668,5 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml

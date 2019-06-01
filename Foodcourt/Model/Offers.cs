@@ -2,6 +2,7 @@
 using Foodcourt.View;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,13 @@ namespace Foodcourt.Model
                 a = a + 1;
             }
             return a;
+        }
+        public DataTable GetOffers()
+        {
+            var list = new List<SqlParameter>();
+            string gd = "Select OFF_ID,OFF_Name,OFF_Percentage,OFF_ReportingName,OFF_Status,OFF_MaxAmount from FCOFFERS";
+            DataTable dt1 = DbFunctions.ExecuteCommand<DataTable>(gd, list);
+            return dt1;
         }
     }
 }

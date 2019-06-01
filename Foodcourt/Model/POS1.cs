@@ -107,7 +107,8 @@ namespace Foodcourt.Model
         public DateTime BILL_UpdateDate { get; set; }
         public string BILL_Status { get; set; }
         public decimal BILL_Discount { get; set; }
-
+        public int Bill_OfferId { get; set; }
+        public decimal Bill_InstantDis { get; set; }
         public string CUST_ID { get; set; }
         public string NAME { get; set; }
         public string MOBILE_NO { get; set; }
@@ -132,8 +133,10 @@ namespace Foodcourt.Model
             BILL_Status = "Settled";
             list.AddSqlParameter("@BILL_Status", BILL_Status);
             list.AddSqlParameter("@BILL_Discount", BILL_Discount);
-            string s = "INSERT INTO FCBILLNO(BILL_Amount,BILL_Tax,BILL_Total,BILL_InsertBy,BILL_InsertDate,BILL_Status,BILL_Discount)" +
-                " VALUES(@BILL_Amount,@BILL_Tax,@BILL_Total,@BILL_InsertBy,@BILL_InsertDate,@BILL_Status,@BILL_Discount)";
+            list.AddSqlParameter("@Bill_OfferId", Bill_OfferId);
+            list.AddSqlParameter("@Bill_InstantDis", Bill_InstantDis);
+            string s = "INSERT INTO FCBILLNO(BILL_Amount,BILL_Tax,BILL_Total,BILL_InsertBy,BILL_InsertDate,BILL_Status,BILL_Discount,Bill_OfferId,Bill_InstantDis)" +
+                " VALUES(@BILL_Amount,@BILL_Tax,@BILL_Total,@BILL_InsertBy,@BILL_InsertDate,@BILL_Status,@BILL_Discount,@Bill_OfferId,@Bill_InstantDis)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
         public string BILLITM_Name { get; set; }
@@ -143,6 +146,7 @@ namespace Foodcourt.Model
         public string BILLITM_InsertBy { get; set; }
         public int BILLITM_Quanty { get; set; }
         public string STL_ID { get; set; }
+
 
         public void Insertitm()
         {
@@ -164,7 +168,7 @@ namespace Foodcourt.Model
         public DataTable items()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total FROM FCBILLNO WHERE BILL_Id='"+bill+"'";
+            string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total,BILL_Discount,Bill_InstantDis FROM FCBILLNO WHERE BILL_Id='" + bill+"'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -273,5 +277,20 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
+        public DataTable getoffer()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT OFF_ID,OFF_Percentage,OFF_MaxAmount FROM FCOFFERS WHERE OFF_Name =  '" + POS.offername + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable getofferlist()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT OFF_Name FROM FCOFFERS";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+
     }
 }
