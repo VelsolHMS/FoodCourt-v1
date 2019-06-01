@@ -1,7 +1,10 @@
-﻿using Foodcourt.Model;
+﻿using DAL;
+using Foodcourt.Model;
 using Foodcourt.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +33,8 @@ namespace Foodcourt.View
             InitializeComponent();
             DataF.COUNT = 1;
             txtId.Text = Convert.ToString(offers.id());
+            DataTable dtt = offers.GetOffers();
+            dgoff.ItemsSource = dtt.DefaultView;
         }
         public void Clear()
         {
@@ -73,8 +78,8 @@ namespace Foodcourt.View
                     {
                         offers.UPDATE();
                     }
-                    //DataTable dtt = it.FillDataGrid();
-                    //dgctg.ItemsSource = dtt.DefaultView;
+                    DataTable dtt = offers.GetOffers();
+                    dgoff.ItemsSource = dtt.DefaultView;
                     Clear();
                     this.NavigationService.Refresh();
                     MessageBox.Show("Saved successfully");
@@ -84,12 +89,32 @@ namespace Foodcourt.View
             catch (SystemException)
             { }
         }
-
+        
         private void Dgoff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            btnSave.Content = "Modify";
+            int i = dgoff.SelectedIndex;
+            DataTable dt2 = offers.GetOffers();
+            if (dt2.Rows.Count == 0)
+            {
+            }
+            else
+            {
+                if (i >= 0)
+                {
+                    txtId.Text = dt2.Rows[i]["OFF_ID"].ToString();
+                    txtName.Text = dt2.Rows[i]["OFF_Name"].ToString();
+                    txtAmount.Text = dt2.Rows[i]["OFF_MaxAmount"].ToString();
+                    txtrpt.Text = dt2.Rows[i]["OFF_ReportingName"].ToString();
+                    txtstatus.Text = dt2.Rows[i]["OFF_Status"].ToString();
+                    txtPercentage.Text = dt2.Rows[i]["OFF_Percentage"].ToString();
+                }
+                else
+                {
+                }
+            }
+            dgoff.UnselectAll();
         }
-
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             Clear();

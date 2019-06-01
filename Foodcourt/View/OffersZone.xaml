@@ -21,7 +21,7 @@
                         <RowDefinition Height="421*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="#FF5180A0" />
-                    <TextBlock Text="Item Category" FontFamily="Sitka Display" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="328.64,0" Width="143.183"/>
+                    <TextBlock Text="Offers Zone" FontFamily="Sitka Display" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="328.64,0" Width="143.183"/>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="389*"/>
@@ -41,7 +41,7 @@
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
                                 <TextBlock Text="Percentage" Width="110" FontFamily="Sitka Display" FontSize="22"/>
                                 <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtPercentage" Width="150" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Name="txtPercentage" Width="150" />
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
                                 <TextBlock Text="Max Amount:" Width="110" FontFamily="Sitka Display" FontSize="22"/>
@@ -55,7 +55,7 @@
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,270,0,0">
                                 <TextBlock Text="Reporting:" Width="110" FontFamily="Sitka Display" FontSize="22" Height="30" VerticalAlignment="Top"/>
                                 <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                                <TextBox Name="txtrpt" Width="150" DataContext="{Binding Source={StaticResource view}}" Validation.Error="Validation_Error" Text="{Binding Name1,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Name="txtrpt" Width="150" />
                             </StackPanel>
                             <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0">
                                 <TextBlock Text="Status" Width="110" FontFamily="Sitka Display" FontSize="22"/>
@@ -81,11 +81,11 @@
                         <Grid Grid.Column="1">
                             <DataGrid Name="dgoff" BorderBrush="#FFD4D4D4" CanUserAddRows="False" MouseLeftButtonUp="Dgoff_MouseLeftButtonUp" AutoGenerateColumns="False" BorderThickness="1.5" Margin="0,10,10,10">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Binding="{Binding CTG_ID}"/>
-                                    <DataGridTextColumn Header="Offer" Binding="{Binding CTG_Name}"/>
-                                    <DataGridTextColumn Header="Percentage" Binding="{Binding STL_Name}"/>
-                                    <DataGridTextColumn Header="Amount" Binding="{Binding CTG_ReportingName}"/>
-                                    <DataGridTextColumn Header="Status" Binding="{Binding CTG_Status}"/>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding OFF_ID}"/>
+                                    <DataGridTextColumn Header="Offer" Binding="{Binding OFF_Name}"/>
+                                    <DataGridTextColumn Header="Percentage" Binding="{Binding OFF_Percentage}"/>
+                                    <DataGridTextColumn Header="Amount" Binding="{Binding OFF_MaxAmount}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding OFF_Status}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
