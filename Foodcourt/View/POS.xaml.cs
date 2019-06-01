@@ -144,8 +144,10 @@ namespace Foodcourt.View.Oprs
             DROW["BillNo"] =txtbillno.Text;
             DROW["Total"] = dt2.Rows[0]["BILL_Amount"].ToString();
             decimal tax =Convert.ToDecimal(dt2.Rows[0]["BILL_Tax"].ToString());
-            DROW["Cgst"] = tax / 2;
-            DROW["Sgst"] = tax / 2;
+            //DROW["Cgst"] = tax / 2;
+            //DROW["Sgst"] = tax / 2;
+            DROW["Cgst"] = tax5sum;
+            DROW["Sgst"] = tax18sum;
             DROW["GrandTotal"] = dt2.Rows[0]["BILL_Total"].ToString();
             billprint.Rows.Add(DROW);
             return billprint;
@@ -268,7 +270,9 @@ namespace Foodcourt.View.Oprs
         private void quantity2_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
-
+        public static decimal tax5sum,tax18sum;
+        public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
+        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
@@ -296,6 +300,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if(gst ==Convert.ToDecimal(5.00))
+                            {
+                                tax15 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5/100;
+                            }
+                            else if(gst == Convert.ToDecimal(18.00))
+                            {
+                                tax118 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18/100;
+                            }
                         }
                     }
                     if (i == 1)
@@ -308,6 +320,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax25 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax218 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 2)
@@ -320,6 +340,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax35 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax318 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 3)
@@ -333,6 +361,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax45 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax418 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 4)
@@ -345,6 +381,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax55 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax518 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 5)
@@ -357,6 +401,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax65 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax618 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 6)
@@ -369,6 +421,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax75 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax718 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 7)
@@ -381,6 +441,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax85 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax818 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 8)
@@ -393,6 +461,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax95 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax918 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 9)
@@ -405,6 +481,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax105 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1018 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 10)
@@ -417,6 +501,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax115 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1118 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 11)
@@ -429,6 +521,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax125 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1218 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 12)
@@ -441,6 +541,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax135 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1318 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 13)
@@ -453,6 +561,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax145 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1418 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 14)
@@ -465,6 +581,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax155 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1518 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 15)
@@ -477,6 +601,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax165 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1618 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 16)
@@ -489,6 +621,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax175 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1718 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 17)
@@ -501,6 +641,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax185 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1818 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 18)
@@ -513,6 +661,14 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax195 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1918 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                     if (i == 19)
@@ -525,9 +681,19 @@ namespace Foodcourt.View.Oprs
                             if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
                             DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                             pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
+                            if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax205 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax2018 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
+                            }
                         }
                     }
                 }
+                tax5sum = tax15+ tax25+ tax35+ tax45+ tax55+tax65+ tax75+ tax85+ tax95+ tax105+ tax115+ tax125+ tax135+ tax145+ tax155+ tax165+ tax175+ tax185+ tax195+ tax205;
+                tax18sum = tax118+ tax218+ tax318+ tax418+ tax518+ tax618+ tax718+ tax818+ tax918+ tax1018+ tax1118+ tax1218+ tax1318+ tax1418+ tax1518+ tax1618+ tax1718+ tax1818+ tax1918+ tax2018;
 
                 MessageBox.Show("Inserted successfully");
                 ReportDocument re = new ReportDocument();
