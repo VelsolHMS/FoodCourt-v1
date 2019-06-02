@@ -95,14 +95,14 @@ namespace Foodcourt.Model
         public DataTable MonthWiseBills()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy,A.BILL_InsertDate FROM FCBILLNO A WHERE A.BILL_InsertDate Between '"+FromDate+"' AND '"+ToDate+"'";
+            string s = "SELECT A.BILL_Id,A.BILL_Amount,A.BILL_Tax,A.BILL_Total,A.BILL_InsertBy,A.BILL_InsertDate,A.BILL_Discount,A.Bill_InstantDis,(Select OFF_Name from FCOFFERS where OFF_ID = A.Bill_OfferId) As Offer_Name FROM FCBILLNO A WHERE A.BILL_InsertDate Between '" + FromDate+"' AND '"+ToDate+"'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
         public DataTable MonthWiseBillsTotal()
         {
             var list = new List<SqlParameter>();
-            string s = "Select Sum(BILL_Amount) As Bill_Amount,Sum(BILL_Tax) as BILL_Tax, Sum(BILL_Total) as BILL_Total from FCBILLNO where BILL_InsertDate Between '" + FromDate + "' AND '" + ToDate + "'";
+            string s = "Select Sum(BILL_Amount) As Bill_Amount,Sum(BILL_Tax) as BILL_Tax, Sum(BILL_Total) as BILL_Total,(SUM(BILL_Discount) + Sum(Bill_InstantDis)) as BILL_Dis from FCBILLNO where BILL_InsertDate Between '" + FromDate + "' AND '" + ToDate + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

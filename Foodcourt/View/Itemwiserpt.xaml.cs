@@ -42,6 +42,7 @@ namespace Foodcourt.View
                 r.PrintToPrinter(1, false, 0, 0);
                 r.Refresh();
                 MessageBox.Show("Report Generated Succesfully");
+                this.NavigationService.Refresh();
             }
         }
         public DataTable MainReport()
