@@ -55,8 +55,8 @@ namespace Foodcourt.View
         }
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (error != 0 || (string.IsNullOrWhiteSpace(txtId.Text)) || (string.IsNullOrWhiteSpace(txtName.Text)) || (string.IsNullOrWhiteSpace(txtPercentage.Text)) || (string.IsNullOrWhiteSpace(txtstatus.Text)))
                 {
                     MessageBox.Show("Please fill all fields");
@@ -66,7 +66,7 @@ namespace Foodcourt.View
                     offers.OFF_ID = Convert.ToInt32(txtId.Text);
                     offers.OFF_Name = txtName.Text;
                     offers.OFF_Percentage = txtPercentage.Text;
-                    offers.OFF_MaxAmount = Convert.ToDecimal(txtAmount.Text);
+                    offers.OFF_MaxAmount = txtAmount.Text;
                     offers.OFF_ReportingName = txtrpt.Text;
                     offers.OFF_Status = txtstatus.Text;
                     string a = "Save"; b = Convert.ToString(btnSave.Content);
@@ -85,11 +85,10 @@ namespace Foodcourt.View
                     MessageBox.Show("Saved successfully");
                     btnSave.Content = "Save";
                 }
-            //}
-            //catch (SystemException)
-            //{ }
+            }
+            catch (SystemException)
+            { }
         }
-        
         private void Dgoff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             btnSave.Content = "Modify";
