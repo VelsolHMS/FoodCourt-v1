@@ -689,3 +689,5 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\CrystalDecisions.R
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\FlashControlV71.dll
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml
