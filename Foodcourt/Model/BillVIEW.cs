@@ -22,7 +22,7 @@ namespace Foodcourt.Model
         {
             var LIST = new List<SqlParameter>();
             LIST.AddSqlParameter("@SelectedBillNo", SelectedBillNo);
-            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount,CONVERT(varchar ,BILL_InsertDate ,101) AS BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_Id = @SelectedBillNo";
+            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,(BILL_Discount+Bill_InstantDis) as Dis_TOTAL,CONVERT(varchar ,BILL_InsertDate ,101) AS BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_Id = @SelectedBillNo";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
@@ -30,7 +30,7 @@ namespace Foodcourt.Model
         {
             var LIST = new List<SqlParameter>();
             LIST.AddSqlParameter("@SelectedDate", SelectedDate);
-            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount,BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_InsertDate = @SelectedDate";
+            string S = "Select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount,BILL_Tax,CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,(BILL_Discount+Bill_InstantDis) as Dis_TOTAL,BILL_InsertDate from FCBILLNO WHERE BILL_Status = 'Settled' and BILL_InsertDate = @SelectedDate";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }

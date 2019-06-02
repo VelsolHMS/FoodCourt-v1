@@ -42,6 +42,7 @@ namespace Foodcourt.View
                 r.PrintToPrinter(1, false, 0, 0);
                 r.Refresh();
                 MessageBox.Show("Report Generated Succesfully");
+                this.NavigationService.Refresh();
             }
         }
         public DataTable MainReport()
@@ -56,6 +57,7 @@ namespace Foodcourt.View
             d.Columns.Add("Gst", typeof(string));
             d.Columns.Add("SelectedDate", typeof(string));
             d.Columns.Add("Stall",typeof(string));
+            d.Columns.Add("OwnerAmount", typeof(decimal));
             rpt.PRPT();
             DataRow row = d.NewRow();
             //DataTable d1 = rpt.DayWiseBillsTotal();
@@ -68,6 +70,7 @@ namespace Foodcourt.View
             row["GRANDTOTALL"] = Math.Round(GrandTotal, 2, MidpointRounding.AwayFromZero);
             row["SelectedDate"] = selecteddate.Text;
             row["Stall"] = txtstall.Text;
+            row["OwnerAmount"] = (NetAmount * 8) / 100;
             d.Rows.Add(row);
             return d;
         }

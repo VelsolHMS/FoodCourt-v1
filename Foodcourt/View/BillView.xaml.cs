@@ -129,7 +129,13 @@ namespace Foodcourt.View.Oprs
             }
         }
         public static int B_bill_no;
-        public Decimal B_Tax, B_Total, B_GTotal;
+        public Decimal B_Tax, B_Total, B_GTotal,B_DisTotal;
+
+        private void BillwiseSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         private void dgBill_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             int i = dgBill.SelectedIndex;
@@ -149,12 +155,14 @@ namespace Foodcourt.View.Oprs
                 B_Total = Convert.ToDecimal(dt1.Rows[i]["BILL_Amount"]);
                 B_GTotal = Convert.ToDecimal(dt1.Rows[i]["BILL_Total"]);
                 B_Tax = Convert.ToDecimal(dt1.Rows[i]["BILL_Tax"]);
+                B_DisTotal = Convert.ToDecimal(dt1.Rows[i]["Dis_TOTAL"]);
                 txtbillno.Text = B_bill_no.ToString();
                 txtbilldate.Text = Convert.ToDateTime(dt1.Rows[i]["BILL_InsertDate"]).ToShortDateString();
                 txtnetamount.Text = Math.Round(B_Total, 2, MidpointRounding.AwayFromZero).ToString();
                 txtcgst.Text = Math.Round(B_Tax/2, 2, MidpointRounding.AwayFromZero).ToString();
-                txtsgst.Text =Math.Round(B_Tax/2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtsgst.Text = Math.Round(B_Tax/2, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgttl.Text = Math.Round(B_GTotal, 2, MidpointRounding.AwayFromZero).ToString();
+                txtdis.Text = Math.Round(B_DisTotal, 2, MidpointRounding.AwayFromZero).ToString();
                 DataTable db = BV.GETITMNAM();
                 DataTable DD1 = new DataTable();
                 DD1.Columns.Add("BILITM_Name", typeof(string));
@@ -375,6 +383,7 @@ namespace Foodcourt.View.Oprs
             d.Columns.Add("Cgst", typeof(decimal));
             d.Columns.Add("Sgst", typeof(decimal));
             d.Columns.Add("GrandTotal", typeof(decimal));
+            d.Columns.Add("Discount", typeof(decimal));
             DataRow row = d.NewRow();
             DataTable adres = BV.Address();
             row["Name"] = adres.Rows[0]["PRPT_Name"].ToString();
@@ -386,6 +395,7 @@ namespace Foodcourt.View.Oprs
             row["Cgst"] = txtcgst.Text;
             row["Sgst"] = txtsgst.Text;
             row["GrandTotal"] = txtgttl.Text;
+            row["Discount"] = txtdis.Text;
             d.Rows.Add(row);
             return d;
         }

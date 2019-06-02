@@ -198,6 +198,9 @@
       <DependentUpon>Cancelbill.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="REPORTS\DBILLPRINT.cs">
+      <DependentUpon>DBILLPRINT.xsd</DependentUpon>
+    </Compile>
     <Compile Include="REPORTS\DBILLPRINT.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
