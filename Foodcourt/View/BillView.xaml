@@ -35,7 +35,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                        <TextBox Width="100" x:Name="billwiseSearch" Margin="10,0,0,0" material:HintAssist.Hint="Bill No" Padding="2,0,0,0" Height="28"/>
+                        <TextBox Width="100" x:Name="billwiseSearch" Margin="10,0,0,0" material:HintAssist.Hint="Bill No" Padding="2,0,0,0" Height="28" TextChanged="BillwiseSearch_TextChanged"/>
                         <Button Margin="10,0,15,0" Name="btnbillnoS" Click="btnbillnoS_Click" BorderThickness="0" Height="25" Width="25">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Foodcourt;component/Images/Search.png"/>
