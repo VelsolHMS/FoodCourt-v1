@@ -754,19 +754,25 @@ namespace Foodcourt.View.Oprs
                 re.Subreports[0].SetDataSource(pos1);
                 re.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
 
-
                 ReportDocument res = new ReportDocument();
-                DataTable d3 = kot();
-                a11 = d3;
+
                 res.Load("../../REPORTS/kotprint.rpt");
-                DataTable d2 = kot1();
-                a1 = d2;
-                res.Load("../../REPORTS/kotprint1.rpt");
-                res.SetDataSource(a1);
-                res.Subreports[0].SetDataSource(a11);
+
+                DataTable dstlss = pos.stlidsss();
+                for (int i = 1; i <= dstlss.Rows.Count; i++)
+                {
+                    DataTable d3 = kot();
+                    a11 = d3;
+                    DataTable d2 = kot1();
+                    a1 = d2;
+                    res.Load("../../REPORTS/kotprint1.rpt");
+                    res.SetDataSource(a1);
+                    res.Subreports[0].SetDataSource(a11);
+                    res.PrintToPrinter(1, false, 0, 0);
+                    res.Refresh();
+                }
                 res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-                res.PrintToPrinter(1, false, 0, 0);
-                res.Refresh();
+
                 re.PrintToPrinter(1, false, 0, 0);
                 re.Refresh();
                 //ReportDocument re1 = new ReportDocument();
