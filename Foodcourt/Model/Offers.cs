@@ -18,7 +18,7 @@ namespace Foodcourt.Model
         public string OFF_Percentage { get; set; }
         public string OFF_Status { get; set; }
         public DateTime OFF_ExpireDate { get; set; }
-        public decimal OFF_MaxAmount { get; set; }
+        public string OFF_MaxAmount { get; set; }
         public string OFF_InsertBy { get; set; }
         public DateTime OFF_InsertDate { get; set; }
         

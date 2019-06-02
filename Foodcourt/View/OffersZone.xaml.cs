@@ -66,7 +66,7 @@ namespace Foodcourt.View
                     offers.OFF_ID = Convert.ToInt32(txtId.Text);
                     offers.OFF_Name = txtName.Text;
                     offers.OFF_Percentage = txtPercentage.Text;
-                    offers.OFF_MaxAmount = Convert.ToDecimal(txtAmount.Text);
+                    offers.OFF_MaxAmount = txtAmount.Text;
                     offers.OFF_ReportingName = txtrpt.Text;
                     offers.OFF_Status = txtstatus.Text;
                     string a = "Save"; b = Convert.ToString(btnSave.Content);
@@ -89,7 +89,6 @@ namespace Foodcourt.View
             catch (SystemException)
             { }
         }
-        
         private void Dgoff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             btnSave.Content = "Modify";
