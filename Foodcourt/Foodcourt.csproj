@@ -225,6 +225,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Kotbill.xsd</DependentUpon>
     </Compile>
+    <Compile Include="REPORTS\kotdataset.cs">
+      <DependentUpon>kotdataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="REPORTS\kotdataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
