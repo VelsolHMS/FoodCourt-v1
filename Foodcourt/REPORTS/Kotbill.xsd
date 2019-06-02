@@ -20,6 +20,7 @@
               <xs:element name="BillTime" msprop:Generator_ColumnVarNameInTable="columnBillTime" msprop:Generator_ColumnPropNameInRow="BillTime" msprop:Generator_ColumnPropNameInTable="BillTimeColumn" msprop:Generator_UserColumnName="BillTime" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" type="xs:string" minOccurs="0" />
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:int" minOccurs="0" />
+              <xs:element name="Stallname" msprop:Generator_ColumnVarNameInTable="columnStallname" msprop:Generator_ColumnPropNameInRow="Stallname" msprop:Generator_ColumnPropNameInTable="StallnameColumn" msprop:Generator_UserColumnName="Stallname" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

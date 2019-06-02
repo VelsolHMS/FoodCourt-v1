@@ -172,6 +172,27 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
+        public DataTable stlidsss()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT DISTINCT STL_ID FROM FCBILLITM WHERE BILL_Id='" + bill + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable STALLNAME()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT STL_Name FROM FCSTALLS WHERE STL_ID IN (SELECT STL_ID FROM FCBILLITM WHERE STL_ID='"+POS.STALLID+"')";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable STLIDITEMNAMES()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT BILITM_Name,BILLITM_Quanty FROM FCBILLITM WHERE STL_ID = '"+POS.STALLID + "' AND BILL_Id='" + bill + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
         public DataTable getstlid()
         {
             var list = new List<SqlParameter>();
