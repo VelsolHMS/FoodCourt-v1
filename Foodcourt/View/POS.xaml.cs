@@ -1229,17 +1229,24 @@ namespace Foodcourt.View.Oprs
 
 
                 ReportDocument res = new ReportDocument();
-                DataTable d3 = kot();
-                a11 = d3;
+                
                 res.Load("../../REPORTS/kotprint.rpt");
-                DataTable d2 = kot1();
-                a1 = d2;
-                res.Load("../../REPORTS/kotprint1.rpt");
-                res.SetDataSource(a1);
-                res.Subreports[0].SetDataSource(a11);
+                
+                DataTable dstlss = pos.stlidsss();
+                for (int i = 1; i <= dstlss.Rows.Count; i++)
+                {
+                    DataTable d3 = kot();
+                    a11 = d3;
+                    DataTable d2 = kot1();
+                    a1 = d2;
+                    res.Load("../../REPORTS/kotprint1.rpt");
+                    res.SetDataSource(a1);
+                    res.Subreports[0].SetDataSource(a11);
+                    res.PrintToPrinter(1, false, 0, 0);
+                    res.Refresh();
+                }
                 res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-                res.PrintToPrinter(1, false, 0, 0);
-                res.Refresh();
+                
                 re.PrintToPrinter(1, false, 0, 0);
                 re.Refresh();
                 //ReportDocument re1 = new ReportDocument();
@@ -1257,10 +1264,13 @@ namespace Foodcourt.View.Oprs
                 //re.PrintToPrinter(1, false, 0, 0);
                 //re.Refresh();
                 clear();
+                j = 0;
                 this.NavigationService.Refresh();
                 cou = 0;
             }
         }
+        public static string STALLID;
+        DataTable DITM;
         private void OffYes_Click(object sender, RoutedEventArgs e)
         {
             OfferConfirmation.IsOpen = false;
@@ -2262,7 +2272,7 @@ namespace Foodcourt.View.Oprs
         //    d.Rows.Add(row);
         //    return d;
         //}
-        
+
         //public DataTable Dprint1()
         //{
         //    DataTable dd = new DataTable();
@@ -2285,21 +2295,30 @@ namespace Foodcourt.View.Oprs
         //    return dd;
         //}
 
-
+        public static int j = 0,h=0;
         public static DataTable a11, a1;
+        public static string stallname;
         public DataTable kot()
         {
             DataTable d = new DataTable();
             d.Columns.Add("Item", typeof(string));
             d.Columns.Add("Qty", typeof(int));
-            DataTable s = pos.KOT();
-            for (int i = 0; i < s.Rows.Count; i++)
+            DataTable dstlss = pos.stlidsss();
+            if(j<dstlss.Rows.Count)
             {
-                DataRow r = d.NewRow();
-                r["Item"] = s.Rows[i]["BILITM_Name"].ToString();
-                r["Qty"] = s.Rows[i]["BILLITM_Quanty"].ToString();
-                d.Rows.Add(r);
-            } 
+                STALLID = dstlss.Rows[j]["STL_ID"].ToString();
+                DataTable dsn = pos.STALLNAME();
+                stallname = dsn.Rows[0]["STL_Name"].ToString();
+                DataTable s = pos.STLIDITEMNAMES();
+                for (int i = 0; i < s.Rows.Count; i++)
+                {
+                    DataRow r = d.NewRow();
+                    r["Item"] = s.Rows[i]["BILITM_Name"].ToString();
+                    r["Qty"] = s.Rows[i]["BILLITM_Quanty"].ToString();
+                    d.Rows.Add(r);
+                }
+                j = j + 1;
+            }
             return d;
         }
         public DataTable kot1()
@@ -2308,11 +2327,21 @@ namespace Foodcourt.View.Oprs
             ds.Columns.Add("BillNo", typeof(string));
             ds.Columns.Add("BillDate", typeof(DateTime));
             ds.Columns.Add("BillTime", typeof(DateTime));
-                DataRow r = ds.NewRow();
-                r["BillNO"] = txtbillno.Text;
-                r["BillDate"] = DateTime.Now.Date;
-                r["BillTime"] = DateTime.Now;
-                ds.Rows.Add(r);
+            ds.Columns.Add("Stallname", typeof(string));
+            DataTable dstlss = pos.stlidsss();
+            DataRow r = ds.NewRow();
+            r["BillNO"] = txtbillno.Text;
+            r["BillDate"] = DateTime.Now.Date;
+            r["BillTime"] = DateTime.Now;
+            r["Stallname"] = stallname;
+            //if (h < dstlss.Rows.Count)
+            //{
+            //    STALLID = dstlss.Rows[h]["STL_ID"].ToString();
+            //    DataTable dsn = pos.STALLNAME();
+            //    r["Stallname"] = dsn.Rows[0]["STL_Name"].ToString();
+            ds.Rows.Add(r);
+            //    h = h + 1;
+            //}
             return ds;
         }
         public static DataTable pos1, pos11;
