@@ -791,6 +791,7 @@ namespace Foodcourt.View.Oprs
                 //re.Refresh();
                 clear();
                 this.NavigationService.Refresh();
+                j = 0;
                 cou = 0;
             }
         }
