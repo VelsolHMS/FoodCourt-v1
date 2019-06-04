@@ -280,7 +280,7 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
-
+        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         private void Txtstall_DropDownClosed(object sender, EventArgs e)
         {
             offername = txtstall.Text;
@@ -1288,7 +1288,7 @@ namespace Foodcourt.View.Oprs
             ttotal = Convert.ToDecimal(txtTotal.Text);
         }
 
-        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+        
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
