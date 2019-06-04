@@ -126,7 +126,7 @@ namespace Foodcourt.View.Oprs
         {
         }
         DataTable d = new DataTable();
-        public decimal dis, ins,gndtot;
+        public decimal dis, ins,gndtot,ttam;
         public DataTable Billprint()
         {
             DataTable billprint = new DataTable();
@@ -146,15 +146,16 @@ namespace Foodcourt.View.Oprs
             DROW["Address"] = dt1.Rows[0]["PRPT_Address"].ToString();
             DROW["GstNO"] = dt1.Rows[0]["PRPT_GST"].ToString();
             DROW["BillNo"] =txtbillno.Text;
-            DROW["Total"] = dt2.Rows[0]["BILL_Amount"].ToString();
+            ttam = Convert.ToDecimal(dt2.Rows[0]["BILL_Amount"]);
+            DROW["Total"] = (int)Math.Round(ttam);
             decimal tax =Convert.ToDecimal(dt2.Rows[0]["BILL_Tax"].ToString());
             //DROW["Cgst"] = tax / 2;
             //DROW["Sgst"] = tax / 2;
-            DROW["Cgst"] = tax5sum;
-            DROW["Sgst"] = tax18sum;
+            DROW["Cgst"] = (int)Math.Round(tax5sum);
+            DROW["Sgst"] = (int)Math.Round(tax18sum);
             dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
             ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
-            DROW["Discount"] = dis + ins;
+            DROW["Discount"] = (int)Math.Round(dis + ins);
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
             DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
@@ -280,7 +281,7 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
-
+        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         private void Txtstall_DropDownClosed(object sender, EventArgs e)
         {
             offername = txtstall.Text;
@@ -1288,7 +1289,7 @@ namespace Foodcourt.View.Oprs
             ttotal = Convert.ToDecimal(txtTotal.Text);
         }
 
-        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+        
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
