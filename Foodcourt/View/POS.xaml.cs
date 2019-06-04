@@ -126,7 +126,7 @@ namespace Foodcourt.View.Oprs
         {
         }
         DataTable d = new DataTable();
-        public decimal dis, ins,gndtot;
+        public decimal dis, ins,gndtot,ttam;
         public DataTable Billprint()
         {
             DataTable billprint = new DataTable();
@@ -146,15 +146,16 @@ namespace Foodcourt.View.Oprs
             DROW["Address"] = dt1.Rows[0]["PRPT_Address"].ToString();
             DROW["GstNO"] = dt1.Rows[0]["PRPT_GST"].ToString();
             DROW["BillNo"] =txtbillno.Text;
-            DROW["Total"] = dt2.Rows[0]["BILL_Amount"].ToString();
+            ttam = Convert.ToDecimal(dt2.Rows[0]["BILL_Amount"]);
+            DROW["Total"] = (int)Math.Round(ttam);
             decimal tax =Convert.ToDecimal(dt2.Rows[0]["BILL_Tax"].ToString());
             //DROW["Cgst"] = tax / 2;
             //DROW["Sgst"] = tax / 2;
-            DROW["Cgst"] = tax5sum;
-            DROW["Sgst"] = tax18sum;
+            DROW["Cgst"] = (int)Math.Round(tax5sum);
+            DROW["Sgst"] = (int)Math.Round(tax18sum);
             dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
             ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
-            DROW["Discount"] = dis + ins;
+            DROW["Discount"] = (int)Math.Round(dis + ins);
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
             DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
