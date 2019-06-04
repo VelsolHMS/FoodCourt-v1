@@ -69,7 +69,7 @@ namespace Foodcourt.Model
         public DataTable GETSTALLS()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "SELECT STL_Name from FCSTALLS";
+            string dd = " SELECT STL_Name from FCSTALLS WHERE STL_Status = 'Active'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
