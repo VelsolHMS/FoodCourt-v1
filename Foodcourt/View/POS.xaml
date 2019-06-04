@@ -31,7 +31,6 @@
                             <TextBlock Text="Select StallType" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                             <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                             <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
-
                             </ComboBox>
                         </StackPanel>
                     </Grid>
@@ -116,7 +115,7 @@
                             </StackPanel>
                             <StackPanel Height="30" Margin="0,58.363,0,4.637" Orientation="Horizontal">
                                 <TextBlock Text="Bill No:" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
-                                <TextBlock Name="txtbillno" Width="70" Margin="20,0,0,0" FontSize="20"/>
+                                <TextBlock Name="txtbillno" Width="70" Margin="20,0,0,0" FontSize="20" Height="30" VerticalAlignment="Top"/>
                                 <TextBlock Text="Time:" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold" Margin="75,0,0,0"/>
                                 <TextBlock Name="txttime" Width="120" Padding="4" Margin="20,0,0,0"/>
                             </StackPanel>

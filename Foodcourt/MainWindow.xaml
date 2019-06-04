@@ -38,7 +38,7 @@
                         <MenuItem  Header="Item Rate List" Foreground="White" Name="itm" Click="itm_Click" />
                         <MenuItem Name="IWS" Header="Montly Item Sales" Foreground="White" Click="IWS_Click"/>
                         <MenuItem Header="Daily Item Sales" Foreground="White" Name="DWS" Click="DWS_Click" />
-                        <MenuItem Header="Month wise Sales" Foreground="White" Name="MWS" Click="MWS_Click"/>
+                        <MenuItem Header="Month Bill Sales" Foreground="White" Name="MWS" Click="MWS_Click"/>
                         <MenuItem Header="Tax Report" Foreground="White" Name="TR" Click="TR_Click"/>
                         <!--<MenuItem Header="Bill Wise Sales" Foreground="White" Name="BWS" Click="BWS_Click"/>-->
                         <MenuItem Header="Pettycash Report" Foreground="White" Name="petty" Click="petty_Click" ></MenuItem>

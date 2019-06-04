@@ -2,6 +2,7 @@
 using Foodcourt.Model;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,6 +16,10 @@ namespace Foodcourt.View
         ItemsCAT it = new ItemsCAT();
         reportClass1 r = new reportClass1();
         Reports rpt = new Reports();
+        public bool IsNumeric(string value)
+        {
+            return value.All(char.IsNumber);
+        }
         public Daywiserpt()
         {
             InitializeComponent();
@@ -24,24 +29,32 @@ namespace Foodcourt.View
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(selecteddate.Text == "" || selecteddate.Text == null)
+            if(selecteddate.Text == "" || selecteddate.Text == null || txtPer.Text == null)
             {
                 MessageBox.Show("Please select the Date");
             }
             else
             {
-                rpt.SelectedDate = selecteddate.Text;
-                rpt.STL_Name = txtstall.Text;
-                ReportDocument r = new ReportDocument();
-                DataTable sub = SubReport();
-                r.Load("../../View/dayCrystalReport1.rpt");
-                DataTable main = MainReport();
-                r.Load("../../View/DatewiseReport.rpt");
-                r.SetDataSource(main);
-                r.Subreports[0].SetDataSource(sub);
-                r.PrintToPrinter(1, false, 0, 0);
-                r.Refresh();
-                MessageBox.Show("Report Generated Succesfully");
+                if (IsNumeric(txtPer.Text))
+                {
+                    rpt.SelectedDate = selecteddate.Text;
+                    rpt.STL_Name = txtstall.Text;
+                    ReportDocument r = new ReportDocument();
+                    DataTable sub = SubReport();
+                    r.Load("../../View/dayCrystalReport1.rpt");
+                    DataTable main = MainReport();
+                    r.Load("../../View/DatewiseReport.rpt");
+                    r.SetDataSource(main);
+                    r.Subreports[0].SetDataSource(sub);
+                    r.PrintToPrinter(1, false, 0, 0);
+                    r.Refresh();
+                    MessageBox.Show("Report Generated Succesfully");
+                    this.NavigationService.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter the numbers in Revenue");
+                }
             }
         }
         public DataTable MainReport()
@@ -56,6 +69,7 @@ namespace Foodcourt.View
             d.Columns.Add("Gst", typeof(string));
             d.Columns.Add("SelectedDate", typeof(string));
             d.Columns.Add("Stall",typeof(string));
+            d.Columns.Add("OwnerAmount", typeof(decimal));
             rpt.PRPT();
             DataRow row = d.NewRow();
             //DataTable d1 = rpt.DayWiseBillsTotal();
@@ -68,6 +82,7 @@ namespace Foodcourt.View
             row["GRANDTOTALL"] = Math.Round(GrandTotal, 2, MidpointRounding.AwayFromZero);
             row["SelectedDate"] = selecteddate.Text;
             row["Stall"] = txtstall.Text;
+            row["OwnerAmount"] = (NetAmount * Convert.ToInt32(txtPer.Text)) / 100;
             d.Rows.Add(row);
             return d;
         }

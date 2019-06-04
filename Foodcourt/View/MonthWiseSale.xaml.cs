@@ -51,6 +51,7 @@ namespace Foodcourt.View
                 r.PrintToPrinter(1, false, 0, 0);
                 r.Refresh();
                 MessageBox.Show("Report Generated Succesfully");
+                this.NavigationService.Refresh();
             }
         }
         public decimal a, b, c;
@@ -66,6 +67,7 @@ namespace Foodcourt.View
             d.Columns.Add("Gst", typeof(string));
             d.Columns.Add("FromDate", typeof(DateTime));
             d.Columns.Add("ToDate", typeof(DateTime));
+            d.Columns.Add("Discount", typeof(decimal));
             rpt.PRPT();
             DataRow row = d.NewRow();
             DataTable d1 = rpt.MonthWiseBillsTotal();
@@ -74,6 +76,7 @@ namespace Foodcourt.View
             row["Gst"] = Reports.GST;
             row["FromDate"] = fromdate.Text;
             row["ToDate"] = todate.Text;
+            row["Discount"] = d1.Rows[0]["BILL_Dis"].ToString();
             if (d1.Rows[0]["Bill_Amount"].ToString() == "" || d1.Rows[0]["Bill_Amount"].ToString() == "null")
             {
                 row["TOTALNETAMOUNT"] = 0.00;
@@ -113,6 +116,8 @@ namespace Foodcourt.View
             d.Columns.Add("GST", typeof(decimal));
             d.Columns.Add("GRANDTOTAL", typeof(decimal));
             d.Columns.Add("USER", typeof(string));
+            d.Columns.Add("Discount", typeof(string));
+            d.Columns.Add("InstantDiscount", typeof(decimal));
             DataTable month_bills = rpt.MonthWiseBills();
             for (int i = 0; i < month_bills.Rows.Count; i++)
             {
@@ -127,6 +132,15 @@ namespace Foodcourt.View
                 else
                 {
                     a = decimal.Parse(month_bills.Rows[i]["BILL_Tax"].ToString());
+                }
+                row["InstantDiscount"] = month_bills.Rows[i]["Bill_InstantDis"];
+                if(month_bills.Rows[i]["Offer_Name"] == null || month_bills.Rows[i]["Offer_Name"].ToString() == "")
+                {
+                    row["Discount"] = month_bills.Rows[i]["BILL_Discount"];
+                }
+                else
+                {
+                    row["Discount"] = month_bills.Rows[i]["BILL_Discount"] + " (" + month_bills.Rows[i]["Offer_Name"] + ")";
                 }
                 row["GST"] = Math.Round(a, 2, MidpointRounding.AwayFromZero);
                 row["GRANDTOTAL"] = month_bills.Rows[i]["BILL_Total"].ToString();

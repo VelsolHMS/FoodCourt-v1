@@ -69,7 +69,7 @@ namespace Foodcourt.Model
         public DataTable GETSTALLS()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "SELECT STL_Name from FCSTALLS";
+            string dd = " SELECT STL_Name from FCSTALLS WHERE STL_Status = 'Active'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
@@ -169,6 +169,27 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total,BILL_Discount,Bill_InstantDis FROM FCBILLNO WHERE BILL_Id='" + bill+"'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable stlidsss()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT DISTINCT STL_ID FROM FCBILLITM WHERE BILL_Id='" + bill + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable STALLNAME()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT STL_Name FROM FCSTALLS WHERE STL_ID IN (SELECT STL_ID FROM FCBILLITM WHERE STL_ID='"+POS.STALLID+"')";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable STLIDITEMNAMES()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT BILITM_Name,BILLITM_Quanty FROM FCBILLITM WHERE STL_ID = '"+POS.STALLID + "' AND BILL_Id='" + bill + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -287,7 +308,7 @@ namespace Foodcourt.Model
         public DataTable getofferlist()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT OFF_Name FROM FCOFFERS";
+            string s = "SELECT OFF_Name FROM FCOFFERS WHERE OFF_Status='Active'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

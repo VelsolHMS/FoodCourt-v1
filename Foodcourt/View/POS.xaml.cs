@@ -126,7 +126,7 @@ namespace Foodcourt.View.Oprs
         {
         }
         DataTable d = new DataTable();
-        public decimal dis, ins,gndtot;
+        public decimal dis, ins,gndtot,ttam;
         public DataTable Billprint()
         {
             DataTable billprint = new DataTable();
@@ -146,15 +146,16 @@ namespace Foodcourt.View.Oprs
             DROW["Address"] = dt1.Rows[0]["PRPT_Address"].ToString();
             DROW["GstNO"] = dt1.Rows[0]["PRPT_GST"].ToString();
             DROW["BillNo"] =txtbillno.Text;
-            DROW["Total"] = dt2.Rows[0]["BILL_Amount"].ToString();
+            ttam = Convert.ToDecimal(dt2.Rows[0]["BILL_Amount"]);
+            DROW["Total"] = (int)Math.Round(ttam);
             decimal tax =Convert.ToDecimal(dt2.Rows[0]["BILL_Tax"].ToString());
             //DROW["Cgst"] = tax / 2;
             //DROW["Sgst"] = tax / 2;
-            DROW["Cgst"] = tax5sum;
-            DROW["Sgst"] = tax18sum;
+            DROW["Cgst"] = (int)Math.Round(tax5sum);
+            DROW["Sgst"] = (int)Math.Round(tax18sum);
             dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
             ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
-            DROW["Discount"] = dis + ins;
+            DROW["Discount"] = (int)Math.Round(dis + ins);
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
             DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
@@ -280,7 +281,7 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
-
+        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         private void Txtstall_DropDownClosed(object sender, EventArgs e)
         {
             offername = txtstall.Text;
@@ -299,7 +300,11 @@ namespace Foodcourt.View.Oprs
                 { maxamount = 0; }
                 else
                 { maxamount = Convert.ToDecimal(DTT.Rows[0]["OFF_MaxAmount"]); }
-                if (maxamount <= amdis)
+                if(maxamount == 0)
+                {
+                    txtdisAmount.Text = amdis.ToString();
+                }
+                else if (maxamount <= amdis)
                 {
                     txtdisAmount.Text = maxamount.ToString();
                 }
@@ -750,19 +755,25 @@ namespace Foodcourt.View.Oprs
                 re.Subreports[0].SetDataSource(pos1);
                 re.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
 
-
                 ReportDocument res = new ReportDocument();
-                DataTable d3 = kot();
-                a11 = d3;
+
                 res.Load("../../REPORTS/kotprint.rpt");
-                DataTable d2 = kot1();
-                a1 = d2;
-                res.Load("../../REPORTS/kotprint1.rpt");
-                res.SetDataSource(a1);
-                res.Subreports[0].SetDataSource(a11);
+
+                DataTable dstlss = pos.stlidsss();
+                for (int i = 1; i <= dstlss.Rows.Count; i++)
+                {
+                    DataTable d3 = kot();
+                    a11 = d3;
+                    DataTable d2 = kot1();
+                    a1 = d2;
+                    res.Load("../../REPORTS/kotprint1.rpt");
+                    res.SetDataSource(a1);
+                    res.Subreports[0].SetDataSource(a11);
+                    res.PrintToPrinter(1, false, 0, 0);
+                    res.Refresh();
+                }
                 res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-                res.PrintToPrinter(1, false, 0, 0);
-                res.Refresh();
+
                 re.PrintToPrinter(1, false, 0, 0);
                 re.Refresh();
                 //ReportDocument re1 = new ReportDocument();
@@ -781,6 +792,7 @@ namespace Foodcourt.View.Oprs
                 //re.Refresh();
                 clear();
                 this.NavigationService.Refresh();
+                j = 0;
                 cou = 0;
             }
         }
@@ -1225,17 +1237,24 @@ namespace Foodcourt.View.Oprs
 
 
                 ReportDocument res = new ReportDocument();
-                DataTable d3 = kot();
-                a11 = d3;
+                
                 res.Load("../../REPORTS/kotprint.rpt");
-                DataTable d2 = kot1();
-                a1 = d2;
-                res.Load("../../REPORTS/kotprint1.rpt");
-                res.SetDataSource(a1);
-                res.Subreports[0].SetDataSource(a11);
+                
+                DataTable dstlss = pos.stlidsss();
+                for (int i = 1; i <= dstlss.Rows.Count; i++)
+                {
+                    DataTable d3 = kot();
+                    a11 = d3;
+                    DataTable d2 = kot1();
+                    a1 = d2;
+                    res.Load("../../REPORTS/kotprint1.rpt");
+                    res.SetDataSource(a1);
+                    res.Subreports[0].SetDataSource(a11);
+                    res.PrintToPrinter(1, false, 0, 0);
+                    res.Refresh();
+                }
                 res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-                res.PrintToPrinter(1, false, 0, 0);
-                res.Refresh();
+                
                 re.PrintToPrinter(1, false, 0, 0);
                 re.Refresh();
                 //ReportDocument re1 = new ReportDocument();
@@ -1253,10 +1272,13 @@ namespace Foodcourt.View.Oprs
                 //re.PrintToPrinter(1, false, 0, 0);
                 //re.Refresh();
                 clear();
+                j = 0;
                 this.NavigationService.Refresh();
                 cou = 0;
             }
         }
+        public static string STALLID;
+        DataTable DITM;
         private void OffYes_Click(object sender, RoutedEventArgs e)
         {
             OfferConfirmation.IsOpen = false;
@@ -1267,7 +1289,7 @@ namespace Foodcourt.View.Oprs
             ttotal = Convert.ToDecimal(txtTotal.Text);
         }
 
-        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+        
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
@@ -2258,7 +2280,7 @@ namespace Foodcourt.View.Oprs
         //    d.Rows.Add(row);
         //    return d;
         //}
-        
+
         //public DataTable Dprint1()
         //{
         //    DataTable dd = new DataTable();
@@ -2281,21 +2303,30 @@ namespace Foodcourt.View.Oprs
         //    return dd;
         //}
 
-
+        public static int j = 0,h=0;
         public static DataTable a11, a1;
+        public static string stallname;
         public DataTable kot()
         {
             DataTable d = new DataTable();
             d.Columns.Add("Item", typeof(string));
             d.Columns.Add("Qty", typeof(int));
-            DataTable s = pos.KOT();
-            for (int i = 0; i < s.Rows.Count; i++)
+            DataTable dstlss = pos.stlidsss();
+            if(j<dstlss.Rows.Count)
             {
-                DataRow r = d.NewRow();
-                r["Item"] = s.Rows[i]["BILITM_Name"].ToString();
-                r["Qty"] = s.Rows[i]["BILLITM_Quanty"].ToString();
-                d.Rows.Add(r);
-            } 
+                STALLID = dstlss.Rows[j]["STL_ID"].ToString();
+                DataTable dsn = pos.STALLNAME();
+                stallname = dsn.Rows[0]["STL_Name"].ToString();
+                DataTable s = pos.STLIDITEMNAMES();
+                for (int i = 0; i < s.Rows.Count; i++)
+                {
+                    DataRow r = d.NewRow();
+                    r["Item"] = s.Rows[i]["BILITM_Name"].ToString();
+                    r["Qty"] = s.Rows[i]["BILLITM_Quanty"].ToString();
+                    d.Rows.Add(r);
+                }
+                j = j + 1;
+            }
             return d;
         }
         public DataTable kot1()
@@ -2304,11 +2335,21 @@ namespace Foodcourt.View.Oprs
             ds.Columns.Add("BillNo", typeof(string));
             ds.Columns.Add("BillDate", typeof(DateTime));
             ds.Columns.Add("BillTime", typeof(DateTime));
-                DataRow r = ds.NewRow();
-                r["BillNO"] = txtbillno.Text;
-                r["BillDate"] = DateTime.Now.Date;
-                r["BillTime"] = DateTime.Now;
-                ds.Rows.Add(r);
+            ds.Columns.Add("Stallname", typeof(string));
+            DataTable dstlss = pos.stlidsss();
+            DataRow r = ds.NewRow();
+            r["BillNO"] = txtbillno.Text;
+            r["BillDate"] = DateTime.Now.Date;
+            r["BillTime"] = DateTime.Now;
+            r["Stallname"] = stallname;
+            //if (h < dstlss.Rows.Count)
+            //{
+            //    STALLID = dstlss.Rows[h]["STL_ID"].ToString();
+            //    DataTable dsn = pos.STALLNAME();
+            //    r["Stallname"] = dsn.Rows[0]["STL_Name"].ToString();
+            ds.Rows.Add(r);
+            //    h = h + 1;
+            //}
             return ds;
         }
         public static DataTable pos1, pos11;

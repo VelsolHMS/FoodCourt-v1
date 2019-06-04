@@ -12,11 +12,12 @@
   <xs:element name="kotdataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="kotdataset" msprop:Generator_UserDSName="kotdataset">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="itemqtystall" msprop:Generator_TableClassName="itemqtystallDataTable" msprop:Generator_TableVarName="tableitemqtystall" msprop:Generator_TablePropName="itemqtystall" msprop:Generator_RowDeletingName="itemqtystallRowDeleting" msprop:Generator_RowChangingName="itemqtystallRowChanging" msprop:Generator_RowEvHandlerName="itemqtystallRowChangeEventHandler" msprop:Generator_RowDeletedName="itemqtystallRowDeleted" msprop:Generator_UserTableName="itemqtystall" msprop:Generator_RowChangedName="itemqtystallRowChanged" msprop:Generator_RowEvArgName="itemqtystallRowChangeEvent" msprop:Generator_RowClassName="itemqtystallRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" type="xs:string" minOccurs="0" />
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:string" minOccurs="0" />
+              <xs:element name="Stallname" msprop:Generator_ColumnVarNameInTable="columnStallname" msprop:Generator_ColumnPropNameInRow="Stallname" msprop:Generator_ColumnPropNameInTable="StallnameColumn" msprop:Generator_UserColumnName="Stallname" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
