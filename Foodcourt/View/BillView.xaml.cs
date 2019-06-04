@@ -6,7 +6,6 @@ using System.Data;
 using Foodcourt.Model;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Text.RegularExpressions;
-
 namespace Foodcourt.View.Oprs
 {
     /// <summary>
@@ -130,12 +129,9 @@ namespace Foodcourt.View.Oprs
         }
         public static int B_bill_no;
         public Decimal B_Tax, B_Total, B_GTotal,B_DisTotal;
-
         private void BillwiseSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
-
         private void dgBill_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             int i = dgBill.SelectedIndex;
@@ -317,8 +313,9 @@ namespace Foodcourt.View.Oprs
             txtnetamount.Text = "0";
             txtcgst.Text = "0";
             txtsgst.Text = "0";
+            txtdis.Text = "0";
             txtgttl.Text = "0";
-            this.NavigationService.Refresh();
+            //this.NavigationService.Refresh();
             Dtlview.Visibility = Visibility.Hidden;
         }
         public DataTable Cprint1()
@@ -367,7 +364,6 @@ namespace Foodcourt.View.Oprs
             row["Cgst"] = tax / 2;
             row["Sgst"] = tax / 2;
             row["GrandTotal"] = dt2.Rows[0]["BILL_Total"].ToString();
-            
             d.Rows.Add(row);
             return d;
         }
