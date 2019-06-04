@@ -293,6 +293,9 @@
     <Compile Include="View\DashBoard.xaml.cs">
       <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -344,6 +347,12 @@
     </Compile>
     <Compile Include="View\Miscollectiorpt.xaml.cs">
       <DependentUpon>Miscollectiorpt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MonthlyItemSaleSubReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthlyItemSaleSubReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\MonthWiseSale.xaml.cs">
       <DependentUpon>MonthWiseSale.xaml</DependentUpon>
@@ -635,6 +644,10 @@
     <EmbeddedResource Include="View\Itemwise.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Itemwise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MonthlyItemSaleSubReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthlyItemSaleSubReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="View\pettycashreport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
