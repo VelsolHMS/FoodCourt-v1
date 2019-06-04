@@ -308,7 +308,7 @@ namespace Foodcourt.Model
         public DataTable getofferlist()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT OFF_Name FROM FCOFFERS";
+            string s = "SELECT OFF_Name FROM FCOFFERS WHERE OFF_Status='Active'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
