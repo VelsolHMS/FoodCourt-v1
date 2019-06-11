@@ -43,6 +43,7 @@ namespace Foodcourt.View.Oprs
                 txttime.Text = DateTime.Now.ToShortTimeString();
             }
             sp.Visibility = Visibility.Visible;
+            itemname.Focus();
             cou = 0;
             clear();
         }
@@ -268,6 +269,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname.Text = ""; }
             itm = itemname.Text;
         }
         private void Itemname_TextChanged(object sender, TextChangedEventArgs e)
@@ -345,6 +347,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname1.Text = ""; }
             itm = itemname1.Text;
         }
         private void Itemname1_TextChanged(object sender, TextChangedEventArgs e)
@@ -422,6 +425,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname2.Text = ""; }
             itm = itemname2.Text;
         }
 
@@ -501,6 +505,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname3.Text = ""; }
             itm = itemname3.Text;
         }
 
@@ -579,6 +584,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname4.Text = ""; }
             itm = itemname4.Text;
         }
         private void Itemname4_TextChanged(object sender, TextChangedEventArgs e)
@@ -656,6 +662,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname5.Text = ""; }
             itm = itemname5.Text;
         }
         private void Itemname5_TextChanged(object sender, TextChangedEventArgs e)
@@ -733,6 +740,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname6.Text = ""; }
             itm = itemname6.Text;
         }
         private void Itemname6_TextChanged(object sender, TextChangedEventArgs e)
@@ -810,6 +818,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname7.Text = ""; }
             itm = itemname7.Text;
         }
 
@@ -888,6 +897,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname8.Text = ""; }
             itm = itemname8.Text;
         }
         private void Itemname8_TextChanged(object sender, TextChangedEventArgs e)
@@ -965,6 +975,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname9.Text = ""; }
             itm = itemname9.Text;
         }
         private void Itemname9_TextChanged(object sender, TextChangedEventArgs e)
@@ -1042,6 +1053,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname10.Text = ""; }
             itm = itemname10.Text;
         }
         private void Itemname10_TextChanged(object sender, TextChangedEventArgs e)
@@ -1119,6 +1131,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname11.Text = ""; }
             itm = itemname11.Text;
         }
         private void Itemname11_TextChanged(object sender, TextChangedEventArgs e)
@@ -1196,6 +1209,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname12.Text = ""; }
             itm = itemname12.Text;
         }
         private void Itemname12_TextChanged(object sender, TextChangedEventArgs e)
@@ -1273,6 +1287,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname13.Text = ""; }
             itm = itemname13.Text;
         }
         private void Itemname13_TextChanged(object sender, TextChangedEventArgs e)
@@ -1350,6 +1365,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname14.Text = ""; }
             itm = itemname14.Text;
         }
         private void Itemname14_TextChanged(object sender, TextChangedEventArgs e)
@@ -1427,6 +1443,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname15.Text = ""; }
             itm = itemname15.Text;
         }
         private void Itemname15_TextChanged(object sender, TextChangedEventArgs e)
@@ -1504,6 +1521,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname16.Text = ""; }
             itm = itemname16.Text;
         }
         private void Itemname16_TextChanged(object sender, TextChangedEventArgs e)
@@ -1581,6 +1599,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname17.Text = ""; }
             itm = itemname17.Text;
         }
         private void Itemname17_TextChanged(object sender, TextChangedEventArgs e)
@@ -1658,6 +1677,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname18.Text = ""; }
             itm = itemname18.Text;
         }
         private void Itemname18_TextChanged(object sender, TextChangedEventArgs e)
@@ -1735,6 +1755,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname19.Text = ""; }
             itm = itemname19.Text;
         }
         private void Itemname19_TextChanged(object sender, TextChangedEventArgs e)
@@ -3764,7 +3785,6 @@ namespace Foodcourt.View.Oprs
             }
         }
         public static string STALLID;
-        DataTable DITM;
         private void OffYes_Click(object sender, RoutedEventArgs e)
         {
             OfferConfirmation.IsOpen = false;
@@ -3779,769 +3799,13 @@ namespace Foodcourt.View.Oprs
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             PrintConfirmation.IsOpen = false;
-            //if (error != 0)
-            //{
-            //    MessageBox.Show("Please Fill All Fields");
-            //}
-            //else
-            //{
-            //    pos.bill = Convert.ToInt32(txtbillno.Text);
-            //    pos.BILL_Amount = Convert.ToDecimal(txtttl.Text);
-            //    pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
-            //    pos.BILL_Total = Convert.ToDecimal(txtgttl.Text);
-            //    pos.insertbill();
-            //    pos.A = Convert.ToInt32(txtbillno.Text);
-            //    for (int i = 0; i < cou; i++)
-            //    {
-            //        if (i == 0)
-            //        {
-            //            if (itemname.Text != "" || itemrate.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text);
-            //                decimal gst = 0; check1 = itemname.Text; itemnamestlid = itemname.Text; DataTable dts0 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts0.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if(gst ==Convert.ToDecimal(5.00))
-            //                {
-            //                    tax15 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5/100;
-            //                }
-            //                else if(gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax118 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18/100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 1)
-            //        {
-            //            if (itemname1.Text != "" || itemrate1.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text);
-            //                decimal gst = 0; check1 = itemname1.Text; itemnamestlid = itemname1.Text; DataTable dts1 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts1.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax25 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax218 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 2)
-            //        {
-            //            if (itemname2.Text != "" || itemrate2.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text);
-            //                decimal gst = 0; check1 = itemname2.Text; itemnamestlid = itemname2.Text; DataTable dts2 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts2.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax35 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax318 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 3)
-            //        {
-
-            //            if (itemname3.Text != "" || itemrate3.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text);
-            //                decimal gst = 0; check1 = itemname3.Text; itemnamestlid = itemname3.Text; DataTable dts3 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts3.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax45 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax418 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 4)
-            //        {
-            //            if (itemname4.Text != "" || itemrate4.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text);
-            //                decimal gst = 0; check1 = itemname4.Text; itemnamestlid = itemname4.Text; DataTable dts4 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts4.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax55 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax518 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 5)
-            //        {
-            //            if (itemname5.Text != "" || itemrate5.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text);
-            //                decimal gst = 0; check1 = itemname5.Text; itemnamestlid = itemname5.Text; DataTable dts5 = pos.getstlid();
-            //                DataTable dd = pos.gsttax();stlid = dts5.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax65 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax618 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 6)
-            //        {
-            //            if (itemname6.Text != "" || itemrate6.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text);
-            //                decimal gst = 0; check1 = itemname6.Text; itemnamestlid = itemname6.Text; DataTable dts6 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts6.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax75 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax718 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 7)
-            //        {
-            //            if (itemname7.Text != "" || itemrate7.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text);
-            //                decimal gst = 0; check1 = itemname7.Text; itemnamestlid = itemname7.Text; DataTable dts7 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts7.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax85 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax818 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 8)
-            //        {
-            //            if (itemname8.Text != "" || itemrate8.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text);
-            //                decimal gst = 0; check1 = itemname8.Text; itemnamestlid = itemname8.Text; DataTable dts8 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts8.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax95 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax918 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 9)
-            //        {
-            //            if (itemname9.Text != "" || itemrate9.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text);
-            //                decimal gst = 0; check1 = itemname9.Text; itemnamestlid = itemname9.Text; DataTable dts9 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts9.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax105 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1018 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 10)
-            //        {
-            //            if (itemname10.Text != "" || itemrate10.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text);
-            //                decimal gst = 0; check1 = itemname10.Text; itemnamestlid = itemname10.Text; DataTable dts10 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts10.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax115 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1118 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 11)
-            //        {
-            //            if (itemname11.Text != "" || itemrate11.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text);
-            //                decimal gst = 0; check1 = itemname11.Text; itemnamestlid = itemname11.Text; DataTable dts11 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts11.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax125 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1218 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 12)
-            //        {
-            //            if (itemname12.Text != "" || itemrate12.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text);
-            //                decimal gst = 0; check1 = itemname12.Text; itemnamestlid = itemname12.Text; DataTable dts12 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts12.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax135 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1318 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 13)
-            //        {
-            //            if (itemname13.Text != "" || itemrate13.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text);
-            //                decimal gst = 0; check1 = itemname13.Text; itemnamestlid = itemname13.Text; DataTable dts13 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts13.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax145 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1418 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 14)
-            //        {
-            //            if (itemname14.Text != "" || itemrate14.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text);
-            //                decimal gst = 0; check1 = itemname14.Text; itemnamestlid = itemname14.Text; DataTable dts14 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts14.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax155 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1518 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 15)
-            //        {
-            //            if (itemname15.Text != "" || itemrate15.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text);
-            //                decimal gst = 0; check1 = itemname15.Text; itemnamestlid = itemname15.Text; DataTable dts15 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts15.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax165 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1618 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 16)
-            //        {
-            //            if (itemname16.Text != "" || itemrate16.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text);
-            //                decimal gst = 0; check1 = itemname16.Text; itemnamestlid = itemname16.Text; DataTable dts16 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts16.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax175 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1718 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 17)
-            //        {
-            //            if (itemname17.Text != "" || itemrate17.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text);
-            //                decimal gst = 0; check1 = itemname17.Text; itemnamestlid = itemname17.Text; DataTable dts17 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts17.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax185 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1818 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 18)
-            //        {
-            //            if (itemname18.Text != "" || itemrate18.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text);
-            //                decimal gst = 0; check1 = itemname18.Text; itemnamestlid = itemname18.Text; DataTable dts18 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts18.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax195 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax1918 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //        if (i == 19)
-            //        {
-            //            if (itemname19.Text != "" || itemrate19.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text);
-            //                decimal gst = 0; check1 = itemname19.Text; itemnamestlid = itemname19.Text; DataTable dts19 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts19.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //                if (gst == Convert.ToDecimal(5.00))
-            //                {
-            //                    tax205 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 5 / 100;
-            //                }
-            //                else if (gst == Convert.ToDecimal(18.00))
-            //                {
-            //                    tax2018 = (pos.BILLITM_Rate * pos.BILLITM_Quanty) * 18 / 100;
-            //                }
-            //            }
-            //        }
-            //    }
-            //    tax5sum = tax15+ tax25+ tax35+ tax45+ tax55+tax65+ tax75+ tax85+ tax95+ tax105+ tax115+ tax125+ tax135+ tax145+ tax155+ tax165+ tax175+ tax185+ tax195+ tax205;
-            //    tax18sum = tax118+ tax218+ tax318+ tax418+ tax518+ tax618+ tax718+ tax818+ tax918+ tax1018+ tax1118+ tax1218+ tax1318+ tax1418+ tax1518+ tax1618+ tax1718+ tax1818+ tax1918+ tax2018;
-
-            //    MessageBox.Show("Inserted successfully");
-            //    ReportDocument re = new ReportDocument();
-            //    DataTable d1 = Billprint1();
-            //    pos1 = d1;
-            //    re.Load("../../REPORTS/PRINTBILL1.rpt");
-            //    DataTable ds = Billprint();
-            //    pos11 = ds;
-            //    re.Load("../../REPORTS/Printbill.rpt");
-            //    re.SetDataSource(pos11);
-            //    re.Subreports[0].SetDataSource(pos1);
-            //    re.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-
-
-            //    ReportDocument res = new ReportDocument();
-            //    DataTable d3 = kot();
-            //    a11 = d3;
-            //    res.Load("../../REPORTS/kotprint.rpt");
-            //    DataTable d2 = kot1();
-            //    a1 = d2;
-            //    res.Load("../../REPORTS/kotprint1.rpt");
-            //    res.SetDataSource(a1);
-            //    res.Subreports[0].SetDataSource(a11);
-            //    res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-            //    res.PrintToPrinter(1, false, 0, 0);
-            //    res.Refresh();
-            //    re.PrintToPrinter(1, false, 0, 0);
-            //    re.Refresh();
-            //    //ReportDocument re1 = new ReportDocument();
-            //    //DataTable d21 = Dprint1();
-            //    //a11 = d21;
-            //    //re1.Load("../../REPORTS/Dprint1.rpt");
-            //    //DataTable ds1 = Dprint();
-            //    //a1 = ds1;
-            //    //re1.Load("../../REPORTS/DuplicatePrint.rpt");
-            //    //re1.SetDataSource(a1);
-            //    //re1.Subreports[0].SetDataSource(a11);
-            //    //re1.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-            //    //re1.PrintToPrinter(1, false, 0, 0);
-            //    //re1.Refresh();
-            //    //re.PrintToPrinter(1, false, 0, 0);
-            //    //re.Refresh();
-            //    clear();
-            //    this.NavigationService.Refresh();
-            //    cou = 0;
-            //}
         }
         public static string itemnamestlid;
         private void No_Click(object sender, RoutedEventArgs e)
         {
-            //PrintConfirmation.IsOpen = false;
-            //if (error != 0 || quantity.Text == "" || itemrate.Text == "")
-            //{
-            //    MessageBox.Show("Please Fill All Fields");
-            //}
-            //else
-            //{
-            //    pos.bill = Convert.ToInt32(txtbillno.Text);
-            //    pos.BILL_Amount = Convert.ToDecimal(txtttl.Text);
-            //    pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
-            //    pos.BILL_Total = Convert.ToDecimal(txtgttl.Text);
-            //    pos.insertbill();
-            //    pos.A = Convert.ToInt32(txtbillno.Text);
-            //    for (int i = 0; i < cou; i++)
-            //    {
-            //        if (i == 0)
-            //        {
-            //            if (itemname.Text != "" && itemrate.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text);
-            //                decimal gst = 0; check1 = itemname.Text; itemnamestlid = itemname.Text;DataTable dts0 = pos.getstlid();
-            //                DataTable dd = pos.gsttax();stlid = dts0.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity.Focus(); }
-            //        }
-            //        if (i == 1)
-            //        {
-            //            if (itemname1.Text != "" && itemrate1.Text != "" && quantity1.Text!= "")
-            //            {
-            //                int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text);
-            //                decimal gst = 0; check1 = itemname1.Text; itemnamestlid = itemname1.Text; DataTable dts1 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts1.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity1.Focus(); }
-            //        }
-            //        if (i == 2)
-            //        {
-            //            if (itemname2.Text != "" && itemrate2.Text != "" && quantity2.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text);
-            //                decimal gst = 0; check1 = itemname2.Text; itemnamestlid = itemname2.Text; DataTable dts2 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts2.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity2.Focus(); }
-            //        }
-            //        if (i == 3)
-            //        {
-
-            //            if (itemname3.Text != "" && itemrate3.Text != "" && quantity3.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text);
-            //                decimal gst = 0; check1 = itemname3.Text; itemnamestlid = itemname3.Text; DataTable dts3 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts3.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity3.Focus(); }
-            //        }
-            //        if (i == 4)
-            //        {
-            //            if (itemname4.Text != "" && itemrate4.Text != "" && quantity4.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text);
-            //                decimal gst = 0; check1 = itemname4.Text; itemnamestlid = itemname4.Text; DataTable dts4 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts4.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity4.Focus(); }
-            //        }
-            //        if (i == 5)
-            //        {
-            //            if (itemname5.Text != "" && itemrate5.Text != "" && quantity5.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text);
-            //                decimal gst = 0; check1 = itemname5.Text; itemnamestlid = itemname5.Text; DataTable dts5 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts5.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity5.Focus(); }
-            //        }
-            //        if (i == 6)
-            //        {
-            //            if (itemname6.Text != "" && itemrate6.Text != "" && quantity6.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text);
-            //                decimal gst = 0; check1 = itemname6.Text; itemnamestlid = itemname6.Text; DataTable dts6 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts6.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity6.Focus(); }
-            //        }
-            //        if (i == 7)
-            //        {
-            //            if (itemname7.Text != "" && itemrate7.Text != "" && quantity7.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text);
-            //                decimal gst = 0; check1 = itemname7.Text; itemnamestlid = itemname7.Text; DataTable dts7 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts7.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity7.Focus(); }
-            //        }
-            //        if (i == 8)
-            //        {
-            //            if (itemname8.Text != "" && itemrate8.Text != "" && quantity8.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text);
-            //                decimal gst = 0; check1 = itemname8.Text; itemnamestlid = itemname8.Text; DataTable dts8 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts8.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity8.Focus(); }
-            //        }
-            //        if (i == 9)
-            //        {
-            //            if (itemname9.Text != "" && itemrate9.Text != "" && quantity9.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text);
-            //                decimal gst = 0; check1 = itemname9.Text; itemnamestlid = itemname9.Text; DataTable dts9 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts9.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity9.Focus(); }
-            //        }
-            //        if (i == 10)
-            //        {
-            //            if (itemname10.Text != "" && itemrate10.Text != "" && quantity10.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text);
-            //                decimal gst = 0; check1 = itemname10.Text; itemnamestlid = itemname10.Text; DataTable dts10 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts10.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity10.Focus(); }
-            //        }
-            //        if (i == 11)
-            //        {
-            //            if (itemname11.Text != "" && itemrate11.Text != "" && quantity11.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text);
-            //                decimal gst = 0; check1 = itemname11.Text; itemnamestlid = itemname11.Text; DataTable dts11 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts11.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity11.Focus(); }
-            //        }
-            //        if (i == 12)
-            //        {
-            //            if (itemname12.Text != "" && itemrate12.Text != "" && quantity12.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text);
-            //                decimal gst = 0; check1 = itemname12.Text; itemnamestlid = itemname12.Text; DataTable dts12 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts12.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity12.Focus(); }
-            //        }
-            //        if (i == 13)
-            //        {
-            //            if (itemname13.Text != "" && itemrate13.Text != "" && quantity13.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text);
-            //                decimal gst = 0; check1 = itemname13.Text; itemnamestlid = itemname13.Text; DataTable dts13 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts13.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity13.Focus(); }
-            //        }
-            //        if (i == 14)
-            //        {
-            //            if (itemname14.Text != "" && itemrate14.Text != "" && quantity14.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text);
-            //                decimal gst = 0; check1 = itemname14.Text; itemnamestlid = itemname14.Text; DataTable dts14 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts14.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity14.Focus(); }
-            //        }
-            //        if (i == 15)
-            //        {
-            //            if (itemname15.Text != "" && itemrate15.Text != "" && quantity15.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text);
-            //                decimal gst = 0; check1 = itemname15.Text; itemnamestlid = itemname15.Text; DataTable dts15 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts15.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity15.Focus(); }
-            //        }
-            //        if (i == 16)
-            //        {
-            //            if (itemname16.Text != "" && itemrate16.Text != "" && quantity16.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text);
-            //                decimal gst = 0; check1 = itemname16.Text; itemnamestlid = itemname16.Text; DataTable dts16 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts16.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity16.Focus(); }
-            //        }
-            //        if (i == 17)
-            //        {
-            //            if (itemname17.Text != "" && itemrate17.Text != "" && quantity17.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text);
-            //                decimal gst = 0; check1 = itemname17.Text; itemnamestlid = itemname17.Text; DataTable dts17 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts17.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity17.Focus(); }
-            //        }
-            //        if (i == 18)
-            //        {
-            //            if (itemname18.Text != "" && itemrate18.Text != "" && quantity18.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text);
-            //                decimal gst = 0; check1 = itemname18.Text; itemnamestlid = itemname18.Text; DataTable dts18 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts18.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity18.Focus(); }
-            //        }
-            //        if (i == 19)
-            //        {
-            //            if (itemname19.Text != "" && itemrate19.Text != "" && quantity19.Text != "")
-            //            {
-            //                int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text);
-            //                decimal gst = 0; check1 = itemname19.Text; itemnamestlid = itemname19.Text; DataTable dts19 = pos.getstlid();
-            //                DataTable dd = pos.gsttax(); stlid = dts19.Rows[0]["STL_ID"].ToString();
-            //                if (dd.Rows.Count == 0) { } else { check2 = dd.Rows[0]["NAM_Tax"].ToString(); }
-            //                DataTable d = pos.GETTAX(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
-            //                pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
-            //            }
-            //            else { quantity19.Focus(); }
-            //        }
-            //    }
-
-            //    MessageBox.Show("Inserted successfully");
-            //    clear();
-            //    this.NavigationService.Refresh();
-            //    cou = 0;
-            //}
+            
         }
         public static string st;
-        //private void Stalls_DropDownClosed(object sender, EventArgs e)
-        //{
-        //    WRAPC.Children.Clear();
-        //    ITMNAM.Visibility = Visibility.Hidden;
-        //    WRAPN.Children.Clear();
-        //    ITMCTG.Visibility = Visibility.Visible;
-        //    st = stalls.Text;
-        //    Button();
-        //}
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {       for (int i = 0; i < cou; i++)
                 {
