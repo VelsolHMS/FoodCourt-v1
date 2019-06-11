@@ -312,6 +312,27 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
-
+        public DataTable itemslist()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Name FROM FCITMNAM"; 
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public string likea;
+        public DataTable itms1()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Name FROM FCITMNAM WHERE NAM_Name  LIKE '" + likea + "%'"; // OR VFS_ITMNAM_Name LIKE '%" + likea + "' OR VFS_ITMNAM_Name LIKE '%" + likea + "%' ";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable itmname()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Id, NAM_Name,CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate From FCITMNAM  WHERE NAM_Name = '" + POS.id + "' AND CTG_Id IN(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE())";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
     }
 }

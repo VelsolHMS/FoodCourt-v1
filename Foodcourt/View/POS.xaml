@@ -27,12 +27,12 @@
                         <RowDefinition Height="495*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Margin="3">
-                        <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                        <!--<StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
                             <TextBlock Text="Select StallType" Width="150" FontFamily="Sitka Display" FontSize="20" Padding="0,4,0,0"/>
                             <TextBlock Text=":" Width="10" FontFamily="Sitka Display" FontWeight="Bold" Padding="0,6,0,0" Foreground="#000000" FontSize="18"/>
                             <ComboBox Name="stalls" TabIndex="6" Width="150" Margin="30,0,0,0" DropDownClosed="Stalls_DropDownClosed" DisplayMemberPath="STL_Name">
                             </ComboBox>
-                        </StackPanel>
+                        </StackPanel>-->
                     </Grid>
                     <Grid Grid.Row="1">
                         <material:Card Name="ITMCTG" Height="575" Background="#FFFFEEC0" Margin="7,5,8,0" Visibility="Visible">
@@ -130,126 +130,366 @@
                             </StackPanel>
                             <ScrollViewer Margin="0,25,00,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
                                 <WrapPanel Name="wrap" Margin="0,20,0,0"  Height="Auto">
-                                    <StackPanel Name="sp1" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,0,10,0">
-                                        <TextBox Name="itemname"  TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
+                                    <StackPanel Name="sp" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,0,10,0">
+                                        <TextBox Name="itemname"  Padding="0,-2,0,0" Width="80" Height="22" LostFocus="Itemname_LostFocus" TextChanged="Itemname_TextChanged" KeyUp="Itemname_KeyUp"></TextBox>
                                         <TextBox Name="itemrate" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity" LostFocus="quantity_LostFocus" TabIndex="0" TextAlignment="Center"  Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="total" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity" LostFocus="quantity_LostFocus" TabIndex="0" TextAlignment="Center"  Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity_GotFocus"></TextBox>
+                                        <TextBox Name="total" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total_GotFocus"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp2" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
-                                        <TextBox Name="itemname1" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp1" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
+                                        <TextBox Name="itemname1" TextAlignment="Center"  Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname1_KeyUp" LostFocus="Itemname1_LostFocus" TextChanged="Itemname1_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity1" LostFocus="quantity1_LostFocus" TabIndex="1" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="total1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity1" LostFocus="quantity1_LostFocus" TabIndex="1" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity1_GotFocus"></TextBox>
+                                        <TextBox Name="total1" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total1_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp3" Visibility="Hidden"  Orientation="Horizontal" Height="25" Margin="10,5,10,0" >
-                                        <TextBox Name="itemname2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM1" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname1,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM1_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid1">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp2" Visibility="Hidden"  Orientation="Horizontal" Height="25" Margin="10,5,10,0" >
+                                        <TextBox Name="itemname2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname2_KeyUp" LostFocus="Itemname2_LostFocus" TextChanged="Itemname2_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity2" LostFocus="quantity2_LostFocus" TabIndex="2"  TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity2" LostFocus="quantity2_LostFocus" TabIndex="2"  TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity2_GotFocus"  ></TextBox>
+                                        <TextBox Name="total2" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total2_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp4" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
-                                        <TextBox Name="itemname3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM2" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname2,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM2_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid2">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp3" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,5,10,0">
+                                        <TextBox Name="itemname3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname3_KeyUp" LostFocus="Itemname3_LostFocus" TextChanged="Itemname3_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity3" LostFocus="quantity3_LostFocus" TabIndex="3" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity3" LostFocus="quantity3_LostFocus" TabIndex="3" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity3_GotFocus"  ></TextBox>
+                                        <TextBox Name="total3" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total3_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp5" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM3" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname3,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM3_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid3">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp4" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" TextChanged="Itemname4_TextChanged" LostFocus="Itemname4_LostFocus" KeyUp="Itemname4_KeyUp"  ></TextBox>
                                         <TextBox Name="itemrate4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity4" LostFocus="quantity4_LostFocus" TabIndex="4" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity4" LostFocus="quantity4_LostFocus" TabIndex="4" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity4_GotFocus"  ></TextBox>
+                                        <TextBox Name="total4" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total4_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp6" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM4" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname4,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM4_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid4">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp5" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname5_KeyUp" LostFocus="Itemname5_LostFocus" TextChanged="Itemname5_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity5" LostFocus="quantity5_LostFocus" TabIndex="5" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity5" LostFocus="quantity5_LostFocus" TabIndex="5" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity5_GotFocus"  ></TextBox>
+                                        <TextBox Name="total5" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total5_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp7" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM5" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname5,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM5_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid5">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp6" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" TextChanged="Itemname6_TextChanged" LostFocus="Itemname6_LostFocus" KeyUp="Itemname6_KeyUp"  ></TextBox>
                                         <TextBox Name="itemrate6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity6" LostFocus="quantity6_LostFocus" TabIndex="6" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity6" LostFocus="quantity6_LostFocus" TabIndex="6" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity6_GotFocus"  ></TextBox>
+                                        <TextBox Name="total6" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total6_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Name="sp8" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM6" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname6,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM6_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid6">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Name="sp7" Visibility="Hidden" Orientation="Horizontal" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname7_KeyUp" LostFocus="Itemname7_LostFocus" TextChanged="Itemname7_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity7" LostFocus="quantity7_LostFocus" TabIndex="7" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity7" LostFocus="quantity7_LostFocus" TabIndex="7" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity7_GotFocus"  ></TextBox>
+                                        <TextBox Name="total7" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total7_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp9" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM7" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname7,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM7_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid7">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel  Orientation="Horizontal" Name="sp8" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname8_KeyUp" LostFocus="Itemname8_LostFocus" TextChanged="Itemname8_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity8" LostFocus="quantity8_LostFocus" TabIndex="8" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity8" LostFocus="quantity8_LostFocus" TabIndex="8" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity8_GotFocus"  ></TextBox>
+                                        <TextBox Name="total8" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total8_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp10" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM8" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname8,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM8_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid8">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp9" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname9_KeyUp" LostFocus="Itemname9_LostFocus" TextChanged="Itemname9_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity9" LostFocus="quantity9_LostFocus" TabIndex="9" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity9" LostFocus="quantity9_LostFocus" TabIndex="9" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity9_GotFocus"  ></TextBox>
+                                        <TextBox Name="total9" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total9_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp11" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM9" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname9,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM9_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid9">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp10" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" TextChanged="Itemname10_TextChanged" LostFocus="Itemname10_LostFocus" KeyUp="Itemname10_KeyUp"  ></TextBox>
                                         <TextBox Name="itemrate10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity10" LostFocus="quantity10_LostFocus" TabIndex="10" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity10" LostFocus="quantity10_LostFocus" TabIndex="10" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity10_GotFocus"  ></TextBox>
+                                        <TextBox Name="total10" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total10_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp12" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM10" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname10,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM10_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid10">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp11" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname11_KeyUp" LostFocus="Itemname11_LostFocus" TextChanged="Itemname11_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity11" LostFocus="quantity11_LostFocus" TabIndex="11" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity11" LostFocus="quantity11_LostFocus" TabIndex="11" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity11_GotFocus"  ></TextBox>
+                                        <TextBox Name="total11" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total11_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp13" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM11" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname11,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM11_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid11">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp12" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" TextChanged="Itemname12_TextChanged" LostFocus="Itemname12_LostFocus" KeyUp="Itemname12_KeyUp"  ></TextBox>
                                         <TextBox Name="itemrate12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity12" LostFocus="quantity12_LostFocus" TabIndex="12" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity12" LostFocus="quantity12_LostFocus" TabIndex="12" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity12_GotFocus"  ></TextBox>
+                                        <TextBox Name="total12" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total12_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp14" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM12" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname12,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM12_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid12">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp13" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname13_KeyUp" LostFocus="Itemname13_LostFocus" TextChanged="Itemname13_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity13" LostFocus="quantity13_LostFocus" TabIndex="13" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity13" LostFocus="quantity13_LostFocus" TabIndex="13" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity13_GotFocus"  ></TextBox>
+                                        <TextBox Name="total13" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total13_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp15" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM13" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname13,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM13_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid13">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp14" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname14_KeyUp" LostFocus="Itemname14_LostFocus" TextChanged="Itemname14_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity14" LostFocus="quantity14_LostFocus" TabIndex="14" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity14" LostFocus="quantity14_LostFocus" TabIndex="14" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity14_GotFocus"  ></TextBox>
+                                        <TextBox Name="total14" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total14_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp16" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM14" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname14,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM14_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid14">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp15" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname15_KeyUp" LostFocus="Itemname15_LostFocus" TextChanged="Itemname15_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity15" LostFocus="quantity15_LostFocus" TabIndex="15" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity15" LostFocus="quantity15_LostFocus" TabIndex="15" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity15_GotFocus"  ></TextBox>
+                                        <TextBox Name="total15" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total15_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp17" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"  ></TextBox>
+                                    <ListView Name="TOTITM15" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname15,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM15_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid15">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp16" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname16_KeyUp" LostFocus="Itemname16_LostFocus" TextChanged="Itemname16_TextChanged"  ></TextBox>
                                         <TextBox Name="itemrate16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="quantity16" LostFocus="quantity16_LostFocus" TabIndex="16" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"  ></TextBox>
-                                        <TextBox Name="total16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"  ></TextBox>
+                                        <TextBox Name="quantity16" LostFocus="quantity16_LostFocus" TabIndex="16" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity16_GotFocus"  ></TextBox>
+                                        <TextBox Name="total16" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total16_GotFocus"  ></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp18" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
+                                    <ListView Name="TOTITM16" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname16,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM16_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid16">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp17" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname17_KeyUp" LostFocus="Itemname17_LostFocus" TextChanged="Itemname17_TextChanged"></TextBox>
                                         <TextBox Name="itemrate17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity17" LostFocus="quantity17_LostFocus" TabIndex="17" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="total17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity17" LostFocus="quantity17_LostFocus" TabIndex="17" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity17_GotFocus"></TextBox>
+                                        <TextBox Name="total17" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total17_GotFocus"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp19" Visibility="Hidden" Margin="10,5,10,0" Height="25">
-                                        <TextBox Name="itemname18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
+                                    <ListView Name="TOTITM17" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname17,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM17_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid17">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp18" Visibility="Hidden" Margin="10,5,10,0" Height="25">
+                                        <TextBox Name="itemname18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname18_KeyUp" LostFocus="Itemname18_LostFocus" TextChanged="Itemname18_TextChanged"></TextBox>
                                         <TextBox Name="itemrate18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity18" LostFocus="quantity18_LostFocus" TabIndex="18" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="total18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity18" LostFocus="quantity18_LostFocus" TabIndex="18" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity18_GotFocus"></TextBox>
+                                        <TextBox Name="total18" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total18_GotFocus"></TextBox>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Name="sp20" Visibility="Hidden" Height="25" Margin="10,5,10,0">
-                                        <TextBox Name="itemname19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22"></TextBox>
+                                    <ListView Name="TOTITM18" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname18,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM18_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid18">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <StackPanel Orientation="Horizontal" Name="sp19" Visibility="Hidden" Height="25" Margin="10,5,10,0">
+                                        <TextBox Name="itemname19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Height="22" KeyUp="Itemname19_KeyUp" LostFocus="Itemname19_LostFocus" TextChanged="Itemname19_TextChanged"></TextBox>
                                         <TextBox Name="itemrate19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="quantity19" LostFocus="quantity19_LostFocus" TabIndex="19" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22"></TextBox>
-                                        <TextBox Name="total19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22"></TextBox>
+                                        <TextBox Name="quantity19" LostFocus="quantity19_LostFocus" TabIndex="19" TextAlignment="Center" Padding="0,-2,0,0" Width="70" Margin="15,0,0,0" Height="22" GotFocus="Quantity19_GotFocus"></TextBox>
+                                        <TextBox Name="total19" TextAlignment="Center" Padding="0,-2,0,0" Width="80" Margin="15,0,0,0" Height="22" GotFocus="Total19_GotFocus"></TextBox>
                                     </StackPanel>
+                                    <ListView Name="TOTITM19" Foreground="Green" FontWeight="Bold" SelectedValue="{Binding Path=Selvalue}" SelectedItem="{Binding NAM_Name}"  ItemsSource="{Binding ElementName=itemname19,Path=SelectedText}" DisplayMemberPath="{Binding NAM_Name}" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="55,0,0,0" SelectionChanged="TOTITM19_SelectionChanged" >
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Style>
+                                        </ListView.Resources>
+                                        <ListView.View>
+                                            <GridView x:Name="Namegrid19">
+                                                <GridViewColumn DisplayMemberBinding="{Binding NAM_Name}" Width="170"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
                                 </WrapPanel>
                             </ScrollViewer>
                         </Grid>
