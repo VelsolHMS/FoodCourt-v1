@@ -559,7 +559,7 @@
                         <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
                             <TextBlock Text="Total Amount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
-                            <TextBlock Name="txtTotal" Width="150" FontSize="18" FontWeight="Bold" Foreground="#FF5180A0" Margin="0,0,0,0"></TextBlock>
+                            <TextBox Name="txtTotal" Width="150" FontSize="18" FontWeight="Bold" Foreground="#FF5180A0" Margin="0,0,0,0"></TextBox>
                         </StackPanel>
                         <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
                             <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>

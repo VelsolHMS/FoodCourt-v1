@@ -160,7 +160,6 @@
                         <StackPanel Margin="0,444,0,0" Orientation="Horizontal">
                             <TextBlock Text="Grand Total:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
                             <TextBlock Name="gttltxt" FontFamily="Arial" Padding="0" FontSize="18" Margin="10,0,0,0" Width="120"/>
-
                         </StackPanel>-->
                     </Grid>
                 </Grid>
@@ -196,7 +195,7 @@
                             <TextBlock Text="Bill No:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="10,0,0,0"/>
                             <TextBlock Name="txtbillno" FontFamily="Arial" FontSize="22" FontWeight="Bold"  Margin="20,0,0,0" Width="90"/>
                             <TextBlock Text="Bill Date:" FontFamily="Sitka Small" FontSize="22" FontWeight="Bold" Margin="50,0,0,0"/>
-                            <TextBlock Name="txtbilldate" FontFamily="Arial" FontSize="18" Margin="10,0,0,0" Padding="0,4,0,0" Width="100" />
+                            <TextBlock Name="txtbilldate" FontFamily="Arial" FontSize="18" Margin="10,0,0,0" Padding="0,4,0,0" Width="100" Height="25" VerticalAlignment="Top" />
                         </StackPanel>
                         <Separator VerticalAlignment="Top" Margin="0,35,0,0" Background="#FFD8D8D8"/>
                         <DataGrid VerticalAlignment="Top" Margin="1,40,0,0" Height="345" Name="dgdtlview" CanUserAddRows="False" AutoGenerateColumns="False">
