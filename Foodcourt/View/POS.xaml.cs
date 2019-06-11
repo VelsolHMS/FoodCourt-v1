@@ -269,6 +269,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname.Text = ""; }
             itm = itemname.Text;
         }
         private void Itemname_TextChanged(object sender, TextChangedEventArgs e)
@@ -346,6 +347,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname1.Text = ""; }
             itm = itemname1.Text;
         }
         private void Itemname1_TextChanged(object sender, TextChangedEventArgs e)
@@ -423,6 +425,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname2.Text = ""; }
             itm = itemname2.Text;
         }
 
@@ -502,6 +505,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname3.Text = ""; }
             itm = itemname3.Text;
         }
 
@@ -580,6 +584,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname4.Text = ""; }
             itm = itemname4.Text;
         }
         private void Itemname4_TextChanged(object sender, TextChangedEventArgs e)
@@ -657,6 +662,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname5.Text = ""; }
             itm = itemname5.Text;
         }
         private void Itemname5_TextChanged(object sender, TextChangedEventArgs e)
@@ -734,6 +740,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname6.Text = ""; }
             itm = itemname6.Text;
         }
         private void Itemname6_TextChanged(object sender, TextChangedEventArgs e)
@@ -811,6 +818,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname7.Text = ""; }
             itm = itemname7.Text;
         }
 
@@ -889,6 +897,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname8.Text = ""; }
             itm = itemname8.Text;
         }
         private void Itemname8_TextChanged(object sender, TextChangedEventArgs e)
@@ -966,6 +975,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname9.Text = ""; }
             itm = itemname9.Text;
         }
         private void Itemname9_TextChanged(object sender, TextChangedEventArgs e)
@@ -1043,6 +1053,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname10.Text = ""; }
             itm = itemname10.Text;
         }
         private void Itemname10_TextChanged(object sender, TextChangedEventArgs e)
@@ -1120,6 +1131,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname11.Text = ""; }
             itm = itemname11.Text;
         }
         private void Itemname11_TextChanged(object sender, TextChangedEventArgs e)
@@ -1197,6 +1209,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname12.Text = ""; }
             itm = itemname12.Text;
         }
         private void Itemname12_TextChanged(object sender, TextChangedEventArgs e)
@@ -1274,6 +1287,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname13.Text = ""; }
             itm = itemname13.Text;
         }
         private void Itemname13_TextChanged(object sender, TextChangedEventArgs e)
@@ -1351,6 +1365,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname14.Text = ""; }
             itm = itemname14.Text;
         }
         private void Itemname14_TextChanged(object sender, TextChangedEventArgs e)
@@ -1428,6 +1443,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname15.Text = ""; }
             itm = itemname15.Text;
         }
         private void Itemname15_TextChanged(object sender, TextChangedEventArgs e)
@@ -1505,6 +1521,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname16.Text = ""; }
             itm = itemname16.Text;
         }
         private void Itemname16_TextChanged(object sender, TextChangedEventArgs e)
@@ -1582,6 +1599,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname17.Text = ""; }
             itm = itemname17.Text;
         }
         private void Itemname17_TextChanged(object sender, TextChangedEventArgs e)
@@ -1659,6 +1677,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname18.Text = ""; }
             itm = itemname18.Text;
         }
         private void Itemname18_TextChanged(object sender, TextChangedEventArgs e)
@@ -1736,6 +1755,7 @@ namespace Foodcourt.View.Oprs
                     }
                 }
             }
+            else { itemname19.Text = ""; }
             itm = itemname19.Text;
         }
         private void Itemname19_TextChanged(object sender, TextChangedEventArgs e)
