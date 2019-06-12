@@ -451,7 +451,7 @@
                                     <TextBlock Name="txtgttl" Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Height="40">
-                                    <Button Width="100" Content="Save" IsEnabled="False" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Click="Button_Click"/>
+                                    <Button Width="100" Name="Save" Content="Save" IsEnabled="False" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Click="Button_Click"/>
                                     <Button Width="100" Content="Clear" Margin="20,0,0,0" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Name="Clear" Click="Clear_Click"/>
                                 </StackPanel>
                             </StackPanel>
