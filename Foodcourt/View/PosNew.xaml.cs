@@ -1031,7 +1031,7 @@ namespace Foodcourt.View
             QY = quantity2.Text;
             if (quantity2.Text == "")
             {
-                MessageBox.Show("Please Enter Valid Data ");
+                MessageBox.Show("Please Enter Valid Data");
             }
             else if (num.IsMatch(QY))
             {
@@ -1048,7 +1048,8 @@ namespace Foodcourt.View
                     if (gst == 0)
                     { t2 = 0; }
                     else
-                    { t2 = a2 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                    {
+                        t2 = a2 * gst / 100; if (gst == Convert.ToDecimal(5.00))
                         {
                             tax35 = Convert.ToDecimal(total2.Text) * 5 / 100;
                         }
@@ -1058,10 +1059,10 @@ namespace Foodcourt.View
                         }
                     }
                 }
-                    sp3.Visibility = Visibility.Visible;
-                    if (c2 == 0)
-                    { count++; c2 = 1; }
-                    TOTITM2.Visibility = Visibility.Collapsed;
+                sp3.Visibility = Visibility.Visible;
+                if (c2 == 0)
+                { count++; c2 = 1; }
+                TOTITM2.Visibility = Visibility.Collapsed;
                
             }
             else
