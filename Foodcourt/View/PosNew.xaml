@@ -35,7 +35,7 @@
                             <Label Content="Quantity" Width="120" Padding="5,0,0,0" FontFamily="Sitka Display" Foreground="#FF5180A0" VerticalAlignment="Center" FontSize="22" FontStyle="Normal" FontWeight="Bold"></Label>
                             <Label Content="Total" Width="150" Padding="5,0,0,0" FontFamily="Sitka Display" Foreground="#FF5180A0" VerticalAlignment="Center" FontSize="22" FontStyle="Normal" FontWeight="Bold"></Label>
                         </StackPanel>
-                        <ScrollViewer Margin="0,50,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ScrollViewer Margin="0,50,0,70" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <WrapPanel Name="wrap" Margin="0,10,0,0"  Height="Auto">
                                 <StackPanel Name="sp" Visibility="Hidden" Orientation="Horizontal" Height="25" Margin="10,0,10,0">
                                     <TextBox Name="itemname" TextAlignment="Center" Width="215" Height="25" Margin="15,0,0,0" LostFocus="Itemname_LostFocus" TextChanged="Itemname_TextChanged" KeyUp="Itemname_KeyUp"></TextBox>
@@ -399,6 +399,9 @@
                                 </ListView>
                             </WrapPanel>
                         </ScrollViewer>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="70" HorizontalAlignment="Right">
+                            <Button Width="100" Content="OK" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" Margin="0,0,10,0" FontSize="23" FontWeight="Bold" Height="40"/>
+                        </StackPanel>
                     </Grid>
                     <Grid Grid.Column="1" Background="Beige">
                         <Grid>
@@ -409,18 +412,29 @@
                                 <TextBlock Name="txttime" Foreground="#FF5180A0" Width="100" FontWeight="Bold" FontSize="20" Margin="10,0,0,0"/>
                             </StackPanel>
                             <Separator Margin="0,45,0,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
-                            <StackPanel Orientation="Vertical" Margin="0,250,0,0">
-                                <StackPanel Height="25" HorizontalAlignment="Center" Orientation="Horizontal">
-                                    <TextBlock Text="Total     :" Width="90" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="txtttl" Width="90" Margin="10,0,0,0" FontSize="20"/>
+                            <StackPanel Orientation="Vertical" Margin="0,55,0,0">
+                                <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
+                                    <TextBlock Text="Total" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Name="txtttl" Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <StackPanel Height="25" HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal">
-                                    <TextBlock Text="GST       :"  Width="90" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="txtgst"  Width="90" Margin="10,0,0,0" FontSize="20"/>
+                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
+                                    <TextBlock Text="5 % GST"  Width="100" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Name="txtgst"  Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <StackPanel Height="25" HorizontalAlignment="Center" Margin="0,20,0,0" Orientation="Horizontal">
-                                    <TextBlock Text="GTotal  :" Width="90" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="txtgttl" Width="90" Margin="10,0,0,0" FontSize="20"/>
+                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
+                                    <TextBlock Text="18 % GST"  Width="100" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Name="txtgst2"  Width="150" Margin="10,0,0,0" FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
+                                    <CheckBox Content="Do you want to apply Offer?" Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="18"></CheckBox>
+                                </StackPanel>
+                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
+                                    <TextBlock Text="GTotal" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Name="txtgttl" Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Height="30">
                                     <Button Width="100" Content="Save" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="30" Click="Button_Click"/>
