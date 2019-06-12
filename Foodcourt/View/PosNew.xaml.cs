@@ -149,22 +149,18 @@ namespace Foodcourt.View
         {
 
         }
-
         private void Quantity1_GotFocus(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void Total1_GotFocus(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void Quantity1_LostFocus(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void Itemname2_KeyUp(object sender, KeyEventArgs e)
         {
 
