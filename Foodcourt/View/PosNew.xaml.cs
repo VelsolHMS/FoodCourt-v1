@@ -111,7 +111,6 @@ namespace Foodcourt.View
                 }
             }
         }
-
         private void TOTITM1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TOTITM1.SelectedIndex != -1)
