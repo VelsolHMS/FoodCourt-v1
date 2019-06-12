@@ -159,7 +159,7 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             list.AddSqlParameter("@BILLITM_Name", BILLITM_Name);
-            list.AddSqlParameter("@STL_ID", POS.stlid);
+            list.AddSqlParameter("@STL_ID", PosNew.stlid);
             list.AddSqlParameter("@BILLITM_Rate", BILLITM_Rate);
             list.AddSqlParameter("@BILLITM_Tax", BILLITM_Tax);
             BILLITM_InsertDate = DateTime.Today.Date;
@@ -203,7 +203,7 @@ namespace Foodcourt.Model
         public DataTable getstlid()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT STL_ID,NAM_Name FROM FCITMNAM WHERE NAM_Name='" + POS.itemnamestlid + "'";
+            string s = "SELECT STL_ID,NAM_Name FROM FCITMNAM WHERE NAM_Name='" + PosNew.itemnamestlid + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
