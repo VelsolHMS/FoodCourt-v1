@@ -744,7 +744,7 @@ namespace Foodcourt.View
 
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
-            Save.IsEnabled = true;
+            save.IsEnabled = true;
             if (itemname.Text == "") { a = 0; t = 0; }
             if (itemname1.Text == "") { a1 = 0; t1 = 0; }
             if (itemname2.Text == "") { a2 = 0; t2 = 0; }
