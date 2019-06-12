@@ -272,7 +272,6 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@Insert_Date", DateTime.Today);
             list.AddSqlParameter("@Update_By", login.u);
             list.AddSqlParameter("@Update_Date", DateTime.Today);
-
             string s = "INSERT INTO FCCUSTOMER(NAME,MOBILE_NO,EMAIL,CITY,ADDRESS,Insert_By,Insert_Date)VALUES(@NAME,@MOBILE_NO,@EMAIL,@CITY,@ADDRESS,@Insert_By,@Insert_Date)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
@@ -287,16 +286,8 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@ADDRESS", ADDRESS);
             list.AddSqlParameter("@Update_By", login.u);
             list.AddSqlParameter("@Update_Date", DateTime.Today);
-
             string s = "UPDATE FCCUSTOMER SET NAME=@NAME,EMAIL=@EMAIL,CITY=@CITY,ADDRESS=@ADDRESS WHERE MOBILE_NO = '" + MOBILE_NO + "'";
             DbFunctions.ExecuteCommand<int>(s, list);
-        }
-        public DataTable getdetails()
-        {
-            var list = new List<SqlParameter>();
-            string s = "SELECT NAME,EMAIL,CITY,ADDRESS FROM FCCUSTOMER WHERE MOBILE_NO = '"+POS.phno+"'";
-            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return dt;
         }
         public DataTable getoffer()
         {

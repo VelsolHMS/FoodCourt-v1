@@ -127,9 +127,6 @@ namespace Foodcourt.View.Oprs
         {
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
-            ITMNAM.Visibility = Visibility.Hidden;
-            WRAPN.Children.Clear();
-            ITMCTG.Visibility = Visibility.Visible;
         }
         public static string check1, t1,t2;
         public static string bid;
@@ -138,88 +135,34 @@ namespace Foodcourt.View.Oprs
         public string sri;
         public int s;
         public decimal rate,rate1,rate2,rate3, rate4, rate5, rate6, rate7, rate8, rate9, rate10, rate11, rate12, rate13, rate14, rate15,rate16,rate17,rate18,rate19,rate20,rate21;
-
-        private void btnprfl_Click(object sender, RoutedEventArgs e)
-        {
-            cpmtrl.Visibility = Visibility.Visible;
-        }
-
-        private void btncls_Click(object sender, RoutedEventArgs e)
-        {
-            cpmtrl.Visibility = Visibility.Hidden;
-        }
-
-        private void btnsave_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                pos.NAME = txtnamee.Text;
-                pos.MOBILE_NO = txtphone.Text;
-                pos.EMAIL = txtemail.Text;
-                pos.CITY = txtaddress.Text;
-                pos.ADDRESS = txtadd.Text;
-                string a = "Submit"; string b = Convert.ToString(btnsave.Content);
-                if (a == b)
-                {
-                    pos.custinfo();
-                    MessageBox.Show("Saved Successfully");
-                    clear1();
-                }
-                else
-                {
-                    btnsave.Content = "Update";
-                    MessageBox.Show("Updated Successfully");
-                    clear1();
-                    btnsave.Content = "Submit";
-                }
-            }
-            catch(SystemException )
-            {
-            }
-        }
-        public void clear1()
-        {
-            txtnamee.Text = "";
-            txtphone.Text = "";
-            txtemail.Text = "";
-            txtadd.Text = "";
-            txtaddress.Text = "";
-            btnsave.Content = "Submit";
-        }
-        private void btnclr_Click(object sender, RoutedEventArgs e)
-        {
-            clear1();
-        }
-        public static string phno;
-        private void txtphone_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (error == 0)
-            {
-                phno = txtphone.Text;
-                DataTable dt = pos.getdetails();
-                if (dt.Rows.Count == 0)
-                {
-                    txtnamee.Text = "";
-                    txtemail.Text = "";
-                    txtadd.Text = "";
-                    txtaddress.Text = "";
-                }
-                else
-                {
-                    btnsave.Content = "Update";
-                    txtnamee.Text = dt.Rows[0]["NAME"].ToString();
-                    txtemail.Text = dt.Rows[0]["EMAIL"].ToString();
-                    txtadd.Text = dt.Rows[0]["CITY"].ToString();
-                    txtaddress.Text = dt.Rows[0]["ADDRESS"].ToString();
-                }
-            }
-            else
-            {
-            }
-        }
-        private void quantity2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
+        //private void btnsave_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        pos.NAME = txtnamee.Text;
+        //        pos.MOBILE_NO = txtphone.Text;
+        //        pos.EMAIL = txtemail.Text;
+        //        pos.CITY = txtaddress.Text;
+        //        pos.ADDRESS = txtadd.Text;
+        //        string a = "Submit"; string b = Convert.ToString(btnsave.Content);
+        //        if (a == b)
+        //        {
+        //            pos.custinfo();
+        //            MessageBox.Show("Saved Successfully");
+        //            clear1();
+        //        }
+        //        else
+        //        {
+        //            btnsave.Content = "Update";
+        //            MessageBox.Show("Updated Successfully");
+        //            clear1();
+        //            btnsave.Content = "Submit";
+        //        }
+        //    }
+        //    catch(SystemException )
+        //    {
+        //    }
+        //}
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
         private void Itemname_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -3991,13 +3934,13 @@ namespace Foodcourt.View.Oprs
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             clear();
-            WRAPC.Children.Clear();
+            //WRAPC.Children.Clear();
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
-            ITMNAM.Visibility = Visibility.Hidden;
-            WRAPN.Children.Clear();
+            //ITMNAM.Visibility = Visibility.Hidden;
+            //WRAPN.Children.Clear();
             checkbox_checks = null;
-            ITMCTG.Visibility = Visibility.Collapsed;
+            //ITMCTG.Visibility = Visibility.Collapsed;
             this.NavigationService.Refresh();
         }
 
