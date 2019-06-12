@@ -411,8 +411,8 @@
                                 <TextBlock Text="Time:" FontFamily="Sitka Display" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
                                 <TextBlock Name="txttime" Foreground="#FF5180A0" Width="100" FontWeight="Bold" FontSize="20" Margin="10,0,0,0"/>
                             </StackPanel>
-                            <Separator Margin="0,45,0,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
-                            <StackPanel Orientation="Vertical" Margin="0,55,0,0" Name ="totalamounts" Visibility="Hidden">
+                            <Separator Margin="5,45,5,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
+                            <StackPanel Orientation="Vertical" Margin="0,55,0,0" Name="totalamounts">
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Total" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
