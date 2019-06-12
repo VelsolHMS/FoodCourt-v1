@@ -79,6 +79,34 @@ namespace Foodcourt.View
         public static decimal t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25;
         public static int c, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25;
         public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+
+        private void OfferCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if(OfferCheck.IsChecked == true)
+            {
+                txtstall.IsEnabled = true;
+                txtpercentage.IsEnabled = true;
+                txtdisAmount.IsEnabled = true;
+                txtInsdis.IsEnabled = true;
+                txtInsdisper.IsEnabled = true;
+                txtInsdis.IsEnabled = true;
+            }
+            else
+            {
+                txtstall.IsEnabled = false;
+                txtpercentage.IsEnabled = false;
+                txtdisAmount.IsEnabled = false;
+                txtInsdis.IsEnabled = false;
+                txtInsdisper.IsEnabled = false;
+                txtInsdis.IsEnabled = false;
+                txtstall.Text = "";
+                txtpercentage.Text = "";
+                txtdisAmount.Text = "0";
+                txtInsdisper.Text = "";
+                txtInsdis.Text = "0";
+            }
+        }
+
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
         private void TOTITM_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1198,7 +1226,18 @@ namespace Foodcourt.View
     
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-
+            OfferCheck.IsChecked = false;
+            txtstall.IsEnabled = false;
+            txtpercentage.IsEnabled = false;
+            txtdisAmount.IsEnabled = false;
+            txtInsdis.IsEnabled = false;
+            txtInsdisper.IsEnabled = false;
+            txtInsdis.IsEnabled = false;
+            txtstall.Text = "";
+            txtpercentage.Text = "";
+            txtdisAmount.Text = "0";
+            txtInsdisper.Text = "";
+            txtInsdis.Text = "0";
         }
         private void Itemname_KeyUp(object sender, KeyEventArgs e)
         {
