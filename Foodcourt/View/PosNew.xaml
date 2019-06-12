@@ -400,7 +400,7 @@
                             </WrapPanel>
                         </ScrollViewer>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="70" HorizontalAlignment="Right">
-                            <Button Width="100" Content="OK" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" Margin="0,0,10,0" FontSize="23" FontWeight="Bold" Height="40"/>
+                            <Button Width="100" Name="Ok" Content="OK" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" Margin="0,0,10,0" FontSize="23" FontWeight="Bold" Height="40" Click="Ok_Click"/>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Column="1" Background="Beige">
@@ -412,7 +412,7 @@
                                 <TextBlock Name="txttime" Foreground="#FF5180A0" Width="100" FontWeight="Bold" FontSize="20" Margin="10,0,0,0"/>
                             </StackPanel>
                             <Separator Margin="0,45,0,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
-                            <StackPanel Orientation="Vertical" Margin="0,55,0,0">
+                            <StackPanel Orientation="Vertical" Margin="0,55,0,0" Name ="totalamounts" Visibility="Hidden">
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Total" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
