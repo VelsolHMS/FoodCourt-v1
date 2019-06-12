@@ -444,12 +444,12 @@
                                     <TextBox Name="txtInsdisper" Width="150" IsEnabled="False" FontSize="15" Margin="0,0,0,0" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount Percentage" material:HintAssist.IsFloating="True"/>
                                     <TextBox Name="txtInsdis" Width="150" IsEnabled="False" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
                                 </StackPanel>
-                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
+                                <StackPanel Height="25" Margin="20,30,0,0" Orientation="Horizontal">
                                     <TextBlock Text="GTotal" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Name="txtgttl" Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Height="40">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0" Height="40">
                                     <Button Width="100" Name="save" Content="Save" IsEnabled="False" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Click="Button_Click"/>
                                     <Button Width="100" Content="Clear" Margin="20,0,0,0" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Name="Clear" Click="Clear_Click"/>
                                 </StackPanel>
