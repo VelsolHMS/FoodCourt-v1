@@ -70,9 +70,9 @@ namespace Foodcourt.View
             itemname18.Text = ""; itemrate18.Text = ""; quantity18.Text = ""; total18.Text = ""; itemname19.Text = ""; itemrate19.Text = ""; quantity19.Text = ""; total19.Text = "";
             txtttl.Text = ""; txtgst.Text = ""; txtgttl.Text = "";
         }
-        public static string id, itm, aaid, QY, itemnamestlid, stlid;
-        public static int count;
-        public static decimal tot, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum;
+        public static string id, itm, aaid, QY, itemnamestlid, stlid, offername;
+        public static int count,offid;
+        public static decimal tot, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum, ttotal, maxamount, disper, amdis;
         public static decimal a, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25;
         public static int q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25;
         public static decimal r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25;
@@ -3850,7 +3850,35 @@ namespace Foodcourt.View
         }
         private void Txtstall_DropDownClosed(object sender, EventArgs e)
         {
-
+            offername = txtstall.Text;
+            DataTable DTT = pos.getoffer();
+            if (DTT.Rows.Count == 0)
+            { }
+            else
+            {
+                offid = Convert.ToInt32(DTT.Rows[0]["OFF_ID"]);
+                if (DTT.Rows[0]["OFF_Percentage"].ToString() == "0" || DTT.Rows[0]["OFF_Percentage"].ToString() == null)
+                { disper = 0; }
+                else { disper = Convert.ToDecimal(DTT.Rows[0]["OFF_Percentage"]); }
+                txtpercentage.Text = disper.ToString();
+                amdis = (ttotal * disper) / 100;
+                if (DTT.Rows[0]["OFF_MaxAmount"].ToString() == "0" || DTT.Rows[0]["OFF_MaxAmount"].ToString() == null)
+                { maxamount = 0; }
+                else
+                { maxamount = Convert.ToDecimal(DTT.Rows[0]["OFF_MaxAmount"]); }
+                if (maxamount == 0)
+                {
+                    txtdisAmount.Text = amdis.ToString();
+                }
+                else if (maxamount <= amdis)
+                {
+                    txtdisAmount.Text = maxamount.ToString();
+                }
+                else if (maxamount > amdis)
+                {
+                    txtdisAmount.Text = amdis.ToString();
+                }
+            }
         }
         private void Total18_GotFocus(object sender, RoutedEventArgs e)
         {
