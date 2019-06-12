@@ -55,7 +55,7 @@ namespace Foodcourt.Model
         public DataTable gsttax()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "SELECT TAX_Percentage FROM FCTAX WHERE TAX_Name IN ( SELECT NAM_Tax FROM FCITMNAM WHERE NAM_Name = '" + POS.id + "')";
+            string dd = "SELECT TAX_Percentage FROM FCTAX WHERE TAX_Name IN ( SELECT NAM_Tax FROM FCITMNAM WHERE NAM_Name = '" + PosNew.id + "')";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
@@ -328,7 +328,7 @@ namespace Foodcourt.Model
         public DataTable itmname()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT NAM_Id, NAM_Name,CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate From FCITMNAM  WHERE NAM_Name = '" + POS.id + "' AND CTG_Id IN(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE())";
+            string s = "SELECT NAM_Id, NAM_Name,CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate From FCITMNAM  WHERE NAM_Name = '" + PosNew.id + "' AND CTG_Id IN(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE())";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

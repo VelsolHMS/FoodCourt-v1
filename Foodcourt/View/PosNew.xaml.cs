@@ -26,15 +26,49 @@ namespace Foodcourt.View
     /// </summary>
     public partial class PosNew : Page
     {
-        Regex alp = new Regex(@"^[a-zA-Z0-9 -()]+$");
-        Regex num = new Regex(@"^[0-9]+$");
+        BillVIEW BV = new BillVIEW();
         POS1 pos = new POS1();
+        property p = new property();
+        ItemCategory ic = new ItemCategory();
+        ItemsCAT it = new ItemsCAT();
+        public static string aa;
+        public DataTable dt;
+        public int error = 0;
+        Regex alp = new Regex(@"^[a-zA-Z0-9 -():]+$");
+        Regex num = new Regex(@"^[0-9]+$");
         DataTable dn = new DataTable();
         public PosNew()
         {
             InitializeComponent();
             count = 0;
+            DataTable dt = pos.GETPROPERTY();
+            if (dt.Rows.Count == 0)
+            {
+            }
+            else
+            {
+                txtname.Text = dt.Rows[0]["PRPT_Name"].ToString();
+                txtbillno.Text = pos.BILLID().ToString();
+                txttime.Text = DateTime.Now.ToShortTimeString();
+            }
+            sp.Visibility = Visibility.Visible;
+            itemname.Focus();
+            clear();
             c = 0; c1 = 0; c2 = 0; c3 = 0; c4 = 0; c5 = 0; c6 = 0; c7 = 0; c8 = 0; c9 = 0; c10 = 0; c11 = 0; c12 = 0; c13 = 0; c14 = 0; c15 = 0; c16 = 0; c17 = 0; c18 = 0; c19 = 0; c20 = 0; c21 = 0; c22 = 0; c23 = 0; c24 = 0; c25 = 0;
+        }
+        public void clear()
+        {
+            itemname.Text = ""; itemrate.Text = ""; quantity.Text = ""; total.Text = ""; itemname1.Text = ""; itemrate1.Text = ""; quantity1.Text = ""; total1.Text = "";
+            itemname2.Text = ""; itemrate2.Text = ""; quantity2.Text = ""; total2.Text = ""; itemname3.Text = ""; itemrate3.Text = ""; quantity3.Text = ""; total3.Text = "";
+            itemname4.Text = ""; itemrate4.Text = ""; quantity4.Text = ""; total4.Text = ""; itemname5.Text = ""; itemrate5.Text = ""; quantity5.Text = ""; total5.Text = "";
+            itemname6.Text = ""; itemrate6.Text = ""; quantity6.Text = ""; total6.Text = ""; itemname7.Text = ""; itemrate7.Text = ""; quantity7.Text = ""; total7.Text = "";
+            itemname8.Text = ""; itemrate8.Text = ""; quantity8.Text = ""; total8.Text = ""; itemname9.Text = ""; itemrate9.Text = ""; quantity9.Text = ""; total9.Text = "";
+            itemname10.Text = ""; itemrate10.Text = ""; quantity10.Text = ""; total10.Text = ""; itemname11.Text = ""; itemrate11.Text = ""; quantity11.Text = ""; total11.Text = "";
+            itemname12.Text = ""; itemrate12.Text = ""; quantity12.Text = ""; total12.Text = ""; itemname13.Text = ""; itemrate13.Text = ""; quantity13.Text = ""; total13.Text = "";
+            itemname14.Text = ""; itemrate14.Text = ""; quantity14.Text = ""; total14.Text = ""; itemname15.Text = ""; itemrate15.Text = ""; quantity15.Text = ""; total15.Text = "";
+            itemname16.Text = ""; itemrate16.Text = ""; quantity16.Text = ""; total16.Text = ""; itemname17.Text = ""; itemrate17.Text = ""; quantity17.Text = ""; total17.Text = "";
+            itemname18.Text = ""; itemrate18.Text = ""; quantity18.Text = ""; total18.Text = ""; itemname19.Text = ""; itemrate19.Text = ""; quantity19.Text = ""; total19.Text = "";
+            txtttl.Text = ""; txtgst.Text = ""; txtgttl.Text = "";
         }
         public static string id,itm,aaid,QY;
         public static int count;
