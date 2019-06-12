@@ -55,6 +55,13 @@ namespace Foodcourt.Model
         public DataTable gsttax()
         {
             var LIST = new List<SqlParameter>();
+            string dd = "SELECT TAX_Percentage FROM FCTAX WHERE TAX_Name IN ( SELECT NAM_Tax FROM FCITMNAM WHERE NAM_Name = '" + POS.id + "')";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
+            return dt;
+        }
+        public DataTable gsttax1()
+        {
+            var LIST = new List<SqlParameter>();
             string dd = "select NAM_Tax FROM FCITMNAM WHERE NAM_Name='" + POS.check1 + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
