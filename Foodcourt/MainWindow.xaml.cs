@@ -66,7 +66,7 @@ namespace Foodcourt
                     MIReports.Foreground = Brushes.White;
                     MIDash.Background = new System.Windows.Media.SolidColorBrush(color);
                     MIDash.Foreground = Brushes.White;
-                    this.MainFrame.Navigate(new Uri("View/POS.xaml", UriKind.RelativeOrAbsolute));
+                    this.MainFrame.Navigate(new Uri("View/PosNew.xaml", UriKind.RelativeOrAbsolute));
                 }
                 else
                 {
