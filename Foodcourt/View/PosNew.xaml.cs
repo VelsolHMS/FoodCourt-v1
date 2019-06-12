@@ -26,24 +26,60 @@ namespace Foodcourt.View
     /// </summary>
     public partial class PosNew : Page
     {
-        Regex alp = new Regex(@"^[a-zA-Z0-9 -()]+$");
-        Regex num = new Regex(@"^[0-9]+$");
+        BillVIEW BV = new BillVIEW();
         POS1 pos = new POS1();
+        property p = new property();
+        ItemCategory ic = new ItemCategory();
+        ItemsCAT it = new ItemsCAT();
+        public static string aa;
+        public DataTable dt;
+        public int error = 0;
+        Regex alp = new Regex(@"^[a-zA-Z0-9 -():]+$");
+        Regex num = new Regex(@"^[0-9]+$");
         DataTable dn = new DataTable();
         public PosNew()
         {
             InitializeComponent();
             count = 0;
+            DataTable dt = pos.GETPROPERTY();
+            if (dt.Rows.Count == 0)
+            {
+            }
+            else
+            {
+                txtname.Text = dt.Rows[0]["PRPT_Name"].ToString();
+                txtbillno.Text = pos.BILLID().ToString();
+                txttime.Text = DateTime.Now.ToShortTimeString();
+            }
+            sp.Visibility = Visibility.Visible;
+            itemname.Focus();
+            clear();
             c = 0; c1 = 0; c2 = 0; c3 = 0; c4 = 0; c5 = 0; c6 = 0; c7 = 0; c8 = 0; c9 = 0; c10 = 0; c11 = 0; c12 = 0; c13 = 0; c14 = 0; c15 = 0; c16 = 0; c17 = 0; c18 = 0; c19 = 0; c20 = 0; c21 = 0; c22 = 0; c23 = 0; c24 = 0; c25 = 0;
+        }
+        public void clear()
+        {
+            itemname.Text = ""; itemrate.Text = ""; quantity.Text = ""; total.Text = ""; itemname1.Text = ""; itemrate1.Text = ""; quantity1.Text = ""; total1.Text = "";
+            itemname2.Text = ""; itemrate2.Text = ""; quantity2.Text = ""; total2.Text = ""; itemname3.Text = ""; itemrate3.Text = ""; quantity3.Text = ""; total3.Text = "";
+            itemname4.Text = ""; itemrate4.Text = ""; quantity4.Text = ""; total4.Text = ""; itemname5.Text = ""; itemrate5.Text = ""; quantity5.Text = ""; total5.Text = "";
+            itemname6.Text = ""; itemrate6.Text = ""; quantity6.Text = ""; total6.Text = ""; itemname7.Text = ""; itemrate7.Text = ""; quantity7.Text = ""; total7.Text = "";
+            itemname8.Text = ""; itemrate8.Text = ""; quantity8.Text = ""; total8.Text = ""; itemname9.Text = ""; itemrate9.Text = ""; quantity9.Text = ""; total9.Text = "";
+            itemname10.Text = ""; itemrate10.Text = ""; quantity10.Text = ""; total10.Text = ""; itemname11.Text = ""; itemrate11.Text = ""; quantity11.Text = ""; total11.Text = "";
+            itemname12.Text = ""; itemrate12.Text = ""; quantity12.Text = ""; total12.Text = ""; itemname13.Text = ""; itemrate13.Text = ""; quantity13.Text = ""; total13.Text = "";
+            itemname14.Text = ""; itemrate14.Text = ""; quantity14.Text = ""; total14.Text = ""; itemname15.Text = ""; itemrate15.Text = ""; quantity15.Text = ""; total15.Text = "";
+            itemname16.Text = ""; itemrate16.Text = ""; quantity16.Text = ""; total16.Text = ""; itemname17.Text = ""; itemrate17.Text = ""; quantity17.Text = ""; total17.Text = "";
+            itemname18.Text = ""; itemrate18.Text = ""; quantity18.Text = ""; total18.Text = ""; itemname19.Text = ""; itemrate19.Text = ""; quantity19.Text = ""; total19.Text = "";
+            txtttl.Text = ""; txtgst.Text = ""; txtgttl.Text = "";
         }
         public static string id,itm,aaid,QY;
         public static int count;
-        public static decimal gst;
+        public static decimal tot, tax, gst,gtotbill,tax5tot,tax18tot;
         public static decimal a, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25;
         public static int q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25;
         public static decimal r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25;
         public static decimal t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25;
         public static int c, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25;
+        public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+        public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
         private void TOTITM_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TOTITM.SelectedIndex != -1)
@@ -706,6 +742,40 @@ namespace Foodcourt.View
             }
         }
 
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            totalamounts.Visibility = Visibility.Visible;
+            if (itemname.Text == "") { a = 0; t = 0; }
+            if (itemname1.Text == "") { a1 = 0; t1 = 0; }
+            if (itemname2.Text == "") { a2 = 0; t2 = 0; }
+            if (itemname3.Text == "") { a3 = 0; t3 = 0; }
+            if (itemname4.Text == "") { a4 = 0; t4 = 0; }
+            if (itemname5.Text == "") { a5 = 0; t5 = 0; }
+            if (itemname6.Text == "") { a6 = 0; t6 = 0; }
+            if (itemname7.Text == "") { a7 = 0; t7 = 0; }
+            if (itemname8.Text == "") { a8 = 0; t8 = 0; }
+            if (itemname9.Text == "") { a9 = 0; t9 = 0; }
+            if (itemname10.Text == "") { a10 = 0; t10 = 0; }
+            if (itemname11.Text == "") { a11 = 0; t11 = 0; }
+            if (itemname12.Text == "") { a12 = 0; t12 = 0; }
+            if (itemname13.Text == "") { a13 = 0; t13 = 0; }
+            if (itemname14.Text == "") { a14 = 0; t14 = 0; }
+            if (itemname15.Text == "") { a15 = 0; t15 = 0; }
+            if (itemname16.Text == "") { a16 = 0; t16 = 0; }
+            if (itemname17.Text == "") { a17 = 0; t17 = 0; }
+            if (itemname18.Text == "") { a18 = 0; t18 = 0; }
+            if (itemname19.Text == "") { a19 = 0; t19 = 0; }
+            tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
+            tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18);
+            tax5tot = Convert.ToDecimal(tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205);
+            tax18tot = Convert.ToDecimal(tax118+tax218+tax318+tax418+tax518+tax618+tax718+tax818+tax918+tax1018+tax1118+tax1218+tax1318+tax1418+tax1518+tax1618+tax1718+tax1818+tax1918+tax2018);
+            gtotbill = tot + tax;
+            txtttl.Text =  Math.Round(tot, 2, MidpointRounding.AwayFromZero).ToString();
+            txtgst.Text =  Math.Round(tax5tot, 2, MidpointRounding.AwayFromZero).ToString();
+            txtgst2.Text = Math.Round(tax18tot, 2, MidpointRounding.AwayFromZero).ToString();
+            txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -891,7 +961,15 @@ namespace Foodcourt.View
                     if (gst == 0)
                     { t1 = 0; }
                     else
-                    { t1 = a1 * gst / 100; }
+                    { t1 = a1 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax25 = Convert.ToDecimal(total1.Text) * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax218 = Convert.ToDecimal(total1.Text) * 18 / 100;
+                        }
+                    }
                 }
                 sp2.Visibility = Visibility.Visible;
                 if (c == 0)
@@ -966,11 +1044,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t2 = 0; }
                     else
-                    { t2 = a2 * gst / 100; }
+                    { t2 = a2 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax35 = Convert.ToDecimal(total2.Text) * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax318 = Convert.ToDecimal(total2.Text) * 18 / 100;
+                        }
+                    }
                 }
                     sp3.Visibility = Visibility.Visible;
                     if (c2 == 0)
@@ -1118,11 +1204,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t3 = 0; }
                     else
-                    { t3 = a3 * gst / 100; }
+                    { t3 = a3 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax45 = Convert.ToDecimal(total3.Text) * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax418 = Convert.ToDecimal(total3.Text) * 18 / 100;
+                        }
+                    }
                 }
                     sp4.Visibility = Visibility.Visible;
                     if (c3 == 0)
@@ -1205,11 +1299,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t4 = 0; }
                     else
-                    { t4 = a4 * gst / 100; }
+                    { t4 = a4 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax55 = a4 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax518 = a4 * 18 / 100;
+                        }
+                    }
                 }
                     sp5.Visibility = Visibility.Visible;
                     if (c4 == 0)
@@ -1361,11 +1463,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t5 = 0; }
                     else
-                    { t5 = a5 * gst / 100; }
+                    { t5 = a5 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax65 = a5 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax618 = a5 * 18 / 100;
+                        }
+                    }
                 }
                     sp6.Visibility = Visibility.Visible;
                     if (c5 == 0)
@@ -1427,11 +1537,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t6 = 0; }
                     else
-                    { t6 = a6 * gst / 100; }
+                    { t6 = a6 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax75 = a6 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax718 = a6 * 18 / 100;
+                        }
+                    }
                 }
                     sp7.Visibility = Visibility.Visible;
                     if (c6 == 0)
@@ -1604,11 +1722,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t7 = 0; }
                     else
-                    { t7 = a7 * gst / 100; }
+                    { t7 = a7 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax85 = a7 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax818 = a7 * 18 / 100;
+                        }
+                    }
                 }
                 sp8.Visibility = Visibility.Visible;
                 if (c7 == 0)
@@ -1725,11 +1851,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t8 = 0; }
                     else
-                    { t8 = a8 * gst / 100; }
+                    { t8 = a8 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax95 = a8 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax918 = a8 * 18 / 100;
+                        }
+                    }
                 }
                     sp9.Visibility = Visibility.Visible;
                     if (c8 == 0)
@@ -1857,11 +1991,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t9 = 0; }
                     else
-                    { t9 = a9 * gst / 100; }
+                    { t9 = a9 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax105 = a9 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax1018 = a9 * 18 / 100;
+                        }
+                    }
                 }
                     sp10.Visibility = Visibility.Visible;
                     if (c9 == 0)
@@ -1979,11 +2121,19 @@ namespace Foodcourt.View
                 { }
                 else
                 {
-                    gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                    gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                     if (gst == 0)
                     { t10 = 0; }
                     else
-                    { t10 = a10 * gst / 100; }
+                    { t10 = a10 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax115 = a10 * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax1118 = a10 * 18 / 100;
+                        }
+                    }
                 }
                     sp11.Visibility = Visibility.Visible;
                     if (c10 == 0)
@@ -2115,11 +2265,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t11 = 0; }
                         else
-                        { t11 = a11 * gst / 100; }
+                        { t11 = a11 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax125 = a11 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1218 = a11 * 18 / 100;
+                            }
+                        }
                     }
                         sp12.Visibility = Visibility.Visible;
                         if (c11 == 0)
@@ -2251,11 +2409,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t12 = 0; }
                         else
-                        { t12 = a12 * gst / 100; }
+                        { t12 = a12 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax135 = a12 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1318 = a12 * 18 / 100;
+                            }
+                        }
                     }
                         sp13.Visibility = Visibility.Visible;
                         if (c12 == 0)
@@ -2393,11 +2559,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t13 = 0; }
                         else
-                        { t13 = a13 * gst / 100; }
+                        { t13 = a13 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax145 = a13 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1418 = a13 * 18 / 100;
+                            }
+                        }
                     }
                         sp14.Visibility = Visibility.Visible;
                         if (c13 == 0)
@@ -2530,11 +2704,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t14 = 0; }
                         else
-                        { t14 = a14 * gst / 100; }
+                        { t14 = a14 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax155 = a14 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1518 = a14 * 18 / 100;
+                            }
+                        }
                     }
                         sp15.Visibility = Visibility.Visible;
                         if (c14 == 0)
@@ -2662,11 +2844,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t15 = 0; }
                         else
-                        { t15 = a15 * gst / 100; }
+                        { t15 = a15 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax165 = a15 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1618 = a15 * 18 / 100;
+                            }
+                        }
                     }
                         sp16.Visibility = Visibility.Visible;
                         if (c15 == 0)
@@ -2806,11 +2996,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t16 = 0; }
                         else
-                        { t16 = a16 * gst / 100; }
+                        { t16 = a16 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax175 = a16 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1718 = a16 * 18 / 100;
+                            }
+                        }
                     }
                         sp17.Visibility = Visibility.Visible;
                         if (c16 == 0)
@@ -2891,11 +3089,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t17 = 0; }
                         else
-                        { t17 = a17 * gst / 100; }
+                        { t17 = a17 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax185 = a17 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1818 = a17 * 18 / 100;
+                            }
+                        }
                     }
                         sp18.Visibility = Visibility.Visible;
                         if (c17 == 0)
@@ -3185,11 +3391,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t19 = 0; }
                         else
-                        { t19 = a19 * gst / 100; }
+                        { t19 = a19 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax205 = a19 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax2018 = a19 * 18 / 100;
+                            }
+                        }
                     }
                         if (c19 == 0)
                         { count++; c19 = 1; }
@@ -3247,11 +3461,19 @@ namespace Foodcourt.View
                     { }
                     else
                     {
-                        gst = Convert.ToDecimal(DT.Rows[0]["VFS_TAX_Percentage"].ToString());
+                        gst = Convert.ToDecimal(DT.Rows[0]["TAX_Percentage"].ToString());
                         if (gst == 0)
                         { t18 = 0; }
                         else
-                        { t18 = a18 * gst / 100; }
+                        { t18 = a18 * gst / 100; if (gst == Convert.ToDecimal(5.00))
+                            {
+                                tax195 = a18 * 5 / 100;
+                            }
+                            else if (gst == Convert.ToDecimal(18.00))
+                            {
+                                tax1918 = a18 * 18 / 100;
+                            }
+                        }
                     }
                         sp19.Visibility = Visibility.Visible;
                         if (c18 == 0)
@@ -3285,7 +3507,17 @@ namespace Foodcourt.View
                     if (gst == 0)
                     { t = 0; }
                     else
-                    { t = a * gst / 100; }
+                    {
+                        t = a * gst / 100;
+                        if (gst == Convert.ToDecimal(5.00))
+                        {
+                            tax15 = Convert.ToDecimal(total.Text) * 5 / 100;
+                        }
+                        else if (gst == Convert.ToDecimal(18.00))
+                        {
+                            tax118 = Convert.ToDecimal(total.Text) * 18 / 100;
+                        }
+                    }
                 }
                     sp1.Visibility = Visibility.Visible;
                     if (c == 0)
