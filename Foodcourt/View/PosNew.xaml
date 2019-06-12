@@ -405,13 +405,13 @@
                     </Grid>
                     <Grid Grid.Column="1" Background="Beige">
                         <Grid>
-                            <StackPanel Height="30" Margin="0,10,0,0" VerticalAlignment="Top"  Orientation="Horizontal">
+                            <StackPanel Height="30" Margin="5,10,5,0" VerticalAlignment="Top"  Orientation="Horizontal">
                                 <TextBlock Text="Bill No" FontFamily="Sitka Display" VerticalAlignment="Center"  Width="80" FontSize="20" FontWeight="Bold"/>
                                 <TextBlock Name="txtbillno" Foreground="#FF5180A0" Width="100" FontWeight="Bold" Margin="20,0,0,0" FontSize="20"/>
                                 <TextBlock Text="Time:" FontFamily="Sitka Display" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
                                 <TextBlock Name="txttime" Foreground="#FF5180A0" Width="100" FontWeight="Bold" FontSize="20" Margin="10,0,0,0"/>
                             </StackPanel>
-                            <Separator Margin="0,45,0,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
+                            <Separator Margin="5,45,5,0" Height="10" VerticalAlignment="Top" Background="#FF5180A0"/>
                             <StackPanel Orientation="Vertical" Margin="0,55,0,0">
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Total" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
@@ -428,17 +428,31 @@
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Name="txtgst2"  Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
-                                    <CheckBox Content="Do you want to apply Offer?" Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="18"></CheckBox>
+                                <CheckBox Content="Do you want to apply Offer?" Margin="20,20,10,0"  Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="18"></CheckBox>
+                                <Separator Margin="23,5,25,0" Height="11" VerticalAlignment="Top" Background="#FF5180A0"/>
+                                <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                                    <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>
+                                    <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
+                                    <ComboBox Name="txtstall" Width="150" Margin="0,0,0,0" IsEnabled="False" DisplayMemberPath="OFF_Name" SelectedIndex="0" TabIndex="1" DropDownClosed="Txtstall_DropDownClosed">
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
+                                    <TextBox Name="txtpercentage" Width="150" IsEnabled="False" FontSize="15" Margin="0,0,0,0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Offer Percentage" material:HintAssist.IsFloating="True"/>
+                                    <TextBox Name="txtdisAmount" Width="150" IsEnabled="False" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
+                                    <TextBlock Text="Instant Discount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
+                                    <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
+                                    <TextBox Name="txtInsdis" Width="150" IsEnabled="False" FontSize="15" Text="0" IsReadOnly="false" Padding="5,-10,0,2" Height="30"/>
                                 </StackPanel>
                                 <StackPanel Height="25" Margin="20,20,0,0" Orientation="Horizontal">
                                     <TextBlock Text="GTotal" Width="100" FontFamily="Sitka Display" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Name="txtgttl" Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Height="30">
-                                    <Button Width="100" Content="Save" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="30" Click="Button_Click"/>
-                                    <Button Width="100" Content="Clear" Margin="20,0,0,0" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="30" Name="Clear" Click="Clear_Click"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Height="40">
+                                    <Button Width="100" Content="Save" IsEnabled="False" Background="#FF5180A0" TabIndex="20" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Click="Button_Click"/>
+                                    <Button Width="100" Content="Clear" Margin="20,0,0,0" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Name="Clear" Click="Clear_Click"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -485,18 +499,18 @@
                 <material:Card Height="300" Background="White" Width="450">
                     <Grid>
                         <TextBlock Text="Offers Zone" VerticalAlignment="Top" TextAlignment="Center" Foreground="White" FontSize="18" Padding="0,2,0,0" Height="30" Background="#FF5180A0" />
-                        <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
+                        <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
                             <TextBlock Text="Total Amount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBox Name="txtTotal" Width="150" FontSize="18" FontWeight="Bold" Foreground="#FF5180A0" Margin="0,0,0,0"></TextBox>
-                        </StackPanel>
-                        <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+                        </StackPanel>-->
+                        <!--<StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
                             <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
                             <ComboBox Name="txtstall" Width="150" Margin="0,0,0,0" DisplayMemberPath="OFF_Name" SelectedIndex="0" TabIndex="1" DropDownClosed="Txtstall_DropDownClosed">
                             </ComboBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,140,0,0">
+                        </StackPanel>-->
+                        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,140,0,0">
                             <TextBox Name="txtpercentage" Width="150" FontSize="15" Margin="0,0,0,0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Offer Percentage" material:HintAssist.IsFloating="True"/>
                             <TextBox Name="txtdisAmount" Width="150" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
                         </StackPanel>
@@ -504,7 +518,7 @@
                             <TextBlock Text="Instant Discount" Width="145" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBlock Text=":" Width="50" TextAlignment="Center" FontFamily="Sitka Display" FontSize="22"/>
                             <TextBox Name="txtInsdis" Width="150" FontSize="15" Text="0" IsReadOnly="false" Padding="5,-10,0,2" Height="30"/>
-                        </StackPanel>
+                        </StackPanel>-->
                         <Button Content="OK" FontFamily="Sitka Display" TabIndex="5" IsDefault="True" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" Width="100" Margin="0,0,0,30" Name="OfferOk" Click="OfferOk_Click"/>
                     </Grid>
                 </material:Card>
