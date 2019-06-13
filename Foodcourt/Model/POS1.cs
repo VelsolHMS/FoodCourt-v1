@@ -55,6 +55,13 @@ namespace Foodcourt.Model
         public DataTable gsttax()
         {
             var LIST = new List<SqlParameter>();
+            string dd = "SELECT TAX_Percentage FROM FCTAX WHERE TAX_Name IN ( SELECT NAM_Tax FROM FCITMNAM WHERE NAM_Name = '" + PosNew.id + "')";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
+            return dt;
+        }
+        public DataTable gsttax1()
+        {
+            var LIST = new List<SqlParameter>();
             string dd = "select NAM_Tax FROM FCITMNAM WHERE NAM_Name='" + POS.check1 + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
@@ -152,7 +159,7 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             list.AddSqlParameter("@BILLITM_Name", BILLITM_Name);
-            list.AddSqlParameter("@STL_ID", POS.stlid);
+            list.AddSqlParameter("@STL_ID", PosNew.stlid);
             list.AddSqlParameter("@BILLITM_Rate", BILLITM_Rate);
             list.AddSqlParameter("@BILLITM_Tax", BILLITM_Tax);
             BILLITM_InsertDate = DateTime.Today.Date;
@@ -196,7 +203,7 @@ namespace Foodcourt.Model
         public DataTable getstlid()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT STL_ID,NAM_Name FROM FCITMNAM WHERE NAM_Name='" + POS.itemnamestlid + "'";
+            string s = "SELECT STL_ID,NAM_Name FROM FCITMNAM WHERE NAM_Name='" + PosNew.itemnamestlid + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -272,7 +279,6 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@Insert_Date", DateTime.Today);
             list.AddSqlParameter("@Update_By", login.u);
             list.AddSqlParameter("@Update_Date", DateTime.Today);
-
             string s = "INSERT INTO FCCUSTOMER(NAME,MOBILE_NO,EMAIL,CITY,ADDRESS,Insert_By,Insert_Date)VALUES(@NAME,@MOBILE_NO,@EMAIL,@CITY,@ADDRESS,@Insert_By,@Insert_Date)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
@@ -287,16 +293,8 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@ADDRESS", ADDRESS);
             list.AddSqlParameter("@Update_By", login.u);
             list.AddSqlParameter("@Update_Date", DateTime.Today);
-
             string s = "UPDATE FCCUSTOMER SET NAME=@NAME,EMAIL=@EMAIL,CITY=@CITY,ADDRESS=@ADDRESS WHERE MOBILE_NO = '" + MOBILE_NO + "'";
             DbFunctions.ExecuteCommand<int>(s, list);
-        }
-        public DataTable getdetails()
-        {
-            var list = new List<SqlParameter>();
-            string s = "SELECT NAME,EMAIL,CITY,ADDRESS FROM FCCUSTOMER WHERE MOBILE_NO = '"+POS.phno+"'";
-            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
-            return dt;
         }
         public DataTable getoffer()
         {
@@ -312,6 +310,27 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
-
+        public DataTable itemslist()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Name FROM FCITMNAM"; 
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public string likea;
+        public DataTable itms1()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Name FROM FCITMNAM WHERE NAM_Name  LIKE '" + likea + "%'"; // OR VFS_ITMNAM_Name LIKE '%" + likea + "' OR VFS_ITMNAM_Name LIKE '%" + likea + "%' ";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable itmname()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT NAM_Id, NAM_Name,CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate From FCITMNAM  WHERE NAM_Name = '" + PosNew.id + "' AND CTG_Id IN(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_ActiveDate <= GETDATE())";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
     }
 }

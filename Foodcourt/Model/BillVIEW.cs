@@ -41,7 +41,7 @@ namespace Foodcourt.Model
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
-        public DataTable GETITMNAM()
+        public DataTable GETITMNAM() 
         {
             var LIST = new List<SqlParameter>();
             string SS = "SELECT BILITM_Name,BILLITM_Quanty,CONVERT(decimal(17,2),BILITM_Rate) AS BILITM_Rate ,BILITM_Tax FROM FCBILLITM WHERE BILL_Id='" + BillView.B_bill_no + "'";
