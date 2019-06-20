@@ -65,36 +65,36 @@ namespace Foodcourt.View
                     it.CTG_Id = txtId.Text;
                     it.CTG_Name = txtName.Text;
                     DataTable Category_Checking = it.CategoryChecking();
-                    if(Category_Checking.Rows.Count > 0)
+                    it.CTG_Details = txtdts.Text;
+                    it.CTG_Status = txtstatus.Text;
+                    it.CTG_ReportingName = txtrpt.Text;
+                    it.STL_Name = txtstall.Text;
+                    DataTable dt = it.FillDataGrid();
+                    if (dt.Rows.Count >= 0)
                     {
-                        MessageBox.Show("Category Name Already Exists. Please Change the Name.!");
-                    }
-                    else
-                    {
-                        it.CTG_Details = txtdts.Text;
-                        it.CTG_Status = txtstatus.Text;
-                        it.CTG_ReportingName = txtrpt.Text;
-                        it.STL_Name = txtstall.Text;
-                        DataTable dt = it.FillDataGrid();
-                        if (dt.Rows.Count >= 0)
+                        string a = "Save"; b = Convert.ToString(btnSave.Content);
+                        if (a == b)
                         {
-                            string a = "Save"; b = Convert.ToString(btnSave.Content);
-                            if (a == b)
+                            if (Category_Checking.Rows.Count > 0)
                             {
-                                it.INSERT();
+                                MessageBox.Show("Category Name Already Exists. Please Change the Name.!");
                             }
                             else
                             {
-                                it.UPDATE();
+                                it.INSERT();
                             }
                         }
-                        DataTable dtt = it.FillDataGrid();
-                        dgctg.ItemsSource = dtt.DefaultView;
-                        Clear();
-                        this.NavigationService.Refresh();
-                        MessageBox.Show("Saved successfully");
-                        btnSave.Content = "Save";
+                        else
+                        {
+                            it.UPDATE();
+                        }
                     }
+                    DataTable dtt = it.FillDataGrid();
+                    dgctg.ItemsSource = dtt.DefaultView;
+                    Clear();
+                    this.NavigationService.Refresh();
+                    MessageBox.Show("Saved successfully");
+                    btnSave.Content = "Save";
                 }
             }
             catch(SystemException)

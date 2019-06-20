@@ -53,36 +53,36 @@ namespace Foodcourt.View
                 {
                     items.NAM_Name = nametxt.Text;
                     DataTable name_checking = items.NameChecking();
-                    if(name_checking.Rows.Count > 0)
+                    items.NAM_Rate = Convert.ToDecimal(pricetxt.Text);
+                    items.CTG_Name = catgytxt.Text;
+                    DataTable dtstlid = items.getstlid();
+                    items.STL_ID = dtstlid.Rows[0]["STL_ID"].ToString();
+                    items.NAM_Tax = taxtxt.Text;
+                    items.NAM_Details = detailstxt.Text;
+                    items.NAM_ReportingName = rpnametxt.Text;
+                    items.NAM_Status = status.Text;
+                    if (btnSave.Content.ToString() == "Update")
                     {
-                        MessageBox.Show("Item Name Already Exists. Please Change the Name.!");
+                        items.NAM_Id = itemIdtxt.Text;
+                        items.Update();
+                        MessageBox.Show("Updated Succesfully");
                     }
                     else
                     {
-                        items.NAM_Rate = Convert.ToDecimal(pricetxt.Text);
-                        items.CTG_Name = catgytxt.Text;
-                        DataTable dtstlid = items.getstlid();
-                        items.STL_ID = dtstlid.Rows[0]["STL_ID"].ToString();
-                        items.NAM_Tax = taxtxt.Text;
-                        items.NAM_Details = detailstxt.Text;
-                        items.NAM_ReportingName = rpnametxt.Text;
-                        items.NAM_Status = status.Text;
-                        if (btnSave.Content.ToString() == "Update")
+                        if (name_checking.Rows.Count > 0)
                         {
-                            items.NAM_Id = itemIdtxt.Text;
-                            items.Update();
-                            MessageBox.Show("Updated Succesfully");
+                            MessageBox.Show("Item Name Already Exists. Please Change the Name.!");
                         }
                         else
                         {
                             items.Insert();
                             MessageBox.Show("Inserted Succesfully");
                         }
-                        Clear();
-                        this.NavigationService.Refresh();
-                        itemIdtxt.Text = items.GetItemId().ToString();
-                        itemIdtxt.IsReadOnly = true;
                     }
+                    Clear();
+                    this.NavigationService.Refresh();
+                    itemIdtxt.Text = items.GetItemId().ToString();
+                    itemIdtxt.IsReadOnly = true;
                 }
             }
             catch (SystemException)
