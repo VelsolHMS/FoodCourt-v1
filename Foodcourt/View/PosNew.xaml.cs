@@ -882,36 +882,44 @@ namespace Foodcourt.View
 
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
-            save.IsEnabled = true;
-            if (itemname.Text == "") { a = 0; t = 0; }
-            if (itemname1.Text == "") { a1 = 0; t1 = 0; }
-            if (itemname2.Text == "") { a2 = 0; t2 = 0; }
-            if (itemname3.Text == "") { a3 = 0; t3 = 0; }
-            if (itemname4.Text == "") { a4 = 0; t4 = 0; }
-            if (itemname5.Text == "") { a5 = 0; t5 = 0; }
-            if (itemname6.Text == "") { a6 = 0; t6 = 0; }
-            if (itemname7.Text == "") { a7 = 0; t7 = 0; }
-            if (itemname8.Text == "") { a8 = 0; t8 = 0; }
-            if (itemname9.Text == "") { a9 = 0; t9 = 0; }
-            if (itemname10.Text == "") { a10 = 0; t10 = 0; }
-            if (itemname11.Text == "") { a11 = 0; t11 = 0; }
-            if (itemname12.Text == "") { a12 = 0; t12 = 0; }
-            if (itemname13.Text == "") { a13 = 0; t13 = 0; }
-            if (itemname14.Text == "") { a14 = 0; t14 = 0; }
-            if (itemname15.Text == "") { a15 = 0; t15 = 0; }
-            if (itemname16.Text == "") { a16 = 0; t16 = 0; }
-            if (itemname17.Text == "") { a17 = 0; t17 = 0; }
-            if (itemname18.Text == "") { a18 = 0; t18 = 0; }
-            if (itemname19.Text == "") { a19 = 0; t19 = 0; }
-            tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
-            tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18);
-            tax5tot = Convert.ToDecimal(tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205);
-            tax18tot = Convert.ToDecimal(tax118 + tax218 + tax318 + tax418 + tax518 + tax618 + tax718 + tax818 + tax918 + tax1018 + tax1118 + tax1218 + tax1318 + tax1418 + tax1518 + tax1618 + tax1718 + tax1818 + tax1918 + tax2018);
-            gtotbill = tot + tax;
-            txtttl.Text = Math.Round(tot, 2, MidpointRounding.AwayFromZero).ToString();
-            txtgst.Text = Math.Round(tax5tot, 2, MidpointRounding.AwayFromZero).ToString();
-            txtgst2.Text = Math.Round(tax18tot, 2, MidpointRounding.AwayFromZero).ToString();
-            txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
+            if (itemname.Text == ""&& itemname1.Text == ""&& itemname2.Text == ""&& itemname3.Text == ""&& itemname4.Text == ""&& itemname5.Text == ""&& itemname6.Text == ""&& itemname7.Text == ""&& itemname8.Text == ""&& itemname9.Text == ""&& itemname10.Text == ""
+                && itemname11.Text == ""&& itemname12.Text == ""&& itemname13.Text == ""&& itemname14.Text == "" && itemname15.Text == "")
+            {
+                MessageBox.Show("Please Enter Valid Data");
+            }
+            else
+            { 
+                save.IsEnabled = true;
+                if (itemname.Text == "") { a = 0; t = 0; }
+                if (itemname1.Text == "") { a1 = 0; t1 = 0; }
+                if (itemname2.Text == "") { a2 = 0; t2 = 0; }
+                if (itemname3.Text == "") { a3 = 0; t3 = 0; }
+                if (itemname4.Text == "") { a4 = 0; t4 = 0; }
+                if (itemname5.Text == "") { a5 = 0; t5 = 0; }
+                if (itemname6.Text == "") { a6 = 0; t6 = 0; }
+                if (itemname7.Text == "") { a7 = 0; t7 = 0; }
+                if (itemname8.Text == "") { a8 = 0; t8 = 0; }
+                if (itemname9.Text == "") { a9 = 0; t9 = 0; }
+                if (itemname10.Text == "") { a10 = 0; t10 = 0; }
+                if (itemname11.Text == "") { a11 = 0; t11 = 0; }
+                if (itemname12.Text == "") { a12 = 0; t12 = 0; }
+                if (itemname13.Text == "") { a13 = 0; t13 = 0; }
+                if (itemname14.Text == "") { a14 = 0; t14 = 0; }
+                if (itemname15.Text == "") { a15 = 0; t15 = 0; }
+                if (itemname16.Text == "") { a16 = 0; t16 = 0; }
+                if (itemname17.Text == "") { a17 = 0; t17 = 0; }
+                if (itemname18.Text == "") { a18 = 0; t18 = 0; }
+                if (itemname19.Text == "") { a19 = 0; t19 = 0; }
+                tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
+                tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18);
+                tax5tot = Convert.ToDecimal(tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205);
+                tax18tot = Convert.ToDecimal(tax118 + tax218 + tax318 + tax418 + tax518 + tax618 + tax718 + tax818 + tax918 + tax1018 + tax1118 + tax1218 + tax1318 + tax1418 + tax1518 + tax1618 + tax1718 + tax1818 + tax1918 + tax2018);
+                gtotbill = tot + tax;
+                txtttl.Text = Math.Round(tot, 2, MidpointRounding.AwayFromZero).ToString();
+                txtgst.Text = Math.Round(tax5tot, 2, MidpointRounding.AwayFromZero).ToString();
+                txtgst2.Text = Math.Round(tax18tot, 2, MidpointRounding.AwayFromZero).ToString();
+                txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
+            }
         }
         public decimal billtot;
         private void Button_Click(object sender, RoutedEventArgs e)
