@@ -892,7 +892,7 @@ namespace Foodcourt.View
                 save.IsEnabled = true;
                 if (itemname.Text == "") { a = 0; t = 0; }
                 if (itemname1.Text == "") { a1 = 0; t1 = 0; }
-                if (itemname2.Text == "") { a2 = 0; t2 = 0; }
+                if (itemname2.Text == "") { a2 = 0; t2 = 0; } 
                 if (itemname3.Text == "") { a3 = 0; t3 = 0; }
                 if (itemname4.Text == "") { a4 = 0; t4 = 0; }
                 if (itemname5.Text == "") { a5 = 0; t5 = 0; }
