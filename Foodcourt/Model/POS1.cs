@@ -34,21 +34,21 @@ namespace Foodcourt.Model
         public DataTable GETNAME()
         {
             var LIST = new List<SqlParameter>();
-            string SS = "SELECT NAM_Name FROM FCITMNAM Where CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name='" + POS.aa+ "') AND NAM_Status='Active'";
+            string SS = "SELECT NAM_Name FROM FCITMNAM Where CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name='" + PosNew.aa+ "') AND NAM_Status='Active'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(SS, LIST);
             return DT;
         }
         public DataTable GETRATE()
         {
             var LIST = new List<SqlParameter>();
-            string N = "SELECT NAM_Name, CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate  FROM FCITMNAM WHERE NAM_Name='" + POS.check1 + "'";
+            string N = "SELECT NAM_Name, CONVERT(decimal(17,2),NAM_Rate) AS NAM_Rate  FROM FCITMNAM WHERE NAM_Name='" + PosNew.id + "'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(N, LIST);
             return DT;
         }
         public DataTable GETRATE1()
         {
             var LIST = new List<SqlParameter>();
-            string N = "SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name='" + POS.sa + "'";
+            string N = "SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name='" + PosNew.sa + "'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(N, LIST);
             return DT;
         }
@@ -62,14 +62,14 @@ namespace Foodcourt.Model
         public DataTable gsttax1()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "select NAM_Tax FROM FCITMNAM WHERE NAM_Name='" + POS.check1 + "'";
+            string dd = "select NAM_Tax FROM FCITMNAM WHERE NAM_Name='" + PosNew.id + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
         public DataTable GETTAX()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "SELECT TAX_Percentage from FCTAX WHERE TAX_Name='"+POS.check2+"'";
+            string dd = "SELECT TAX_Percentage from FCTAX WHERE TAX_Name='" + POS.check2 + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
@@ -83,7 +83,7 @@ namespace Foodcourt.Model
         public DataTable GetCategories()
         {
             var LIST = new List<SqlParameter>();
-            string dd = "SELECT CTG_Name From FCRITMCTG WHERE STL_ID IN ( SELECT STL_ID FROM FCSTALLS WHERE STL_Name = '"+POS.st+"')";
+            string dd = "SELECT CTG_Name From FCRITMCTG WHERE STL_ID IN ( SELECT STL_ID FROM FCSTALLS WHERE STL_Name = '"+PosNew.st+"')";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(dd, LIST);
             return dt;
         }
@@ -189,14 +189,14 @@ namespace Foodcourt.Model
         public DataTable STALLNAME()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT STL_Name FROM FCSTALLS WHERE STL_ID IN (SELECT STL_ID FROM FCBILLITM WHERE STL_ID='"+POS.STALLID+"')";
+            string s = "SELECT STL_Name FROM FCSTALLS WHERE STL_ID IN (SELECT STL_ID FROM FCBILLITM WHERE STL_ID='"+PosNew.STALLID+"')";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
         public DataTable STLIDITEMNAMES()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT BILITM_Name,BILLITM_Quanty FROM FCBILLITM WHERE STL_ID = '"+POS.STALLID + "' AND BILL_Id='" + bill + "'";
+            string s = "SELECT BILITM_Name,BILLITM_Quanty FROM FCBILLITM WHERE STL_ID = '"+PosNew.STALLID + "' AND BILL_Id='" + bill + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -247,7 +247,7 @@ namespace Foodcourt.Model
         public DataTable itmnames()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT NAM_Name  FROM FCITMNAM WHERE CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name = '" + POS.aa + "')";
+            string s = "SELECT NAM_Name  FROM FCITMNAM WHERE CTG_Id =(SELECT CTG_Id FROM FCRITMCTG WHERE CTG_Name = '" + PosNew.aa + "')";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -299,7 +299,7 @@ namespace Foodcourt.Model
         public DataTable getoffer()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT OFF_ID,OFF_Percentage,OFF_MaxAmount FROM FCOFFERS WHERE OFF_Name =  '" + POS.offername + "'";
+            string s = "SELECT OFF_ID,OFF_Percentage,OFF_MaxAmount FROM FCOFFERS WHERE OFF_Name =  '" + PosNew.offername + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
@@ -321,7 +321,7 @@ namespace Foodcourt.Model
         public DataTable itms1()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT NAM_Name FROM FCITMNAM WHERE NAM_Name  LIKE '" + likea + "%'"; // OR VFS_ITMNAM_Name LIKE '%" + likea + "' OR VFS_ITMNAM_Name LIKE '%" + likea + "%' ";
+            string s = "SELECT NAM_Name FROM FCITMNAM WHERE NAM_Name  LIKE '" + likea + "%' and NAM_Status = 'Active'"; // OR VFS_ITMNAM_Name LIKE '%" + likea + "' OR VFS_ITMNAM_Name LIKE '%" + likea + "%' ";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

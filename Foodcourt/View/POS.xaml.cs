@@ -25,7 +25,7 @@ namespace Foodcourt.View.Oprs
         public static string aa;
         public DataTable dt;
         public int error = 0;
-        Regex alp = new Regex(@"^[a-zA-Z0-9 -():]+$");
+        Regex alp = new Regex(@"^[a-zA-Z0-9 -():']+$");
         Regex num = new Regex(@"^[0-9]+$");
         public POS()
         {

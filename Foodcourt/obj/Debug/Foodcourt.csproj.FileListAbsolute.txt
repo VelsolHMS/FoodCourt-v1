@@ -582,6 +582,10 @@ C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.ex
 C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
 C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.g.cs
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml
+C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.exe.config
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\bin\Debug\Foodcourt.pdb
@@ -623,6 +627,7 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Permissions.g
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PettyCash.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\POS.g.cs
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Property.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Registration.g.cs
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\RPTS.g.cs
@@ -656,6 +661,7 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Permissions.b
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PettyCash.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Pettycashrpt.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\POS.baml
+C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Property.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\Registration.baml
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\RPTS.baml
@@ -670,9 +676,3 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.C
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.g.cs
-C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.baml
-C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.g.cs
-C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.g.cs
-C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\OffersZone.baml
-C:\Users\user3.VELSOL\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.baml

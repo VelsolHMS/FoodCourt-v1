@@ -441,7 +441,7 @@
                                     <TextBox Name="txtdisAmount" Width="150" IsEnabled="False" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
-                                    <TextBox Name="txtInsdisper" Width="150" IsEnabled="False" FontSize="15" Margin="0,0,0,0" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount Percentage" material:HintAssist.IsFloating="True"/>
+                                    <TextBox Name="txtInsdisper" Width="150" IsEnabled="False" FontSize="15" Margin="0,0,0,0" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount Percentage" material:HintAssist.IsFloating="True" LostFocus="TxtInsdisper_LostFocus"/>
                                     <TextBox Name="txtInsdis" Width="150" IsEnabled="False" Margin="25,0,0,0" FontSize="15" Text="0" IsReadOnly="True" Padding="5,-10,0,2" Height="30" material:HintAssist.Hint="Discount" material:HintAssist.IsFloating="True"/>
                                 </StackPanel>
                                 <StackPanel Height="25" Margin="20,30,0,0" Orientation="Horizontal">
