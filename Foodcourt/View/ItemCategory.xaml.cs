@@ -64,29 +64,37 @@ namespace Foodcourt.View
                 {
                     it.CTG_Id = txtId.Text;
                     it.CTG_Name = txtName.Text;
-                    it.CTG_Details = txtdts.Text;
-                    it.CTG_Status = txtstatus.Text;
-                    it.CTG_ReportingName = txtrpt.Text;
-                    it.STL_Name = txtstall.Text;
-                    DataTable dt = it.FillDataGrid();
-                    if (dt.Rows.Count >= 0)
+                    DataTable Category_Checking = it.CategoryChecking();
+                    if(Category_Checking.Rows.Count > 0)
                     {
-                        string a = "Save"; b = Convert.ToString(btnSave.Content);
-                        if (a == b)
-                        {
-                            it.INSERT();
-                        }
-                        else
-                        {
-                            it.UPDATE();
-                        }
+                        MessageBox.Show("Category Name Already Exists. Please Change the Name.!");
                     }
-                    DataTable dtt = it.FillDataGrid();
-                    dgctg.ItemsSource = dtt.DefaultView;
-                    Clear();
-                    this.NavigationService.Refresh();
-                    MessageBox.Show("Saved successfully");
-                    btnSave.Content = "Save";
+                    else
+                    {
+                        it.CTG_Details = txtdts.Text;
+                        it.CTG_Status = txtstatus.Text;
+                        it.CTG_ReportingName = txtrpt.Text;
+                        it.STL_Name = txtstall.Text;
+                        DataTable dt = it.FillDataGrid();
+                        if (dt.Rows.Count >= 0)
+                        {
+                            string a = "Save"; b = Convert.ToString(btnSave.Content);
+                            if (a == b)
+                            {
+                                it.INSERT();
+                            }
+                            else
+                            {
+                                it.UPDATE();
+                            }
+                        }
+                        DataTable dtt = it.FillDataGrid();
+                        dgctg.ItemsSource = dtt.DefaultView;
+                        Clear();
+                        this.NavigationService.Refresh();
+                        MessageBox.Show("Saved successfully");
+                        btnSave.Content = "Save";
+                    }
                 }
             }
             catch(SystemException)

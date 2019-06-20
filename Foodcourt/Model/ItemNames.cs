@@ -120,5 +120,13 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
+
+        public DataTable NameChecking()
+        {
+            var list = new List<SqlParameter>();
+            string s = "select* from FCITMNAM where NAM_Name = '"+ NAM_Name + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
     }
 }
