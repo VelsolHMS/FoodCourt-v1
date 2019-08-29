@@ -1402,7 +1402,7 @@ namespace Foodcourt.View
             pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
             discam = Convert.ToDecimal(itmTotalDis.Text);
             pos.BILL_Discount = (int)Math.Round(discam);
-            billtot = Convert.ToDecimal(txtgttl.Text);
+            billtot = Convert.ToDecimal(txtgttl.Text); 
             pos.BILL_Total = (int)Math.Round(billtot);
             if (OfferCheck.IsChecked == true)
             {
