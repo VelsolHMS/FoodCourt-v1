@@ -57,6 +57,9 @@ namespace Foodcourt.View
             itemname.Focus();
             clear();
             c = 0; c1 = 0; c2 = 0; c3 = 0; c4 = 0; c5 = 0; c6 = 0; c7 = 0; c8 = 0; c9 = 0; c10 = 0; c11 = 0; c12 = 0; c13 = 0; c14 = 0; c15 = 0; c16 = 0; c17 = 0; c18 = 0; c19 = 0; c20 = 0; c21 = 0; c22 = 0; c23 = 0; c24 = 0; c25 = 0;
+            DISITM.Text = "0"; DISITM1.Text = "0"; DISITM2.Text = "0"; DISITM3.Text = "0"; DISITM4.Text = "0"; DISITM5.Text = "0"; DISITM6.Text = "0"; DISITM7.Text = "0"; DISITM8.Text = "0";
+            DISITM9.Text = "0"; DISITM10.Text = "0"; DISITM11.Text = "0"; DISITM12.Text = "0"; DISITM13.Text = "0"; DISITM14.Text = "0"; DISITM15.Text = "0"; DISITM16.Text = "0"; DISITM17.Text = "0";
+            DISITM18.Text = "0"; DISITM19.Text = "0"; 
         }
         public void clear()
         {
@@ -81,8 +84,209 @@ namespace Foodcourt.View
         public static decimal t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25;
         public static int c, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25;
         public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
+        public static decimal z, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19;
+        public static decimal y, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19;
 
-       
+        private void DISITM_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot = Convert.ToDecimal(total.Text);
+            if (DISITM.IsEnabled == true && DISITM.Text != "" && DISITM.Text != "0")
+            {
+                z = Convert.ToDecimal(DISITM.Text); y = (distot * z) / 100;
+                total.Text = (distot - y).ToString();
+            }
+        }
+        private void DISITM1_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot1 = Convert.ToDecimal(total1.Text);
+            if (DISITM1.IsEnabled == true && DISITM1.Text != "" && DISITM1.Text != "0")
+            {
+                z1 = Convert.ToDecimal(DISITM1.Text); y1 = (distot1 * z1) / 100;
+                total1.Text = (distot1 - y1).ToString();
+            }
+        }
+        private void DISITM2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot2 = Convert.ToDecimal(total2.Text);
+            if (DISITM2.IsEnabled == true && DISITM2.Text != "" && DISITM2.Text != "0")
+            {
+                z2 = Convert.ToDecimal(DISITM2.Text); y2 = (distot2 * z2) / 100;
+                total2.Text = (distot2 - y2).ToString();
+            }
+        }
+        private void DISITM3_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot3 = Convert.ToDecimal(total3.Text);
+            if (DISITM3.IsEnabled == true && DISITM3.Text != "" && DISITM3.Text != "0")
+            {
+                z3 = Convert.ToDecimal(DISITM3.Text); y3 = (distot3 * z3) / 100;
+                total3.Text = (distot3 - y3).ToString();
+            }
+        }
+
+        private void DISITM4_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot4 = Convert.ToDecimal(total4.Text);
+            if (DISITM4.IsEnabled == true && DISITM4.Text != "" && DISITM4.Text != "0")
+            {
+                z4 = Convert.ToDecimal(DISITM4.Text); y4 = (distot4 * z4) / 100;
+                total4.Text = (distot4 - y4).ToString();
+            }
+        }
+
+        private void DISITM5_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot5 = Convert.ToDecimal(total5.Text);
+            if (DISITM5.IsEnabled == true && DISITM5.Text != "" && DISITM5.Text != "0")
+            {
+                z5 = Convert.ToDecimal(DISITM5.Text); y5 = (distot5 * z5) / 100;
+                total5.Text = (distot5 - y5).ToString();
+            }
+        }
+
+        private void DISITM6_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot6 = Convert.ToDecimal(total6.Text);
+            if (DISITM6.IsEnabled == true && DISITM6.Text != "" && DISITM6.Text != "0")
+            {
+                z6 = Convert.ToDecimal(DISITM6.Text); y6 = (distot6 * z6) / 100;
+                total6.Text = (distot6 - y6).ToString();
+            }
+        }
+
+        private void DISITM7_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot7 = Convert.ToDecimal(total7.Text);
+            if (DISITM7.IsEnabled == true && DISITM7.Text != "" && DISITM7.Text != "0")
+            {
+                z7 = Convert.ToDecimal(DISITM7.Text); y7 = (distot7 * z7) / 100;
+                total7.Text = (distot7 - y7).ToString();
+            }
+        }
+
+        private void DISITM8_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot8 = Convert.ToDecimal(total8.Text);
+            if (DISITM8.IsEnabled == true && DISITM8.Text != "" && DISITM8.Text != "0")
+            {
+                z8 = Convert.ToDecimal(DISITM8.Text); y8 = (distot8 * z8) / 100;
+                total8.Text = (distot8 - y8).ToString();
+            }
+        }
+
+        private void DISITM9_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot9 = Convert.ToDecimal(total9.Text);
+            if (DISITM9.IsEnabled == true && DISITM9.Text != "" && DISITM9.Text != "0")
+            {
+                z9 = Convert.ToDecimal(DISITM9.Text); y9 = (distot9 * z9) / 100;
+                total9.Text = (distot9 - y9).ToString();
+            }
+        }
+
+        private void DISITM10_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot10 = Convert.ToDecimal(total10.Text);
+            if (DISITM10.IsEnabled == true && DISITM10.Text != "" && DISITM10.Text != "0")
+            {
+                z10 = Convert.ToDecimal(DISITM10.Text); y10 = (distot10 * z10) / 100;
+                total10.Text = (distot10 - y10).ToString();
+            }
+        }
+
+        private void DISITM11_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot11 = Convert.ToDecimal(total11.Text);
+            if (DISITM11.IsEnabled == true && DISITM11.Text != "" && DISITM11.Text != "0")
+            {
+                z11 = Convert.ToDecimal(DISITM11.Text); y11 = (distot11 * z11) / 100;
+                total11.Text = (distot11 - y11).ToString();
+            }
+        }
+
+        private void DISITM12_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot12 = Convert.ToDecimal(total12.Text);
+            if (DISITM12.IsEnabled == true && DISITM12.Text != "" && DISITM12.Text != "0")
+            {
+                z12 = Convert.ToDecimal(DISITM12.Text); y12 = (distot12 * z12) / 100;
+                total12.Text = (distot12 - y12).ToString();
+            }
+        }
+
+        private void DISITM13_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot13 = Convert.ToDecimal(total13.Text);
+            if (DISITM13.IsEnabled == true && DISITM13.Text != "" && DISITM13.Text != "0")
+            {
+                z13 = Convert.ToDecimal(DISITM13.Text); y13 = (distot13 * z13) / 100;
+                total13.Text = (distot13 - y13).ToString();
+            }
+        }
+
+        private void DISITM14_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot14 = Convert.ToDecimal(total14.Text);
+            if (DISITM14.IsEnabled == true && DISITM14.Text != "" && DISITM14.Text != "0")
+            {
+                z14 = Convert.ToDecimal(DISITM14.Text); y14 = (distot14 * z14) / 100;
+                total14.Text = (distot14 - y14).ToString();
+            }
+        }
+
+        private void DISITM15_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot15 = Convert.ToDecimal(total15.Text);
+            if (DISITM15.IsEnabled == true && DISITM15.Text != "" && DISITM15.Text != "0")
+            {
+                z15 = Convert.ToDecimal(DISITM15.Text); y15 = (distot15 * z15) / 100;
+                total15.Text = (distot15- y15).ToString();
+            }
+        }
+
+        private void DISITM16_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot16 = Convert.ToDecimal(total16.Text);
+            if (DISITM16.IsEnabled == true && DISITM16.Text != "" && DISITM16.Text != "0")
+            {
+                z16 = Convert.ToDecimal(DISITM16.Text); y16 = (distot16 * z16) / 100;
+                total16.Text = (distot16 - y16).ToString();
+            }
+        }
+
+        private void DISITM17_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot17 = Convert.ToDecimal(total17.Text);
+            if (DISITM17.IsEnabled == true && DISITM17.Text != "" && DISITM17.Text != "0")
+            {
+                z17 = Convert.ToDecimal(DISITM17.Text); y17 = (distot17 * z17) / 100;
+                total17.Text = (distot17 - y17).ToString();
+            }
+        }
+
+        private void DISITM18_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot18 = Convert.ToDecimal(total18.Text);
+            if (DISITM18.IsEnabled == true && DISITM18.Text != "" && DISITM18.Text != "0")
+            {
+                z18 = Convert.ToDecimal(DISITM18.Text); y18 = (distot18 * z18) / 100;
+                total18.Text = (distot18 - y18).ToString();
+            }
+        }
+
+        private void DISITM19_LostFocus(object sender, RoutedEventArgs e)
+        {
+            distot19 = Convert.ToDecimal(total19.Text);
+            if (DISITM19.IsEnabled == true && DISITM19.Text != "" && DISITM19.Text != "0")
+            {
+                z19 = Convert.ToDecimal(DISITM19.Text); y19= (distot19 * z19) / 100;
+                total19.Text = (distot19 - y19).ToString();
+            }
+        }
+
+        public decimal distot,distot1,distot2,distot3,distot4,distot5,distot6,distot7,distot8,distot9,distot10,distot11,distot12,distot13,distot14,distot15,distot16,distot17,distot18,distot19,distot20,distot21,distot22,distot23,distot24,distot25;
+        
+
         DataTable d = new DataTable();
         public decimal dis, ins, gndtot, ttam;
         public static string stallname, STALLID;
@@ -4156,6 +4360,7 @@ namespace Foodcourt.View
             if (quantity.Text == "")
             { quantity.Focus(); }
             else { itemname1.Focus(); TOTITM1.ItemsSource = dn.DefaultView; }
+            DISITM1.IsEnabled = true;
         }
         private void Quantity_GotFocus(object sender, RoutedEventArgs e)
         {
