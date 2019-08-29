@@ -77,7 +77,7 @@ namespace Foodcourt.View
         }
         public static string id, itm, aaid, QY, itemnamestlid, stlid, offername,sa,st;
         public static int count,offid;
-        public static decimal tot, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum, maxamount, disper, amdis,disc,dec;
+        public static decimal tot, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum, maxamount, disper, amdis,disc,dec,discountper,discountam;
         public static decimal a, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25;
         public static int q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25;
         public static decimal r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25;
@@ -86,14 +86,21 @@ namespace Foodcourt.View
         public decimal tax118, tax218, tax318, tax418, tax518, tax618, tax718, tax818, tax918, tax1018, tax1118, tax1218, tax1318, tax1418, tax1518, tax1618, tax1718, tax1818, tax1918, tax2018;
         public static decimal z, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19;
         public static decimal y, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19;
+        public static decimal ab, ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19;
 
         private void DISITM_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot = Convert.ToDecimal(total.Text);
-            if (DISITM.IsEnabled == true && DISITM.Text != "" && DISITM.Text != "0")
+            if (quantity.Text == "")
+            { quantity.Focus(); }
+            else
             {
-                z = Convert.ToDecimal(DISITM.Text); y = (distot * z) / 100;
-                total.Text = (distot - y).ToString();
+                distot = Convert.ToDecimal(total.Text);
+                if (DISITM.IsEnabled == true && DISITM.Text != "" && DISITM.Text != "0")
+                {
+                    z = Convert.ToDecimal(DISITM.Text); y = (distot * z) / 100;
+                    total.Text = (distot - y).ToString();
+                    ab = Convert.ToDecimal(total.Text);
+                }
             }
         }
         private void DISITM1_LostFocus(object sender, RoutedEventArgs e)
@@ -103,6 +110,7 @@ namespace Foodcourt.View
             {
                 z1 = Convert.ToDecimal(DISITM1.Text); y1 = (distot1 * z1) / 100;
                 total1.Text = (distot1 - y1).ToString();
+                ab1 = Convert.ToDecimal(total1.Text);
             }
         }
         private void DISITM2_LostFocus(object sender, RoutedEventArgs e)
@@ -112,6 +120,7 @@ namespace Foodcourt.View
             {
                 z2 = Convert.ToDecimal(DISITM2.Text); y2 = (distot2 * z2) / 100;
                 total2.Text = (distot2 - y2).ToString();
+                ab2 = Convert.ToDecimal(total2.Text);
             }
         }
         private void DISITM3_LostFocus(object sender, RoutedEventArgs e)
@@ -121,6 +130,7 @@ namespace Foodcourt.View
             {
                 z3 = Convert.ToDecimal(DISITM3.Text); y3 = (distot3 * z3) / 100;
                 total3.Text = (distot3 - y3).ToString();
+                ab3 = Convert.ToDecimal(total3.Text);
             }
         }
 
@@ -131,6 +141,7 @@ namespace Foodcourt.View
             {
                 z4 = Convert.ToDecimal(DISITM4.Text); y4 = (distot4 * z4) / 100;
                 total4.Text = (distot4 - y4).ToString();
+                ab4 = Convert.ToDecimal(total4.Text);
             }
         }
 
@@ -141,6 +152,7 @@ namespace Foodcourt.View
             {
                 z5 = Convert.ToDecimal(DISITM5.Text); y5 = (distot5 * z5) / 100;
                 total5.Text = (distot5 - y5).ToString();
+                ab5 = Convert.ToDecimal(total5.Text);
             }
         }
 
@@ -151,6 +163,7 @@ namespace Foodcourt.View
             {
                 z6 = Convert.ToDecimal(DISITM6.Text); y6 = (distot6 * z6) / 100;
                 total6.Text = (distot6 - y6).ToString();
+                ab6 = Convert.ToDecimal(total6.Text);
             }
         }
 
@@ -161,6 +174,7 @@ namespace Foodcourt.View
             {
                 z7 = Convert.ToDecimal(DISITM7.Text); y7 = (distot7 * z7) / 100;
                 total7.Text = (distot7 - y7).ToString();
+                ab7 = Convert.ToDecimal(total7.Text);
             }
         }
 
@@ -171,6 +185,7 @@ namespace Foodcourt.View
             {
                 z8 = Convert.ToDecimal(DISITM8.Text); y8 = (distot8 * z8) / 100;
                 total8.Text = (distot8 - y8).ToString();
+                ab8 = Convert.ToDecimal(total8.Text);
             }
         }
 
@@ -181,6 +196,7 @@ namespace Foodcourt.View
             {
                 z9 = Convert.ToDecimal(DISITM9.Text); y9 = (distot9 * z9) / 100;
                 total9.Text = (distot9 - y9).ToString();
+                ab9 = Convert.ToDecimal(total9.Text);
             }
         }
 
@@ -191,6 +207,7 @@ namespace Foodcourt.View
             {
                 z10 = Convert.ToDecimal(DISITM10.Text); y10 = (distot10 * z10) / 100;
                 total10.Text = (distot10 - y10).ToString();
+                ab10 = Convert.ToDecimal(total10.Text);
             }
         }
 
@@ -201,6 +218,7 @@ namespace Foodcourt.View
             {
                 z11 = Convert.ToDecimal(DISITM11.Text); y11 = (distot11 * z11) / 100;
                 total11.Text = (distot11 - y11).ToString();
+                ab11 = Convert.ToDecimal(total11.Text);
             }
         }
 
@@ -211,6 +229,7 @@ namespace Foodcourt.View
             {
                 z12 = Convert.ToDecimal(DISITM12.Text); y12 = (distot12 * z12) / 100;
                 total12.Text = (distot12 - y12).ToString();
+                ab12 = Convert.ToDecimal(total12.Text);
             }
         }
 
@@ -221,6 +240,7 @@ namespace Foodcourt.View
             {
                 z13 = Convert.ToDecimal(DISITM13.Text); y13 = (distot13 * z13) / 100;
                 total13.Text = (distot13 - y13).ToString();
+                ab13 = Convert.ToDecimal(total13.Text);
             }
         }
 
@@ -231,6 +251,7 @@ namespace Foodcourt.View
             {
                 z14 = Convert.ToDecimal(DISITM14.Text); y14 = (distot14 * z14) / 100;
                 total14.Text = (distot14 - y14).ToString();
+                ab14 = Convert.ToDecimal(total14.Text);
             }
         }
 
@@ -241,6 +262,7 @@ namespace Foodcourt.View
             {
                 z15 = Convert.ToDecimal(DISITM15.Text); y15 = (distot15 * z15) / 100;
                 total15.Text = (distot15- y15).ToString();
+                ab15 = Convert.ToDecimal(total15.Text);
             }
         }
 
@@ -251,6 +273,7 @@ namespace Foodcourt.View
             {
                 z16 = Convert.ToDecimal(DISITM16.Text); y16 = (distot16 * z16) / 100;
                 total16.Text = (distot16 - y16).ToString();
+                ab16 = Convert.ToDecimal(total16.Text);
             }
         }
 
@@ -261,6 +284,7 @@ namespace Foodcourt.View
             {
                 z17 = Convert.ToDecimal(DISITM17.Text); y17 = (distot17 * z17) / 100;
                 total17.Text = (distot17 - y17).ToString();
+                ab17 = Convert.ToDecimal(total17.Text);
             }
         }
 
@@ -271,6 +295,7 @@ namespace Foodcourt.View
             {
                 z18 = Convert.ToDecimal(DISITM18.Text); y18 = (distot18 * z18) / 100;
                 total18.Text = (distot18 - y18).ToString();
+                ab18 = Convert.ToDecimal(total18.Text);
             }
         }
 
@@ -281,6 +306,7 @@ namespace Foodcourt.View
             {
                 z19 = Convert.ToDecimal(DISITM19.Text); y19= (distot19 * z19) / 100;
                 total19.Text = (distot19 - y19).ToString();
+                ab19 = Convert.ToDecimal(total19.Text);
             }
         }
 
@@ -1114,8 +1140,9 @@ namespace Foodcourt.View
                 if (itemname17.Text == "") { a17 = 0; t17 = 0; }
                 if (itemname18.Text == "") { a18 = 0; t18 = 0; }
                 if (itemname19.Text == "") { a19 = 0; t19 = 0; }
-                tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
-                tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18);
+                // tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
+                tot = Convert.ToDecimal(ab + ab1 + ab2 + ab3 + ab4 + ab5 + ab6 + ab7 + ab8 + ab9 + ab10 + ab11 + ab12 + ab13 + ab14 + ab15 + ab16 + ab17 + ab18 + ab19);
+                tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19);
                 tax5tot = Convert.ToDecimal(tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205);
                 tax18tot = Convert.ToDecimal(tax118 + tax218 + tax318 + tax418 + tax518 + tax618 + tax718 + tax818 + tax918 + tax1018 + tax1118 + tax1218 + tax1318 + tax1418 + tax1518 + tax1618 + tax1718 + tax1818 + tax1918 + tax2018);
                 gtotbill = tot + tax;
@@ -1123,6 +1150,8 @@ namespace Foodcourt.View
                 txtgst.Text = Math.Round(tax5tot, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgst2.Text = Math.Round(tax18tot, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
+                discountper = z + z1 + z2 + z3 + z4 + z5 + z6 + z7 + z8 + z9 + z10 + z11 + z12 + z13 + z14 + z15 + z16 + z17 + z18 + z19;
+                discountam = y + y1 + y2 + y3 + y4 + y5 + y6 + y7 + y8 + y9 + y10 + y11 + y12 + y13 + y14 + y15 + y16 + y17 + y18 + y19;
             }
         }
         public decimal billtot;
@@ -1133,6 +1162,8 @@ namespace Foodcourt.View
             pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
             billtot = Convert.ToDecimal(txtgttl.Text);
             pos.BILL_Total = (int)Math.Round(billtot);
+            pos.Discount = discountam;
+            pos.DiscountPer = discountper;
             pos.BILL_Discount = Convert.ToDecimal(txtdisAmount.Text);
             if(txtpercentage.Text == "" || txtpercentage.Text == null)
             { pos.Bill_OfferId = 0; }
