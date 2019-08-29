@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using DAL;
@@ -117,6 +114,13 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             string s = "SELECT PRPT_Name,PRPT_Address,PRPT_GST FROM FCPRPTY";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable NameChecking()
+        {
+            var list = new List<SqlParameter>();
+            string s = "select* from FCITMNAM where NAM_Name = '"+ NAM_Name + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

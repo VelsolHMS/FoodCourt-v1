@@ -25,7 +25,7 @@ namespace Foodcourt.View.Oprs
         public static string aa;
         public DataTable dt;
         public int error = 0;
-        Regex alp = new Regex(@"^[a-zA-Z0-9 -():]+$");
+        Regex alp = new Regex(@"^[a-zA-Z0-9 -():']+$");
         Regex num = new Regex(@"^[0-9]+$");
         public POS()
         {
@@ -46,6 +46,7 @@ namespace Foodcourt.View.Oprs
             itemname.Focus();
             cou = 0;
             clear();
+            c = 0; c1 = 0; c2 = 0; c3 = 0; c4 = 0; c5 = 0; c6 = 0; c7 = 0; c8 = 0; c9 = 0; c10 = 0; c11 = 0; c12 = 0; c13 = 0; c14 = 0; c15 = 0; c16 = 0; c17 = 0; c18 = 0; c19 = 0; c20 = 0; c21 = 0; c22 = 0; c23 = 0; c24 = 0; c25 = 0;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -54,6 +55,7 @@ namespace Foodcourt.View.Oprs
             else
                 error--;
         }
+        public static int c, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25;
         public static string stlid,ctgname;
         
         public static int COUNT = 0;
@@ -127,9 +129,6 @@ namespace Foodcourt.View.Oprs
         {
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
-            ITMNAM.Visibility = Visibility.Hidden;
-            WRAPN.Children.Clear();
-            ITMCTG.Visibility = Visibility.Visible;
         }
         public static string check1, t1,t2;
         public static string bid;
@@ -138,88 +137,34 @@ namespace Foodcourt.View.Oprs
         public string sri;
         public int s;
         public decimal rate,rate1,rate2,rate3, rate4, rate5, rate6, rate7, rate8, rate9, rate10, rate11, rate12, rate13, rate14, rate15,rate16,rate17,rate18,rate19,rate20,rate21;
-
-        private void btnprfl_Click(object sender, RoutedEventArgs e)
-        {
-            cpmtrl.Visibility = Visibility.Visible;
-        }
-
-        private void btncls_Click(object sender, RoutedEventArgs e)
-        {
-            cpmtrl.Visibility = Visibility.Hidden;
-        }
-
-        private void btnsave_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                pos.NAME = txtnamee.Text;
-                pos.MOBILE_NO = txtphone.Text;
-                pos.EMAIL = txtemail.Text;
-                pos.CITY = txtaddress.Text;
-                pos.ADDRESS = txtadd.Text;
-                string a = "Submit"; string b = Convert.ToString(btnsave.Content);
-                if (a == b)
-                {
-                    pos.custinfo();
-                    MessageBox.Show("Saved Successfully");
-                    clear1();
-                }
-                else
-                {
-                    btnsave.Content = "Update";
-                    MessageBox.Show("Updated Successfully");
-                    clear1();
-                    btnsave.Content = "Submit";
-                }
-            }
-            catch(SystemException )
-            {
-            }
-        }
-        public void clear1()
-        {
-            txtnamee.Text = "";
-            txtphone.Text = "";
-            txtemail.Text = "";
-            txtadd.Text = "";
-            txtaddress.Text = "";
-            btnsave.Content = "Submit";
-        }
-        private void btnclr_Click(object sender, RoutedEventArgs e)
-        {
-            clear1();
-        }
-        public static string phno;
-        private void txtphone_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (error == 0)
-            {
-                phno = txtphone.Text;
-                DataTable dt = pos.getdetails();
-                if (dt.Rows.Count == 0)
-                {
-                    txtnamee.Text = "";
-                    txtemail.Text = "";
-                    txtadd.Text = "";
-                    txtaddress.Text = "";
-                }
-                else
-                {
-                    btnsave.Content = "Update";
-                    txtnamee.Text = dt.Rows[0]["NAME"].ToString();
-                    txtemail.Text = dt.Rows[0]["EMAIL"].ToString();
-                    txtadd.Text = dt.Rows[0]["CITY"].ToString();
-                    txtaddress.Text = dt.Rows[0]["ADDRESS"].ToString();
-                }
-            }
-            else
-            {
-            }
-        }
-        private void quantity2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
+        //private void btnsave_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        pos.NAME = txtnamee.Text;
+        //        pos.MOBILE_NO = txtphone.Text;
+        //        pos.EMAIL = txtemail.Text;
+        //        pos.CITY = txtaddress.Text;
+        //        pos.ADDRESS = txtadd.Text;
+        //        string a = "Submit"; string b = Convert.ToString(btnsave.Content);
+        //        if (a == b)
+        //        {
+        //            pos.custinfo();
+        //            MessageBox.Show("Saved Successfully");
+        //            clear1();
+        //        }
+        //        else
+        //        {
+        //            btnsave.Content = "Update";
+        //            MessageBox.Show("Updated Successfully");
+        //            clear1();
+        //            btnsave.Content = "Submit";
+        //        }
+        //    }
+        //    catch(SystemException )
+        //    {
+        //    }
+        //}
         public static decimal tax5sum,tax18sum,ttotal, maxamount,disper,amdis;
         public decimal tax15, tax25, tax35, tax45, tax55, tax65, tax75, tax85, tax95, tax105, tax115, tax125, tax135, tax145, tax155, tax165, tax175, tax185, tax195, tax205;
         private void Itemname_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -236,7 +181,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity.Text = "";
+                quantity.Text = ""; itemrate.Text = ""; total.Text = ""; 
                 DataTable dt = pos.itemslist();
                 TOTITM.ItemsSource = dt.DefaultView;
             }
@@ -244,7 +189,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname.Text == "")
                 {
-                    quantity.Text = "";
+                    quantity.Text = ""; itemrate.Text = ""; total.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM.ItemsSource = dt.DefaultView;
                 }
@@ -315,7 +260,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity1.Text = "";
+                quantity1.Text = ""; itemrate1.Text = ""; total1.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM1.ItemsSource = dt.DefaultView;
             }
@@ -323,7 +268,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname1.Text == "")
                 {
-                    quantity1.Text = "";
+                    quantity1.Text = ""; itemrate1.Text = ""; total1.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM1.ItemsSource = dt.DefaultView;
                 }
@@ -393,7 +338,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity2.Text = "";
+                quantity2.Text = ""; itemrate2.Text = ""; total2.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM2.ItemsSource = dt.DefaultView;
             }
@@ -401,7 +346,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname2.Text == "")
                 {
-                    quantity2.Text = "";
+                    quantity2.Text = ""; itemrate2.Text = ""; total2.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM2.ItemsSource = dt.DefaultView;
                 }
@@ -472,7 +417,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity3.Text = "";
+                quantity3.Text = ""; itemrate3.Text = ""; total3.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM3.ItemsSource = dt.DefaultView;
             }
@@ -480,7 +425,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname3.Text == "")
                 {
-                    quantity3.Text = "";
+                    quantity3.Text = ""; itemrate3.Text = ""; total3.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM3.ItemsSource = dt.DefaultView;
                 }
@@ -552,7 +497,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity4.Text = "";
+                quantity4.Text = ""; itemrate4.Text = ""; total4.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM4.ItemsSource = dt.DefaultView;
             }
@@ -560,7 +505,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname4.Text == "")
                 {
-                    quantity4.Text = "";
+                    quantity4.Text = ""; itemrate4.Text = ""; total4.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM4.ItemsSource = dt.DefaultView;
                 }
@@ -630,7 +575,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity5.Text = "";
+                quantity5.Text = ""; itemrate5.Text = ""; total5.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM5.ItemsSource = dt.DefaultView;
             }
@@ -638,7 +583,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname5.Text == "")
                 {
-                    quantity5.Text = "";
+                    quantity5.Text = ""; itemrate5.Text = ""; total5.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM5.ItemsSource = dt.DefaultView;
                 }
@@ -708,7 +653,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity6.Text = "";
+                quantity6.Text = ""; itemrate6.Text = ""; total6.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM6.ItemsSource = dt.DefaultView;
             }
@@ -716,7 +661,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname6.Text == "")
                 {
-                    quantity6.Text = "";
+                    quantity6.Text = ""; itemrate6.Text = ""; total6.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM6.ItemsSource = dt.DefaultView;
                 }
@@ -786,7 +731,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity7.Text = "";
+                quantity7.Text = ""; itemrate7.Text = ""; total7.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM7.ItemsSource = dt.DefaultView;
             }
@@ -794,7 +739,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname7.Text == "")
                 {
-                    quantity7.Text = "";
+                    quantity7.Text = ""; itemrate7.Text = ""; total7.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM7.ItemsSource = dt.DefaultView;
                 }
@@ -865,7 +810,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity8.Text = "";
+                quantity8.Text = ""; itemrate8.Text = ""; total8.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM8.ItemsSource = dt.DefaultView;
             }
@@ -873,7 +818,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname8.Text == "")
                 {
-                    quantity8.Text = "";
+                    quantity8.Text = ""; itemrate8.Text = ""; total8.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM8.ItemsSource = dt.DefaultView;
                 }
@@ -943,7 +888,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity9.Text = "";
+                quantity9.Text = ""; itemrate9.Text = ""; total9.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM9.ItemsSource = dt.DefaultView;
             }
@@ -951,7 +896,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname9.Text == "")
                 {
-                    quantity9.Text = "";
+                    quantity9.Text = ""; itemrate9.Text = ""; total9.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM9.ItemsSource = dt.DefaultView;
                 }
@@ -1021,7 +966,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity10.Text = "";
+                quantity10.Text = ""; itemrate10.Text = ""; total10.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM10.ItemsSource = dt.DefaultView;
             }
@@ -1029,7 +974,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname10.Text == "")
                 {
-                    quantity10.Text = "";
+                    quantity10.Text = ""; itemrate10.Text = ""; total10.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM10.ItemsSource = dt.DefaultView;
                 }
@@ -1099,7 +1044,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity11.Text = "";
+                quantity11.Text = ""; itemrate11.Text = ""; total11.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM11.ItemsSource = dt.DefaultView;
             }
@@ -1107,7 +1052,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname11.Text == "")
                 {
-                    quantity11.Text = "";
+                    quantity11.Text = ""; itemrate11.Text = ""; total11.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM11.ItemsSource = dt.DefaultView;
                 }
@@ -1177,7 +1122,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity12.Text = "";
+                quantity12.Text = ""; itemrate12.Text = ""; total12.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM12.ItemsSource = dt.DefaultView;
             }
@@ -1185,7 +1130,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname12.Text == "")
                 {
-                    quantity12.Text = "";
+                    quantity12.Text = ""; itemrate12.Text = ""; total12.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM12.ItemsSource = dt.DefaultView;
                 }
@@ -1255,7 +1200,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity13.Text = "";
+                quantity13.Text = ""; itemrate13.Text = ""; total13.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM13.ItemsSource = dt.DefaultView;
             }
@@ -1263,7 +1208,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname13.Text == "")
                 {
-                    quantity13.Text = "";
+                    quantity13.Text = ""; itemrate13.Text = ""; total13.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM13.ItemsSource = dt.DefaultView;
                 }
@@ -1333,7 +1278,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity14.Text = "";
+                quantity14.Text = ""; itemrate14.Text = ""; total14.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM14.ItemsSource = dt.DefaultView;
             }
@@ -1341,7 +1286,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname14.Text == "")
                 {
-                    quantity14.Text = "";
+                    quantity14.Text = ""; itemrate14.Text = ""; total14.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM14.ItemsSource = dt.DefaultView;
                 }
@@ -1411,7 +1356,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity15.Text = "";
+                quantity15.Text = ""; itemrate15.Text = ""; total15.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM15.ItemsSource = dt.DefaultView;
             }
@@ -1419,7 +1364,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname15.Text == "")
                 {
-                    quantity15.Text = "";
+                    quantity15.Text = ""; itemrate15.Text = ""; total15.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM15.ItemsSource = dt.DefaultView;
                 }
@@ -1489,7 +1434,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity16.Text = "";
+                quantity16.Text = ""; itemrate16.Text = ""; total16.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM16.ItemsSource = dt.DefaultView;
             }
@@ -1497,7 +1442,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname16.Text == "")
                 {
-                    quantity16.Text = "";
+                    quantity16.Text = ""; itemrate16.Text = ""; total16.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM16.ItemsSource = dt.DefaultView;
                 }
@@ -1567,7 +1512,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity17.Text = "";
+                quantity17.Text = ""; itemrate17.Text = ""; total17.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM17.ItemsSource = dt.DefaultView;
             }
@@ -1575,7 +1520,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname17.Text == "")
                 {
-                    quantity17.Text = "";
+                    quantity17.Text = ""; itemrate17.Text = ""; total17.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM17.ItemsSource = dt.DefaultView;
                 }
@@ -1645,7 +1590,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity18.Text = "";
+                quantity18.Text = ""; itemrate18.Text = ""; total18.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM18.ItemsSource = dt.DefaultView;
             }
@@ -1653,7 +1598,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname18.Text == "")
                 {
-                    quantity18.Text = "";
+                    quantity18.Text = ""; itemrate18.Text = ""; total18.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM18.ItemsSource = dt.DefaultView;
                 }
@@ -1723,7 +1668,7 @@ namespace Foodcourt.View.Oprs
             }
             else if (e.Key == Key.Delete)
             {
-                quantity19.Text = "";
+                quantity19.Text = ""; itemrate19.Text = ""; total19.Text = "";
                 DataTable dt = pos.itemslist();
                 TOTITM19.ItemsSource = dt.DefaultView;
             }
@@ -1731,7 +1676,7 @@ namespace Foodcourt.View.Oprs
             {
                 if (itemname19.Text == "")
                 {
-                    quantity19.Text = "";
+                    quantity19.Text = ""; itemrate19.Text = ""; total19.Text = "";
                     DataTable dt = pos.itemslist();
                     TOTITM19.ItemsSource = dt.DefaultView;
                 }
@@ -2473,6 +2418,11 @@ namespace Foodcourt.View.Oprs
                     quantity17.Focus();
                 }
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
         private void TOTITM18_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -3730,6 +3680,7 @@ namespace Foodcourt.View.Oprs
                 tax5sum = tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205;
                 tax18sum = tax118 + tax218 + tax318 + tax418 + tax518 + tax618 + tax718 + tax818 + tax918 + tax1018 + tax1118 + tax1218 + tax1318 + tax1418 + tax1518 + tax1618 + tax1718 + tax1818 + tax1918 + tax2018;
 
+
                 MessageBox.Show("Inserted successfully");
                 ReportDocument re = new ReportDocument();
                 DataTable d1 = Billprint1();
@@ -3764,20 +3715,7 @@ namespace Foodcourt.View.Oprs
                 
                 re.PrintToPrinter(1, false, 0, 0);
                 re.Refresh();
-                //ReportDocument re1 = new ReportDocument();
-                //DataTable d21 = Dprint1();
-                //a11 = d21;
-                //re1.Load("../../REPORTS/Dprint1.rpt");
-                //DataTable ds1 = Dprint();
-                //a1 = ds1;
-                //re1.Load("../../REPORTS/DuplicatePrint.rpt");
-                //re1.SetDataSource(a1);
-                //re1.Subreports[0].SetDataSource(a11);
-                //re1.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-                //re1.PrintToPrinter(1, false, 0, 0);
-                //re1.Refresh();
-                //re.PrintToPrinter(1, false, 0, 0);
-                //re.Refresh();
+               
                 clear();
                 j = 0;
                 this.NavigationService.Refresh();
@@ -3991,67 +3929,12 @@ namespace Foodcourt.View.Oprs
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             clear();
-            WRAPC.Children.Clear();
             DataTable DT = pos.itmnames();
             DT.Rows.Clear();
-            ITMNAM.Visibility = Visibility.Hidden;
-            WRAPN.Children.Clear();
-            checkbox_checks = null;
-            ITMCTG.Visibility = Visibility.Collapsed;
             this.NavigationService.Refresh();
         }
 
-        //public DataTable Dprint()
-        //{
-        //    DataTable d = new DataTable();
-        //    d.Columns.Add("Name", typeof(string));
-        //    d.Columns.Add("Address", typeof(string));
-        //    d.Columns.Add("GstNo", typeof(string));
-        //    d.Columns.Add("BillNo", typeof(string));
-        //    d.Columns.Add("BillDate", typeof(DateTime));
-        //    d.Columns.Add("Total", typeof(decimal));
-        //    d.Columns.Add("Cgst", typeof(decimal));
-        //    d.Columns.Add("Sgst", typeof(decimal));
-        //    d.Columns.Add("GrandTotal", typeof(decimal));
-        //    DataRow row = d.NewRow();
-        //    DataTable adres = pos.Address();
-        //    row["Name"] = adres.Rows[0]["PRPT_Name"].ToString();
-        //    row["Address"] = adres.Rows[0]["PRPT_Address"].ToString();
-        //    row["GstNo"] = adres.Rows[0]["PRPT_GST"].ToString();
-        //    row["BillNo"] = txtbillno.Text;
-        //    row["BillDate"] = DateTime.Now.Date;
-        //    DataTable dt2 = pos.itemstot();
-        //    row["Total"] = dt2.Rows[0]["BILL_Amount"].ToString();
-        //    decimal tax = Convert.ToDecimal(dt2.Rows[0]["BILL_Tax"].ToString());
-        //    row["Cgst"] = tax / 2;
-        //    row["Sgst"] = tax / 2;
-        //    row["GrandTotal"] = dt2.Rows[0]["BILL_Total"].ToString();
-
-        //    d.Rows.Add(row);
-        //    return d;
-        //}
-
-        //public DataTable Dprint1()
-        //{
-        //    DataTable dd = new DataTable();
-        //    dd.Columns.Add("Item", typeof(string));
-        //    dd.Columns.Add("Rate", typeof(decimal));
-        //    dd.Columns.Add("Quantity", typeof(int));
-        //    dd.Columns.Add("Amount", typeof(decimal));
-        //    DataTable DD = pos.itms();
-        //    for (int i = 0; i < DD.Rows.Count; i++)
-        //    {
-        //        DataRow r = dd.NewRow();
-        //        r["Item"] = DD.Rows[i]["BILITM_Name"].ToString();
-        //        r["Rate"] = DD.Rows[i]["BILITM_Rate"].ToString();
-        //        r["Quantity"] = DD.Rows[i]["BILLITM_Quanty"].ToString();
-        //        decimal d = Convert.ToDecimal(DD.Rows[i]["BILITM_Rate"].ToString());
-        //        int s = Convert.ToInt32(DD.Rows[i]["BILLITM_Quanty"].ToString());
-        //        r["Amount"] = d * s;
-        //        dd.Rows.Add(r);
-        //    }
-        //    return dd;
-        //}
+       
 
         public static int j = 0,h=0;
         public static DataTable a11, a1;
@@ -4092,14 +3975,7 @@ namespace Foodcourt.View.Oprs
             r["BillDate"] = DateTime.Now.Date;
             r["BillTime"] = DateTime.Now;
             r["Stallname"] = stallname;
-            //if (h < dstlss.Rows.Count)
-            //{
-            //    STALLID = dstlss.Rows[h]["STL_ID"].ToString();
-            //    DataTable dsn = pos.STALLNAME();
-            //    r["Stallname"] = dsn.Rows[0]["STL_Name"].ToString();
             ds.Rows.Add(r);
-            //    h = h + 1;
-            //}
             return ds;
         }
         public static DataTable pos1, pos11;
@@ -4117,476 +3993,7 @@ namespace Foodcourt.View.Oprs
             itemname18.Text = ""; itemrate18.Text = ""; quantity18.Text = ""; total18.Text = ""; itemname19.Text = ""; itemrate19.Text = ""; quantity19.Text = ""; total19.Text = "";
             txtttl.Text = ""; txtgst.Text = ""; txtgttl.Text = "";
         }
-            public void checkede()
-        {
-            if (cou == 1)
-            {
-               // sp1.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname.Text = dt.Rows[0]["NAM_Name"].ToString();
-                sa = dt.Rows[0]["NAM_Name"].ToString();
-                rate1 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate.Text = Convert.ToString(rate1);
-                itemname.IsReadOnly = true;
-                itemrate.IsReadOnly = true;
-                total.IsReadOnly = true;
-            }
-            if (cou == 2)
-            {
-              //  sp2.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname1.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate2 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate1.Text = Convert.ToString(rate2);
-                itemname1.IsReadOnly = true;
-                itemrate1.IsReadOnly = true;
-                total1.IsReadOnly = true;
-            }
-            if (cou == 3)
-            {
-              //  sp3.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname2.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate3 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate2.Text = Convert.ToString(rate3);
-                itemname2.IsReadOnly = true;
-                itemrate2.IsReadOnly = true;
-                total2.IsReadOnly = true;
-            }
-            if (cou == 4)
-            {
-              //  sp4.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname3.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate4 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate3.Text = Convert.ToString(rate4);
-                itemname3.IsReadOnly = true;
-                itemrate3.IsReadOnly = true;
-                total3.IsReadOnly = true;
-            }
-            if (cou == 5)
-            {
-              //  sp5.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname4.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate5 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate4.Text = Convert.ToString(rate5);
-                itemname4.IsReadOnly = true;
-                itemrate4.IsReadOnly = true;
-                total4.IsReadOnly = true;
-            }
-            if (cou == 6)
-            {
-              //  sp6.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname5.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate6 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate5.Text = Convert.ToString(rate6);
-                itemname5.IsReadOnly = true;
-                itemrate5.IsReadOnly = true;
-                total5.IsReadOnly = true;
-            }
-            if (cou == 7)
-            {
-             //   sp7.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname6.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate7 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate6.Text = Convert.ToString(rate7);
-                itemname6.IsReadOnly = true;
-                itemrate6.IsReadOnly = true;
-                total6.IsReadOnly = true;
-            }
-            if (cou == 8)
-            {
-               // sp8.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname7.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate8 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate7.Text = Convert.ToString(rate8);
-                itemname7.IsReadOnly = true;
-                itemrate7.IsReadOnly = true;
-                total7.IsReadOnly = true;
-            }
-            if (cou == 9)
-            {
-              //  sp9.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname8.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate9 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate8.Text = Convert.ToString(rate9);
-                itemname8.IsReadOnly = true;
-                itemrate8.IsReadOnly = true;
-                total8.IsReadOnly = true;
-            }
-            if (cou == 10)
-            {
-             //   sp10.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname9.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate10 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate9.Text = Convert.ToString(rate10);
-                itemname9.IsReadOnly = true;
-                itemrate9.IsReadOnly = true;
-                total9.IsReadOnly = true;
-            }
-            if (cou == 11)
-            {
-              //  sp11.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname10.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate11 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate10.Text = Convert.ToString(rate11);
-                itemname10.IsReadOnly = true;
-                itemrate10.IsReadOnly = true;
-                total10.IsReadOnly = true;
-            }
-            if (cou == 12)
-            {
-              //  sp12.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname11.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate12 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate11.Text = Convert.ToString(rate12);
-                itemname11.IsReadOnly = true;
-                itemrate11.IsReadOnly = true;
-                total11.IsReadOnly = true;
-            }
-            if (cou == 13)
-            {
-              //  sp13.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname12.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate13 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate12.Text = Convert.ToString(rate13);
-                itemname12.IsReadOnly = true;
-                itemrate12.IsReadOnly = true;
-                total12.IsReadOnly = true;
-            }
-            if (cou == 14)
-            {
-              //  sp14.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname13.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate14 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate13.Text = Convert.ToString(rate14);
-                itemname13.IsReadOnly = true;
-                itemrate13.IsReadOnly = true;
-                total13.IsReadOnly = true;
-            }
-            if (cou == 15)
-            {
-             //   sp15.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname14.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate15 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate14.Text = Convert.ToString(rate15);
-                itemname14.IsReadOnly = true;
-                itemrate14.IsReadOnly = true;
-                total14.IsReadOnly = true;
-            }
-            if (cou == 16)
-            {
-             //   sp16.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname15.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate16 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate15.Text = Convert.ToString(rate16);
-                itemname15.IsReadOnly = true;
-                itemrate15.IsReadOnly = true;
-                total15.IsReadOnly = true;
-            }
-            if (cou == 17)
-            {
-             //   sp17.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname16.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate17 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate16.Text = Convert.ToString(rate17);
-                itemname16.IsReadOnly = true;
-                itemrate16.IsReadOnly = true;
-                total16.IsReadOnly = true;
-            }
-            if (cou == 18)
-            {
-              //  sp18.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname17.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate18 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate17.Text = Convert.ToString(rate18);
-                itemname17.IsReadOnly = true;
-                itemrate17.IsReadOnly = true;
-                total17.IsReadOnly = true;
-            }
-            if (cou == 19)
-            {
-              //  sp19.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname18.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate19 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate18.Text = Convert.ToString(rate19);
-                itemname18.IsReadOnly = true;
-                itemrate18.IsReadOnly = true;
-                total18.IsReadOnly = true;
-            }
-            if (cou == 20)
-            {
-              //  sp20.Visibility = Visibility.Visible;
-                dt = pos.GETRATE();
-                itemname19.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate20 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate19.Text = Convert.ToString(rate20);
-                itemname19.IsReadOnly = true;
-                itemrate19.IsReadOnly = true;
-                total19.IsReadOnly = true;
-            }
-
-        }
-        public void checkede1()
-        {
-            if (cou == 1)
-            {
-                // var S = sender as CheckBox;
-                 check1 = z1;
-                dt = pos.GETRATE();
-                itemname.Text = dt.Rows[0]["NAM_Name"].ToString();
-                sa = dt.Rows[0]["NAM_Name"].ToString();
-                rate1 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate.Text = Convert.ToString(rate1);
-                itemname.IsReadOnly = true;
-                itemrate.IsReadOnly = true;
-                total.IsReadOnly = true;
-            }
-            if (cou == 2)
-            {
-                // var S = sender as CheckBox;
-                 check1 = z2;
-                dt = pos.GETRATE();
-                itemname1.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate2 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate1.Text = Convert.ToString(rate2);
-                itemname1.IsReadOnly = true;
-                itemrate1.IsReadOnly = true;
-                total1.IsReadOnly = true;
-            }
-            if (cou == 3)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname2.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate3 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate2.Text = Convert.ToString(rate3);
-                itemname2.IsReadOnly = true;
-                itemrate2.IsReadOnly = true;
-                total2.IsReadOnly = true;
-            }
-            if (cou == 4)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname3.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate4 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate3.Text = Convert.ToString(rate4);
-                itemname3.IsReadOnly = true;
-                itemrate3.IsReadOnly = true;
-                total3.IsReadOnly = true;
-            }
-            if (cou == 5)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname4.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate5 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate4.Text = Convert.ToString(rate5);
-                itemname4.IsReadOnly = true;
-                itemrate4.IsReadOnly = true;
-                total4.IsReadOnly = true;
-            }
-            if (cou == 6)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname5.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate6 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate5.Text = Convert.ToString(rate6);
-                itemname5.IsReadOnly = true;
-                itemrate5.IsReadOnly = true;
-                total5.IsReadOnly = true;
-            }
-            if (cou == 7)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname6.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate7 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate6.Text = Convert.ToString(rate7);
-                itemname6.IsReadOnly = true;
-                itemrate6.IsReadOnly = true;
-                total6.IsReadOnly = true;
-            }
-            if (cou == 8)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname7.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate8 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate7.Text = Convert.ToString(rate8);
-                itemname7.IsReadOnly = true;
-                itemrate7.IsReadOnly = true;
-                total7.IsReadOnly = true;
-            }
-            if (cou == 9)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname8.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate9 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate8.Text = Convert.ToString(rate9);
-                itemname8.IsReadOnly = true;
-                itemrate8.IsReadOnly = true;
-                total8.IsReadOnly = true;
-            }
-            if (cou == 10)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname9.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate10 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate9.Text = Convert.ToString(rate10);
-                itemname9.IsReadOnly = true;
-                itemrate9.IsReadOnly = true;
-                total9.IsReadOnly = true;
-            }
-            if (cou == 11)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname10.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate11 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate10.Text = Convert.ToString(rate11);
-                itemname10.IsReadOnly = true;
-                itemrate10.IsReadOnly = true;
-                total10.IsReadOnly = true;
-            }
-            if (cou == 12)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname11.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate12 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate11.Text = Convert.ToString(rate12);
-                itemname11.IsReadOnly = true;
-                itemrate11.IsReadOnly = true;
-                total11.IsReadOnly = true;
-            }
-            if (cou == 13)
-            {
-                // var S = sender as CheckBox;
-                //  check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname12.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate13 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate12.Text = Convert.ToString(rate13);
-                itemname12.IsReadOnly = true;
-                itemrate12.IsReadOnly = true;
-                total12.IsReadOnly = true;
-            }
-            if (cou == 14)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname13.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate14 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate13.Text = Convert.ToString(rate14);
-                itemname13.IsReadOnly = true;
-                itemrate13.IsReadOnly = true;
-                total13.IsReadOnly = true;
-            }
-            if (cou == 15)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname14.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate15 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate14.Text = Convert.ToString(rate15);
-                itemname14.IsReadOnly = true;
-                itemrate14.IsReadOnly = true;
-                total14.IsReadOnly = true;
-            }
-            if (cou == 16)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname15.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate16 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate15.Text = Convert.ToString(rate16);
-                itemname15.IsReadOnly = true;
-                itemrate15.IsReadOnly = true;
-                total15.IsReadOnly = true;
-            }
-            if (cou == 17)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname16.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate17 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate16.Text = Convert.ToString(rate17);
-                itemname16.IsReadOnly = true;
-                itemrate16.IsReadOnly = true;
-                total16.IsReadOnly = true;
-            }
-            if (cou == 18)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname17.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate18 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate17.Text = Convert.ToString(rate18);
-                itemname17.IsReadOnly = true;
-                itemrate17.IsReadOnly = true;
-                total17.IsReadOnly = true;
-            }
-            if (cou == 19)
-            {
-                // var S = sender as CheckBox;
-                // check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname18.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate19 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate18.Text = Convert.ToString(rate19);
-                itemname18.IsReadOnly = true;
-                itemrate18.IsReadOnly = true;
-                total18.IsReadOnly = true;
-            }
-            if (cou == 20)
-            {
-                //var S = sender as CheckBox;
-                //check1 = S.Content.ToString();
-                dt = pos.GETRATE();
-                itemname19.Text = dt.Rows[0]["NAM_Name"].ToString();
-                rate20 = Convert.ToDecimal(dt.Rows[0]["NAM_Rate"].ToString());
-                itemrate19.Text = Convert.ToString(rate20);
-                itemname19.IsReadOnly = true;
-                itemrate19.IsReadOnly = true;
-                total19.IsReadOnly = true;
-            }
-
-        }
+            
         public static string z, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19, z20, z21;
         
         public decimal ta1, ta2, ta3, ta4, ta5, ta6, ta7, ta8, ta9, ta10, ta11, ta12, ta13, ta14, ta15, ta16, ta17, ta18, ta19, ta20;
@@ -4594,6 +4001,8 @@ namespace Foodcourt.View.Oprs
         public decimal totbill, billtax, gtotbill;
         private void quantity_LostFocus(object sender, RoutedEventArgs e)
         {
+
+
             txtttl.Text = "";
             txtgst.Text = "";
             txtgttl.Text = "";
@@ -4702,7 +4111,9 @@ namespace Foodcourt.View.Oprs
                     }
                 }
                 sp1.Visibility = Visibility.Visible;
-                cou++;
+                if (c == 0)
+                { cou++; c = 1; }
+                
             }
             else { quantity.Text = ""; }
         }
@@ -4813,7 +4224,9 @@ namespace Foodcourt.View.Oprs
                     quantity1.Text = "";
                 }
             }
-                sp2.Visibility = Visibility.Visible; cou++;
+                sp2.Visibility = Visibility.Visible;
+                if (c1 == 0)
+                { cou++; c1 = 1; }
             }
             else { quantity1.Text = "";   }
         }
@@ -4924,7 +4337,8 @@ namespace Foodcourt.View.Oprs
                         quantity2.Text = "";
                     }
                 }
-                sp3.Visibility = Visibility.Visible; cou++;
+                sp3.Visibility = Visibility.Visible; if (c2 == 0)
+                { cou++; c2 = 1; }
             }
             else { quantity2.Text = ""; }
         }
@@ -5036,7 +4450,8 @@ namespace Foodcourt.View.Oprs
                         quantity3.Text = "";
                     }
                 }
-                sp4.Visibility = Visibility.Visible; cou++;
+                sp4.Visibility = Visibility.Visible; if (c3 == 0)
+                { cou++; c3 = 1; }
             }
             else { quantity3.Text = ""; }
         }
@@ -5147,7 +4562,8 @@ namespace Foodcourt.View.Oprs
                         quantity4.Text = "";
                     }
                 }
-                sp5.Visibility = Visibility.Visible; cou++;
+                sp5.Visibility = Visibility.Visible; if (c4 == 0)
+                { cou++; c4 = 1; }
             }
             else
             { quantity4.Text = "";}
@@ -5257,7 +4673,8 @@ namespace Foodcourt.View.Oprs
                         quantity5.Text = "";
                     }
                 }
-                sp6.Visibility = Visibility.Visible; cou++;
+                sp6.Visibility = Visibility.Visible; if (c5 == 0)
+                { cou++; c5 = 1; }
             }
             else { quantity5.Text = ""; }
         }
@@ -5367,7 +4784,7 @@ namespace Foodcourt.View.Oprs
                         quantity6.Text = "";
                     }
                 }
-                sp7.Visibility = Visibility.Visible; cou++;
+                sp7.Visibility = Visibility.Visible; if (c6 == 0) { cou++; c6 = 1; }
             }
             else { quantity6.Text = ""; }
         }
@@ -5476,7 +4893,7 @@ namespace Foodcourt.View.Oprs
                         quantity7.Text = "";
                     }
                 }
-                sp8.Visibility = Visibility.Visible; cou++;
+                sp8.Visibility = Visibility.Visible; if (c7 == 0) { cou++; c7 = 1; }
             }
             else { quantity7.Text = ""; }
         }
@@ -5586,7 +5003,7 @@ namespace Foodcourt.View.Oprs
                         quantity8.Text = "";
                     }
                 }
-                sp9.Visibility = Visibility.Visible; cou++;
+                sp9.Visibility = Visibility.Visible; if (c8 == 0) { cou++; c8 = 1; }
             }
             else { quantity8.Text = ""; }
         }
@@ -5695,7 +5112,7 @@ namespace Foodcourt.View.Oprs
                         quantity9.Text = "";
                     }
                 }
-                sp10.Visibility = Visibility.Visible; cou++;
+                sp10.Visibility = Visibility.Visible; if (c9 == 0) { cou++; c9 = 1; }
             }
             else { quantity9.Text = ""; }
         }
@@ -5804,7 +5221,7 @@ namespace Foodcourt.View.Oprs
                         quantity10.Text = "";
                     }
                 }
-                sp11.Visibility = Visibility.Visible; cou++;
+                sp11.Visibility = Visibility.Visible; if (c10 == 0) { cou++; c10 = 1; }
             }
             else { quantity10.Text = ""; }
         }
@@ -5911,7 +5328,7 @@ namespace Foodcourt.View.Oprs
                     quantity11.Text = "";
                 }
             }
-                sp12.Visibility = Visibility.Visible; cou++;
+                sp12.Visibility = Visibility.Visible; if (c11 == 0) { cou++; c11 = 1; }
         }
         private void quantity12_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6016,7 +5433,7 @@ namespace Foodcourt.View.Oprs
                     quantity12.Text = "";
                 }
             }
-                sp13.Visibility = Visibility.Visible; cou++;
+                sp13.Visibility = Visibility.Visible; if (c12 == 0) { cou++; c12 = 1; }
         }
         private void quantity13_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6122,7 +5539,7 @@ namespace Foodcourt.View.Oprs
                     quantity13.Text = "";
                 }
             }
-                sp14.Visibility = Visibility.Visible; cou++;
+                sp14.Visibility = Visibility.Visible; if (c13 == 0) { cou++; c13 = 1; }
         }
         private void quantity14_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6227,7 +5644,7 @@ namespace Foodcourt.View.Oprs
                     quantity14.Text = "";
                 }
             }
-                sp15.Visibility = Visibility.Visible; cou++;
+                sp15.Visibility = Visibility.Visible; if (c14 == 0) { cou++; c14 = 1; }
         }
         private void quantity15_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6332,7 +5749,7 @@ namespace Foodcourt.View.Oprs
                     quantity15.Text = "";
                 }
             }
-                sp16.Visibility = Visibility.Visible; cou++;
+                sp16.Visibility = Visibility.Visible; if (c15 == 0) { cou++; c15 = 1; }
         }
         private void quantity16_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6437,7 +5854,7 @@ namespace Foodcourt.View.Oprs
                     quantity16.Text = "";
                 }
             }
-                sp17.Visibility = Visibility.Visible; cou++;
+                sp17.Visibility = Visibility.Visible; if (c16 == 0) { cou++; c16 = 1; }
         }
         private void quantity17_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6542,7 +5959,7 @@ namespace Foodcourt.View.Oprs
                     quantity17.Text = "";
                 }
             }
-                sp18.Visibility = Visibility.Visible; cou++;
+                sp18.Visibility = Visibility.Visible; if (c17 == 0) { cou++; c17 = 1; }
         }
         private void quantity18_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -6644,7 +6061,7 @@ namespace Foodcourt.View.Oprs
                     quantity18.Text = "";
                 }
             }
-                sp19.Visibility = Visibility.Visible; cou++;
+                sp19.Visibility = Visibility.Visible; if (c18 == 0) { cou++; c18 = 1; }
         }
         private void quantity19_LostFocus(object sender, RoutedEventArgs e)
         {

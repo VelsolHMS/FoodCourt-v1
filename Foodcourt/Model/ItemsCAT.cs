@@ -57,6 +57,13 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(g, list);
             return dt;
         }
+        public DataTable CategoryChecking()
+        {
+            var list = new List<SqlParameter>();
+            string s = "select * from FCRITMCTG where CTG_Name =  '" + CTG_Name + "'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
         public void INSERT()
         {
             var LIST = new List<SqlParameter>();

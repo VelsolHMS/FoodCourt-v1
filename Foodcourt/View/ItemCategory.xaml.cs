@@ -64,6 +64,7 @@ namespace Foodcourt.View
                 {
                     it.CTG_Id = txtId.Text;
                     it.CTG_Name = txtName.Text;
+                    DataTable Category_Checking = it.CategoryChecking();
                     it.CTG_Details = txtdts.Text;
                     it.CTG_Status = txtstatus.Text;
                     it.CTG_ReportingName = txtrpt.Text;
@@ -74,7 +75,14 @@ namespace Foodcourt.View
                         string a = "Save"; b = Convert.ToString(btnSave.Content);
                         if (a == b)
                         {
-                            it.INSERT();
+                            if (Category_Checking.Rows.Count > 0)
+                            {
+                                MessageBox.Show("Category Name Already Exists. Please Change the Name.!");
+                            }
+                            else
+                            {
+                                it.INSERT();
+                            }
                         }
                         else
                         {

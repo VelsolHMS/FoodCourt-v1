@@ -52,6 +52,7 @@ namespace Foodcourt.View
                 else
                 {
                     items.NAM_Name = nametxt.Text;
+                    DataTable name_checking = items.NameChecking();
                     items.NAM_Rate = Convert.ToDecimal(pricetxt.Text);
                     items.CTG_Name = catgytxt.Text;
                     DataTable dtstlid = items.getstlid();
@@ -68,8 +69,15 @@ namespace Foodcourt.View
                     }
                     else
                     {
-                        items.Insert();
-                        MessageBox.Show("Inserted Succesfully");
+                        if (name_checking.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Item Name Already Exists. Please Change the Name.!");
+                        }
+                        else
+                        {
+                            items.Insert();
+                            MessageBox.Show("Inserted Succesfully");
+                        }
                     }
                     Clear();
                     this.NavigationService.Refresh();

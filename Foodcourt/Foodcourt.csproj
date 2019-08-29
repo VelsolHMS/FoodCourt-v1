@@ -392,6 +392,9 @@
     <Compile Include="View\POS.xaml.cs">
       <DependentUpon>POS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PosNew.xaml.cs">
+      <DependentUpon>PosNew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Property.xaml.cs">
       <DependentUpon>Property.xaml</DependentUpon>
     </Compile>
@@ -525,6 +528,10 @@
     <Page Include="View\POS.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PosNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Property.xaml">
       <Generator>MSBuild:Compile</Generator>
