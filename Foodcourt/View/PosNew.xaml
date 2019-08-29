@@ -23,7 +23,7 @@
                 <Grid Grid.Row="0" Background="#FF5180A0">
                     <TextBlock Name="txtname" Text="Order Taker" VerticalAlignment="Center" FontFamily="Sitka Display" Background="#FF5180A0" HorizontalAlignment="Center" TextAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White"></TextBlock>
                 </Grid>
-                <!--<Grid Grid.Row="1" Background="Beige">
+                <Grid Grid.Row="1" Background="Beige">
                     <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Top" Margin="0,10,0,0">
                         <Label Content="Item Name" Padding="25,0,0,0" Width="300" VerticalAlignment="Center" Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="22" FontStyle="Normal" FontWeight="Bold"></Label>
                         <Label Content="Rate" Width="150" Padding="15,0,0,0" FontFamily="Sitka Display" Foreground="#FF5180A0" VerticalAlignment="Center" FontSize="22" FontStyle="Normal" FontWeight="Bold"></Label>
@@ -472,12 +472,12 @@
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Customer Name" Width="160" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="cusName" Width="150" Margin="10,0,0,0" FontSize="20"/>
+                                    <TextBox Name="cusName" Width="150" Margin="10,0,0,0" FontSize="20" Padding="0,-5,0,0" IsEnabled="False" />
                                 </StackPanel>
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Mobile No" Width="160" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="cusMobile" Width="150" Margin="10,0,0,0" FontSize="20"/>
+                                    <TextBox Name="cusMobile" Width="150" Margin="10,0,0,0" FontSize="20" Padding="0,-5,0,0" IsEnabled="False"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -487,8 +487,8 @@
                         <Button Width="100" Name="save" Content="Save" IsEnabled="False" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Click="Button_Click"/>
                         <Button Width="100" Content="Clear" Margin="100,0,0,0" Background="#FF5180A0" BorderBrush="#FFE7E8EC" Foreground="#DDFFFFFF" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold" Height="40" Name="Clear" Click="Clear_Click"/>
                     </StackPanel>
-                </Grid>-->
-                <Grid Grid.Row="1">
+                </Grid>
+                <!--<Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="65*"/>
                         <ColumnDefinition Width="35*"/>
@@ -914,7 +914,7 @@
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
                                     <TextBlock Name="txtgst2"  Width="150" Margin="10,0,0,0" FontSize="20"/>
                                 </StackPanel>
-                                <CheckBox Name="OfferCheck" Content="Do you want to apply Offer?" Margin="20,20,10,0"  Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="18" IsChecked="False" Click="OfferCheck_Click"></CheckBox>
+                                <CheckBox Name="OfferCheck" Content="Do you want to apply Offer?" Margin="20,20,10,0"  Foreground="#FF5180A0" FontFamily="Sitka Display" FontSize="18" IsChecked="False" ></CheckBox>
                                 <Separator Margin="23,5,25,0" Height="11" VerticalAlignment="Top" Background="#FF5180A0"/>
                                 <StackPanel Height="30" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
                                     <TextBlock Text="Offers" Width="145" FontFamily="Sitka Display" FontSize="22"/>
@@ -942,7 +942,7 @@
                             </StackPanel>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Grid>-->
             </Grid>
         </material:Card>
         <Popup Name="PrintConfirmation" PopupAnimation="Fade" AllowsTransparency="True" Placement="Center" IsOpen="False" >

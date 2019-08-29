@@ -142,8 +142,8 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@BILL_InsertBy", BILL_InsertBy);
             BILL_InsertDate = DateTime.Today.ToShortDateString();
             list.AddSqlParameter("@BILL_InsertDate", BILL_InsertDate);
-            BILL_Status = "Settled";
             list.AddSqlParameter("@BILL_Status", BILL_Status);
+           // BILL_Status = "Settled";
             list.AddSqlParameter("@BILL_Discount", BILL_Discount);
             list.AddSqlParameter("@Bill_OfferId", Bill_OfferId);
             list.AddSqlParameter("@Bill_InstantDis", Bill_InstantDis);
@@ -185,6 +185,13 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             string s = "SELECT BILL_Amount,BILL_Tax,BILL_Total,BILL_Discount,Bill_InstantDis FROM FCBILLNO WHERE BILL_Id='" + bill+"'";
+            DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
+            return dt;
+        }
+        public DataTable DiscountAmount()
+        {
+            var list = new List<SqlParameter>();
+            string s = "SELECT Sum(Discount)AS Discount FROM FCBILLITM WHERE BILL_Id='" + bill + "'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
