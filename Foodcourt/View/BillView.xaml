@@ -98,11 +98,7 @@
                     <TextBlock Margin="312,27,30,32" />
                     <TextBlock Text="Total Amount:" Margin="203,50,153,13" FontWeight="Bold"/>
                     <TextBlock Margin="312,50,30,6" />
-
                 </Grid>
-
-
-
             </Grid>
         </Material:Card>-->
         <Material:Card Name="canview" Height="500" Margin="43,72,62,0" Visibility="Hidden">
@@ -204,6 +200,8 @@
                                 <DataGridTextColumn Header="Qty" Binding="{Binding BILLITM_Quanty}"/>
                                 <DataGridTextColumn Header="Rate" Binding="{Binding BILITM_Rate}"/>
                                 <DataGridTextColumn Header="Tax" Binding="{Binding BILITM_Tax}"/>
+                                <DataGridTextColumn Header="Discount(%)" Binding="{Binding DiscountPer}"/>
+                                <DataGridTextColumn Header="Discount" Binding="{Binding Discount}"/>
                                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
                             </DataGrid.Columns>
                         </DataGrid>

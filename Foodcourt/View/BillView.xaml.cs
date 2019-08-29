@@ -28,7 +28,7 @@ namespace Foodcourt.View.Oprs
         }
         public static decimal BILL_Tax, CGST, SGST, BILITM_Tax, ta1;
         public static int BILL_Id,  BILL_Discount;
-        public static decimal BILL_Amount, BILL_Total, BILITM_Rate, BILLITM_Quanty, Total, sum1 = 0;
+        public static decimal BILL_Amount, BILL_Total, BILITM_Rate, BILLITM_Quanty, BillITM_Discount, Total, sum1 = 0;
         private void Micancel_Click(object sender, RoutedEventArgs e)
         {
             A = Convert.ToInt32(txtbillno.Text);
@@ -166,18 +166,23 @@ namespace Foodcourt.View.Oprs
                 DD1.Columns.Add("BILLITM_Quanty", typeof(int));
                 DD1.Columns.Add("BILITM_Rate", typeof(decimal));
                 DD1.Columns.Add("BILITM_Tax", typeof(decimal));
+                DD1.Columns.Add("DiscountPer", typeof(int));
+                DD1.Columns.Add("Discount", typeof(decimal));
                 DD1.Columns.Add("Total", typeof(decimal));
                 for (int j = 0; j < db.Rows.Count; j++)
                 {
                     BILLITM_Quanty = Convert.ToDecimal(db.Rows[j]["BILLITM_Quanty"]);
                     BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]) * BILLITM_Quanty;
                     BILITM_Tax = Convert.ToDecimal(db.Rows[j]["BILITM_Tax"]);
-                    Total = BILITM_Rate + BILITM_Tax;
+                    BillITM_Discount = Convert.ToDecimal(db.Rows[j]["Discount"]);
+                    Total = (BILITM_Rate - BillITM_Discount) + BILITM_Tax;
                     DataRow ROW = DD1.NewRow();
                     ROW["BILITM_Name"] = db.Rows[j]["BILITM_Name"];
                     ROW["BILLITM_Quanty"] = db.Rows[j]["BILLITM_Quanty"];
                     ROW["BILITM_Rate"] = BILITM_Rate;
                     ROW["BILITM_Tax"] = db.Rows[j]["BILITM_Tax"];
+                    ROW["DiscountPer"] = db.Rows[j]["DiscountPer"];
+                    ROW["Discount"] = db.Rows[j]["Discount"];
                     ROW["Total"] = Total;
                     DD1.Rows.Add(ROW);
                 }
