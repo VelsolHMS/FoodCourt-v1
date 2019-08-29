@@ -672,14 +672,15 @@ namespace Foodcourt.View
         }
         private void OfferCheck_Click(object sender, RoutedEventArgs e)
         {
-            cusName.IsEnabled = true; cusMobile.IsEnabled = true;
             if(OfferCheck.IsChecked == true)
             {
+                cusName.IsEnabled = true; cusMobile.IsEnabled = true;
                 pos.CusName = cusName.Text;
                 pos.CusMobile = cusMobile.Text;
             }
-            else
+            else if(OfferCheck.IsChecked == false)
             {
+                cusName.IsEnabled = false; cusMobile.IsEnabled = false;
                 pos.CusName = "";
                 pos.CusMobile = "";
                  
