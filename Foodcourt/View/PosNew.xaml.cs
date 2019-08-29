@@ -59,6 +59,13 @@ namespace Foodcourt.View
             DISITM9.Text = "0"; DISITM10.Text = "0"; DISITM11.Text = "0"; DISITM12.Text = "0"; DISITM13.Text = "0"; DISITM14.Text = "0"; DISITM15.Text = "0"; DISITM16.Text = "0"; DISITM17.Text = "0";
             DISITM18.Text = "0"; DISITM19.Text = "0"; 
         }
+        private void Validation_Error(object sender, ValidationErrorEventArgs e)
+        {
+            if (e.Action == ValidationErrorEventAction.Added)
+                error++;
+            else
+                error--;
+        }
         public void clear()
         {
             itemname.Text = ""; itemrate.Text = ""; quantity.Text = ""; total.Text = ""; itemname1.Text = ""; itemrate1.Text = ""; quantity1.Text = ""; total1.Text = "";
@@ -665,6 +672,7 @@ namespace Foodcourt.View
         }
         private void OfferCheck_Click(object sender, RoutedEventArgs e)
         {
+            cusName.IsEnabled = true; cusMobile.IsEnabled = true;
             if(OfferCheck.IsChecked == true)
             {
                 pos.CusName = cusName.Text;
@@ -1387,7 +1395,7 @@ namespace Foodcourt.View
             }
         }
         public decimal billtot;
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Save()
         {
             pos.bill = Convert.ToInt32(txtbillno.Text);
             pos.BILL_Amount = Convert.ToDecimal(txtttl.Text);
@@ -1396,8 +1404,15 @@ namespace Foodcourt.View
             pos.BILL_Total = (int)Math.Round(billtot);
             if (OfferCheck.IsChecked == true)
             {
-                pos.CusName = cusName.Text;
-                pos.CusMobile = cusMobile.Text;
+                if (cusName.Text == "" || cusMobile.Text == "")
+                {
+                    MessageBox.Show("Please Enter valid Data");
+                }
+                else
+                {
+                    pos.CusName = cusName.Text;
+                    pos.CusMobile = cusMobile.Text;
+                }
                 pos.BILL_Status = "Pending";
             }
             else
@@ -1816,6 +1831,26 @@ namespace Foodcourt.View
             j = 0;
             this.NavigationService.Refresh();
             count = 0;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (OfferCheck.IsChecked == true)
+            {
+                if (cusName.Text == "" || cusMobile.Text == "")
+                {
+                    MessageBox.Show("Please Enter valid Data");
+                }
+                else
+                {
+                    Save();
+                    pos.BILL_Status = "Pending";
+                }
+            }
+            else
+            {
+                Save();
+            }
+            
         }
         public static DataTable pos1, pos11,aaa,abc;
         private void Clear_Click(object sender, RoutedEventArgs e)

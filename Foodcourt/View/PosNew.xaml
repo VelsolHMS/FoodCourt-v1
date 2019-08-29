@@ -472,12 +472,12 @@
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Customer Name" Width="160" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="cusName" Width="150" Margin="10,0,0,0" FontSize="20"/>
+                                    <TextBox Name="cusName" Width="150" Margin="10,0,0,0" FontSize="20" Padding="0,-5,0,0" IsEnabled="False" />
                                 </StackPanel>
                                 <StackPanel Height="25" Margin="20,10,0,0" Orientation="Horizontal">
                                     <TextBlock Text="Mobile No" Width="160" FontFamily="Sitka Display" FontSize="22" FontWeight="Bold"/>
                                     <TextBlock Text=":"  TextAlignment="Center" Width="20" FontFamily="Sitka Heading" FontSize="20" FontWeight="Bold"/>
-                                    <TextBlock Name="cusMobile" Width="150" Margin="10,0,0,0" FontSize="20"/>
+                                    <TextBox Name="cusMobile" Width="150" Margin="10,0,0,0" FontSize="20" Padding="0,-5,0,0" IsEnabled="False"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
