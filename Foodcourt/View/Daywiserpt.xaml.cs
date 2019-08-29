@@ -64,6 +64,7 @@ namespace Foodcourt.View
             d.Columns.Add("TOTALCGST", typeof(decimal));
             d.Columns.Add("TOTALSGST", typeof(decimal));
             d.Columns.Add("GRANDTOTALL", typeof(decimal));
+            d.Columns.Add("DISCOUNT", typeof(decimal));
             d.Columns.Add("Name", typeof(string));
             d.Columns.Add("Address", typeof(string));
             d.Columns.Add("Gst", typeof(string));
@@ -80,13 +81,14 @@ namespace Foodcourt.View
             row["TOTALCGST"] = Math.Round(TotalTax/2, 2,MidpointRounding.AwayFromZero);
             row["TOTALSGST"] = Math.Round(TotalTax/2, 2, MidpointRounding.AwayFromZero);
             row["GRANDTOTALL"] = Math.Round(GrandTotal, 2, MidpointRounding.AwayFromZero);
+            row["DISCOUNT"] = Math.Round(TotalDiscount, 2, MidpointRounding.AwayFromZero);
             row["SelectedDate"] = selecteddate.Text;
             row["Stall"] = txtstall.Text;
             row["OwnerAmount"] = (NetAmount * Convert.ToInt32(txtPer.Text)) / 100;
             d.Rows.Add(row);
             return d;
         }
-        public decimal GrandTotal, TotalTax, NetAmount;
+        public decimal GrandTotal, TotalTax, NetAmount, TotalDiscount;
         public DataTable SubReport()
         {
             DataTable d = new DataTable();
@@ -96,25 +98,29 @@ namespace Foodcourt.View
             d.Columns.Add("SGST", typeof(decimal));
             d.Columns.Add("Qty", typeof(decimal));
             d.Columns.Add("GRANDTOTAL", typeof(decimal));
+            d.Columns.Add("DISCOUNT", typeof(decimal));
             DataTable day_bills = rpt.DayWiseItemSale();
-            Decimal rate,tax;
+            Decimal rate,tax,discount;
             int qty;
             //DataTable day_bills = rpt.DayWiseBills();
             for (int i = 0; i < day_bills.Rows.Count; i++)
             {
                 DataRow row = d.NewRow();
                 row["ItemName"] = day_bills.Rows[i]["ITEM_NAME"].ToString();
+                row["DISCOUNT"] = day_bills.Rows[i]["Discount"].ToString();
                 rate = Convert.ToDecimal(day_bills.Rows[i]["RATE"]);
                 qty = Convert.ToInt32(day_bills.Rows[i]["QTY"]);
+                discount = Convert.ToDecimal(day_bills.Rows[i]["Discount"]);
                 NetAmount += rate * qty;
                 row["NetAmount"] = Math.Round(rate * qty, 2, MidpointRounding.AwayFromZero);
                 row["Qty"] = qty;
                 tax = Convert.ToInt32(day_bills.Rows[i]["TAXRATE"]);
                 row["CGST"] = Math.Round(tax / 2, 2, MidpointRounding.AwayFromZero);
                 row["SGST"] = Math.Round(tax/2,2,MidpointRounding.AwayFromZero);
-                row["GRANDTOTAL"] = Math.Round((rate * qty) + tax, 2, MidpointRounding.AwayFromZero);
+                row["GRANDTOTAL"] = Math.Round(((rate * qty) + tax) - discount, 2, MidpointRounding.AwayFromZero);
                 TotalTax += tax;
-                GrandTotal += (rate * qty) + tax;
+                GrandTotal += ((rate * qty) + tax) - discount;
+                TotalDiscount += discount;
                 d.Rows.Add(row);
             }
             return d;
