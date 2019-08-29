@@ -87,7 +87,7 @@ namespace Foodcourt.View
         public static decimal z, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19;
         public static decimal y, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19;
         public static decimal ab, ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19;
-
+        public static decimal av, av1, av2, av3, av4, av5, av6, av7, av8, av9, av10, av11, av12, av13, av14, av15, av16, av17, av18, av19, av20, av21, av22, av23, av24, av25;
         private void DISITM_LostFocus(object sender, RoutedEventArgs e)
         {
             if (quantity.Text == "")
@@ -95,218 +95,471 @@ namespace Foodcourt.View
             else
             {
                 distot = Convert.ToDecimal(total.Text);
-                if (DISITM.IsEnabled == true && DISITM.Text != "" && DISITM.Text != "0")
+                if (DISITM.IsEnabled == true && DISITM.Text != "")
                 {
-                    z = Convert.ToDecimal(DISITM.Text); y = (distot * z) / 100;
-                    total.Text = (distot - y).ToString();
+                    z = Convert.ToDecimal(DISITM.Text); y = (a * z) / 100;
+                    av = a - y;
+                    total.Text = Math.Round(av, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab = Convert.ToDecimal(total.Text);
+                }
+                else if(DISITM.Text == "")
+                {
+                    z = 0; total.Text = Math.Round(a, 2, MidpointRounding.AwayFromZero).ToString();
                     ab = Convert.ToDecimal(total.Text);
                 }
             }
         }
         private void DISITM1_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot1 = Convert.ToDecimal(total1.Text);
-            if (DISITM1.IsEnabled == true && DISITM1.Text != "" && DISITM1.Text != "0")
+            if (quantity1.Text == "")
             {
-                z1 = Convert.ToDecimal(DISITM1.Text); y1 = (distot1 * z1) / 100;
-                total1.Text = (distot1 - y1).ToString();
-                ab1 = Convert.ToDecimal(total1.Text);
+                quantity1.Focus();
+            }
+            else
+            {
+                distot1 = Convert.ToDecimal(total1.Text);
+                if (DISITM1.IsEnabled == true && DISITM1.Text != "" )
+                {
+                    z1 = Convert.ToDecimal(DISITM1.Text); y1 = (a1 * z1) / 100;
+                    av1 = a1 - y1;
+                    total1.Text = Math.Round(av1, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab1 = Convert.ToDecimal(total1.Text);
+                }
+                else if (DISITM1.Text == "")
+                {
+                    z1 = 0; total1.Text = Math.Round(a1, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab1 = Convert.ToDecimal(total1.Text);
+                }
             }
         }
         private void DISITM2_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot2 = Convert.ToDecimal(total2.Text);
-            if (DISITM2.IsEnabled == true && DISITM2.Text != "" && DISITM2.Text != "0")
+            if (quantity2.Text == "")
             {
-                z2 = Convert.ToDecimal(DISITM2.Text); y2 = (distot2 * z2) / 100;
-                total2.Text = (distot2 - y2).ToString();
-                ab2 = Convert.ToDecimal(total2.Text);
+                quantity2.Focus();
+            }
+            else
+            {
+                distot2 = Convert.ToDecimal(total2.Text);
+                if (DISITM2.IsEnabled == true && DISITM2.Text != "" )
+                {
+                    z2 = Convert.ToDecimal(DISITM2.Text); y2 = (a2 * z2) / 100;
+                    av2 = a2 - y2;
+                    total2.Text = Math.Round(av2, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab2 = Convert.ToDecimal(total2.Text);
+                }
+                else if (DISITM2.Text == "")
+                {
+                    z2= 0; total2.Text = Math.Round(a2, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab2 = Convert.ToDecimal(total2.Text);
+                }
             }
         }
         private void DISITM3_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot3 = Convert.ToDecimal(total3.Text);
-            if (DISITM3.IsEnabled == true && DISITM3.Text != "" && DISITM3.Text != "0")
+            if (quantity3.Text == "")
             {
-                z3 = Convert.ToDecimal(DISITM3.Text); y3 = (distot3 * z3) / 100;
-                total3.Text = (distot3 - y3).ToString();
-                ab3 = Convert.ToDecimal(total3.Text);
+                quantity3.Focus();
+            }
+            else
+            {
+                distot3 = Convert.ToDecimal(total3.Text);
+                if (DISITM3.IsEnabled == true && DISITM3.Text != "" )
+                {
+                    z3 = Convert.ToDecimal(DISITM3.Text); y3 = (a3 * z3) / 100;
+                    av3 = a3 - y3;
+                    total3.Text = Math.Round(av3, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab3 = Convert.ToDecimal(total3.Text);
+                }
+                else if (DISITM3.Text == "")
+                {
+                    z3 = 0; total3.Text = Math.Round(a3, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab3 = Convert.ToDecimal(total3.Text);
+                }
             }
         }
 
         private void DISITM4_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot4 = Convert.ToDecimal(total4.Text);
-            if (DISITM4.IsEnabled == true && DISITM4.Text != "" && DISITM4.Text != "0")
+            if (quantity4.Text == "")
             {
-                z4 = Convert.ToDecimal(DISITM4.Text); y4 = (distot4 * z4) / 100;
-                total4.Text = (distot4 - y4).ToString();
-                ab4 = Convert.ToDecimal(total4.Text);
+                quantity4.Focus();
+            }
+            else
+            {
+                distot4 = Convert.ToDecimal(total4.Text);
+                if (DISITM4.IsEnabled == true && DISITM4.Text != "" )
+                {
+                    z4 = Convert.ToDecimal(DISITM4.Text); y4 = (a4 * z4) / 100;
+                    av4 = a4 - y4;
+                    total4.Text = Math.Round(av4, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab4 = Convert.ToDecimal(total4.Text);
+                }
+                else if (DISITM4.Text == "")
+                {
+                    z4 = 0; total4.Text = Math.Round(a4, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab4 = Convert.ToDecimal(total4.Text);
+                }
             }
         }
 
         private void DISITM5_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot5 = Convert.ToDecimal(total5.Text);
-            if (DISITM5.IsEnabled == true && DISITM5.Text != "" && DISITM5.Text != "0")
+            if (quantity5.Text == "")
             {
-                z5 = Convert.ToDecimal(DISITM5.Text); y5 = (distot5 * z5) / 100;
-                total5.Text = (distot5 - y5).ToString();
-                ab5 = Convert.ToDecimal(total5.Text);
+                quantity5.Focus();
+            }
+            else
+            {
+                distot5 = Convert.ToDecimal(total5.Text);
+                if (DISITM5.IsEnabled == true && DISITM5.Text != "" )
+                {
+                    z5 = Convert.ToDecimal(DISITM5.Text); y5 = (a5 * z5) / 100;
+                    av5 = a5 - y5;
+                    total5.Text = Math.Round(av5, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab5 = Convert.ToDecimal(total5.Text);
+                }
+                else if (DISITM5.Text == "")
+                {
+                    z5 = 0; total5.Text = Math.Round(a5, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab5 = Convert.ToDecimal(total5.Text);
+                }
             }
         }
 
         private void DISITM6_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot6 = Convert.ToDecimal(total6.Text);
-            if (DISITM6.IsEnabled == true && DISITM6.Text != "" && DISITM6.Text != "0")
+            if (quantity6.Text == "")
             {
-                z6 = Convert.ToDecimal(DISITM6.Text); y6 = (distot6 * z6) / 100;
-                total6.Text = (distot6 - y6).ToString();
-                ab6 = Convert.ToDecimal(total6.Text);
+                quantity6.Focus();
+            }
+            else
+            {
+                distot6 = Convert.ToDecimal(total6.Text);
+                if (DISITM6.IsEnabled == true && DISITM6.Text != "" )
+                {
+                    z6 = Convert.ToDecimal(DISITM6.Text); y6 = (a6 * z6) / 100;
+                    av6 = a6 - y6;
+                    total6.Text = Math.Round(av6, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab6 = Convert.ToDecimal(total6.Text);
+                }
+                else if (DISITM6.Text == "")
+                {
+                    z6 = 0; total6.Text = Math.Round(a6, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab6 = Convert.ToDecimal(total6.Text);
+                }
             }
         }
 
         private void DISITM7_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot7 = Convert.ToDecimal(total7.Text);
-            if (DISITM7.IsEnabled == true && DISITM7.Text != "" && DISITM7.Text != "0")
+            if (quantity7.Text == "")
             {
-                z7 = Convert.ToDecimal(DISITM7.Text); y7 = (distot7 * z7) / 100;
-                total7.Text = (distot7 - y7).ToString();
-                ab7 = Convert.ToDecimal(total7.Text);
+                quantity7.Focus();
+            }
+            else
+            {
+                distot7 = Convert.ToDecimal(total7.Text);
+                if (DISITM7.IsEnabled == true && DISITM7.Text != "" )
+                {
+                    z7 = Convert.ToDecimal(DISITM7.Text); y7 = (a7 * z7) / 100;
+                    av7 = a7 - y7;
+                    total7.Text = Math.Round(av7, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab7 = Convert.ToDecimal(total7.Text);
+                }
+                else if (DISITM7.Text == "")
+                {
+                    z7 = 0; total7.Text = Math.Round(a7, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab7 = Convert.ToDecimal(total7.Text);
+                }
             }
         }
 
         private void DISITM8_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot8 = Convert.ToDecimal(total8.Text);
-            if (DISITM8.IsEnabled == true && DISITM8.Text != "" && DISITM8.Text != "0")
+            if (quantity8.Text == "")
             {
-                z8 = Convert.ToDecimal(DISITM8.Text); y8 = (distot8 * z8) / 100;
-                total8.Text = (distot8 - y8).ToString();
-                ab8 = Convert.ToDecimal(total8.Text);
+                quantity8.Focus();
+            }
+            else
+            {
+                distot8 = Convert.ToDecimal(total8.Text);
+                if (DISITM8.IsEnabled == true && DISITM8.Text != "" )
+                {
+                    z8 = Convert.ToDecimal(DISITM8.Text); y8 = (a8 * z8) / 100;
+                    av8 = a8 - y8;
+                    total8.Text = Math.Round(av8, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab8 = Convert.ToDecimal(total8.Text);
+                }
+                else if (DISITM8.Text == "")
+                {
+                    z8 = 0; total8.Text = Math.Round(a8, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab8 = Convert.ToDecimal(total8.Text);
+                }
             }
         }
 
         private void DISITM9_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot9 = Convert.ToDecimal(total9.Text);
-            if (DISITM9.IsEnabled == true && DISITM9.Text != "" && DISITM9.Text != "0")
+            if (quantity9.Text == "")
             {
-                z9 = Convert.ToDecimal(DISITM9.Text); y9 = (distot9 * z9) / 100;
-                total9.Text = (distot9 - y9).ToString();
-                ab9 = Convert.ToDecimal(total9.Text);
+                quantity9.Focus();
+            }
+            else
+            {
+                distot9 = Convert.ToDecimal(total9.Text);
+                if (DISITM9.IsEnabled == true && DISITM9.Text != "" )
+                {
+                    z9 = Convert.ToDecimal(DISITM9.Text); y9 = (a9 * z9) / 100;
+                    av9 = a9 - y9;
+                    total9.Text = Math.Round(av9, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab9 = Convert.ToDecimal(total9.Text);
+                }
+                else if (DISITM9.Text == "")
+                {
+                    z9 = 0; total9.Text = Math.Round(a9, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab9 = Convert.ToDecimal(total9.Text);
+                }
             }
         }
 
         private void DISITM10_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot10 = Convert.ToDecimal(total10.Text);
-            if (DISITM10.IsEnabled == true && DISITM10.Text != "" && DISITM10.Text != "0")
+            if (quantity10.Text == "")
             {
-                z10 = Convert.ToDecimal(DISITM10.Text); y10 = (distot10 * z10) / 100;
-                total10.Text = (distot10 - y10).ToString();
-                ab10 = Convert.ToDecimal(total10.Text);
+                quantity10.Focus();
+            }
+            else
+            {
+                distot10 = Convert.ToDecimal(total10.Text);
+                if (DISITM10.IsEnabled == true && DISITM10.Text != "" )
+                {
+                    z10 = Convert.ToDecimal(DISITM10.Text); y10 = (a10 * z10) / 100;
+                    av10 = a10 - y10;
+                    total10.Text = Math.Round(av10, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab10 = Convert.ToDecimal(total10.Text);
+                }
+                else if (DISITM10.Text == "")
+                {
+                    z10 = 0; total10.Text = Math.Round(a10, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab10 = Convert.ToDecimal(total10.Text);
+                }
             }
         }
 
         private void DISITM11_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot11 = Convert.ToDecimal(total11.Text);
-            if (DISITM11.IsEnabled == true && DISITM11.Text != "" && DISITM11.Text != "0")
+            if (quantity11.Text == "")
             {
-                z11 = Convert.ToDecimal(DISITM11.Text); y11 = (distot11 * z11) / 100;
-                total11.Text = (distot11 - y11).ToString();
-                ab11 = Convert.ToDecimal(total11.Text);
+                quantity11.Focus();
+            }
+            else
+            {
+                distot11 = Convert.ToDecimal(total11.Text);
+                if (DISITM11.IsEnabled == true && DISITM11.Text != "" )
+                {
+                    z11 = Convert.ToDecimal(DISITM11.Text); y11 = (a11 * z11) / 100;
+                    av11 = a11 - y11;
+                    total11.Text = Math.Round(av11, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab11 = Convert.ToDecimal(total11.Text);
+                }
+                else if (DISITM11.Text == "")
+                {
+                    z11 = 0; total11.Text = Math.Round(a11, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab11 = Convert.ToDecimal(total11.Text);
+                }
             }
         }
 
         private void DISITM12_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot12 = Convert.ToDecimal(total12.Text);
-            if (DISITM12.IsEnabled == true && DISITM12.Text != "" && DISITM12.Text != "0")
+            if (quantity12.Text == "")
             {
-                z12 = Convert.ToDecimal(DISITM12.Text); y12 = (distot12 * z12) / 100;
-                total12.Text = (distot12 - y12).ToString();
-                ab12 = Convert.ToDecimal(total12.Text);
+                quantity12.Focus();
+            }
+            else
+            {
+                distot12 = Convert.ToDecimal(total12.Text);
+                if (DISITM12.IsEnabled == true && DISITM12.Text != "" )
+                {
+                    z12 = Convert.ToDecimal(DISITM12.Text); y12 = (a12 * z12) / 100;
+                    av12 = a12 - y12;
+                    total12.Text = Math.Round(av12, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab12 = Convert.ToDecimal(total12.Text);
+                }
+                else if (DISITM12.Text == "")
+                {
+                    z12 = 0; total12.Text = Math.Round(a12, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab12 = Convert.ToDecimal(total12.Text);
+                }
             }
         }
 
         private void DISITM13_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot13 = Convert.ToDecimal(total13.Text);
-            if (DISITM13.IsEnabled == true && DISITM13.Text != "" && DISITM13.Text != "0")
+            if (quantity13.Text == "")
             {
-                z13 = Convert.ToDecimal(DISITM13.Text); y13 = (distot13 * z13) / 100;
-                total13.Text = (distot13 - y13).ToString();
-                ab13 = Convert.ToDecimal(total13.Text);
+                quantity13.Focus();
+            }
+            else
+            {
+                distot13 = Convert.ToDecimal(total13.Text);
+                if (DISITM13.IsEnabled == true && DISITM13.Text != "" )
+                {
+                    z13 = Convert.ToDecimal(DISITM13.Text); y13 = (a13 * z13) / 100;
+                    av13 = a13 - y13;
+                    total13.Text = Math.Round(av13, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab13 = Convert.ToDecimal(total13.Text);
+                }
+                else if (DISITM13.Text == "")
+                {
+                    z13 = 0; total13.Text = Math.Round(a13, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab13 = Convert.ToDecimal(total13.Text);
+                }
             }
         }
 
         private void DISITM14_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot14 = Convert.ToDecimal(total14.Text);
-            if (DISITM14.IsEnabled == true && DISITM14.Text != "" && DISITM14.Text != "0")
+            if (quantity14.Text == "")
             {
-                z14 = Convert.ToDecimal(DISITM14.Text); y14 = (distot14 * z14) / 100;
-                total14.Text = (distot14 - y14).ToString();
-                ab14 = Convert.ToDecimal(total14.Text);
+                quantity14.Focus();
+            }
+            else
+            {
+                distot14 = Convert.ToDecimal(total14.Text);
+                if (DISITM14.IsEnabled == true && DISITM14.Text != "" )
+                {
+                    z14 = Convert.ToDecimal(DISITM14.Text); y14 = (a14 * z14) / 100;
+                    av14 = a14 - y14;
+                    total14.Text = Math.Round(av14, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab14 = Convert.ToDecimal(total14.Text);
+                }
+                else if (DISITM14.Text == "")
+                {
+                    z14 = 0; total14.Text = Math.Round(a14, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab14 = Convert.ToDecimal(total14.Text);
+                }
             }
         }
 
         private void DISITM15_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot15 = Convert.ToDecimal(total15.Text);
-            if (DISITM15.IsEnabled == true && DISITM15.Text != "" && DISITM15.Text != "0")
+            if (quantity15.Text == "")
             {
-                z15 = Convert.ToDecimal(DISITM15.Text); y15 = (distot15 * z15) / 100;
-                total15.Text = (distot15- y15).ToString();
-                ab15 = Convert.ToDecimal(total15.Text);
+                quantity15.Focus();
+            }
+            else
+            {
+                distot15 = Convert.ToDecimal(total15.Text);
+                if (DISITM15.IsEnabled == true && DISITM15.Text != "" )
+                {
+                    z15 = Convert.ToDecimal(DISITM15.Text); y15 = (a15 * z15) / 100;
+                    av15 = a15 - y15;
+                    total15.Text = Math.Round(av15, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab15 = Convert.ToDecimal(total15.Text);
+                }
+                else if (DISITM15.Text == "")
+                {
+                    z15 = 0; total15.Text = Math.Round(a15, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab15 = Convert.ToDecimal(total15.Text);
+                }
             }
         }
 
         private void DISITM16_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot16 = Convert.ToDecimal(total16.Text);
-            if (DISITM16.IsEnabled == true && DISITM16.Text != "" && DISITM16.Text != "0")
+            if (quantity16.Text == "")
             {
-                z16 = Convert.ToDecimal(DISITM16.Text); y16 = (distot16 * z16) / 100;
-                total16.Text = (distot16 - y16).ToString();
-                ab16 = Convert.ToDecimal(total16.Text);
+                quantity16.Focus();
+            }
+            else
+            {
+                distot16 = Convert.ToDecimal(total16.Text);
+                if (DISITM16.IsEnabled == true && DISITM16.Text != "" )
+                {
+                    z16 = Convert.ToDecimal(DISITM16.Text); y16 = (a16 * z16) / 100;
+                    av16 = a16 - y16;
+                    total16.Text = Math.Round(av16, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab16 = Convert.ToDecimal(total16.Text);
+                }
+                else if (DISITM16.Text == "")
+                {
+                    z16= 0; total16.Text = Math.Round(a16, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab16 = Convert.ToDecimal(total16.Text);
+                }
             }
         }
 
         private void DISITM17_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot17 = Convert.ToDecimal(total17.Text);
-            if (DISITM17.IsEnabled == true && DISITM17.Text != "" && DISITM17.Text != "0")
+            if (quantity17.Text == "")
             {
-                z17 = Convert.ToDecimal(DISITM17.Text); y17 = (distot17 * z17) / 100;
-                total17.Text = (distot17 - y17).ToString();
-                ab17 = Convert.ToDecimal(total17.Text);
+                quantity17.Focus();
+            }
+            else
+            {
+                distot17 = Convert.ToDecimal(total17.Text);
+                if (DISITM17.IsEnabled == true && DISITM17.Text != "" )
+                {
+                    z17 = Convert.ToDecimal(DISITM17.Text); y17 = (a17 * z17) / 100;
+                    av17 = a17 - y17;
+                    total17.Text = Math.Round(av17, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab17 = Convert.ToDecimal(total17.Text);
+                }
+                else if (DISITM17.Text == "")
+                {
+                    z17 = 0; total17.Text = Math.Round(a17, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab17 = Convert.ToDecimal(total17.Text);
+                }
             }
         }
 
         private void DISITM18_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot18 = Convert.ToDecimal(total18.Text);
-            if (DISITM18.IsEnabled == true && DISITM18.Text != "" && DISITM18.Text != "0")
+            if (quantity18.Text == "")
             {
-                z18 = Convert.ToDecimal(DISITM18.Text); y18 = (distot18 * z18) / 100;
-                total18.Text = (distot18 - y18).ToString();
-                ab18 = Convert.ToDecimal(total18.Text);
+                quantity18.Focus();
+            }
+            else
+            {
+                distot18 = Convert.ToDecimal(total18.Text);
+                if (DISITM18.IsEnabled == true && DISITM18.Text != "" )
+                {
+                    z18 = Convert.ToDecimal(DISITM18.Text); y18 = (a18 * z18) / 100;
+                    av18 = a18 - y18;
+                    total18.Text = Math.Round(av18, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab18 = Convert.ToDecimal(total18.Text);
+                }
+                else if (DISITM18.Text == "")
+                {
+                    z18 = 0; total18.Text = Math.Round(a18, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab18 = Convert.ToDecimal(total18.Text);
+                }
             }
         }
 
         private void DISITM19_LostFocus(object sender, RoutedEventArgs e)
         {
-            distot19 = Convert.ToDecimal(total19.Text);
-            if (DISITM19.IsEnabled == true && DISITM19.Text != "" && DISITM19.Text != "0")
+            if (quantity19.Text == "")
             {
-                z19 = Convert.ToDecimal(DISITM19.Text); y19= (distot19 * z19) / 100;
-                total19.Text = (distot19 - y19).ToString();
-                ab19 = Convert.ToDecimal(total19.Text);
+                quantity19.Focus();
+            }
+            else
+            {
+                distot19 = Convert.ToDecimal(total19.Text);
+                if (DISITM19.IsEnabled == true && DISITM19.Text != "" )
+                {
+                    z19 = Convert.ToDecimal(DISITM19.Text); y19 = (a19 * z19) / 100;
+                    av19 = a19 - y19;
+                    total19.Text = Math.Round(av19, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab19 = Convert.ToDecimal(total19.Text);
+                }
+               else if (DISITM19.Text == "")
+                {
+                    z19 = 0; total19.Text = Math.Round(a19, 2, MidpointRounding.AwayFromZero).ToString();
+                    ab19 = Convert.ToDecimal(total19.Text);
+                }
             }
         }
 
@@ -1120,26 +1373,26 @@ namespace Foodcourt.View
             else
             { 
                 save.IsEnabled = true;
-                if (itemname.Text == "") { a = 0; t = 0; }
-                if (itemname1.Text == "") { a1 = 0; t1 = 0; }
-                if (itemname2.Text == "") { a2 = 0; t2 = 0; } 
-                if (itemname3.Text == "") { a3 = 0; t3 = 0; }
-                if (itemname4.Text == "") { a4 = 0; t4 = 0; }
-                if (itemname5.Text == "") { a5 = 0; t5 = 0; }
-                if (itemname6.Text == "") { a6 = 0; t6 = 0; }
-                if (itemname7.Text == "") { a7 = 0; t7 = 0; }
-                if (itemname8.Text == "") { a8 = 0; t8 = 0; }
-                if (itemname9.Text == "") { a9 = 0; t9 = 0; }
-                if (itemname10.Text == "") { a10 = 0; t10 = 0; }
-                if (itemname11.Text == "") { a11 = 0; t11 = 0; }
-                if (itemname12.Text == "") { a12 = 0; t12 = 0; }
-                if (itemname13.Text == "") { a13 = 0; t13 = 0; }
-                if (itemname14.Text == "") { a14 = 0; t14 = 0; }
-                if (itemname15.Text == "") { a15 = 0; t15 = 0; }
-                if (itemname16.Text == "") { a16 = 0; t16 = 0; }
-                if (itemname17.Text == "") { a17 = 0; t17 = 0; }
-                if (itemname18.Text == "") { a18 = 0; t18 = 0; }
-                if (itemname19.Text == "") { a19 = 0; t19 = 0; }
+                if (itemname.Text == "") { ab = 0; t = 0; }
+                if (itemname1.Text == "") { ab1 = 0; t1 = 0; }
+                if (itemname2.Text == "") { ab2 = 0; t2 = 0; } 
+                if (itemname3.Text == "") { ab3 = 0; t3 = 0; }
+                if (itemname4.Text == "") { ab4 = 0; t4 = 0; }
+                if (itemname5.Text == "") { ab5 = 0; t5 = 0; }
+                if (itemname6.Text == "") { ab6 = 0; t6 = 0; }
+                if (itemname7.Text == "") { ab7 = 0; t7 = 0; }
+                if (itemname8.Text == "") { ab8 = 0; t8 = 0; }
+                if (itemname9.Text == "") { ab9 = 0; t9 = 0; }
+                if (itemname10.Text == "") { ab10 = 0; t10 = 0; }
+                if (itemname11.Text == "") { ab11 = 0; t11 = 0; }
+                if (itemname12.Text == "") { ab12 = 0; t12 = 0; }
+                if (itemname13.Text == "") { ab13 = 0; t13 = 0; }
+                if (itemname14.Text == "") { ab14 = 0; t14 = 0; }
+                if (itemname15.Text == "") { ab15 = 0; t15 = 0; }
+                if (itemname16.Text == "") { ab16 = 0; t16 = 0; }
+                if (itemname17.Text == "") { ab17 = 0; t17 = 0; }
+                if (itemname18.Text == "") { ab18 = 0; t18 = 0; }
+                if (itemname19.Text == "") { ab19 = 0; t19 = 0; }
                 // tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
                 tot = Convert.ToDecimal(ab + ab1 + ab2 + ab3 + ab4 + ab5 + ab6 + ab7 + ab8 + ab9 + ab10 + ab11 + ab12 + ab13 + ab14 + ab15 + ab16 + ab17 + ab18 + ab19);
                 tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19);
@@ -1162,8 +1415,6 @@ namespace Foodcourt.View
             pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
             billtot = Convert.ToDecimal(txtgttl.Text);
             pos.BILL_Total = (int)Math.Round(billtot);
-            pos.Discount = discountam;
-            pos.DiscountPer = discountper;
             pos.BILL_Discount = Convert.ToDecimal(txtdisAmount.Text);
             if(txtpercentage.Text == "" || txtpercentage.Text == null)
             { pos.Bill_OfferId = 0; }
@@ -1177,7 +1428,7 @@ namespace Foodcourt.View
                 {
                     if (itemname.Text != "" || itemrate.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text);
+                        int A = Convert.ToInt32(quantity.Text); decimal B = A * Convert.ToDecimal(itemrate.Text); pos.Discount = y; pos.DiscountPer = z;
                         decimal gst = 0; itemnamestlid = itemname.Text; DataTable dts0 = pos.getstlid(); stlid = dts0.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1195,7 +1446,7 @@ namespace Foodcourt.View
                 {
                     if (itemname1.Text != "" || itemrate1.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text);
+                        int A = Convert.ToInt32(quantity1.Text); decimal B = A * Convert.ToDecimal(itemrate1.Text); pos.Discount = y1; pos.DiscountPer = z1;
                         decimal gst = 0; itemnamestlid = itemname1.Text; DataTable dts1 = pos.getstlid(); stlid = dts1.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname1.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate1.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1213,7 +1464,7 @@ namespace Foodcourt.View
                 {
                     if (itemname2.Text != "" || itemrate2.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text);
+                        int A = Convert.ToInt32(quantity2.Text); decimal B = A * Convert.ToDecimal(itemrate2.Text); pos.Discount = y2; pos.DiscountPer = z2;
                         decimal gst = 0; itemnamestlid = itemname2.Text; DataTable dts2 = pos.getstlid(); stlid = dts2.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname2.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate2.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1232,7 +1483,7 @@ namespace Foodcourt.View
 
                     if (itemname3.Text != "" || itemrate3.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text);
+                        int A = Convert.ToInt32(quantity3.Text); decimal B = A * Convert.ToDecimal(itemrate3.Text); pos.Discount = y3; pos.DiscountPer = z3;
                         decimal gst = 0; itemnamestlid = itemname3.Text; DataTable dts3 = pos.getstlid(); stlid = dts3.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname3.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate3.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1250,7 +1501,7 @@ namespace Foodcourt.View
                 {
                     if (itemname4.Text != "" || itemrate4.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text);
+                        int A = Convert.ToInt32(quantity4.Text); decimal B = A * Convert.ToDecimal(itemrate4.Text); pos.Discount = y4; pos.DiscountPer = z4;
                         decimal gst = 0; itemnamestlid = itemname4.Text; DataTable dts4 = pos.getstlid(); stlid = dts4.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname4.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate4.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1268,7 +1519,7 @@ namespace Foodcourt.View
                 {
                     if (itemname5.Text != "" || itemrate5.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text);
+                        int A = Convert.ToInt32(quantity5.Text); decimal B = A * Convert.ToDecimal(itemrate5.Text); pos.Discount = y5; pos.DiscountPer = z5;
                         decimal gst = 0; itemnamestlid = itemname5.Text; DataTable dts5 = pos.getstlid(); stlid = dts5.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname5.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate5.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1286,7 +1537,7 @@ namespace Foodcourt.View
                 {
                     if (itemname6.Text != "" || itemrate6.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text);
+                        int A = Convert.ToInt32(quantity6.Text); decimal B = A * Convert.ToDecimal(itemrate6.Text); pos.Discount = y6; pos.DiscountPer = z6;
                         decimal gst = 0; itemnamestlid = itemname6.Text; DataTable dts6 = pos.getstlid(); stlid = dts6.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname6.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate6.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1304,7 +1555,7 @@ namespace Foodcourt.View
                 {
                     if (itemname7.Text != "" || itemrate7.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text);
+                        int A = Convert.ToInt32(quantity7.Text); decimal B = A * Convert.ToDecimal(itemrate7.Text); pos.Discount = y7; pos.DiscountPer = z7;
                         decimal gst = 0; itemnamestlid = itemname7.Text; DataTable dts7 = pos.getstlid(); stlid = dts7.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname7.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate7.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1322,7 +1573,7 @@ namespace Foodcourt.View
                 {
                     if (itemname8.Text != "" || itemrate8.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text);
+                        int A = Convert.ToInt32(quantity8.Text); decimal B = A * Convert.ToDecimal(itemrate8.Text); pos.Discount = y8; pos.DiscountPer = z8;
                         decimal gst = 0; itemnamestlid = itemname8.Text; DataTable dts8 = pos.getstlid(); stlid = dts8.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname8.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate8.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1340,7 +1591,7 @@ namespace Foodcourt.View
                 {
                     if (itemname9.Text != "" || itemrate9.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text);
+                        int A = Convert.ToInt32(quantity9.Text); decimal B = A * Convert.ToDecimal(itemrate9.Text); pos.Discount = y9; pos.DiscountPer = z9;
                         decimal gst = 0; itemnamestlid = itemname9.Text; DataTable dts9 = pos.getstlid(); stlid = dts9.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname9.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate9.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1358,7 +1609,7 @@ namespace Foodcourt.View
                 {
                     if (itemname10.Text != "" || itemrate10.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text);
+                        int A = Convert.ToInt32(quantity10.Text); decimal B = A * Convert.ToDecimal(itemrate10.Text); pos.Discount = y10; pos.DiscountPer = z10;
                         decimal gst = 0; itemnamestlid = itemname10.Text; DataTable dts10 = pos.getstlid(); stlid = dts10.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname10.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate10.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1376,7 +1627,7 @@ namespace Foodcourt.View
                 {
                     if (itemname11.Text != "" || itemrate11.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text);
+                        int A = Convert.ToInt32(quantity11.Text); decimal B = A * Convert.ToDecimal(itemrate11.Text); pos.Discount = y11; pos.DiscountPer = z11;
                         decimal gst = 0; itemnamestlid = itemname11.Text; DataTable dts11 = pos.getstlid(); stlid = dts11.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname11.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate11.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1394,7 +1645,7 @@ namespace Foodcourt.View
                 {
                     if (itemname12.Text != "" || itemrate12.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text);
+                        int A = Convert.ToInt32(quantity12.Text); decimal B = A * Convert.ToDecimal(itemrate12.Text); pos.Discount = y12; pos.DiscountPer = z12;
                         decimal gst = 0; itemnamestlid = itemname12.Text; DataTable dts12 = pos.getstlid(); stlid = dts12.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname12.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate12.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1412,7 +1663,7 @@ namespace Foodcourt.View
                 {
                     if (itemname13.Text != "" || itemrate13.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text);
+                        int A = Convert.ToInt32(quantity13.Text); decimal B = A * Convert.ToDecimal(itemrate13.Text); pos.Discount = y13; pos.DiscountPer = z13;
                         decimal gst = 0; itemnamestlid = itemname13.Text; DataTable dts13 = pos.getstlid(); stlid = dts13.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname13.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate13.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1430,7 +1681,7 @@ namespace Foodcourt.View
                 {
                     if (itemname14.Text != "" || itemrate14.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text);
+                        int A = Convert.ToInt32(quantity14.Text); decimal B = A * Convert.ToDecimal(itemrate14.Text); pos.Discount = y14; pos.DiscountPer = z14;
                         decimal gst = 0; itemnamestlid = itemname14.Text; DataTable dts14 = pos.getstlid(); stlid = dts14.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname14.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate14.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1448,7 +1699,7 @@ namespace Foodcourt.View
                 {
                     if (itemname15.Text != "" || itemrate15.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text);
+                        int A = Convert.ToInt32(quantity15.Text); decimal B = A * Convert.ToDecimal(itemrate15.Text); pos.Discount = y15; pos.DiscountPer = z15;
                         decimal gst = 0; itemnamestlid = itemname15.Text; DataTable dts15 = pos.getstlid(); stlid = dts15.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname15.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate15.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1466,7 +1717,7 @@ namespace Foodcourt.View
                 {
                     if (itemname16.Text != "" || itemrate16.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text);
+                        int A = Convert.ToInt32(quantity16.Text); decimal B = A * Convert.ToDecimal(itemrate16.Text); pos.Discount = y16; pos.DiscountPer = z16;
                         decimal gst = 0; itemnamestlid = itemname16.Text; DataTable dts16 = pos.getstlid(); stlid = dts16.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname16.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate16.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1484,7 +1735,7 @@ namespace Foodcourt.View
                 {
                     if (itemname17.Text != "" || itemrate17.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text);
+                        int A = Convert.ToInt32(quantity17.Text); decimal B = A * Convert.ToDecimal(itemrate17.Text); pos.Discount = y17; pos.DiscountPer = z17;
                         decimal gst = 0; itemnamestlid = itemname17.Text; DataTable dts17 = pos.getstlid(); stlid = dts17.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname17.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate17.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1502,7 +1753,7 @@ namespace Foodcourt.View
                 {
                     if (itemname18.Text != "" || itemrate18.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text);
+                        int A = Convert.ToInt32(quantity18.Text); decimal B = A * Convert.ToDecimal(itemrate18.Text); pos.Discount = y18; pos.DiscountPer = z18;
                         decimal gst = 0; itemnamestlid = itemname18.Text; DataTable dts18 = pos.getstlid(); stlid = dts18.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname18.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate18.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
@@ -1520,7 +1771,7 @@ namespace Foodcourt.View
                 {
                     if (itemname19.Text != "" || itemrate19.Text != "")
                     {
-                        int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text);
+                        int A = Convert.ToInt32(quantity19.Text); decimal B = A * Convert.ToDecimal(itemrate19.Text); pos.Discount = y19; pos.DiscountPer = z19;
                         decimal gst = 0; itemnamestlid = itemname19.Text; DataTable dts19 = pos.getstlid(); stlid = dts19.Rows[0]["STL_ID"].ToString();
                         DataTable d = pos.gsttax(); if (d.Rows.Count == 0) { gst = 0; } else { gst = Convert.ToDecimal(d.Rows[0]["TAX_Percentage"]); }
                         pos.BILLITM_Name = itemname19.Text; pos.BILLITM_Rate = Convert.ToDecimal(itemrate19.Text); pos.BILLITM_Tax = (gst * B) / 100; pos.BILLITM_Quanty = A; pos.Insertitm();
