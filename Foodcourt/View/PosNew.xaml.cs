@@ -4651,7 +4651,7 @@ namespace Foodcourt.View
                     sp1.Visibility = Visibility.Visible;
                     if (c == 0)
                     { count++; c = 1; }
-                    TOTITM.Visibility = Visibility.Collapsed;
+                    TOTITM.Visibility = Visibility.Collapsed; 
             }
             else
             { quantity.Text = ""; total.Text = ""; }
