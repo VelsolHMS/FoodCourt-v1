@@ -51,8 +51,6 @@ namespace Foodcourt.View
                 txtbillno.Text = pos.BILLID().ToString();
                 txttime.Text = DateTime.Now.ToShortTimeString();
             }
-            DataTable doff = pos.getofferlist();
-            txtstall.ItemsSource = doff.DefaultView;
             sp.Visibility = Visibility.Visible;
             itemname.Focus();
             clear();
@@ -77,7 +75,7 @@ namespace Foodcourt.View
         }
         public static string id, itm, aaid, QY, itemnamestlid, stlid, offername,sa,st;
         public static int count,offid;
-        public static decimal tot, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum, maxamount, disper, amdis,disc,dec,discountper,discountam;
+        public static decimal tot,tot1, tax, gst, gtotbill, tax5tot, tax18tot,tax5sum,tax18sum, maxamount, disper, amdis,disc,dec,discountper,discountam;
         public static decimal a, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25;
         public static int q, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25;
         public static decimal r, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25;
@@ -585,6 +583,7 @@ namespace Foodcourt.View
             DataRow DROW = billprint.NewRow();
             DataTable dt1 = pos.Address();
             DataTable dt2 = pos.items();
+            DataTable dt3 = pos.DiscountAmount();
             DROW["Name"] = dt1.Rows[0]["PRPT_Name"].ToString();
             DROW["Address"] = dt1.Rows[0]["PRPT_Address"].ToString();
             DROW["GstNO"] = dt1.Rows[0]["PRPT_GST"].ToString();
@@ -596,9 +595,9 @@ namespace Foodcourt.View
             //DROW["Sgst"] = tax / 2;
             DROW["Cgst"] = tax5sum;
             DROW["Sgst"] = tax18sum;
-            dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
-            ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
-            DROW["Discount"] = dis + ins;
+            //dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
+            //ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
+            DROW["Discount"] = dt3.Rows[0]["Discount"].ToString();
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
             DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
@@ -668,34 +667,13 @@ namespace Foodcourt.View
         {
             if(OfferCheck.IsChecked == true)
             {
-                txtstall.IsEnabled = true;
-                txtpercentage.IsEnabled = true;
-                txtdisAmount.IsEnabled = true;
-                txtInsdis.IsEnabled = true;
-                txtInsdisper.IsEnabled = true;
-                txtInsdis.IsEnabled = true;
-                txtdisAmount.Text = "0";
-                txtInsdis.Text = "0";
-                totdisamount = 0;disc = 0;
-                dec = (tot + tax);
-                txtgttl.Text = Math.Round(dec, 2, MidpointRounding.AwayFromZero).ToString();
+                pos.CusName = cusName.Text;
+                pos.CusMobile = cusMobile.Text;
             }
             else
             {
-                txtstall.IsEnabled = false;
-                txtpercentage.IsEnabled = false;
-                txtdisAmount.IsEnabled = false;
-                txtInsdis.IsEnabled = false;
-                txtInsdisper.IsEnabled = false;
-                txtInsdis.IsEnabled = false;
-                txtstall.Text = "";
-                txtpercentage.Text = "";
-                txtdisAmount.Text = "0";
-                txtInsdisper.Text = "";
-                txtInsdis.Text = "0";
-                totdisamount = 0; disc = 0;
-                dec = (tot + tax);
-                txtgttl.Text = Math.Round(dec, 2, MidpointRounding.AwayFromZero).ToString();
+                pos.CusName = "";
+                pos.CusMobile = "";
                  
             }
         }
@@ -1393,18 +1371,19 @@ namespace Foodcourt.View
                 if (itemname17.Text == "") { ab17 = 0; t17 = 0; }
                 if (itemname18.Text == "") { ab18 = 0; t18 = 0; }
                 if (itemname19.Text == "") { ab19 = 0; t19 = 0; }
-                // tot = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
+                tot1 = Convert.ToDecimal(a + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18);
                 tot = Convert.ToDecimal(ab + ab1 + ab2 + ab3 + ab4 + ab5 + ab6 + ab7 + ab8 + ab9 + ab10 + ab11 + ab12 + ab13 + ab14 + ab15 + ab16 + ab17 + ab18 + ab19);
                 tax = Convert.ToDecimal(t + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19);
                 tax5tot = Convert.ToDecimal(tax15 + tax25 + tax35 + tax45 + tax55 + tax65 + tax75 + tax85 + tax95 + tax105 + tax115 + tax125 + tax135 + tax145 + tax155 + tax165 + tax175 + tax185 + tax195 + tax205);
                 tax18tot = Convert.ToDecimal(tax118 + tax218 + tax318 + tax418 + tax518 + tax618 + tax718 + tax818 + tax918 + tax1018 + tax1118 + tax1218 + tax1318 + tax1418 + tax1518 + tax1618 + tax1718 + tax1818 + tax1918 + tax2018);
-                gtotbill = tot + tax;
-                txtttl.Text = Math.Round(tot, 2, MidpointRounding.AwayFromZero).ToString();
+                discountper = z + z1 + z2 + z3 + z4 + z5 + z6 + z7 + z8 + z9 + z10 + z11 + z12 + z13 + z14 + z15 + z16 + z17 + z18 + z19;
+                discountam = y + y1 + y2 + y3 + y4 + y5 + y6 + y7 + y8 + y9 + y10 + y11 + y12 + y13 + y14 + y15 + y16 + y17 + y18 + y19;
+                gtotbill = (tot1- discountam) + tax;
+                txtttl.Text = Math.Round(tot1, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgst.Text = Math.Round(tax5tot, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgst2.Text = Math.Round(tax18tot, 2, MidpointRounding.AwayFromZero).ToString();
                 txtgttl.Text = Math.Round(gtotbill, 2, MidpointRounding.AwayFromZero).ToString();
-                discountper = z + z1 + z2 + z3 + z4 + z5 + z6 + z7 + z8 + z9 + z10 + z11 + z12 + z13 + z14 + z15 + z16 + z17 + z18 + z19;
-                discountam = y + y1 + y2 + y3 + y4 + y5 + y6 + y7 + y8 + y9 + y10 + y11 + y12 + y13 + y14 + y15 + y16 + y17 + y18 + y19;
+                itmTotalDis.Text = discountam.ToString();
             }
         }
         public decimal billtot;
@@ -1415,11 +1394,19 @@ namespace Foodcourt.View
             pos.BILL_Tax = Convert.ToDecimal(txtgst.Text);
             billtot = Convert.ToDecimal(txtgttl.Text);
             pos.BILL_Total = (int)Math.Round(billtot);
-            pos.BILL_Discount = Convert.ToDecimal(txtdisAmount.Text);
-            if(txtpercentage.Text == "" || txtpercentage.Text == null)
-            { pos.Bill_OfferId = 0; }
-            else { pos.Bill_OfferId = offid; }
-            pos.Bill_InstantDis = Convert.ToDecimal(txtInsdis.Text);
+            if (OfferCheck.IsChecked == true)
+            {
+                pos.CusName = cusName.Text;
+                pos.CusMobile = cusMobile.Text;
+                pos.BILL_Status = "Pending";
+            }
+            else
+            {
+                pos.CusName = "";
+                pos.CusMobile = "";
+                pos.BILL_Status = "Settled";
+
+            }
             pos.insertbill();
             pos.A = Convert.ToInt32(txtbillno.Text);
             for (int i = 0; i < count; i++)
@@ -1833,18 +1820,6 @@ namespace Foodcourt.View
         public static DataTable pos1, pos11,aaa,abc;
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            OfferCheck.IsChecked = false;
-            txtstall.IsEnabled = false;
-            txtpercentage.IsEnabled = false;
-            txtdisAmount.IsEnabled = false;
-            txtInsdis.IsEnabled = false;
-            txtInsdisper.IsEnabled = false;
-            txtInsdis.IsEnabled = false;
-            txtstall.Text = "";
-            txtpercentage.Text = "";
-            txtdisAmount.Text = "0";
-            txtInsdisper.Text = "";
-            txtInsdis.Text = "0";
             this.NavigationService.Refresh();
         }
         private void Itemname_KeyUp(object sender, KeyEventArgs e)
@@ -4516,55 +4491,8 @@ namespace Foodcourt.View
 
         }
         public decimal disperin,totdisamount,totdisbill,totinsbill;
-        private void TxtInsdisper_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtInsdisper.Text == null || txtInsdisper.Text == "")
-            { disc = 0; }
-            else
-            {
-                disperin = Convert.ToDecimal(txtInsdisper.Text);
-                disc = (gtotbill * disperin) / 100;
-                txtInsdis.Text = Math.Round(disc, 2, MidpointRounding.AwayFromZero).ToString();
-                totinsbill = ((tot + tax) - (disc + totdisamount));
-                txtgttl.Text = Math.Round(totinsbill, 2, MidpointRounding.AwayFromZero).ToString();
-            }
-        }
-        private void Txtstall_DropDownClosed(object sender, EventArgs e)
-        {
-            offername = txtstall.Text;
-            DataTable DTT = pos.getoffer();
-            if (DTT.Rows.Count == 0)
-            { }
-            else
-            {
-                offid = Convert.ToInt32(DTT.Rows[0]["OFF_ID"]);
-                if (DTT.Rows[0]["OFF_Percentage"].ToString() == "0" || DTT.Rows[0]["OFF_Percentage"].ToString() == null)
-                { disper = 0; }
-                else { disper = Convert.ToDecimal(DTT.Rows[0]["OFF_Percentage"]); }
-                txtpercentage.Text = disper.ToString();
-                amdis = (gtotbill * disper) / 100;
-                if (DTT.Rows[0]["OFF_MaxAmount"].ToString() == "0" || DTT.Rows[0]["OFF_MaxAmount"].ToString() == null)
-                { maxamount = 0; }
-                else
-                { maxamount = Convert.ToDecimal(DTT.Rows[0]["OFF_MaxAmount"]); }
-                if (maxamount == 0)
-                {
-                    txtdisAmount.Text = amdis.ToString();
-                }
-                else if (maxamount <= amdis)
-                {
-                    txtdisAmount.Text = maxamount.ToString();
-                }
-                else if (maxamount > amdis)
-                {
-                    txtdisAmount.Text = amdis.ToString();
-                }
-            }
-            totdisamount = Convert.ToDecimal(txtdisAmount.Text);
-            txtdisAmount.Text = Math.Round(totdisamount, 2, MidpointRounding.AwayFromZero).ToString();
-            totdisbill = ((tot + tax) - (disc + totdisamount));
-            txtgttl.Text = Math.Round(totdisbill, 2, MidpointRounding.AwayFromZero).ToString();
-        }
+        
+        
         private void Total18_GotFocus(object sender, RoutedEventArgs e)
         {
             if (quantity18.Text == "") { quantity18.Focus(); }
