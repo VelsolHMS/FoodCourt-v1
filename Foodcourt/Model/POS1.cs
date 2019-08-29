@@ -126,7 +126,12 @@ namespace Foodcourt.Model
         public DateTime Insert_Date { get; set; }
         public string Update_By { get; set; }
         public DateTime Update_Date { get; set; }
-        
+        public decimal Discount { get; set; }
+        public decimal DiscountPer { get; set; }
+        public string CusMobile { get; set; }
+        public string CusName { get; set; }
+
+
         public void insertbill()
         {
             var list = new List<SqlParameter>();
@@ -142,8 +147,10 @@ namespace Foodcourt.Model
             list.AddSqlParameter("@BILL_Discount", BILL_Discount);
             list.AddSqlParameter("@Bill_OfferId", Bill_OfferId);
             list.AddSqlParameter("@Bill_InstantDis", Bill_InstantDis);
-            string s = "INSERT INTO FCBILLNO(BILL_Amount,BILL_Tax,BILL_Total,BILL_InsertBy,BILL_InsertDate,BILL_Status,BILL_Discount,Bill_OfferId,Bill_InstantDis)" +
-                " VALUES(@BILL_Amount,@BILL_Tax,@BILL_Total,@BILL_InsertBy,@BILL_InsertDate,@BILL_Status,@BILL_Discount,@Bill_OfferId,@Bill_InstantDis)";
+            list.AddSqlParameter("@CusName", CusName);
+            list.AddSqlParameter("@CusMobile", CusMobile);
+            string s = "INSERT INTO FCBILLNO(BILL_Amount,BILL_Tax,BILL_Total,BILL_InsertBy,BILL_InsertDate,BILL_Status,BILL_Discount,Bill_OfferId,Bill_InstantDis,CusName,CusMobile)" +
+                " VALUES(@BILL_Amount,@BILL_Tax,@BILL_Total,@BILL_InsertBy,@BILL_InsertDate,@BILL_Status,@BILL_Discount,@Bill_OfferId,@Bill_InstantDis,@CusName,@CusMobile)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
         public string BILLITM_Name { get; set; }
@@ -167,8 +174,10 @@ namespace Foodcourt.Model
             BILLITM_InsertBy = login.u;
             list.AddSqlParameter("@BILLITM_InsertBy", BILLITM_InsertBy);
             list.AddSqlParameter("@BILLITM_Quanty", BILLITM_Quanty);
-            string s = "INSERT INTO FCBILLITM(BILITM_Name,STL_ID,BILITM_Rate,BILITM_Tax,BILITM_InsertDate,BILITM_InsertBy,BILL_Id,BILLITM_Quanty)" +
-                " VALUES(@BILLITM_Name,@STL_ID,@BILLITM_Rate,@BILLITM_Tax,@BILLITM_InsertDate,@BILLITM_InsertBy,(SELECT MAX(BILL_Id) FROM FCBILLNO),@BILLITM_Quanty)";
+            list.AddSqlParameter("@Discount", Discount);
+            list.AddSqlParameter("@DiscountPer", DiscountPer);
+            string s = "INSERT INTO FCBILLITM(BILITM_Name,STL_ID,BILITM_Rate,BILITM_Tax,BILITM_InsertDate,BILITM_InsertBy,BILL_Id,BILLITM_Quanty,Discount,DiscountPer)" +
+                " VALUES(@BILLITM_Name,@STL_ID,@BILLITM_Rate,@BILLITM_Tax,@BILLITM_InsertDate,@BILLITM_InsertBy,(SELECT MAX(BILL_Id) FROM FCBILLNO),@BILLITM_Quanty,@Discount,@DiscountPer)";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
         public int bill { get; set; }
