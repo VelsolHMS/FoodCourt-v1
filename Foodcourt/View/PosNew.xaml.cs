@@ -1714,6 +1714,7 @@ namespace Foodcourt.View
         private void Quantity1_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname1.Text == "") { itemname1.Focus(); }
+            else { DISITM1.IsEnabled = true; }
         }
         private void Total1_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -1857,6 +1858,7 @@ namespace Foodcourt.View
         private void Quantity2_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname2.Text == "") { itemname2.Focus(); }
+            else { DISITM2.IsEnabled = true; }
         }
         private void Itemname2_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -1967,6 +1969,7 @@ namespace Foodcourt.View
         private void Quantity3_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname3.Text == "") { itemname3.Focus(); }
+            else { DISITM3.IsEnabled = true; }
         }
         private void Quantity3_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -2106,6 +2109,7 @@ namespace Foodcourt.View
         private void Quantity4_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname4.Text == "") { itemname4.Focus(); }
+            else { DISITM4.IsEnabled = true; }
         }
         private void Total4_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -2222,6 +2226,7 @@ namespace Foodcourt.View
         private void Quantity5_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname5.Text == "") { itemname5.Focus(); }
+            else { DISITM5.IsEnabled = true; }
         }
         private void Total5_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -2390,6 +2395,7 @@ namespace Foodcourt.View
         private void Quantity6_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname6.Text == "") { itemname6.Focus(); }
+            else { DISITM6.IsEnabled = true; }
         }
         private void Total6_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -2480,6 +2486,7 @@ namespace Foodcourt.View
         private void Quantity7_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname7.Text == "") { itemname7.Focus(); }
+            else { DISITM7.IsEnabled = true; }
         }
         private void Total7_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -2614,6 +2621,7 @@ namespace Foodcourt.View
         private void Quantity8_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname8.Text == "") { itemname8.Focus(); }
+            else { DISITM8.IsEnabled = true; }
         }
         private void Quantity8_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -2749,6 +2757,7 @@ namespace Foodcourt.View
         private void Quantity9_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname9.Text == "") { itemname9.Focus(); }
+            else { DISITM9.IsEnabled = true; }
         }
         private void Total9_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -2884,6 +2893,7 @@ namespace Foodcourt.View
         private void Quantity10_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname10.Text == "") { itemname10.Focus(); }
+            else { DISITM10.IsEnabled = true; }
         }
         private void Quantity10_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -3021,6 +3031,7 @@ namespace Foodcourt.View
         private void Quantity11_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname11.Text == "") { itemname11.Focus(); }
+            else { DISITM11.IsEnabled = true; }
         }
         private void Total11_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -3164,6 +3175,7 @@ namespace Foodcourt.View
         private void Quantity12_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname12.Text == "") { itemname12.Focus(); }
+            else { DISITM12.IsEnabled = true; }
         }
 
         private void Total12_GotFocus(object sender, RoutedEventArgs e)
@@ -3313,6 +3325,7 @@ namespace Foodcourt.View
         private void Quantity13_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname13.Text == "") { itemname13.Focus(); }
+            else { DISITM13.IsEnabled = true; }
         }
 
         private void Total13_GotFocus(object sender, RoutedEventArgs e)
@@ -3458,6 +3471,7 @@ namespace Foodcourt.View
         private void Quantity14_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname14.Text == "") { itemname14.Focus(); }
+            else { DISITM14.IsEnabled = true; }
         }
 
         private void Total14_GotFocus(object sender, RoutedEventArgs e)
@@ -3605,6 +3619,7 @@ namespace Foodcourt.View
         private void Quantity15_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname15.Text == "") { itemname15.Focus(); }
+            else { DISITM15.IsEnabled = true; }
         }
         private void Quantity15_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -3751,6 +3766,7 @@ namespace Foodcourt.View
         private void Quantity16_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname16.Text == "") { itemname16.Focus(); }
+            else { DISITM16.IsEnabled = true; }
         }
 
         private void Total16_GotFocus(object sender, RoutedEventArgs e)
@@ -3902,6 +3918,7 @@ namespace Foodcourt.View
         private void Quantity17_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname17.Text == "") { itemname17.Focus(); }
+            else { DISITM17.IsEnabled = true; }
         }
 
         private void Itemname17_TextChanged(object sender, TextChangedEventArgs e)
@@ -4049,6 +4066,7 @@ namespace Foodcourt.View
         private void Quantity18_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname18.Text == "") { itemname18.Focus(); }
+            else { DISITM18.IsEnabled = true; }
         }
         private void Itemname19_KeyUp(object sender, KeyEventArgs e)
         {
@@ -4148,6 +4166,7 @@ namespace Foodcourt.View
         private void Quantity19_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname19.Text == "") { itemname19.Focus(); }
+            else { DISITM19.IsEnabled = true; }
         }
         private void Total19_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -4360,11 +4379,12 @@ namespace Foodcourt.View
             if (quantity.Text == "")
             { quantity.Focus(); }
             else { itemname1.Focus(); TOTITM1.ItemsSource = dn.DefaultView; }
-            DISITM1.IsEnabled = true;
+            
         }
         private void Quantity_GotFocus(object sender, RoutedEventArgs e)
         {
             if (itemname.Text == "") { itemname.Focus(); }
+            else { DISITM.IsEnabled = true; }
         }
     }
 }
