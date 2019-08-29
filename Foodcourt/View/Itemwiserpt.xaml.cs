@@ -74,6 +74,7 @@ namespace Foodcourt.View
             D.Columns.Add("FromDate", typeof(DateTime));
             D.Columns.Add("ToDate", typeof(DateTime));
             D.Columns.Add("RevenueShare", typeof(decimal));
+            D.Columns.Add("DISCOUNT", typeof(string));
             rpt.PRPT();
             DataRow row = D.NewRow();
             row["NAME"] = Reports.Name;
@@ -85,12 +86,13 @@ namespace Foodcourt.View
             row["TOTAL_AMOUNT"] = FinalNetAmount;
             row["SGST"] = FinalTax/2;
             row["CGST"] = FinalTax/2;
+            row["DISCOUNT"] = FinalDiscountAmount;
             row["GRANDTOTAL"] = FinalGrandTotal;
             row["RevenueShare"] = (FinalNetAmount * Convert.ToInt32(txtPer.Text))/ 100;
             D.Rows.Add(row);
             return D;
         }
-        Decimal FinalNetAmount, FinalTax, FinalGrandTotal;
+        Decimal FinalNetAmount, FinalTax, FinalGrandTotal, FinalDiscountAmount;
         public DataTable SubReport()
         {
             DataTable D = new DataTable();
@@ -100,25 +102,29 @@ namespace Foodcourt.View
             D.Columns.Add("CGST", typeof(decimal));
             D.Columns.Add("ITEM_NAME", typeof(string));
             D.Columns.Add("QTY", typeof(Int32));
+            D.Columns.Add("DISCOUNT", typeof(string));
 
             DataTable S1 = i.itemwise();
             for (int i = 0; i < S1.Rows.Count; i++)
             {
-                Decimal A, B, C, E;
+                Decimal A, B, C, E, F;
                 DataRow row = D.NewRow();
                 row["ITEM_NAME"] = S1.Rows[i]["ITEM_NAME"].ToString();
                 row["QTY"] = S1.Rows[i]["QTY"].ToString();
+                row["DISCOUNT"] = S1.Rows[i]["Discount"].ToString();
                 A = Decimal.Parse(S1.Rows[i]["RATE"].ToString());
                 B = Decimal.Parse(S1.Rows[i]["QTY"].ToString());
                 C = Decimal.Parse(S1.Rows[i]["TAXRATE"].ToString());
                 E = A * B;
+                F = Decimal.Parse(S1.Rows[i]["Discount"].ToString());
                 FinalNetAmount += E;
                 FinalTax += C;
-                FinalGrandTotal += E + C;
+                FinalGrandTotal += (E + C) - F;
+                FinalDiscountAmount += F;
                 row["TOTAL_AMOUNT"] = E;
                 row["SGST"] = C / 2;
                 row["CGST"] = C / 2;
-                row["GRANDTOTAL"] = E + C;
+                row["GRANDTOTAL"] = (E + C) - F;
                 D.Rows.Add(row);
             }
             return D;

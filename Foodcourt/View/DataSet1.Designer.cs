@@ -336,6 +336,8 @@ namespace Foodcourt.View {
             
             private global::System.Data.DataColumn columnSGST;
             
+            private global::System.Data.DataColumn columnDISCOUNT;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1DataTable() {
@@ -459,6 +461,14 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DISCOUNTColumn {
+                get {
+                    return this.columnDISCOUNT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -494,7 +504,7 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string NAME, string ADDRESS, decimal TOTAL_AMOUNT, string GST, decimal GRANDTOTAL, decimal CGST, string Stall, System.DateTime FromDate, System.DateTime ToDate, decimal RevenueShare, decimal SGST) {
+            public DataTable1Row AddDataTable1Row(string NAME, string ADDRESS, decimal TOTAL_AMOUNT, string GST, decimal GRANDTOTAL, decimal CGST, string Stall, System.DateTime FromDate, System.DateTime ToDate, decimal RevenueShare, decimal SGST, decimal DISCOUNT) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NAME,
@@ -507,7 +517,8 @@ namespace Foodcourt.View {
                         FromDate,
                         ToDate,
                         RevenueShare,
-                        SGST};
+                        SGST,
+                        DISCOUNT};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -541,6 +552,7 @@ namespace Foodcourt.View {
                 this.columnToDate = base.Columns["ToDate"];
                 this.columnRevenueShare = base.Columns["RevenueShare"];
                 this.columnSGST = base.Columns["SGST"];
+                this.columnDISCOUNT = base.Columns["DISCOUNT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -568,6 +580,8 @@ namespace Foodcourt.View {
                 base.Columns.Add(this.columnRevenueShare);
                 this.columnSGST = new global::System.Data.DataColumn("SGST", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSGST);
+                this.columnDISCOUNT = new global::System.Data.DataColumn("DISCOUNT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDISCOUNT);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -713,6 +727,8 @@ namespace Foodcourt.View {
             
             private global::System.Data.DataColumn columnGRANDTOTAL;
             
+            private global::System.Data.DataColumn columnDISCOUNT;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ItemsDataTable() {
@@ -796,6 +812,14 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DISCOUNTColumn {
+                get {
+                    return this.columnDISCOUNT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -831,7 +855,7 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ItemsRow AddItemsRow(string ITEM_NAME, int QTY, decimal TOTAL_AMOUNT, decimal CGST, decimal SGST, decimal GRANDTOTAL) {
+            public ItemsRow AddItemsRow(string ITEM_NAME, int QTY, decimal TOTAL_AMOUNT, decimal CGST, decimal SGST, decimal GRANDTOTAL, decimal DISCOUNT) {
                 ItemsRow rowItemsRow = ((ItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ITEM_NAME,
@@ -839,7 +863,8 @@ namespace Foodcourt.View {
                         TOTAL_AMOUNT,
                         CGST,
                         SGST,
-                        GRANDTOTAL};
+                        GRANDTOTAL,
+                        DISCOUNT};
                 rowItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowItemsRow);
                 return rowItemsRow;
@@ -868,6 +893,7 @@ namespace Foodcourt.View {
                 this.columnCGST = base.Columns["CGST"];
                 this.columnSGST = base.Columns["SGST"];
                 this.columnGRANDTOTAL = base.Columns["GRANDTOTAL"];
+                this.columnDISCOUNT = base.Columns["DISCOUNT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,6 +911,8 @@ namespace Foodcourt.View {
                 base.Columns.Add(this.columnSGST);
                 this.columnGRANDTOTAL = new global::System.Data.DataColumn("GRANDTOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGRANDTOTAL);
+                this.columnDISCOUNT = new global::System.Data.DataColumn("DISCOUNT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDISCOUNT);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,6 +1231,22 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal DISCOUNT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.DISCOUNTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DISCOUNT\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DISCOUNTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNAMENull() {
                 return this.IsNull(this.tableDataTable1.NAMEColumn);
             }
@@ -1332,6 +1376,18 @@ namespace Foodcourt.View {
             public void SetSGSTNull() {
                 this[this.tableDataTable1.SGSTColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDISCOUNTNull() {
+                return this.IsNull(this.tableDataTable1.DISCOUNTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDISCOUNTNull() {
+                this[this.tableDataTable1.DISCOUNTColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1446,6 +1502,22 @@ namespace Foodcourt.View {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal DISCOUNT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItems.DISCOUNTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DISCOUNT\' in table \'Items\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItems.DISCOUNTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsITEM_NAMENull() {
                 return this.IsNull(this.tableItems.ITEM_NAMEColumn);
             }
@@ -1514,6 +1586,18 @@ namespace Foodcourt.View {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetGRANDTOTALNull() {
                 this[this.tableItems.GRANDTOTALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDISCOUNTNull() {
+                return this.IsNull(this.tableItems.DISCOUNTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDISCOUNTNull() {
+                this[this.tableItems.DISCOUNTColumn] = global::System.Convert.DBNull;
             }
         }
         
