@@ -130,6 +130,43 @@ namespace Foodcourt.View.Oprs
         }
         public static int B_bill_no;
         public Decimal B_Tax, B_Total, B_GTotal,B_DisTotal;
+
+        private void Closee_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Refresh();
+            pendingview.Visibility = Visibility.Hidden;
+        }
+
+        private void Pendingbills_Click_1(object sender, RoutedEventArgs e)
+        {
+            pendingview.Visibility = Visibility.Visible;
+            DataTable DT = BV.pending();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("BILL_Id", typeof(int));
+            dt.Columns.Add("BILL_Amount", typeof(decimal));
+            dt.Columns.Add("CGST", typeof(decimal));
+            dt.Columns.Add("SGST", typeof(decimal));
+            dt.Columns.Add("BILL_Discount", typeof(int));
+            dt.Columns.Add("BILL_Total", typeof(decimal));
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
+                BILL_Amount = Convert.ToDecimal(DT.Rows[i]["BILL_Amount"]);
+                BILL_Tax = Convert.ToDecimal(DT.Rows[i]["BILL_Tax"]);
+                CGST = BILL_Tax / 2;
+                BILL_Discount = Convert.ToInt32(DT.Rows[i]["BILL_Discount"]);
+                BILL_Total = Convert.ToDecimal(DT.Rows[i]["BILL_Total"]);
+                DataRow row = dt.NewRow();
+                row["BILL_Id"] = DT.Rows[i]["BILL_Id"];
+                row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
+                row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
+                row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
+                row["CGST"] = CGST;
+                row["SGST"] = CGST;
+                dt.Rows.Add(row);
+            }
+            dgpending.ItemsSource = dt.DefaultView;
+        }
         private void BillwiseSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
