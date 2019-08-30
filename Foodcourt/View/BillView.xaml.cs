@@ -15,6 +15,7 @@ namespace Foodcourt.View.Oprs
     public partial class BillView : Page
     {
         BillVIEW BV = new BillVIEW();
+        POS1 pos = new POS1();
         public static int A;
         public int value;
         Regex num = new Regex(@"^[0-9]+$");
@@ -137,6 +138,69 @@ namespace Foodcourt.View.Oprs
             pendingview.Visibility = Visibility.Hidden;
         }
 
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            BillSettleConfirmation.IsOpen = true;
+        }
+
+        private void Yes_Click(object sender, RoutedEventArgs e)
+        {
+            pos.billid = billno;
+            pos.BILL_Status = "Settled";
+            pos.updatestatus();
+            BillSettleConfirmation.IsOpen = false;
+            DataTable DT = BV.pending();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("BILL_Id", typeof(int));
+            dt.Columns.Add("BILL_Amount", typeof(decimal));
+            dt.Columns.Add("CGST", typeof(decimal));
+            dt.Columns.Add("SGST", typeof(decimal));
+            dt.Columns.Add("BILL_Discount", typeof(int));
+            dt.Columns.Add("BILL_Total", typeof(decimal));
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
+                BILL_Amount = Convert.ToDecimal(DT.Rows[i]["BILL_Amount"]);
+                BILL_Tax = Convert.ToDecimal(DT.Rows[i]["BILL_Tax"]);
+                CGST = BILL_Tax / 2;
+                BILL_Discount = Convert.ToInt32(DT.Rows[i]["BILL_Discount"]);
+                BILL_Total = Convert.ToDecimal(DT.Rows[i]["BILL_Total"]);
+                DataRow row = dt.NewRow();
+                row["BILL_Id"] = DT.Rows[i]["BILL_Id"];
+                row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
+                row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
+                row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
+                row["CGST"] = CGST;
+                row["SGST"] = CGST;
+                dt.Rows.Add(row);
+            }
+            dgpending.ItemsSource = dt.DefaultView;
+            // this.NavigationService.Refresh();
+        }
+        private void No_Click(object sender, RoutedEventArgs e)
+        {
+            BillSettleConfirmation.IsOpen = false;
+           // this.NavigationService.Refresh();
+        }
+        public int billno;
+        private void Dgpending_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int i = dgpending.SelectedIndex;
+            DataTable dt1;
+            if (i >= 0)
+            {
+                if (value == 0)
+                {
+                    dt1 = BV.pending();
+                }
+                else
+                {
+                    dt1 = BV.pending();
+                }
+                Ok.IsEnabled = true;
+                billno = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
+            }
+        }
         private void Pendingbills_Click_1(object sender, RoutedEventArgs e)
         {
             pendingview.Visibility = Visibility.Visible;
