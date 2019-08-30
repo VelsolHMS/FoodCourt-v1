@@ -11,14 +11,14 @@ namespace Foodcourt.Model
         public DataTable GETDAYBILL()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE DAY(BILL_InsertDate) = DAY(GETDATE()) AND BILL_Status='Settled'";
+            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE BILL_InsertDate = GETDATE() AND BILL_Status='Settled'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
         public DataTable GETMONTHBILL()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE MONTH(BILL_InsertDate)='" + DashBoard.i+ "' AND BILL_Status='Settled'";
+            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE MONTH(BILL_InsertDate)='" + DashBoard.i+ "' AND Year(BILL_InsertDate) = Year(GETDATE()) AND BILL_Status='Settled'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
