@@ -695,3 +695,5 @@ C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.C
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.csproj.CopyComplete
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.exe
 C:\Users\Velsol\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\Foodcourt.pdb
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.g.cs
+C:\Users\Lakshmi\source\repos\FoodCourt-v1\Foodcourt\obj\Debug\View\PosNew.baml
