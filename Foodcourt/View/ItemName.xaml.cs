@@ -41,6 +41,7 @@ namespace Foodcourt.View
                 error--;
         }
         public static string ctgname;
+        string SelectedItemName;
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -63,9 +64,27 @@ namespace Foodcourt.View
                     items.NAM_Status = status.Text;
                     if (btnSave.Content.ToString() == "Update")
                     {
-                        items.NAM_Id = itemIdtxt.Text;
-                        items.Update();
-                        MessageBox.Show("Updated Succesfully");
+                        if(SelectedItemName == nametxt.Text)
+                        {
+                            items.NAM_Id = itemIdtxt.Text;
+                            items.Update();
+                            MessageBox.Show("Updated Succesfully");
+                        }
+                        else
+                        {
+                            if(name_checking.Rows.Count > 0)
+                            {
+                                MessageBox.Show("Item Name Already Exists. Please Change the Name.!");
+                            }
+                            else
+                            {
+                                items.selectedItemName = SelectedItemName;
+                                items.UpdateItemInBillItm();
+                                items.NAM_Id = itemIdtxt.Text;
+                                items.Update();
+                                MessageBox.Show("Updated Succesfully");
+                            }
+                        }
                     }
                     else
                     {
@@ -126,6 +145,7 @@ namespace Foodcourt.View
                 item_c.CTG_Id = getDetails.Rows[0]["CTG_Id"].ToString();
                 item_c.GetCatName();
                 catgytxt.Text = item_c.CTG_Name;
+                SelectedItemName = getDetails.Rows[0]["NAM_Name"].ToString();
                 pricetxt.Text = getDetails.Rows[0]["NAM_Rate"].ToString();
                 taxtxt.Text = getDetails.Rows[0]["NAM_Tax"].ToString();
                 detailstxt.Text = getDetails.Rows[0]["NAM_Details"].ToString();
