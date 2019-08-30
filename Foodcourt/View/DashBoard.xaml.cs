@@ -37,7 +37,7 @@ namespace Foodcourt.View.Oprs
             month = cmbmonth.Text;
             i = DateTime.ParseExact(month, "MMMM", System.Globalization.CultureInfo.InvariantCulture).Month;
             //MONTH = int.Parse(i.ToString());
-            YEAR1 = DateTime.Now.Year;
+            //YEAR1 = DateTime.Now.Year;
             DataTable DT1 = DB.GETMONTHBILL();
             DataTable dt1 = new DataTable();
             for (int i = 0; i < DT1.Rows.Count; i++)
@@ -97,6 +97,13 @@ namespace Foodcourt.View.Oprs
         public int ii = 1,VAL;
         public string VALS, s;
         public static decimal i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i30, i31;
+
+        private void Cmbyears_DropDownClosed(object sender, EventArgs e)
+        {
+            cmbsales.IsEnabled = true;
+            YEAR1 =Convert.ToInt32(cmbyears.Text);
+        }
+
         private void cmbsales_DropDownClosed(object sender, EventArgs e)
         {
             List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();
