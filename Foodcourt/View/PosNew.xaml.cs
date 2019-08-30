@@ -1806,12 +1806,8 @@ namespace Foodcourt.View
             re.SetDataSource(pos11);
             re.Subreports[0].SetDataSource(pos1);
             re.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-
-
             ReportDocument res = new ReportDocument();
-
             res.Load("../../REPORTS/kotprint.rpt");
-
             DataTable dstlss = pos.stlidsss();
             for (int i = 1; i <= dstlss.Rows.Count; i++)
             {
