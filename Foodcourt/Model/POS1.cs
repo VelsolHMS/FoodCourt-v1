@@ -312,6 +312,14 @@ namespace Foodcourt.Model
             string s = "UPDATE FCCUSTOMER SET NAME=@NAME,EMAIL=@EMAIL,CITY=@CITY,ADDRESS=@ADDRESS WHERE MOBILE_NO = '" + MOBILE_NO + "'";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
+        public int billid;
+        public void updatestatus()
+        {
+            var list = new List<SqlParameter>();
+            list.AddSqlParameter("@BILL_Status", BILL_Status);
+            string s = "UPDATE FCBILLNO SET BILL_Status=@BILL_Status WHERE BILL_Id = '" + billid + "'";
+            DbFunctions.ExecuteCommand<int>(s, list);
+        }
         public DataTable getoffer()
         {
             var list = new List<SqlParameter>();
@@ -319,6 +327,7 @@ namespace Foodcourt.Model
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }
+
         public DataTable getofferlist()
         {
             var list = new List<SqlParameter>();
