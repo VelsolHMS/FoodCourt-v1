@@ -674,16 +674,18 @@ namespace Foodcourt.View
         {
             if(OfferCheck.IsChecked == true)
             {
-                cusName.IsEnabled = true; cusMobile.IsEnabled = true;
+                //cusName.IsEnabled = true;
+                //cusMobile.IsEnabled = true;
                 pos.CusName = cusName.Text;
                 pos.CusMobile = cusMobile.Text;
             }
             else if(OfferCheck.IsChecked == false)
             {
-                cusName.IsEnabled = false; cusMobile.IsEnabled = false;
-                pos.CusName = "";
-                pos.CusMobile = "";
-                 
+                //cusName.IsEnabled = false;
+                //cusMobile.IsEnabled = false;
+                pos.CusName = cusName.Text;
+                pos.CusMobile = cusMobile.Text;
+
             }
         }
 
@@ -1409,7 +1411,7 @@ namespace Foodcourt.View
             {
                 if (cusName.Text == "" || cusMobile.Text == "")
                 {
-                    MessageBox.Show("Please Enter valid Data");
+                    MessageBox.Show("Please Enter Customer Details");
                 }
                 else
                 {
@@ -1420,10 +1422,9 @@ namespace Foodcourt.View
             }
             else
             {
-                pos.CusName = "";
-                pos.CusMobile = "";
+                pos.CusName = cusName.Text;
+                pos.CusMobile = cusMobile.Text;
                 pos.BILL_Status = "Settled";
-
             }
             pos.insertbill();
             pos.A = Convert.ToInt32(txtbillno.Text);

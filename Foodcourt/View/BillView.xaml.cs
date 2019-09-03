@@ -157,6 +157,8 @@ namespace Foodcourt.View.Oprs
             dt.Columns.Add("SGST", typeof(decimal));
             dt.Columns.Add("BILL_Discount", typeof(int));
             dt.Columns.Add("BILL_Total", typeof(decimal));
+            dt.Columns.Add("CusName", typeof(string));
+            dt.Columns.Add("CusMobile", typeof(string));
             for (int i = 0; i < DT.Rows.Count; i++)
             {
                 BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
@@ -170,6 +172,8 @@ namespace Foodcourt.View.Oprs
                 row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
                 row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
                 row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
+                row["CusName"] = DT.Rows[i]["CusName"];
+                row["CusMobile"] = DT.Rows[i]["CusMobile"];
                 row["CGST"] = CGST;
                 row["SGST"] = CGST;
                 dt.Rows.Add(row);
@@ -212,6 +216,8 @@ namespace Foodcourt.View.Oprs
             dt.Columns.Add("SGST", typeof(decimal));
             dt.Columns.Add("BILL_Discount", typeof(int));
             dt.Columns.Add("BILL_Total", typeof(decimal));
+            dt.Columns.Add("CusName", typeof(string));
+            dt.Columns.Add("CusMobile", typeof(string));
             for (int i = 0; i < DT.Rows.Count; i++)
             {
                 BILL_Id = Convert.ToInt32(DT.Rows[i]["BILL_Id"]);
@@ -225,6 +231,8 @@ namespace Foodcourt.View.Oprs
                 row["BILL_Amount"] = DT.Rows[i]["BILL_Amount"];
                 row["BILL_Discount"] = DT.Rows[i]["BILL_Discount"];
                 row["BILL_Total"] = DT.Rows[i]["BILL_Total"];
+                row["CusName"] = DT.Rows[i]["CusName"];
+                row["CusMobile"] = DT.Rows[i]["CusMobile"];
                 row["CGST"] = CGST;
                 row["SGST"] = CGST;
                 dt.Rows.Add(row);

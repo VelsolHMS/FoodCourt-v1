@@ -84,7 +84,7 @@ namespace Foodcourt.View
             row["DISCOUNT"] = Math.Round(TotalDiscount, 2, MidpointRounding.AwayFromZero);
             row["SelectedDate"] = selecteddate.Text;
             row["Stall"] = txtstall.Text;
-            row["OwnerAmount"] = (NetAmount * Convert.ToInt32(txtPer.Text)) / 100;
+            row["OwnerAmount"] = ((NetAmount - TotalDiscount) * Convert.ToInt32(txtPer.Text)) / 100;
             d.Rows.Add(row);
             return d;
         }

@@ -88,7 +88,7 @@ namespace Foodcourt.View
             row["CGST"] = FinalTax/2;
             row["DISCOUNT"] = FinalDiscountAmount;
             row["GRANDTOTAL"] = FinalGrandTotal;
-            row["RevenueShare"] = (FinalNetAmount * Convert.ToInt32(txtPer.Text))/ 100;
+            row["RevenueShare"] = ((FinalNetAmount - FinalDiscountAmount) * Convert.ToInt32(txtPer.Text))/ 100;
             D.Rows.Add(row);
             return D;
         }
