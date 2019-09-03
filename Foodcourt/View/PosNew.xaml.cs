@@ -685,7 +685,6 @@ namespace Foodcourt.View
                 //cusMobile.IsEnabled = false;
                 pos.CusName = cusName.Text;
                 pos.CusMobile = cusMobile.Text;
-
             }
         }
 
@@ -756,7 +755,6 @@ namespace Foodcourt.View
                 }
             }
         }
-
         private void TOTITM2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TOTITM2.SelectedIndex != -1)
@@ -1823,10 +1821,8 @@ namespace Foodcourt.View
                 res.Refresh();
             }
             res.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
-
             re.PrintToPrinter(1, false, 0, 0);
             re.Refresh();
-
             clear();
             j = 0;
             this.NavigationService.Refresh();
@@ -1850,7 +1846,6 @@ namespace Foodcourt.View
             {
                 Save();
             }
-            
         }
         public static DataTable pos1, pos11,aaa,abc;
         private void Clear_Click(object sender, RoutedEventArgs e)
