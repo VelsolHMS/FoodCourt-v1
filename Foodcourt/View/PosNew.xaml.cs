@@ -1861,6 +1861,7 @@ namespace Foodcourt.View
         }
         private void Itemname_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname.Text = "";
@@ -1873,8 +1874,11 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate.Text = "";
+                itemrate.Text = "";DISITM.Text = "";
                 quantity.Text = ""; total.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
+                save.IsEnabled = false;
                 TOTITM.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -1882,7 +1886,10 @@ namespace Foodcourt.View
                 if (itemname.Text == "")
                 {
                     itemname.Text = ""; itemrate.Text = "";
-                    quantity.Text = ""; total.Text = "";
+                    quantity.Text = ""; total.Text = ""; DISITM.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
+                    save.IsEnabled = false;
                     TOTITM.ItemsSource = dn.DefaultView;
                 }
             }
@@ -1935,6 +1942,7 @@ namespace Foodcourt.View
         }
         private void Itemname1_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname1.Text = "";
@@ -1947,16 +1955,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate1.Text = "";
+                itemrate1.Text = ""; DISITM1.Text = "";
                 quantity1.Text = ""; total1.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM1.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname1.Text == "")
                 {
-                    itemrate1.Text = "";
+                    itemrate1.Text = ""; DISITM1.Text = ""; itemname1.Text = "";
                     quantity1.Text = ""; total1.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM1.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2059,6 +2071,7 @@ namespace Foodcourt.View
         }
         private void Itemname2_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname2.Text = "";
@@ -2071,8 +2084,10 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate2.Text = "";
+                itemrate2.Text = ""; DISITM2.Text = "";
                 quantity2.Text = ""; total2.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM2.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -2080,7 +2095,9 @@ namespace Foodcourt.View
                 if (itemname2.Text == "")
                 {
                     itemname2.Text = ""; itemrate2.Text = "";
-                    quantity2.Text = ""; total2.Text = "";
+                    quantity2.Text = ""; total2.Text = ""; DISITM2.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM2.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2187,6 +2204,7 @@ namespace Foodcourt.View
         }
         private void Itemname3_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname3.Text = "";
@@ -2199,8 +2217,10 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate3.Text = "";
+                itemrate3.Text = ""; DISITM3.Text = "";
                 quantity3.Text = ""; total3.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM3.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -2208,7 +2228,9 @@ namespace Foodcourt.View
                 if (itemname3.Text == "")
                 {
                     itemname3.Text = ""; itemrate3.Text = "";
-                    quantity3.Text = ""; total3.Text = "";
+                    quantity3.Text = ""; total3.Text = ""; DISITM3.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM3.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2416,6 +2438,7 @@ namespace Foodcourt.View
         }
         private void Itemname4_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname4.Text = "";
@@ -2428,22 +2451,27 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate4.Text = "";
+                itemrate4.Text = ""; DISITM4.Text = "";
                 quantity4.Text = ""; total4.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM4.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname4.Text == "")
                 {
-                    itemrate4.Text = "";
-                    quantity4.Text = ""; total4.Text = "";
+                    itemrate4.Text = "";itemname4.Text = "";
+                    quantity4.Text = ""; total4.Text = ""; DISITM4.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM4.ItemsSource = dn.DefaultView;
                 }
             }
         }
         private void Itemname5_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname5.Text = "";
@@ -2456,16 +2484,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate5.Text = "";
+                itemrate5.Text = "";DISITM5.Text = "";
                 quantity5.Text = ""; total5.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM5.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname5.Text == "")
                 {
-                    itemrate5.Text = "";
+                    itemrate5.Text = ""; DISITM5.Text = "";
                     quantity5.Text = ""; total5.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM5.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2666,6 +2698,7 @@ namespace Foodcourt.View
         }
         private void Itemname6_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname6.Text = "";
@@ -2678,16 +2711,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate6.Text = "";
+                itemrate6.Text = ""; DISITM6.Text = "";
                 quantity6.Text = ""; total6.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM6.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname6.Text == "")
                 {
-                    itemrate6.Text = "";
+                    itemrate6.Text = ""; DISITM6.Text = "";
                     quantity6.Text = ""; total6.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM6.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2704,6 +2741,7 @@ namespace Foodcourt.View
         }
         private void Itemname7_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname7.Text = "";
@@ -2716,16 +2754,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate7.Text = "";
+                itemrate7.Text = ""; DISITM7.Text = "";
                 quantity7.Text = ""; total7.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM7.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname7.Text == "")
                 {
-                    itemrate7.Text = "";
+                    itemrate7.Text = ""; DISITM7.Text = "";
                     quantity7.Text = ""; total7.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM7.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2836,6 +2878,7 @@ namespace Foodcourt.View
         }
         private void Itemname8_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname8.Text = "";
@@ -2848,16 +2891,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate8.Text = "";
+                itemrate8.Text = ""; DISITM8.Text = "";
                 quantity8.Text = ""; total8.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM8.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname8.Text == "")
                 {
-                    itemrate8.Text = "";
+                    itemrate8.Text = ""; DISITM8.Text = "";
                     quantity8.Text = ""; total8.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM8.ItemsSource = dn.DefaultView;
                 }
             }
@@ -2972,6 +3019,7 @@ namespace Foodcourt.View
         }
         private void Itemname9_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname9.Text = "";
@@ -2984,16 +3032,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate9.Text = "";
+                itemrate9.Text = ""; DISITM9.Text = "";
                 quantity9.Text = ""; total9.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM9.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname9.Text == "")
                 {
-                    itemrate9.Text = "";
+                    itemrate9.Text = ""; DISITM9.Text = "";
                     quantity9.Text = ""; total9.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM9.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3167,6 +3219,7 @@ namespace Foodcourt.View
         }
         private void Itemname10_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname10.Text = "";
@@ -3179,16 +3232,20 @@ namespace Foodcourt.View
             }
             else if (e.Key == Key.Delete)
             {
-                itemrate10.Text = "";
+                itemrate10.Text = ""; DISITM10.Text = "";
                 quantity10.Text = ""; total10.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM10.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
             {
                 if (itemname10.Text == "")
                 {
-                    itemrate10.Text = "";
+                    itemrate10.Text = ""; DISITM10.Text = "";
                     quantity10.Text = ""; total10.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM10.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3245,6 +3302,7 @@ namespace Foodcourt.View
         }
         private void Itemname11_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname11.Text = "";
@@ -3259,6 +3317,8 @@ namespace Foodcourt.View
             {
                 itemrate11.Text = "";
                 quantity11.Text = ""; total11.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM11.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -3267,6 +3327,8 @@ namespace Foodcourt.View
                 {
                     itemrate11.Text = "";
                     quantity11.Text = ""; total11.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM11.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3450,6 +3512,7 @@ namespace Foodcourt.View
 
         private void Itemname12_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname12.Text = "";
@@ -3464,6 +3527,8 @@ namespace Foodcourt.View
             {
                 itemrate12.Text = "";
                 quantity12.Text = ""; total12.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM12.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -3472,6 +3537,8 @@ namespace Foodcourt.View
                 {
                     itemrate12.Text = "";
                     quantity12.Text = ""; total12.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM12.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3537,6 +3604,7 @@ namespace Foodcourt.View
 
         private void Itemname13_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname13.Text = "";
@@ -3551,6 +3619,8 @@ namespace Foodcourt.View
             {
                 itemrate13.Text = "";
                 quantity13.Text = ""; total13.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM13.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -3559,6 +3629,8 @@ namespace Foodcourt.View
                 {
                     itemrate13.Text = "";
                     quantity13.Text = ""; total13.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM13.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3686,6 +3758,7 @@ namespace Foodcourt.View
 
         private void Itemname14_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname14.Text = "";
@@ -3700,6 +3773,8 @@ namespace Foodcourt.View
             {
                 itemrate14.Text = "";
                 quantity14.Text = ""; total14.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM14.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -3708,6 +3783,8 @@ namespace Foodcourt.View
                 {
                     itemrate14.Text = "";
                     quantity14.Text = ""; total14.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM14.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3833,6 +3910,7 @@ namespace Foodcourt.View
 
         private void Itemname15_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname15.Text = "";
@@ -3847,6 +3925,8 @@ namespace Foodcourt.View
             {
                 itemrate15.Text = "";
                 quantity15.Text = ""; total15.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM15.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -3855,6 +3935,8 @@ namespace Foodcourt.View
                 {
                     itemrate15.Text = "";
                     quantity15.Text = ""; total15.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM15.ItemsSource = dn.DefaultView;
                 }
             }
@@ -3979,6 +4061,7 @@ namespace Foodcourt.View
         }
         private void Itemname16_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname16.Text = "";
@@ -3993,6 +4076,8 @@ namespace Foodcourt.View
             {
                 itemrate16.Text = "";
                 quantity16.Text = ""; total16.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM16.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -4001,6 +4086,8 @@ namespace Foodcourt.View
                 {
                     itemrate16.Text = "";
                     quantity16.Text = ""; total16.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM16.ItemsSource = dn.DefaultView;
                 }
             }
@@ -4129,6 +4216,7 @@ namespace Foodcourt.View
         }
         private void Itemname17_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname17.Text = "";
@@ -4143,6 +4231,8 @@ namespace Foodcourt.View
             {
                 itemrate17.Text = "";
                 quantity17.Text = ""; total17.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM17.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -4151,6 +4241,8 @@ namespace Foodcourt.View
                 {
                     itemrate17.Text = "";
                     quantity17.Text = ""; total17.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM17.ItemsSource = dn.DefaultView;
                 }
             }
@@ -4348,6 +4440,7 @@ namespace Foodcourt.View
         }
         private void Itemname18_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname18.Text = "";
@@ -4362,6 +4455,8 @@ namespace Foodcourt.View
             {
                 itemrate18.Text = "";
                 quantity18.Text = ""; total18.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM18.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -4370,6 +4465,8 @@ namespace Foodcourt.View
                 {
                     itemrate18.Text = "";
                     quantity18.Text = ""; total18.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM18.ItemsSource = dn.DefaultView;
                 }
             }
@@ -4381,6 +4478,7 @@ namespace Foodcourt.View
         }
         private void Itemname19_KeyUp(object sender, KeyEventArgs e)
         {
+            save.IsEnabled = false;
             if (e.Key == Key.Escape)
             {
                 itemname19.Text = "";
@@ -4395,6 +4493,8 @@ namespace Foodcourt.View
             {
                 itemrate19.Text = "";
                 quantity19.Text = ""; total19.Text = "";
+                txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                save.IsEnabled = false;
                 TOTITM19.ItemsSource = dn.DefaultView;
             }
             else if (e.Key == Key.Back)
@@ -4403,6 +4503,8 @@ namespace Foodcourt.View
                 {
                     itemrate19.Text = "";
                     quantity19.Text = ""; total19.Text = "";
+                    txtttl.Text = ""; itmTotalDis.Text = ""; txtgttl.Text = "";
+                    save.IsEnabled = false;
                     TOTITM19.ItemsSource = dn.DefaultView;
                 }
             }
