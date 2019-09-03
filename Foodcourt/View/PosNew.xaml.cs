@@ -99,6 +99,7 @@ namespace Foodcourt.View
         public static decimal av, av1, av2, av3, av4, av5, av6, av7, av8, av9, av10, av11, av12, av13, av14, av15, av16, av17, av18, av19, av20, av21, av22, av23, av24, av25;
         private void DISITM_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity.Text == "")
             { quantity.Focus(); }
             else
@@ -120,6 +121,7 @@ namespace Foodcourt.View
         }
         private void DISITM1_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity1.Text == "")
             {
                 quantity1.Focus();
@@ -143,6 +145,7 @@ namespace Foodcourt.View
         }
         private void DISITM2_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity2.Text == "")
             {
                 quantity2.Focus();
@@ -166,6 +169,7 @@ namespace Foodcourt.View
         }
         private void DISITM3_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity3.Text == "")
             {
                 quantity3.Focus();
@@ -190,6 +194,7 @@ namespace Foodcourt.View
 
         private void DISITM4_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity4.Text == "")
             {
                 quantity4.Focus();
@@ -214,6 +219,7 @@ namespace Foodcourt.View
 
         private void DISITM5_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity5.Text == "")
             {
                 quantity5.Focus();
@@ -238,6 +244,7 @@ namespace Foodcourt.View
 
         private void DISITM6_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity6.Text == "")
             {
                 quantity6.Focus();
@@ -262,6 +269,7 @@ namespace Foodcourt.View
 
         private void DISITM7_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity7.Text == "")
             {
                 quantity7.Focus();
@@ -286,6 +294,7 @@ namespace Foodcourt.View
 
         private void DISITM8_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity8.Text == "")
             {
                 quantity8.Focus();
@@ -310,6 +319,7 @@ namespace Foodcourt.View
 
         private void DISITM9_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity9.Text == "")
             {
                 quantity9.Focus();
@@ -334,6 +344,7 @@ namespace Foodcourt.View
 
         private void DISITM10_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity10.Text == "")
             {
                 quantity10.Focus();
@@ -358,6 +369,7 @@ namespace Foodcourt.View
 
         private void DISITM11_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity11.Text == "")
             {
                 quantity11.Focus();
@@ -382,6 +394,7 @@ namespace Foodcourt.View
 
         private void DISITM12_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity12.Text == "")
             {
                 quantity12.Focus();
@@ -406,6 +419,7 @@ namespace Foodcourt.View
 
         private void DISITM13_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity13.Text == "")
             {
                 quantity13.Focus();
@@ -430,6 +444,7 @@ namespace Foodcourt.View
 
         private void DISITM14_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity14.Text == "")
             {
                 quantity14.Focus();
@@ -454,6 +469,7 @@ namespace Foodcourt.View
 
         private void DISITM15_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity15.Text == "")
             {
                 quantity15.Focus();
@@ -478,6 +494,7 @@ namespace Foodcourt.View
 
         private void DISITM16_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity16.Text == "")
             {
                 quantity16.Focus();
@@ -502,6 +519,7 @@ namespace Foodcourt.View
 
         private void DISITM17_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity17.Text == "")
             {
                 quantity17.Focus();
@@ -526,6 +544,7 @@ namespace Foodcourt.View
 
         private void DISITM18_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity18.Text == "")
             {
                 quantity18.Focus();
@@ -550,6 +569,7 @@ namespace Foodcourt.View
 
         private void DISITM19_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             if (quantity19.Text == "")
             {
                 quantity19.Focus();
@@ -2024,6 +2044,7 @@ namespace Foodcourt.View
         }
         private void Quantity1_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM1.Text = "0";
             QY = quantity1.Text;
             if (quantity1.Text == "")
@@ -2117,6 +2138,7 @@ namespace Foodcourt.View
         }
         private void Quantity2_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM2.Text = "0";
             QY = quantity2.Text;
             if (quantity2.Text == "")
@@ -2286,6 +2308,7 @@ namespace Foodcourt.View
         }
         private void Quantity3_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM3.Text = "0";
             QY = quantity3.Text;
             if (quantity3.Text == "")
@@ -2382,6 +2405,7 @@ namespace Foodcourt.View
         }
         private void Quantity4_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM4.Text = "0";
             QY = quantity4.Text;
             if (quantity4.Text == "")
@@ -2560,6 +2584,7 @@ namespace Foodcourt.View
         }
         private void Quantity5_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM5.Text = "0";
             QY = quantity5.Text; if (quantity5.Text == "")
             {
@@ -2634,6 +2659,7 @@ namespace Foodcourt.View
         }
         private void Quantity6_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM6.Text = "0";
             QY = quantity6.Text;
             if (quantity6.Text == "")
@@ -2832,6 +2858,7 @@ namespace Foodcourt.View
         }
         private void Quantity7_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM7.Text = "0";
             QY = quantity7.Text;
             if (quantity7.Text == "")
@@ -2968,6 +2995,7 @@ namespace Foodcourt.View
         }
         private void Quantity8_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM8.Text = "0";
             QY = quantity8.Text;
             if (quantity8.Text == "")
@@ -3115,6 +3143,7 @@ namespace Foodcourt.View
         }
         private void Quantity9_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM9.Text = "0";
             QY = quantity9.Text;
             if (quantity9.Text == "")
@@ -3252,6 +3281,7 @@ namespace Foodcourt.View
         }
         private void Quantity10_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM10.Text = "0";
             QY = quantity10.Text;
             if (quantity10.Text == "")
@@ -3401,6 +3431,7 @@ namespace Foodcourt.View
         }
         private void Quantity11_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM11.Text = "0";
             QY = quantity11.Text;
             if (num.IsMatch(QY))
@@ -3552,6 +3583,7 @@ namespace Foodcourt.View
         }
         private void Quantity12_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM12.Text = "0";
             QY = quantity12.Text;
             if (num.IsMatch(QY))
@@ -3709,6 +3741,7 @@ namespace Foodcourt.View
 
         private void Quantity13_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM13.Text = "0";
             QY = quantity13.Text;
             if (num.IsMatch(QY))
@@ -3861,6 +3894,7 @@ namespace Foodcourt.View
 
         private void Quantity14_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM14.Text = "0";
             QY = quantity14.Text;
             if (num.IsMatch(QY))
@@ -4008,6 +4042,7 @@ namespace Foodcourt.View
         }
         private void Quantity15_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM15.Text = "0";
             QY = quantity15.Text;
             if (num.IsMatch(QY))
@@ -4167,6 +4202,7 @@ namespace Foodcourt.View
         }
         private void Quantity16_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM16.Text = "0";
             QY = quantity16.Text;
             if (num.IsMatch(QY))
@@ -4266,6 +4302,7 @@ namespace Foodcourt.View
 
         private void Quantity17_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM17.Text = "0";
             QY = quantity17.Text;
             if (num.IsMatch(QY))
@@ -4582,6 +4619,7 @@ namespace Foodcourt.View
         }
         private void Quantity19_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM19.Text = "0";
             QY = quantity19.Text;
             if (num.IsMatch(QY))
@@ -4652,6 +4690,7 @@ namespace Foodcourt.View
         }
         private void Quantity18_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM18.Text = "0";
             QY = quantity18.Text;
             if (num.IsMatch(QY))
@@ -4697,6 +4736,7 @@ namespace Foodcourt.View
         }
         private void Quantity_LostFocus(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = false;
             DISITM.Text = "0";
             QY = quantity.Text;
             if (quantity.Text == "")
