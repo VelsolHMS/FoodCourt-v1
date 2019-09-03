@@ -1346,7 +1346,7 @@ namespace Foodcourt.View
                         else
                         {
                             itemname19.Text = dt.Rows[0]["NAM_NAME"].ToString();
-                            itemrate19.Text = dt.Rows[0]["NAM_Rate"].ToString();
+                            itemrate19.Text = dt.Rows[0]["NAM_Rate"].ToString(); 
                         }
                     }
                     itm = itemname19.Text;
