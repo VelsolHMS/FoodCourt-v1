@@ -86,7 +86,7 @@ namespace Foodcourt.Model
         public DataTable pending()
         {
             var list = new List<SqlParameter>();
-            string s = "select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount ,BILL_Tax, CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount from FCBILLNO WHERE BILL_Status = 'Pending'";
+            string s = "select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount ,BILL_Tax, CONVERT(decimal(17,2),BILL_Total) AS BILL_Total , BILL_Discount, CusName, CusMobile from FCBILLNO WHERE BILL_Status = 'Pending'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

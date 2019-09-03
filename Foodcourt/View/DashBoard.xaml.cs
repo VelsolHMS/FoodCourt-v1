@@ -5,13 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using Foodcourt.Model;
@@ -103,7 +96,6 @@ namespace Foodcourt.View.Oprs
             cmbsales.IsEnabled = true;
             YEAR1 =Convert.ToInt32(cmbyears.Text);
         }
-
         private void cmbsales_DropDownClosed(object sender, EventArgs e)
         {
             List<KeyValuePair<string, int>> ValueList = new List<KeyValuePair<string, int>>();

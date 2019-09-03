@@ -11,7 +11,7 @@ namespace Foodcourt.Model
         public DataTable GETDAYBILL()
         {
             var LIST = new List<SqlParameter>();
-            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE BILL_InsertDate = GETDATE() AND BILL_Status='Settled'";
+            string S = "SELECT CONVERT(decimal(17,2),BILL_Total) AS BILL_Total from FCBILLNO WHERE Day(BILL_InsertDate) = Day(GETDATE()) AND Month(BILL_InsertDate) = Month(GETDATE()) AND Year(BILL_InsertDate) = Year(GETDATE()) AND BILL_Status='Settled'";
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }

@@ -24,7 +24,7 @@
                             <MenuItem.Background>
                                 <ImageBrush ImageSource="/Foodcourt;component/Images/icons8-menu-vertical-32.png"/>
                             </MenuItem.Background>
-                            <MenuItem Header="Get Past Bills" Click="Button_Click"/>
+                            <MenuItem Header="Cancelled Bills" Click="Button_Click"/>
                             <MenuItem Name="pendingbills" Header="Pending Bills" Click="Pendingbills_Click_1"/>
                         </MenuItem>
                     </Menu>
@@ -197,11 +197,13 @@
                         <DataGrid Name="dgpending" AutoGenerateColumns="False" CanUserAddRows="False" MouseLeftButtonUp="Dgpending_MouseLeftButtonUp" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Bill No" Binding="{Binding BILL_Id}"/>
-                                <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}" Width="100"/>
-                                <DataGridTextColumn Header="C.GST" Binding="{Binding CGST}" Width="90"/>
-                                <DataGridTextColumn Header="S.GST" Binding="{Binding CGST}" Width="90"/>
-                                <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}" Width="90"/>
-                                <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}" Width="110"/>
+                                <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}"/>
+                                <DataGridTextColumn Header="C.GST" Binding="{Binding CGST}"/>
+                                <DataGridTextColumn Header="S.GST" Binding="{Binding CGST}"/>
+                                <DataGridTextColumn Header="Discount" Binding="{Binding BILL_Discount}"/>
+                                <DataGridTextColumn Header="Total Amount" Binding="{Binding BILL_Total}"/>
+                                <DataGridTextColumn Header="Customer Name" Binding="{Binding CusName}"/>
+                                <DataGridTextColumn Header="Mobile No" Binding="{Binding CusMobile}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

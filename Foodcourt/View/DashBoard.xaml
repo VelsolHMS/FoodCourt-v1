@@ -80,14 +80,13 @@
                     <TextBlock Text="Year:" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
 
                     <ComboBox Margin="50,2.802,0,2.802" Height="24.396" SelectedIndex="0" FontSize="15" FontWeight="Bold" Padding="1" Width="187.705" Name="cmbyears" DropDownClosed="Cmbyears_DropDownClosed">
-                        <ComboBoxItem Content="-Select Year-"/>
                         <ComboBoxItem Content="2019"/>
-                        <ComboBoxItem Content="2018"/>
-                        <ComboBoxItem Content="2017"/>
-                        <ComboBoxItem Content="2016"/>
-                        <ComboBoxItem Content="2015"/>
-                        <ComboBoxItem Content="2014"/>
-                        <ComboBoxItem Content="2013"/>
+                        <ComboBoxItem Content="2020"/>
+                        <ComboBoxItem Content="2021"/>
+                        <ComboBoxItem Content="2022"/>
+                        <ComboBoxItem Content="2023"/>
+                        <ComboBoxItem Content="2024"/>
+                        <ComboBoxItem Content="2025"/>
                     </ComboBox>
                 </StackPanel>
             </Viewbox>
@@ -96,7 +95,6 @@
                     <TextBlock Text="Month:" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
 
                     <ComboBox Margin="50,2.802,0,2.802" Height="24.396" SelectedIndex="0" IsEnabled="False" FontSize="15" FontWeight="Bold" Padding="1" Width="187.705" Name="cmbsales" DropDownClosed="cmbsales_DropDownClosed">
-                        <ComboBoxItem Content="-Select Month-"/>
                         <ComboBoxItem Content="January"/>
                         <ComboBoxItem Content="February"/>
                         <ComboBoxItem Content="March"/>
