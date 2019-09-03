@@ -54,7 +54,11 @@ namespace Foodcourt.View
             sp.Visibility = Visibility.Visible;
             itemname.Focus();
             clear();
+            txtttl.Text = "0"; itmTotalDis.Text = "0"; txtgst.Text = "0"; txtgst2.Text = "0"; txtgttl.Text = "0";
             c = 0; c1 = 0; c2 = 0; c3 = 0; c4 = 0; c5 = 0; c6 = 0; c7 = 0; c8 = 0; c9 = 0; c10 = 0; c11 = 0; c12 = 0; c13 = 0; c14 = 0; c15 = 0; c16 = 0; c17 = 0; c18 = 0; c19 = 0; c20 = 0; c21 = 0; c22 = 0; c23 = 0; c24 = 0; c25 = 0;
+            ab = 0; ab1 = 0; ab2 = 0; ab3 = 0; ab4 = 0; ab5 = 0; ab6 = 0; ab7 = 0; ab8 = 0; ab9 = 0; ab10 = 0; ab11 = 0; ab12 = 0; ab13 = 0; ab14 = 0; ab15 = 0; ab16 = 0; ab17 = 0; ab18 = 0; ab19 = 0;
+            a = 0; a1 = 0; a2 = 0; a3 = 0; a4 = 0; a5 = 0; a6 = 0; a7 = 0; a8 = 0; a9 = 0; a10 = 0; a11 = 0; a12 = 0; a13 = 0; a14 = 0; a15 = 0; a16 = 0; a17 = 0; a18 = 0; a19 = 0;
+            y = 0; y1 = 0; y2 = 0; y3 = 0; y4 = 0; y5 = 0; y6 = 0; y7 = 0; y8 = 0; y9 = 0; y10 = 0; y11 = 0; y12 = 0; y13 = 0; y14 = 0; y15 = 0; y16 = 0; y17 = 0; y18 = 0; y19 = 0;
             DISITM.Text = "0"; DISITM1.Text = "0"; DISITM2.Text = "0"; DISITM3.Text = "0"; DISITM4.Text = "0"; DISITM5.Text = "0"; DISITM6.Text = "0"; DISITM7.Text = "0"; DISITM8.Text = "0";
             DISITM9.Text = "0"; DISITM10.Text = "0"; DISITM11.Text = "0"; DISITM12.Text = "0"; DISITM13.Text = "0"; DISITM14.Text = "0"; DISITM15.Text = "0"; DISITM16.Text = "0"; DISITM17.Text = "0";
             DISITM18.Text = "0"; DISITM19.Text = "0"; 
@@ -590,7 +594,6 @@ namespace Foodcourt.View
             DataRow DROW = billprint.NewRow();
             DataTable dt1 = pos.Address();
             DataTable dt2 = pos.items();
-            DataTable dt3 = pos.DiscountAmount();
             DROW["Name"] = dt1.Rows[0]["PRPT_Name"].ToString();
             DROW["Address"] = dt1.Rows[0]["PRPT_Address"].ToString();
             DROW["GstNO"] = dt1.Rows[0]["PRPT_GST"].ToString();
@@ -604,7 +607,7 @@ namespace Foodcourt.View
             DROW["Sgst"] = tax18sum;
             //dis = Convert.ToDecimal(dt2.Rows[0]["BILL_Discount"].ToString());
             //ins = Convert.ToDecimal(dt2.Rows[0]["Bill_InstantDis"].ToString());
-            DROW["Discount"] = dt3.Rows[0]["Discount"].ToString();
+            DROW["Discount"] = dt2.Rows[0]["BILL_Discount"].ToString();
             gndtot = Convert.ToDecimal(dt2.Rows[0]["BILL_Total"].ToString());
             DROW["GrandTotal"] = (int)Math.Round(gndtot);
             billprint.Rows.Add(DROW);
@@ -1349,7 +1352,6 @@ namespace Foodcourt.View
                 }
             }
         }
-
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
             if (itemname.Text == ""&& itemname1.Text == ""&& itemname2.Text == ""&& itemname3.Text == ""&& itemname4.Text == ""&& itemname5.Text == ""&& itemname6.Text == ""&& itemname7.Text == ""&& itemname8.Text == ""&& itemname9.Text == ""&& itemname10.Text == ""
