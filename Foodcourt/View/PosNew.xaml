@@ -1,15 +1,14 @@
 ﻿<Page x:Class="Foodcourt.View.PosNew"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Foodcourt.View"
       xmlns:vm="clr-namespace:Foodcourt.ViewModel"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="1100"
       Title="PosNew">
-
     <Page.Resources>
         <vm:DataF x:Key="view"></vm:DataF>
     </Page.Resources>

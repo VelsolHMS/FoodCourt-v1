@@ -136,7 +136,7 @@
                         </Menu>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <DataGrid Name="dgcancel" AutoGenerateColumns="False" CanUserAddRows="False" >
+                        <DataGrid Name="dgcancel" AutoGenerateColumns="False" CanUserAddRows="False" MouseLeftButtonUp="Dgcancel_MouseLeftButtonUp">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Bill No" Binding="{Binding BILL_Id}"/>
                                 <DataGridTextColumn Header="Net Amount" Binding="{Binding BILL_Amount}" Width="100"/>
@@ -147,32 +147,6 @@
                                 <!--<DataGridTextColumn Header="Date" Binding="{Binding BILL_InsertDate}" Width="90" HeaderStringFormat="dd/MM/yyyy"/>-->
                             </DataGrid.Columns>
                         </DataGrid>
-                        <!--<DataGrid.Columns>
-                                <DataGridTextColumn Header="Item" Binding="{Binding BILITM_Name}" Width="150"/>
-                                <DataGridTextColumn Header="Qty" Binding="{Binding BILLITM_Quanty}" Width="100"/>
-                                <DataGridTextColumn Header="Rate" Binding="{Binding BILITM_Rate}" Width="120"/>
-                                <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <StackPanel Margin="0,369,0,74" Orientation="Horizontal">
-                            <TextBlock Text="Net Amount:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="netamounttxt" FontFamily="Arial" FontSize="18" Padding="0" Margin="10,0,0,0" Width="120"/>
-
-                        </StackPanel>
-                        <StackPanel Margin="0,393,0,50" Orientation="Horizontal">
-                            <TextBlock Text="C.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="cgsttxt" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
-
-                        </StackPanel>
-                        <StackPanel Margin="0,417,0,23" Orientation="Horizontal">
-                            <TextBlock Text="S.GST:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="sgsttxt" FontFamily="Arial" FontSize="18" Padding="0" Margin="68,0,0,0" Width="120"/>
-
-                        </StackPanel>
-                        <StackPanel Margin="0,444,0,0" Orientation="Horizontal">
-                            <TextBlock Text="Grand Total:" FontFamily="Sitka Small" FontSize="18" FontWeight="Bold" Margin="250,0,0,0"/>
-                            <TextBlock Name="gttltxt" FontFamily="Arial" Padding="0" FontSize="18" Margin="10,0,0,0" Width="120"/>
-                        </StackPanel>-->
                     </Grid>
                 </Grid>
             </Border>
@@ -229,8 +203,8 @@
                                 <MenuItem.Background>
                                     <ImageBrush ImageSource="/Foodcourt;component/Images/icons8-menu-vertical-32.png"/>
                                 </MenuItem.Background>
-                                <MenuItem Name="Miprint" Header="Print" Click="Miprint_Click"/>
-                                <MenuItem Name="Micancel" Header="Cancel" Click="Micancel_Click"/>
+                                <MenuItem Name="Miprint" Header="Print" Click="Miprint_Click" Visibility="Visible"/>
+                                <MenuItem Name="Micancel" Header="Cancel" Click="Micancel_Click" Visibility="Visible"/>
                                 <MenuItem Name="MIclose" Header="Close" Click="MIclose_Click"/>
                             </MenuItem>
                         </Menu>

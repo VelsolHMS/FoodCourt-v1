@@ -41,7 +41,7 @@ namespace Foodcourt.Model
             DataTable DT = DbFunctions.ExecuteCommand<DataTable>(S, LIST);
             return DT;
         }
-        public DataTable GETITMNAM() 
+        public DataTable GETITMNAM()
         {
             var LIST = new List<SqlParameter>();
             string SS = "SELECT BILITM_Name,BILLITM_Quanty,CONVERT(decimal(17,2),BILITM_Rate) AS BILITM_Rate ,BILITM_Tax, Discount, DiscountPer FROM FCBILLITM WHERE BILL_Id='" + BillView.B_bill_no + "'";
@@ -79,7 +79,7 @@ namespace Foodcourt.Model
         public DataTable cancel()
         {
             var list = new List<SqlParameter>();
-            string s = "select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount ,BILL_Tax, CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount from FCBILLNO WHERE BILL_Status = 'Canceled'";
+            string s = "select BILL_Id,CONVERT(decimal(17,2),BILL_Amount) AS BILL_Amount ,BILL_Tax, CONVERT(decimal(17,2),BILL_Total) AS BILL_Total ,BILL_Discount,CONVERT(varchar ,BILL_InsertDate ,101) AS BILL_InsertDate, CusName, CusMobile  from FCBILLNO WHERE BILL_Status = 'Canceled'";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
             return dt;
         }

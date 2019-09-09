@@ -131,18 +131,15 @@ namespace Foodcourt.View.Oprs
         }
         public static int B_bill_no;
         public Decimal B_Tax, B_Total, B_GTotal,B_DisTotal;
-
         private void Closee_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
             pendingview.Visibility = Visibility.Hidden;
         }
-
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
             BillSettleConfirmation.IsOpen = true;
         }
-
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             pos.billid = billno;
@@ -205,6 +202,61 @@ namespace Foodcourt.View.Oprs
                 billno = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
             }
         }
+        private void Dgcancel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int i = dgcancel.SelectedIndex;
+            DataTable dt1;
+            if (i >= 0)
+            {
+                dt1 = BV.cancel();
+                Dtlview.Visibility = Visibility.Visible;
+                Miprint.Visibility = Visibility.Collapsed;
+                Micancel.Visibility = Visibility.Collapsed;
+                B_bill_no = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
+                B_Total = Convert.ToDecimal(dt1.Rows[i]["BILL_Amount"]);
+                B_GTotal = Convert.ToDecimal(dt1.Rows[i]["BILL_Total"]);
+                B_Tax = Convert.ToDecimal(dt1.Rows[i]["BILL_Tax"]);
+                B_DisTotal = Convert.ToDecimal(dt1.Rows[i]["BILL_Discount"]);
+                txtbillno.Text = B_bill_no.ToString();
+                txtbilldate.Text = Convert.ToDateTime(dt1.Rows[i]["BILL_InsertDate"]).ToShortDateString();
+                txtnetamount.Text = Math.Round(B_Total, 2, MidpointRounding.AwayFromZero).ToString();
+                txtcgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtsgst.Text = Math.Round(B_Tax / 2, 2, MidpointRounding.AwayFromZero).ToString();
+                txtgttl.Text = Math.Round(B_GTotal, 2, MidpointRounding.AwayFromZero).ToString();
+                txtdis.Text = Math.Round(B_DisTotal, 2, MidpointRounding.AwayFromZero).ToString();
+                DataTable db = BV.GETITMNAM();
+                DataTable DD1 = new DataTable();
+                DD1.Columns.Add("BILITM_Name", typeof(string));
+                DD1.Columns.Add("BILLITM_Quanty", typeof(int));
+                DD1.Columns.Add("BILITM_Rate", typeof(decimal));
+                DD1.Columns.Add("BILITM_Tax", typeof(decimal));
+                DD1.Columns.Add("DiscountPer", typeof(int));
+                DD1.Columns.Add("Discount", typeof(decimal));
+                DD1.Columns.Add("Total", typeof(decimal));
+                for (int j = 0; j < db.Rows.Count; j++)
+                {
+                    BILLITM_Quanty = Convert.ToDecimal(db.Rows[j]["BILLITM_Quanty"]);
+                    BILITM_Rate = Convert.ToDecimal(db.Rows[j]["BILITM_Rate"]) * BILLITM_Quanty;
+                    BILITM_Tax = Convert.ToDecimal(db.Rows[j]["BILITM_Tax"]);
+                    BillITM_Discount = Convert.ToDecimal(db.Rows[j]["Discount"]);
+                    Total = (BILITM_Rate - BillITM_Discount) + BILITM_Tax;
+                    DataRow ROW = DD1.NewRow();
+                    ROW["BILITM_Name"] = db.Rows[j]["BILITM_Name"];
+                    ROW["BILLITM_Quanty"] = db.Rows[j]["BILLITM_Quanty"];
+                    ROW["BILITM_Rate"] = BILITM_Rate;
+                    ROW["BILITM_Tax"] = db.Rows[j]["BILITM_Tax"];
+                    ROW["DiscountPer"] = db.Rows[j]["DiscountPer"];
+                    ROW["Discount"] = db.Rows[j]["Discount"];
+                    ROW["Total"] = Total;
+                    DD1.Rows.Add(ROW);
+                }
+                dgdtlview.ItemsSource = DD1.DefaultView;
+            }
+            else
+            {
+                Dtlview.Visibility = Visibility.Hidden;
+            }
+        }
         private void Pendingbills_Click_1(object sender, RoutedEventArgs e)
         {
             pendingview.Visibility = Visibility.Visible;
@@ -257,6 +309,8 @@ namespace Foodcourt.View.Oprs
                     dt1 = BV.GetBillWithDate();
                 }
                 Dtlview.Visibility = Visibility.Visible;
+                Miprint.Visibility = Visibility.Visible;
+                Micancel.Visibility = Visibility.Visible;
                 B_bill_no = Convert.ToInt32(dt1.Rows[i]["BILL_Id"]);
                 B_Total = Convert.ToDecimal(dt1.Rows[i]["BILL_Amount"]);
                 B_GTotal = Convert.ToDecimal(dt1.Rows[i]["BILL_Total"]);
