@@ -145,6 +145,7 @@ namespace Foodcourt.View.Oprs
             pos.billid = billno;
             pos.BILL_Status = "Settled";
             pos.updatestatus();
+            pos.updateBillitmstatus();
             BillSettleConfirmation.IsOpen = false;
             DataTable DT = BV.pending();
             DataTable dt = new DataTable();
