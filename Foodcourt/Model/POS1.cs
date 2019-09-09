@@ -317,7 +317,17 @@ namespace Foodcourt.Model
         {
             var list = new List<SqlParameter>();
             list.AddSqlParameter("@BILL_Status", BILL_Status);
-            string s = "UPDATE FCBILLNO SET BILL_Status=@BILL_Status WHERE BILL_Id = '" + billid + "'";
+            list.AddSqlParameter("@BILL_InsertDate", DateTime.Today);
+            list.AddSqlParameter("@BILL_UpdateDate", DateTime.Today);
+            string s = "UPDATE FCBILLNO SET BILL_Status=@BILL_Status,BILL_InsertDate = @BILL_InsertDate,BILL_UpdateDate = @BILL_UpdateDate WHERE BILL_Id = '" + billid + "'";
+            DbFunctions.ExecuteCommand<int>(s, list);
+        }
+        public void updateBillitmstatus()
+        {
+            //update FCBILLITM set BILITM_InsertDate = '' where Bill_id =
+            var list = new List<SqlParameter>();
+            list.AddSqlParameter("@BILITM_InsertDate", DateTime.Today);
+            string s = "update FCBILLITM set BILITM_InsertDate = @BILITM_InsertDate where BILL_Id = '" + billid + "'";
             DbFunctions.ExecuteCommand<int>(s, list);
         }
         public DataTable getoffer()
