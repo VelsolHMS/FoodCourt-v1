@@ -85,10 +85,10 @@ namespace Foodcourt.Model
         public DataTable DayWiseItemSale()
         {
             var list = new List<SqlParameter>();
-            string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,"+
+            string s = "SELECT DISTINCT A.BILITM_Name AS ITEM_NAME,A.BILITM_Rate AS RATE," +
                 "(SELECT SUM(BILLITM_Quanty) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate ='" + SelectedDate + "' AND (A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled'))) AS QTY," +
                 "(SELECT SUM(Discount) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = '" + SelectedDate + "' AND (A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled'))) AS Discount," +
-                "(SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name = A.BILITM_Name AND (A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled'))) AS RATE," +
+               // "(SELECT NAM_Rate FROM FCITMNAM WHERE NAM_Name = A.BILITM_Name AND (A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled'))) AS RATE," +
                 "(SELECT Sum(BILITM_Tax) FROM FCBILLITM WHERE BILITM_Name = A.BILITM_Name AND BILITM_InsertDate = '" + SelectedDate + "' AND (A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled'))) AS TAXRATE " +
                 " FROM FCBILLITM A where(A.BILL_Id = (SELECT BILL_Id FROM FCBILLNO B WHERE A.BILL_Id = BILL_Id And BILL_Status = 'Settled') And A.STL_ID = (select STL_ID from FCSTALLS where STL_Name = '"+ STL_Name + "')) AND A.BILITM_InsertDate = '" + SelectedDate + "' ORDER BY A.BILITM_Name ASC";
             DataTable dt = DbFunctions.ExecuteCommand<DataTable>(s, list);
